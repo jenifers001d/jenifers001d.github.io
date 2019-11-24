@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Jenifer, jenifers001d@gmail.com">
+  
+  
+
+  <title>值 (value)、指標 (pointer/address)、參考 (reference) | Jenifer.Code.World</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta name="keywords" content="Csharp(C#),pointer,reference,C,C++,Csharp(C#),">
+  
+
+  <script>
+    console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' +
+      '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n',
+      'color: #fadfa3; background: #030307; padding:3px 0;', '',
+      'color: #fadfa3; background: #030307; padding:3px 0;', '');
+  </script>
+
+  
+  <meta name="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT">
+  
+
+  
+
+  
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/icon/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+
+  <script src="/js/util.js"></script>
+<script src="/js/valine.min.js"></script>
+
+  
+
+  
+  <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+  
+
+  
+  <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+  
+
+</head>
+
+<body>
+
+    
+
+    <div id="app">
+
+        <div class="header-wrap">
+    <header>
+        <div class="site-brand">
+            <div class="site-title">
+                <a href="/">Jenifer.Code.World</a>
+            </div>
+        </div>
+        <nav class="site-navigation">
+            <ul class="nav-menu">
+                
+                <li class="nav-item" data-path="/">
+                    
+                    <a href="/" target="_self">
+                        主頁
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/archives/">
+                    
+                    <a href="/archives/" target="_self">
+                        歸檔
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/categories/">
+                    
+                    <a href="/categories/" target="_self">
+                        分類
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/tags/">
+                    
+                    <a href="/tags/" target="_self">
+                        標籤
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/friends/">
+                    
+                    <a href="/friends/" target="_self">
+                        友連
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/about/">
+                    
+                    <a href="/about/" target="_self">
+                        關於
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path>
+                    
+                    <a href="javascript:void(0);" v-else>抓到我</a>
+                    <ul class="nav-menu--dropdown">
+                        
+                        <li>
+                            <a href="https://github.com/dongyuanxin" target="_blank">
+                                Github
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://www.zhihu.com/people/godbmw/activities" target="_blank">
+                                知乎
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+        <i class="iconfont icon-menu"></i>
+    </header>
+</div>
+
+<script>
+    let links = document.querySelectorAll('.nav-item');
+    for (let link of links) {
+        let childrenLink = link.querySelector('ul');
+        link.addEventListener('mouseenter', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown active";
+            }
+        })
+        link.addEventListener('mouseleave', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown";
+            }
+        })
+    }
+    let rootRealPath = getRealPath(window.location.pathname, true);
+    for (let link of links) {
+        let linkPath = link.getAttribute("data-path");
+        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+            link.className = "nav-item hover";
+        }
+    }
+
+    let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+        iconMenuClicked = false;
+    let navDOM = document.querySelector("nav.site-navigation");
+    iconMenu.addEventListener("click", () => {
+        iconMenuClicked
+            ?
+            navDOM.className = "site-navigation active" :
+            navDOM.className = "site-navigation";
+        iconMenuClicked = !iconMenuClicked;
+    })
+
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+    
+
+<div class="post">
+    <h1 class="article-title">
+        <span>值 (value)、指標 (pointer/address)、參考 (reference)</span>
+    </h1>
+    <div class="article-top-meta">
+        <span>
+            發布 :
+            2019-11-23
+        </span>
+        
+        <span>
+            分類 :
+            <a href="/categories/Csharp-C/">
+                Csharp(C#)
+            </a>
+        </span>
+        
+        
+        <span>
+            瀏覽 : <span class="article-timer" data-identity="value-pointer-ref"></span>
+        </span>
+        
+    </div>
+
+    
+
+    <div class="article-content">
+        <div class="markdown-body">
+            <p>C裡面其實只有<strong>值 (value)</strong> 和<strong>指標 (pointer)</strong>，C++才增加了<strong>參考 (reference)</strong>。</p>
+<p>C# 沒有<strong>指標 (pointer)</strong>，有<strong>值 (value)</strong> 和<strong>參考 (reference)</strong>。</p>
+<h2 id="指標-pointer-address"><a href="#指標-pointer-address" class="headerlink" title="指標 (pointer/address)"></a>指標 (pointer/address)</h2><p>就像是 int 只能儲存數字不能儲存字串一樣。<strong>指標</strong>，是一種變數的型別，只能用來儲存<strong>記憶體位址</strong>，也可以說是變數資料的地址。</p>
+<p>指標 (pointer) 就是某變數的記憶體位址。而指標變數 (pointer variable)，則是用來存放指標的變數。</p>
+<p>a, b, p1, p2都是一般的變數，儲存在記憶體 (memory) 中。其中，p1所儲存的值是a的記憶體 (memory) 位址，而p2則儲存b的記憶體位址，像這樣的狀況，我們就稱<strong>p1是一個指向a的指標</strong>，<strong>p2是一個指向b的指標</strong>。</p>
+<p>在C/C++中，我們用下面的式子來表示這個關係：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span>* p1 = &amp;a; <span class="comment">//也可以寫作int *p1 = &amp;a</span></span><br><span class="line"><span class="keyword">int</span>* p2 = &amp;b; <span class="comment">//也可以寫作int *p2 = &amp;b</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>符號<em>，代表的意義是指標。<br>int</em> p1 要由後往前閱讀來瞭解它的意義：<strong>p1 is a pointer</strong> points to an integer。p1是一個指標，指向整數。或是，p1是一個儲存「整數記憶體位址」的變數。<br>符號&amp;，稱為address of (取址)。&amp;a = address of a。<br>因此，<code>int* p1 = &amp;a;</code> 這整行，我們可以看成：p1 is a pointer points to integer variable a，即：p1是一個指標，指向整數變數a。或是，p1是一個儲存「整數變數a的記憶體位址」的變數。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/lKkDe45.jpg" alt></p>
+<p>但是我們有 p1 (a的地址) 可以做什麼呢？這時可以用「符號<em>」表示「取出內容」，這裡的「符號</em>」和宣告指標變數的 int* p1 的意義不一樣。</p>
+<p>當我們在C中 <code>printf(*p1);</code> 時，代表取出「p1」的內容，也就是取出「a的地址」的內容。<strong>可以把 *p1 當作 a 來使用</strong>，例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span>* p1 = &amp;a;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"變數 a 的值：%d\n"</span>, a);       <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"變數 a 的地址：%p\n"</span>, &amp;a);    <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"指標變數 p1 的值：%p\n"</span>, p1);    <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"指標變數 p1 的地址：%p\n"</span>, &amp;p1); <span class="comment">// 0x7ffeefbff570</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 取出 p1 的內容 =&gt; 變數 a 的值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"*p1 的值：%d\n"</span>, *p1); <span class="comment">// 2</span></span><br><span class="line">    </span><br><span class="line">*p1 = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"*p1 的值：%d\n"</span>, *p1); <span class="comment">// 100</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"變數 a 的值：%d\n"</span>, a); <span class="comment">// 100</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>宣告</strong>時「符號<em>」表示「宣告指標變數」。<strong>使用</strong>時「符號</em>」表示「取出內容」。</p>
+</blockquote>
+<p>參考：<br><a href="https://kopu.chat/2017/05/15/c%E8%AA%9E%E8%A8%80-%E8%B6%85%E5%A5%BD%E6%87%82%E7%9A%84%E6%8C%87%E6%A8%99%EF%BC%8C%E5%88%9D%E5%AD%B8%E8%80%85%E8%AB%8B%E9%80%B2%EF%BD%9E/" target="_blank" rel="noopener">C語言: 超好懂的指標，初學者請進～</a><br><a href="https://dotblogs.com.tw/brian/2012/10/18/77588" target="_blank" rel="noopener">C/C++之指標 (pointer)，參考 (reference) 觀念整理與常見問題 (轉貼)</a></p>
+<h2 id="參考-reference"><a href="#參考-reference" class="headerlink" title="參考 (reference)"></a>參考 (reference)</h2><p><strong>參考</strong>，可以想像成是一個變數或物件的<strong>別名 (alias)</strong>。如同美國國父就是華盛頓一樣。取別名時一定要初始化，指明它是誰的別名。且初始化後不能再轉變成其他變數的別名。</p>
+<p>在C++中，我們用下面的式子來表示這個關係：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C++</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;r1 = a; <span class="comment">// r1 是 a 的別名</span></span><br><span class="line"><span class="comment">//r1 = b; // 會報錯，不能轉變成其他變數的別名</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"變數 a 的值："</span> &lt;&lt; a &lt;&lt; <span class="string">"\n"</span>;    <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"變數 a 的地址："</span> &lt;&lt; &amp;a &lt;&lt; <span class="string">"\n"</span>; <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"r1 的值："</span> &lt;&lt; r1 &lt;&lt; <span class="string">"\n"</span>;      <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"r1 的地址："</span> &lt;&lt; &amp;r1 &lt;&lt; <span class="string">"\n"</span>;   <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//會報錯，因為 r1 是整數型別，無法用 * 取出內容</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; "*r1 的值：" &lt;&lt; *r1 &lt;&lt; "\n";</span></span><br></pre></td></tr></table></figure></p>
+<p>C++ compiler 不會額外為 ref variables 分配記憶體空間。</p>
+<blockquote>
+<p>配合指標時，「符號&amp;」前面有 =，表示「取址」，如 <code>int* p = &amp;a;</code><br>「符號&amp;」前面有資料型態，表示「參考、別名」，如 <code>int &amp;r1 = a;</code></p>
+</blockquote>
+<p>參考：<br><a href="https://blog.csdn.net/bzhxuexi/article/details/17588803" target="_blank" rel="noopener">C++中引用(reference)的用法详解</a></p>
+<h2 id="指標和參考"><a href="#指標和參考" class="headerlink" title="指標和參考"></a>指標和參考</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span>* p = &amp;a;  <span class="comment">// p 是指標，指向整數變數 a (pointer to int variable)</span></span><br><span class="line"><span class="keyword">int</span> &amp;r = b;   <span class="comment">// r 是 b 的別名 (reference to int variable)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//int pointer = p; // 不能這樣寫，因為 pointer 是儲存 4byte 的整數，但是 p 是儲存十六進制的記憶體位址</span></span><br><span class="line"><span class="keyword">int</span>* pointer = p;  <span class="comment">// 要改成這樣，這時 pointer 和 p 儲存一樣的東西，pointer 有自己的記憶體空間</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 所以當 p2 要儲存指標 p 的記憶體位址時，要用 ** 來宣告，告知 pointer to pointer</span></span><br><span class="line"><span class="keyword">int</span>** p2 = &amp;p; <span class="comment">// p2 是指標，指向指標變數 p (pointer to int pointer)</span></span><br><span class="line"><span class="keyword">int</span>* &amp;r2 = p;  <span class="comment">// r2 是 p 的別名，r2 沒有自己的記憶體空間  (reference to int pointer)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/hYTAG0v.jpg" alt></p>
+<h2 id="Value-types-call-pass-by-value-C-C-C"><a href="#Value-types-call-pass-by-value-C-C-C" class="headerlink" title="Value types call/pass by value (C/C++/C#)"></a>Value types call/pass by value (C/C++/C#)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>, y = <span class="number">10</span>;</span><br><span class="line">swap(x, y);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>call by value：將 x, y 的值 copy 一份給 a, b。<br><img src="https://i.imgur.com/lmGZLNR.png" alt></p>
+<p>swap() 執行完畢後 <strong>x, y 不會互換</strong>，a, b 會互換。<br><img src="https://i.imgur.com/mj1rbNR.jpg" alt></p>
+<h2 id="Value-types-call-pass-by-pointer-address-C-C"><a href="#Value-types-call-pass-by-pointer-address-C-C" class="headerlink" title="Value types call/pass by pointer/address (C/C++)"></a>Value types call/pass by pointer/address (C/C++)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>, y = <span class="number">10</span>;</span><br><span class="line">swap(&amp;x, &amp;y); <span class="comment">// &amp;x = address of x，將 x 位址傳入</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span>* b)</span></span>&#123; <span class="comment">// 位址只能由指標型別接收，宣告時要宣告指標型別</span></span><br><span class="line">    <span class="keyword">int</span> tmp = *a; <span class="comment">// 使用時「符號*」表示「取出內容」</span></span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>call by pointer/address：將 x, y 的位址 copy 一份給 a, b (a, b 是指標變數)。因為實際上是 copy，骨子裡是 call by value。<br><img src="https://i.imgur.com/QmbwAR9.jpg" alt></p>
+<p>swap() 執行完畢後 <strong>x, y 會互換</strong>，a, b 不會互換。因為<strong>在 swap() 中操作 *a, *b 相當於操作 x, y</strong>。<br><img src="https://i.imgur.com/KXziyUc.jpg" alt></p>
+<h2 id="Value-types-call-pass-by-reference-C-C"><a href="#Value-types-call-pass-by-reference-C-C" class="headerlink" title="Value types call/pass by reference (C++/C#)"></a>Value types call/pass by reference (C++/C#)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C++</span></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>, y = <span class="number">10</span>;</span><br><span class="line">swap(x, y);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a, <span class="keyword">int</span> &amp;b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C#</span></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>, y = <span class="number">10</span>;</span><br><span class="line">swap(<span class="keyword">ref</span> x, <span class="keyword">ref</span> y);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span>(<span class="params"><span class="keyword">ref</span> <span class="keyword">int</span> a, <span class="keyword">ref</span> <span class="keyword">int</span> b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>call by reference：為 x, y 取別名 a, b (取別名時一定要初始化，指明它是誰的別名)。C++ compiler 不會為 ref variables 分配內存空間。</p>
+<p><img src="https://i.imgur.com/ySybyp0.jpg" alt></p>
+<p>swap() 執行完畢後 <strong>x, y 會互換</strong>。<br><img src="https://i.imgur.com/zzHRSZB.jpg" alt></p>
+<p>參考：<br><a href="http://www.leerichardson.com/2007/01/parameter-passing-in-c.html" target="_blank" rel="noopener">Parameter passing in C#</a></p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>call by value、call by pointer/address 是 copy 複製一份變數的值或記憶體位址，傳入函式中操作。</p>
+<p>call by reference 是直接取別名，直接操作該變數。</p>
+
+        </div>
+    </div>
+    
+    <div class="copy-right">
+        <div class="markdown-body">
+            <blockquote>
+                
+                
+                本文作者 : Jenifer <br>
+                
+                原文連結 : <a href>http://yoursite.com/2019/11/23/Csharp-C/value-pointer-ref/</a><br>
+                版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
+            </blockquote>
+        </div>
+    </div>
+    
+
+    
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="google, facebook, twitter, qzone, qq, weibo, wechat, douban">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+    
+
+    
+
+    <div class="article-footer">
+        <div class="article-meta pull-left">
+            <span>
+                
+                <i class="iconfont icon-06tags"></i>標籤:
+                
+                <span class="span--tag">
+                    <a href="/tags/pointer/">
+                        #pointer
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/reference/">
+                        #reference
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/C/">
+                        #C
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/C/">
+                        #C++
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Csharp-C/">
+                        #Csharp(C#)
+                    </a>
+                </span>
+                
+                
+            </span>
+        </div>
+        <div class="article-meta pull-right">
+        </div>
+    </div>
+</div>
+
+
+<aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+</aside>
+<script async>
+    setTimeout(generateToc, 10);
+
+</script>
+
+
+
+    <nav class="post-navigation">
+        
+        <div class="nav-pre">
+            <i class="iconfont icon-prev"></i>
+            上一篇:
+            <a href="/2019/11/22/JavaScript/lang-type/" target="_self">靜態語言 / 動態語言、強型別 / 弱型別、静態作用域 / 動態作用域</a>
+        </div>
+        
+        
+        <div class="nav-next">
+            下一篇:
+            <a href="/2019/11/23/API/what-is-API/" target="_self">API到底是什麼？</a>
+            <i class="iconfont icon-next"></i>
+        </div>
+        
+    </nav>
+
+    
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足迹 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<script defer>
+  if( true ) {
+    let path = getRealPath()
+    new Valine({
+      el: "#vcomments",
+      appId: "Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz",
+      appKey: "WaR7nrzhliHj9aVwdQzkdlGd",
+      notify: false,
+      verify: false,
+      avatar: "robohash",
+      placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+      path
+    });
+  }
+</script>
+    
+
+    
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz", "WaR7nrzhliHj9aVwdQzkdlGd");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+    
+
+</div>
+
+
+
+        <footer>
+    <p class="site-info">
+        Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+        <br>
+        Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+        <br>
+        
+    </p>
+</footer>
+
+
+
+<script>
+    const timeToNowDOM = document.querySelector("#time-to-now");
+    const startTimestamp = new Date( 2019 , 10 , 22 ).getTime();
+    const updateTimeStr = () => {
+        let offset = parseInt(
+                (new Date().getTime() - startTimestamp) / 1000,
+                10
+            ),
+            day = Math.floor(offset / 86400),
+            hour = Math.floor((offset % 86400) / 3600),
+            minute = Math.floor(((offset % 86400) % 3600) / 60),
+            second = Math.floor(((offset % 86400) % 3600) % 60);
+        timeToNowDOM.innerHTML =
+            day + " days " + hour + " hrs " + minute + " mins " + second + " secs ";
+        setTimeout(updateTimeStr, 500);
+    }
+    setTimeout(updateTimeStr, 500);
+</script>
+
+        <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+</body>
+
+</html>
