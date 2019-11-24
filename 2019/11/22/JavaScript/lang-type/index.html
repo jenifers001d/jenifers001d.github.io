@@ -224,7 +224,10 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            <h2 id="靜態語言-動態語言-Static-vs-Dynamic-Typing"><a href="#靜態語言-動態語言-Static-vs-Dynamic-Typing" class="headerlink" title="靜態語言 / 動態語言 (Static vs. Dynamic Typing)"></a>靜態語言 / 動態語言 (Static vs. Dynamic Typing)</h2><p>語言的型態系統是對底層位元組 (byte) 的抽象化，因為人類是很難直接理解一連串的 01000011111 到底想表達什麼意思。例如：告訴開發者「這些位元組是個字串」，或是當開發者想將字串轉換為大寫時，可以直接下達「把字串轉為大寫」的命令，而不是「對這些位元組進行某些運算」。</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
+<p>討論程式語言的型別時，通常「靜態、動態語言」和「強、弱型別」會放在一起討論。而「静態、動態作用域」則是屬於另一類型。</p>
+<p>這邊放在一起說明，讓大家理解是不一樣的概念。<br></p>
+<h2 id="靜態語言-動態語言-Static-vs-Dynamic-Typing"><a href="#靜態語言-動態語言-Static-vs-Dynamic-Typing" class="headerlink" title="靜態語言 / 動態語言 (Static vs. Dynamic Typing)"></a>靜態語言 / 動態語言 (Static vs. Dynamic Typing)</h2><p>語言的型態系統是對底層位元組 (byte) 的抽象化，因為人類是很難直接理解一連串的 01000011111 到底想表達什麼意思。例如：告訴開發者「這些位元組是個字串」，或是當開發者想將字串轉換為大寫時，可以直接下達「把字串轉為大寫」的命令，而不是「對這些位元組進行某些運算」。</p>
 <p>只要瞭解型態，就可以知道如何以高階型態來操作和處理資料，不需要去處理底層細節 (01000011111)。因此，開發者選擇程式語言的第一步，也就是決定選用靜態語言或動態語言。</p>
 <p>如何從語法得知型態資訊？<strong>變數帶有資料型態是靜態語言，且使用前一定要先宣告；反之則是動態語言。</strong> 例：</p>
 <p>C# 中一旦宣告 <code>st</code> 變數為 <code>string</code> 型態，就不能再賦予 <code>st</code> 其他的型態。C# 是偏向於<strong>靜態語言</strong>。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> st = <span class="string">"Jenifer"</span>;</span><br><span class="line">st = <span class="number">50</span>; <span class="comment">// 編譯錯誤</span></span><br></pre></td></tr></table></figure></p>
@@ -329,12 +332,6 @@ pagead/js/adsbygoogle.js"></script>
 
 
     <nav class="post-navigation">
-        
-        <div class="nav-pre">
-            <i class="iconfont icon-prev"></i>
-            上一篇:
-            <a href="/2019/05/20/uncategorized/newReport/" target="_self">newReport</a>
-        </div>
         
         
         <div class="nav-next">

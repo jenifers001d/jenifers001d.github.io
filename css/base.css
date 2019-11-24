@@ -503,6 +503,10 @@ header .iconfont.icon-menu {
     #sidebar.sidebar-active {
         width: 200px;
     }
+
+    .container.home-index .article-content--inner img {
+        max-width: 300px !important;
+    }
 }
 
 .hidden {
@@ -513,7 +517,7 @@ header .iconfont.icon-menu {
 }
 
 .container.home-index .article-content--inner img {
-    max-width: 300px !important;
+    max-width: 90%;
 }
 
 .container.home-index .pc-view {
