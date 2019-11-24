@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-    <meta name="keywords" content="Csharp(C#),Csharp(C#),pointer,reference,C,C++,">
+    <meta name="keywords" content="Csharp(C#),Csharp(C#),pointer,reference,C,C++,call by value,call by pointer,call by reference,">
     
 
     <script>
@@ -43,6 +43,8 @@
     <script src="/js/util.js"></script>
 <script src="/js/valine.min.js"></script>
 
+    
+    <link rel="stylesheet" href="/custom/style.css">
     
 
     
@@ -94,7 +96,7 @@ pagead/js/adsbygoogle.js"></script>
                 <li class="nav-item" data-path="/">
                     
                     <a href="/" target="_self">
-                        主頁
+                        首頁
                     </a>
                     
                 </li>
@@ -123,36 +125,14 @@ pagead/js/adsbygoogle.js"></script>
                     
                 </li>
                 
-                <li class="nav-item" data-path="/friends/">
-                    
-                    <a href="/friends/" target="_self">
-                        友連
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/about/">
-                    
-                    <a href="/about/" target="_self">
-                        關於
-                    </a>
-                    
-                </li>
-                
                 <li class="nav-item" data-path>
                     
                     <a href="javascript:void(0);" v-else>抓到我</a>
                     <ul class="nav-menu--dropdown">
                         
                         <li>
-                            <a href="https://github.com/dongyuanxin" target="_blank">
+                            <a href="https://github.com/jenifers001d" target="_blank">
                                 Github
-                            </a>
-                        </li>
-                        
-                        <li>
-                            <a href="https://www.zhihu.com/people/godbmw/activities" target="_blank">
-                                知乎
                             </a>
                         </li>
                         
@@ -244,29 +224,29 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            <p>C裡面其實只有<strong>值 (value)</strong> 和<strong>指標 (pointer)</strong>，C++才增加了<strong>參考 (reference)</strong>。</p>
+            <p>C 裡面其實只有<strong>值 (value)</strong> 和<strong>指標 (pointer)</strong>，C++ 才增加了<strong>參考 (reference)</strong>。</p>
 <p>C# 沒有<strong>指標 (pointer)</strong>，有<strong>值 (value)</strong> 和<strong>參考 (reference)</strong>。</p>
 <h2 id="指標-pointer-address"><a href="#指標-pointer-address" class="headerlink" title="指標 (pointer/address)"></a>指標 (pointer/address)</h2><p>就像是 int 只能儲存數字不能儲存字串一樣。<strong>指標</strong>，是一種變數的型別，只能用來儲存<strong>記憶體位址</strong>，也可以說是變數資料的地址。</p>
 <p>指標 (pointer) 就是某變數的記憶體位址。而指標變數 (pointer variable)，則是用來存放指標的變數。</p>
-<p>a, b, p1, p2都是一般的變數，儲存在記憶體 (memory) 中。其中，p1所儲存的值是a的記憶體 (memory) 位址，而p2則儲存b的記憶體位址，像這樣的狀況，我們就稱<strong>p1是一個指向a的指標</strong>，<strong>p2是一個指向b的指標</strong>。</p>
-<p>在C/C++中，我們用下面的式子來表示這個關係：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span>* p1 = &amp;a; <span class="comment">//也可以寫作int *p1 = &amp;a</span></span><br><span class="line"><span class="keyword">int</span>* p2 = &amp;b; <span class="comment">//也可以寫作int *p2 = &amp;b</span></span><br></pre></td></tr></table></figure></p>
+<p>a, b, p1, p2都是一般的變數，儲存在記憶體 (memory) 中。其中，p1 所儲存的值是 a 的記憶體 (memory) 位址，而 p2 則儲存 b 的記憶體位址，像這樣的狀況，我們就稱 <strong>p1 是一個指向 a 的指標</strong>，<strong>p2 是一個指向 b 的指標</strong>。</p>
+<p>在 C/C++ 中，我們用下面的式子來表示這個關係：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span>* p1 = &amp;a; <span class="comment">//也可以寫作int *p1 = &amp;a</span></span><br><span class="line"><span class="keyword">int</span>* p2 = &amp;b; <span class="comment">//也可以寫作int *p2 = &amp;b</span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>符號<em>，代表的意義是指標。<br>int</em> p1 要由後往前閱讀來瞭解它的意義：<strong>p1 is a pointer</strong> points to an integer。p1是一個指標，指向整數。或是，p1是一個儲存「整數記憶體位址」的變數。<br>符號&amp;，稱為address of (取址)。&amp;a = address of a。<br>因此，<code>int* p1 = &amp;a;</code> 這整行，我們可以看成：p1 is a pointer points to integer variable a，即：p1是一個指標，指向整數變數a。或是，p1是一個儲存「整數變數a的記憶體位址」的變數。</p>
+<p>符號*，代表的意義是指標。<br>int* p1 要由後往前閱讀來瞭解它的意義：<strong>p1 is a pointer</strong> points to an integer。p1是一個指標，指向整數。或是，p1 是一個儲存「整數記憶體位址」的變數。<br>符號&amp;，稱為 address of (取址)。&amp;a = address of a。<br>因此，<code>int* p1 = &amp;a;</code> 這整行，我們可以看成：p1 is a pointer points to integer variable a，即：p1 是一個指標，指向整數變數 a。或是，p1 是一個儲存「整數變數 a 的記憶體位址」的變數。</p>
 </blockquote>
 <p><img src="https://i.imgur.com/lKkDe45.jpg" alt></p>
-<p>但是我們有 p1 (a的地址) 可以做什麼呢？這時可以用「符號<em>」表示「取出內容」，這裡的「符號</em>」和宣告指標變數的 int* p1 的意義不一樣。</p>
-<p>當我們在C中 <code>printf(*p1);</code> 時，代表取出「p1」的內容，也就是取出「a的地址」的內容。<strong>可以把 *p1 當作 a 來使用</strong>，例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span>* p1 = &amp;a;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"變數 a 的值：%d\n"</span>, a);       <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"變數 a 的地址：%p\n"</span>, &amp;a);    <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"指標變數 p1 的值：%p\n"</span>, p1);    <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"指標變數 p1 的地址：%p\n"</span>, &amp;p1); <span class="comment">// 0x7ffeefbff570</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 取出 p1 的內容 =&gt; 變數 a 的值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"*p1 的值：%d\n"</span>, *p1); <span class="comment">// 2</span></span><br><span class="line">    </span><br><span class="line">*p1 = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"*p1 的值：%d\n"</span>, *p1); <span class="comment">// 100</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"變數 a 的值：%d\n"</span>, a); <span class="comment">// 100</span></span><br></pre></td></tr></table></figure></p>
+<p>但是我們有 p1 (a的地址) 可以做什麼呢？這時可以用「符號*」表示「取出內容」，這裡的「符號*」和宣告指標變數的 int* p1 的意義不一樣。</p>
+<p>當我們在 C 中 <code>printf(*p1);</code> 時，代表取出「p1」的內容，也就是取出「a 的地址」的內容。<strong>可以把 *p1 當作 a 來使用</strong>，例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span>* p1 = &amp;a;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"變數 a 的值：%d\n"</span>, a);       <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"變數 a 的地址：%p\n"</span>, &amp;a);    <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"指標變數 p1 的值：%p\n"</span>, p1);    <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"指標變數 p1 的地址：%p\n"</span>, &amp;p1); <span class="comment">// 0x7ffeefbff570</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 取出 p1 的內容 =&gt; 變數 a 的值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"*p1 的值：%d\n"</span>, *p1); <span class="comment">// 2</span></span><br><span class="line">    </span><br><span class="line">*p1 = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"*p1 的值：%d\n"</span>, *p1); <span class="comment">// 100</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"變數 a 的值：%d\n"</span>, a); <span class="comment">// 100</span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p><strong>宣告</strong>時「符號<em>」表示「宣告指標變數」。<strong>使用</strong>時「符號</em>」表示「取出內容」。</p>
+<p><strong>宣告</strong>時「符號*」表示「宣告指標變數」。<strong>使用</strong>時「符號*」表示「取出內容」。</p>
 </blockquote>
-<p>參考：<br><a href="https://kopu.chat/2017/05/15/c%E8%AA%9E%E8%A8%80-%E8%B6%85%E5%A5%BD%E6%87%82%E7%9A%84%E6%8C%87%E6%A8%99%EF%BC%8C%E5%88%9D%E5%AD%B8%E8%80%85%E8%AB%8B%E9%80%B2%EF%BD%9E/" target="_blank" rel="noopener">C語言: 超好懂的指標，初學者請進～</a><br><a href="https://dotblogs.com.tw/brian/2012/10/18/77588" target="_blank" rel="noopener">C/C++之指標 (pointer)，參考 (reference) 觀念整理與常見問題 (轉貼)</a></p>
+<p>參考資料：<br><a href="https://kopu.chat/2017/05/15/c%E8%AA%9E%E8%A8%80-%E8%B6%85%E5%A5%BD%E6%87%82%E7%9A%84%E6%8C%87%E6%A8%99%EF%BC%8C%E5%88%9D%E5%AD%B8%E8%80%85%E8%AB%8B%E9%80%B2%EF%BD%9E/" target="_blank" rel="noopener">C語言: 超好懂的指標，初學者請進～</a><br><a href="https://dotblogs.com.tw/brian/2012/10/18/77588" target="_blank" rel="noopener">C/C++之指標 (pointer)，參考 (reference) 觀念整理與常見問題 (轉貼)</a></p>
 <h2 id="參考-reference"><a href="#參考-reference" class="headerlink" title="參考 (reference)"></a>參考 (reference)</h2><p><strong>參考</strong>，可以想像成是一個變數或物件的<strong>別名 (alias)</strong>。如同美國國父就是華盛頓一樣。取別名時一定要初始化，指明它是誰的別名。且初始化後不能再轉變成其他變數的別名。</p>
-<p>在C++中，我們用下面的式子來表示這個關係：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C++</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;r1 = a; <span class="comment">// r1 是 a 的別名</span></span><br><span class="line"><span class="comment">//r1 = b; // 會報錯，不能轉變成其他變數的別名</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"變數 a 的值："</span> &lt;&lt; a &lt;&lt; <span class="string">"\n"</span>;    <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"變數 a 的地址："</span> &lt;&lt; &amp;a &lt;&lt; <span class="string">"\n"</span>; <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"r1 的值："</span> &lt;&lt; r1 &lt;&lt; <span class="string">"\n"</span>;      <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"r1 的地址："</span> &lt;&lt; &amp;r1 &lt;&lt; <span class="string">"\n"</span>;   <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//會報錯，因為 r1 是整數型別，無法用 * 取出內容</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; "*r1 的值：" &lt;&lt; *r1 &lt;&lt; "\n";</span></span><br></pre></td></tr></table></figure></p>
+<p>在 C++ 中，我們用下面的式子來表示這個關係：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C++</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;r1 = a; <span class="comment">// r1 是 a 的別名</span></span><br><span class="line"><span class="comment">//r1 = b; // 會報錯，不能轉變成其他變數的別名</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"變數 a 的值："</span> &lt;&lt; a &lt;&lt; <span class="string">"\n"</span>;    <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"變數 a 的地址："</span> &lt;&lt; &amp;a &lt;&lt; <span class="string">"\n"</span>; <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"r1 的值："</span> &lt;&lt; r1 &lt;&lt; <span class="string">"\n"</span>;      <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"r1 的地址："</span> &lt;&lt; &amp;r1 &lt;&lt; <span class="string">"\n"</span>;   <span class="comment">// 0x7ffeefbff57c</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//會報錯，因為 r1 是整數型別，無法用 * 取出內容</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; "*r1 的值：" &lt;&lt; *r1 &lt;&lt; "\n";</span></span><br></pre></td></tr></table></figure></p>
 <p>C++ compiler 不會額外為 ref variables 分配記憶體空間。</p>
 <blockquote>
 <p>配合指標時，「符號&amp;」前面有 =，表示「取址」，如 <code>int* p = &amp;a;</code><br>「符號&amp;」前面有資料型態，表示「參考、別名」，如 <code>int &amp;r1 = a;</code></p>
 </blockquote>
-<p>參考：<br><a href="https://blog.csdn.net/bzhxuexi/article/details/17588803" target="_blank" rel="noopener">C++中引用(reference)的用法详解</a></p>
+<p>參考資料：<br><a href="https://blog.csdn.net/bzhxuexi/article/details/17588803" target="_blank" rel="noopener">C++中引用(reference)的用法详解</a></p>
 <h2 id="指標和參考"><a href="#指標和參考" class="headerlink" title="指標和參考"></a>指標和參考</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span>* p = &amp;a;  <span class="comment">// p 是指標，指向整數變數 a (pointer to int variable)</span></span><br><span class="line"><span class="keyword">int</span> &amp;r = b;   <span class="comment">// r 是 b 的別名 (reference to int variable)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//int pointer = p; // 不能這樣寫，因為 pointer 是儲存 4byte 的整數，但是 p 是儲存十六進制的記憶體位址</span></span><br><span class="line"><span class="keyword">int</span>* pointer = p;  <span class="comment">// 要改成這樣，這時 pointer 和 p 儲存一樣的東西，pointer 有自己的記憶體空間</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 所以當 p2 要儲存指標 p 的記憶體位址時，要用 ** 來宣告，告知 pointer to pointer</span></span><br><span class="line"><span class="keyword">int</span>** p2 = &amp;p; <span class="comment">// p2 是指標，指向指標變數 p (pointer to int pointer)</span></span><br><span class="line"><span class="keyword">int</span>* &amp;r2 = p;  <span class="comment">// r2 是 p 的別名，r2 沒有自己的記憶體空間  (reference to int pointer)</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/hYTAG0v.jpg" alt></p>
 <h2 id="Value-types-call-pass-by-value-C-C-C"><a href="#Value-types-call-pass-by-value-C-C-C" class="headerlink" title="Value types call/pass by value (C/C++/C#)"></a>Value types call/pass by value (C/C++/C#)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>, y = <span class="number">10</span>;</span><br><span class="line">swap(x, y);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -280,7 +260,7 @@ pagead/js/adsbygoogle.js"></script>
 <p>call by reference：為 x, y 取別名 a, b (取別名時一定要初始化，指明它是誰的別名)。C++ compiler 不會為 ref variables 分配內存空間。</p>
 <p><img src="https://i.imgur.com/ySybyp0.jpg" alt></p>
 <p>swap() 執行完畢後 <strong>x, y 會互換</strong>。<br><img src="https://i.imgur.com/zzHRSZB.jpg" alt></p>
-<p>參考：<br><a href="http://www.leerichardson.com/2007/01/parameter-passing-in-c.html" target="_blank" rel="noopener">Parameter passing in C#</a></p>
+<p>參考資料：<br><a href="http://www.leerichardson.com/2007/01/parameter-passing-in-c.html" target="_blank" rel="noopener">Parameter passing in C#</a></p>
 <h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>call by value、call by pointer/address 是 copy 複製一份變數的值或記憶體位址，傳入函式中操作。</p>
 <p>call by reference 是直接取別名，直接操作該變數。</p>
 
@@ -346,6 +326,24 @@ pagead/js/adsbygoogle.js"></script>
                     </a>
                 </span>
                 
+                <span class="span--tag">
+                    <a href="/tags/call-by-value/">
+                        #call by value
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/call-by-pointer/">
+                        #call by pointer
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/call-by-reference/">
+                        #call by reference
+                    </a>
+                </span>
+                
                 
             </span>
         </div>
@@ -377,7 +375,7 @@ pagead/js/adsbygoogle.js"></script>
         
         <div class="nav-next">
             下一篇:
-            <a href="/2019/11/23/API/what-is-API/" target="_self">API到底是什麼？</a>
+            <a href="/2019/11/23/API/what-is-API/" target="_self">API 到底是什麼？</a>
             <i class="iconfont icon-next"></i>
         </div>
         
