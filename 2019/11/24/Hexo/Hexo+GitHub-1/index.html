@@ -7,12 +7,12 @@
     
     
 
-    <title>Hello World | Jenifer.Code.World</title>
+    <title>Hexo＋GitHub 網誌和部落格架設（一） | Jenifer.Code.World</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-    <meta name="keywords" content="Hexo, theme-bmw">
+    <meta name="keywords" content="Hexo,GitHub,Hexo,網頁架設,靜態網頁,">
     
 
     <script>
@@ -208,17 +208,24 @@
 
 <div class="post">
     <h1 class="article-title">
-        <span>Hello World</span>
+        <span>Hexo＋GitHub 網誌和部落格架設（一）</span>
     </h1>
     <div class="article-top-meta">
         <span>
             發布 :
-            2019-05-20
+            2019-11-24
+        </span>
+        
+        <span>
+            分類 :
+            <a href="/categories/Hexo/">
+                Hexo
+            </a>
         </span>
         
         
         <span>
-            瀏覽 : <span class="article-timer" data-identity="hello-world"></span>
+            瀏覽 : <span class="article-timer" data-identity="Hexo+GitHub-1"></span>
         </span>
         
     </div>
@@ -227,15 +234,23 @@
 
     <div class="article-content">
         <div class="markdown-body">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h2 id="Hexo-是什麼？"><a href="#Hexo-是什麼？" class="headerlink" title="Hexo 是什麼？"></a>Hexo 是什麼？</h2><p>Hexo 是一個快速、簡單且強大的<strong>網誌框架</strong>。Hexo 使用 <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Markdown</a>(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。</p>
+<p>短時間內，透過漂亮的主題(套用他人主題，或是自己做主題)產生靜態檔案(只有前端，也可以架設網誌和部落格！)。</p>
+<p>Hexo 支援許多強大的外掛和擴充系統，例如：搜尋、留言板、Facebook 社群工具等。</p>
+<p>以 Node.js 為核心，需要預先編譯，才能丟到 GitHub 上 (也就是遠端伺服器或網站上)，但是優點是一旦網頁內容很大，會比 Jekyll 速度快 (Ruby 為核心，不需要先編譯)。</p>
+<p>台灣人製作的！！！官方網站都有支援繁體中文，快去看看吧 &gt;&gt; <a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo</a></p>
+<h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><p>電腦要先安裝好</p>
+<ul>
+<li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (版本至少要 6.9)</li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> (不知道什麼是 Git 的人，請去 <a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1">Git 入門 (一)</a> )</li>
+</ul>
+<p>可以用下面其中一行來檢查 Node.js 的版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ node --version</span><br></pre></td></tr></table></figure></p>
+<p>可以用下面其中一行來檢查 Git 的版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br><span class="line">$ git version</span><br></pre></td></tr></table></figure></p>
+<p>:::warning<br>第一次使用指令碼的人不要緊張，指令碼前面的 <code>$</code> 不需要輸入<br>(其實新手如我並不清楚指令碼前的 <code>$</code> 表示什麼意思，完全查不到，但是我猜是<strong>在 shell 中輸入</strong>的意思，shell 就是外殼、介面、終端機，麻煩請知道的大神指證我或告訴我正確的解釋，謝謝！)<br>所以 <code>$</code> 後面的指令才是重點，有些網站提到指令碼時並不會出現 <code>$</code><br>:::<br>通常 Node.js 安裝完畢後，npm 即被安裝完成，等等會用到。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>等等進行的流程如下</p>
+<p><img src="https://i.imgur.com/Ew4Knor.jpg" alt></p>
+<p>出發吧！ &gt;&gt; <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2/">安裝 Hexo</a></p>
+<h2 id="Hexo＋GitHub-網誌和部落格架設-系列文"><a href="#Hexo＋GitHub-網誌和部落格架設-系列文" class="headerlink" title="Hexo＋GitHub 網誌和部落格架設 系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2><p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a> ← 你在這～<br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
 
         </div>
     </div>
@@ -247,7 +262,7 @@
                 
                 本文作者 : Jenifer <br>
                 
-                原文連結 : <a href>https://jenifers001d.github.io/2019/05/20/uncategorized/hello-world/</a><br>
+                原文連結 : <a href>https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1/</a><br>
                 版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
             </blockquote>
         </div>
@@ -266,6 +281,33 @@
     <div class="article-footer">
         <div class="article-meta pull-left">
             <span>
+                
+                <i class="iconfont icon-06tags"></i>標籤:
+                
+                <span class="span--tag">
+                    <a href="/tags/GitHub/">
+                        #GitHub
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Hexo/">
+                        #Hexo
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/網頁架設/">
+                        #網頁架設
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/靜態網頁/">
+                        #靜態網頁
+                    </a>
+                </span>
+                
                 
             </span>
         </div>
@@ -288,10 +330,16 @@
 
     <nav class="post-navigation">
         
+        <div class="nav-pre">
+            <i class="iconfont icon-prev"></i>
+            上一篇:
+            <a href="/2019/11/23/API/what-is-API/" target="_self">API到底是什麼？</a>
+        </div>
+        
         
         <div class="nav-next">
             下一篇:
-            <a href="/2019/05/20/uncategorized/newReport/" target="_self">newReport</a>
+            <a href="/2019/11/24/Git/Git-intro-1/" target="_self">Git 入門 (一)</a>
             <i class="iconfont icon-next"></i>
         </div>
         
