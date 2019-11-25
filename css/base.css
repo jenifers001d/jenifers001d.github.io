@@ -481,7 +481,7 @@ header .iconfont.icon-menu {
     bottom: 0;
     z-index: 600;
     background: rgba(0, 0, 0, 0.8);
-    transition: all 0.15s;
+    transition: all 0.25s;
     display: block;
 }
 
