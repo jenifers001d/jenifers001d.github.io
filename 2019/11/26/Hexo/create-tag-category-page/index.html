@@ -7,12 +7,12 @@
     
     
 
-    <title>Hexo＋GitHub 網誌和部落格架設（一） | Jenifer.Code.World</title>
+    <title>遺失的「分類」、「標籤」首頁頁面？ | Jenifer.Code.World</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-    <meta name="keywords" content="Hexo,GitHub,Hexo,網頁架設,靜態網頁,">
+    <meta name="keywords" content="Hexo,Hexo,網頁架設,靜態網頁,">
     
 
     <script>
@@ -198,12 +198,12 @@ pagead/js/adsbygoogle.js"></script>
 
 <div class="post">
     <h1 class="article-title">
-        <span>Hexo＋GitHub 網誌和部落格架設（一）</span>
+        <span>遺失的「分類」、「標籤」首頁頁面？</span>
     </h1>
     <div class="article-top-meta">
         <span>
             發布 :
-            2019-11-24
+            2019-11-26
         </span>
         
         <span>
@@ -215,7 +215,7 @@ pagead/js/adsbygoogle.js"></script>
         
         
         <span>
-            瀏覽 : <span class="article-timer" data-identity="Hexo+GitHub-1"></span>
+            瀏覽 : <span class="article-timer" data-identity="create-tag-category-page"></span>
         </span>
         
         
@@ -225,26 +225,22 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            <h2 id="Hexo-是什麼？"><a href="#Hexo-是什麼？" class="headerlink" title="Hexo 是什麼？"></a>Hexo 是什麼？</h2>
-<p>Hexo 是一個快速、簡單且強大的<strong>網誌框架</strong>。Hexo 使用 <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Markdown</a>(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。<br></p>
-<p>短時間內，透過漂亮的主題(套用他人主題，或是自己做主題)產生靜態檔案(只有前端，也可以架設網誌和部落格！)。</p>
-<p>Hexo 支援許多強大的外掛和擴充系統，例如：搜尋、留言板、Facebook 社群工具等。</p>
-<p>以 Node.js 為核心，需要預先編譯，才能丟到 GitHub 上 (也就是遠端伺服器或網站上)，但是優點是一旦網頁內容很大，會比 Jekyll 速度快 (Ruby 為核心，不需要先編譯)。</p>
-<p>台灣人製作的！！！官方網站都有支援繁體中文，快去看看吧 &gt;&gt; <a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo</a></p>
-<h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><p>電腦要先安裝好</p>
-<ul>
-<li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (版本至少要 6.9)</li>
-<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> (不知道什麼是 Git 的人，請去 <a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1">Git 入門 (一)</a> )</li>
-</ul>
-<p>可以用下面其中一行來檢查 Node.js 的版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ node --version</span><br></pre></td></tr></table></figure></p>
-<p>可以用下面其中一行來檢查 Git 的版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br><span class="line">$ git version</span><br></pre></td></tr></table></figure></p>
-<div class="alert alert-warning">第一次使用指令碼的人不要緊張，指令碼前面的 <code>$</code> 不需要輸入<br>(其實新手如我並不清楚指令碼前的 <code>$</code> 表示什麼意思，完全查不到，但是我猜是<strong>在 shell 中輸入</strong>的意思，shell 就是外殼、介面、終端機，麻煩請知道的大神指證我或告訴我正確的解釋，謝謝！)<br>所以 <code>$</code> 後面的指令才是重點，有些網站提到指令碼時並不會出現 <code>$</code> </div>
-
-<p>通常 Node.js 安裝完畢後，npm 即被安裝完成，等等會用到。</p>
-<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>等等進行的流程如下</p>
-<p><img src="https://i.imgur.com/Ew4Knor.jpg" alt></p>
-<p>出發吧！ &gt;&gt; <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2/">安裝 Hexo</a></p>
-<h2 id="Hexo＋GitHub-網誌和部落格架設-系列文"><a href="#Hexo＋GitHub-網誌和部落格架設-系列文" class="headerlink" title="Hexo＋GitHub 網誌和部落格架設 系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2><p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a> ← 你在這～<br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
+            
+<p>我不確定是不是所有的主題，「分類」和「標籤」頁面預設都不存在。我是使用 BMW 主題，它的<strong>分類</strong>和<strong>標籤</strong>頁面必須手動生成。因此這邊紀錄一下。<br></p>
+<p>還記得如何使用指令碼產生一篇新的文章嗎？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>指令說明：<br>new：建立一個新的貼文<br>layout：用來指定文章的佈局。可以不寫，預設為 post。Hexo 有三種預設佈局：post(文章)、page(首頁) 和 draft(草稿)。<br>title：文章的標題。</p>
+</blockquote>
+<h2 id="產生「分類」的首頁頁面"><a href="#產生「分類」的首頁頁面" class="headerlink" title="產生「分類」的首頁頁面"></a>產生「分類」的首頁頁面</h2><p>這裏，我們是使用指令產生一個「分類」的首頁：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure></p>
+<p>它會在 <strong>source 資料夾</strong>中，產生一個新的 <strong>categories 資料夾</strong>，並且在裡面產生一個 <code>index.md</code> 檔案。</p>
+<p><img src="https://i.imgur.com/HuVslwi.jpg" alt></p>
+<p>直接點擊網頁 menu 中的<strong>分類</strong>，會出現如下的畫面：<br><img src="https://i.imgur.com/SfemkBE.jpg" alt></p>
+<p>但是這不是我們要的！</p>
+<h2 id="修改「分類」的-index-md-檔案"><a href="#修改「分類」的-index-md-檔案" class="headerlink" title="修改「分類」的 index.md 檔案"></a>修改「分類」的 <code>index.md</code> 檔案</h2><p>增加下圖第四行：<br><img src="https://i.imgur.com/qmxe0p0.jpg" alt></p>
+<p>就會出現正常的「分類」首頁了～<br><img src="https://i.imgur.com/WrrVE7Y.jpg" alt></p>
+<h2 id="「標籤」首頁頁面"><a href="#「標籤」首頁頁面" class="headerlink" title="「標籤」首頁頁面"></a>「標籤」首頁頁面</h2><p>以此類推。</p>
+<p>終端機中輸入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure></p>
+<p>修改「標籤」的 <code>index.md</code> 檔案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type: &quot;tags&quot;</span><br></pre></td></tr></table></figure></p>
 
         </div>
     </div>
@@ -256,7 +252,7 @@ pagead/js/adsbygoogle.js"></script>
                 
                 本文作者 : Jenifer <br>
                 
-                原文連結 : <a href>https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1/</a><br>
+                原文連結 : <a href>https://jenifers001d.github.io/2019/11/26/Hexo/create-tag-category-page/</a><br>
                 版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
             </blockquote>
         </div>
@@ -277,12 +273,6 @@ pagead/js/adsbygoogle.js"></script>
             <span>
                 
                 <i class="iconfont icon-06tags"></i>標籤:
-                
-                <span class="span--tag">
-                    <a href="/tags/GitHub/">
-                        #GitHub
-                    </a>
-                </span>
                 
                 <span class="span--tag">
                     <a href="/tags/Hexo/">
@@ -329,15 +319,9 @@ pagead/js/adsbygoogle.js"></script>
         <div class="nav-pre">
             <i class="iconfont icon-prev"></i>
             上一篇:
-            <a href="/2019/11/23/API/what-is-API/" target="_self">API 到底是什麼？</a>
+            <a href="/2019/11/25/Hexo/clone-Hexo-theme/" target="_self">Hexo 網站主題選一選！</a>
         </div>
         
-        
-        <div class="nav-next">
-            下一篇:
-            <a href="/2019/11/24/Git/Git-intro-1/" target="_self">Git 入門 (一)</a>
-            <i class="iconfont icon-next"></i>
-        </div>
         
     </nav>
 
@@ -353,8 +337,8 @@ pagead/js/adsbygoogle.js"></script>
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
     if (true) {
         var disqus_config = function() {
-            this.page.url = "https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1/"; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2019/11/24/Hexo/Hexo+GitHub-1/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            this.page.url = "https://jenifers001d.github.io/2019/11/26/Hexo/create-tag-category-page/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/11/26/Hexo/create-tag-category-page/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
