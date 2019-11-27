@@ -28,3 +28,8 @@
     background-color: #d9edf7;
     border-color: #bce8f1;
 }
+
+.img-w200 {
+    width: 200px;
+    margin: 0 auto;
+}
