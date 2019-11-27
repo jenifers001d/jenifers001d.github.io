@@ -29,7 +29,12 @@
     border-color: #bce8f1;
 }
 
-.img-w200 {
+div.img-w200 {
     width: 200px;
+    margin: 0 auto;
+}
+
+div.img-w250 {
+    width: 250px;
     margin: 0 auto;
 }
