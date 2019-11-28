@@ -228,7 +228,35 @@ pagead/js/adsbygoogle.js"></script>
             
 <p>程式就是一堆資料的處理，每種不同的語言對資料型態的定義，都有細微的差別。<br></p>
 <h2 id="註解"><a href="#註解" class="headerlink" title="註解"></a>註解</h2><p>使用 <code>#</code> 開頭的該行文字，會被當作程式的註解，也就是直譯器會忽略，不屬於程式碼的部分。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 這是註解</span></span><br><span class="line"><span class="string">"沒有 # 開頭，不是註解，是字串"</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="資料型態"><a href="#資料型態" class="headerlink" title="資料型態"></a>資料型態</h2><h3 id="數字-Number"><a href="#數字-Number" class="headerlink" title="數字 Number"></a>數字 Number</h3><p>分為三種型態：整數、浮點數、複數。<br>:::warning<br>Python 2 有另有長整數型態，也就是數字無限大的整數，結尾必須加大寫 L。但是在 Python 3 已經刪除。<br>:::<br>|類別|解說|舉例|<br>|—|—|—|<br>|整數|正整數或負整數，没有大小限制，可以當長整數使用。|0xA0F(十六進位制)、-786|<br>|浮點數|有小數點的數字，可以使用科學方法表示。|32.3+e18、70.2-E12、-21.9|<br>|複數|由實數和虛數部分組成，可以用 a + bj，或者 complex(a, b) 表示，實部和虛部都是浮點數。|9.322e-36j、3+4.53e-7j|</p>
+<h2 id="資料型態"><a href="#資料型態" class="headerlink" title="資料型態"></a>資料型態</h2><h3 id="數字-Number"><a href="#數字-Number" class="headerlink" title="數字 Number"></a>數字 Number</h3><p>分為三種型態：整數、浮點數、複數。</p>
+<div class="alert alert-warning">Python 2 有另有長整數型態，也就是數字無限大的整數，結尾必須加大寫 L。但是在 Python 3 已經刪除。<br></div>
+
+<table>
+<thead>
+<tr>
+<th>Number 類別</th>
+<th>解說</th>
+<th>舉例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整數</td>
+<td>正整數或負整數，没有大小限制，可以當長整數使用。</td>
+<td>0xA0F(十六進位制)、-786</td>
+</tr>
+<tr>
+<td>浮點數</td>
+<td>有小數點的數字，可以使用科學方法表示。</td>
+<td>32.3+e18、70.2-E12、-21.9</td>
+</tr>
+<tr>
+<td>複數</td>
+<td>由實數和虛數部分組成，可以用 a + bj，或者 complex(a, b) 表示，實部和虛部都是浮點數。</td>
+<td>9.322e-36j、3+4.53e-7j</td>
+</tr>
+</tbody>
+</table>
 <h3 id="字串-String"><a href="#字串-String" class="headerlink" title="字串 String"></a>字串 String</h3><p>用雙引號 (“) 或單引號 (‘) 包圍住的任意字母、文字和符號。如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Hello"</span></span><br><span class="line"><span class="string">"想出現雙引號 \" 方法一"</span> <span class="comment">#使用反斜線 \ 跳脫字元</span></span><br><span class="line"><span class="string">'想出現雙引號 " 方法二'</span> <span class="comment">#使用單、雙引號交錯表示</span></span><br></pre></td></tr></table></figure></p>
 <p><img src="https://i.imgur.com/Cqt4coV.jpg" alt></p>
 <h4 id="跳脫字元"><a href="#跳脫字元" class="headerlink" title="跳脫字元"></a>跳脫字元</h4><p><strong>跳脫字元</strong>表示<strong>跳脫原本該字元的意思、作用和功能</strong>。</p>
@@ -294,11 +322,11 @@ pagead/js/adsbygoogle.js"></script>
 </li>
 <li>value：<ul>
 <li>可以<strong>重複</strong>。</li>
-<li>可以是<strong>任何資料型態</strong>。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"father"</span>:<span class="number">48</span>, <span class="string">"mother"</span>:<span class="number">43</span>&#125;</span><br><span class="line">&#123;<span class="string">"name"</span>:<span class="string">"Jenifer"</span>, <span class="string">"age"</span>:<span class="number">10</span>, <span class="string">"studentID"</span>:<span class="string">"a12345"</span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>可以是<strong>任何資料型態</strong>。</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"father"</span>:<span class="number">48</span>, <span class="string">"mother"</span>:<span class="number">43</span>&#125;</span><br><span class="line">&#123;<span class="string">"name"</span>:<span class="string">"Jenifer"</span>, <span class="string">"age"</span>:<span class="number">10</span>, <span class="string">"studentID"</span>:<span class="string">"a12345"</span>&#125;</span><br></pre></td></tr></table></figure>
 <div class="alert alert-danger">Python 3 的六個標準資料型態中：<br>- 不可變動：Number (數字)、String (字串)、Tuple (組合)<br>- 可變動：List (列表)、Set (集合)、Dictionary (字典)<br></div>
 
 <h2 id="變數"><a href="#變數" class="headerlink" title="變數"></a>變數</h2><p>Python 中的變數<span style="color: #ff0000;">不需要</span><strong>事先宣告</strong>以及<strong>提供資料型態</strong>。因此寫出變數時一定要賦予值，使用 <code>=</code> 將<span style="color: #ff0000;">右邊的值</span>賦予<span style="color: #ff0000;">左邊的變數</span>。</p>
