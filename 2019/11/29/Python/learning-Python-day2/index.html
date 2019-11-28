@@ -7,12 +7,12 @@
     
     
 
-    <title>Hexo＋GitHub 網誌和部落格架設（二） | Jenifer.Code.World</title>
+    <title>Python 自學第二天：資料型態和變數 | Jenifer.Code.World</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-    <meta name="keywords" content="Hexo,Hexo,網頁架設,GitHub,靜態網頁,">
+    <meta name="keywords" content="Python,Python,Elementary Code,Elementary Python,">
     
 
     <script>
@@ -24,7 +24,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/1RNsYe7.jpg&#34; alt&gt;&lt;br&gt;">
+    <meta name="description" content="&lt;p&gt;程式就是一堆資料的處理，每種不同的語言對資料型態的定義，都有細微的差別。&lt;br&gt;">
     
 
     
@@ -198,24 +198,24 @@ pagead/js/adsbygoogle.js"></script>
 
 <div class="post">
     <h1 class="article-title">
-        <span>Hexo＋GitHub 網誌和部落格架設（二）</span>
+        <span>Python 自學第二天：資料型態和變數</span>
     </h1>
     <div class="article-top-meta">
         <span>
             發布 :
-            2019-11-24
+            2019-11-29
         </span>
         
         <span>
             分類 :
-            <a href="/categories/Hexo/">
-                Hexo
+            <a href="/categories/Python/">
+                Python
             </a>
         </span>
         
         
         <span>
-            瀏覽 : <span class="article-timer" data-identity="Hexo+GitHub-2"></span>
+            瀏覽 : <span class="article-timer" data-identity="learning-Python-day2"></span>
         </span>
         
         
@@ -226,70 +226,86 @@ pagead/js/adsbygoogle.js"></script>
     <div class="article-content">
         <div class="markdown-body">
             
-<p><img src="https://i.imgur.com/1RNsYe7.jpg" alt><br></p>
-<h2 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h2><p>如果電腦已經安裝過 Node.js 和 Git，就只要在終端機中輸入下面這一行，就能完成安裝啦！(灑花～)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<p>程式就是一堆資料的處理，每種不同的語言對資料型態的定義，都有細微的差別。<br></p>
+<h2 id="註解"><a href="#註解" class="headerlink" title="註解"></a>註解</h2><p>使用 <code>#</code> 開頭的該行文字，會被當作程式的註解，也就是直譯器會忽略，不屬於程式碼的部分。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 這是註解</span></span><br><span class="line"><span class="string">"沒有 # 開頭，不是註解，是字串"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="資料型態"><a href="#資料型態" class="headerlink" title="資料型態"></a>資料型態</h2><h3 id="數字-Number"><a href="#數字-Number" class="headerlink" title="數字 Number"></a>數字 Number</h3><p>分為三種型態：整數、浮點數、複數。<br>:::warning<br>Python 2 有另有長整數型態，也就是數字無限大的整數，結尾必須加大寫 L。但是在 Python 3 已經刪除。<br>:::<br>|類別|解說|舉例|<br>|—|—|—|<br>|整數|正整數或負整數，没有大小限制，可以當長整數使用。|0xA0F(十六進位制)、-786|<br>|浮點數|有小數點的數字，可以使用科學方法表示。|32.3+e18、70.2-E12、-21.9|<br>|複數|由實數和虛數部分組成，可以用 a + bj，或者 complex(a, b) 表示，實部和虛部都是浮點數。|9.322e-36j、3+4.53e-7j|</p>
+<h3 id="字串-String"><a href="#字串-String" class="headerlink" title="字串 String"></a>字串 String</h3><p>用雙引號 (“) 或單引號 (‘) 包圍住的任意字母、文字和符號。如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Hello"</span></span><br><span class="line"><span class="string">"想出現雙引號 \" 方法一"</span> <span class="comment">#使用反斜線 \ 跳脫字元</span></span><br><span class="line"><span class="string">'想出現雙引號 " 方法二'</span> <span class="comment">#使用單、雙引號交錯表示</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/Cqt4coV.jpg" alt></p>
+<h4 id="跳脫字元"><a href="#跳脫字元" class="headerlink" title="跳脫字元"></a>跳脫字元</h4><p><strong>跳脫字元</strong>表示<strong>跳脫原本該字元的意思、作用和功能</strong>。</p>
+<p>原本 <code>&quot;</code> 在程式中是用來當作<span style="color: #ff0000;">字串的開頭或結尾</span>。如果加上反斜線  <code>\&quot;</code> 後， <code>&quot;</code> 就會被當作單純的符號，出現在字串中。<span style="color: #ff0000;">注意：<code>\</code> 不會出現在字串中。</span></p>
+<h4 id="常用跳脫字元"><a href="#常用跳脫字元" class="headerlink" title="常用跳脫字元"></a>常用跳脫字元</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">樣式</th>
+<th style="text-align:center">含義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\‘</td>
+<td style="text-align:center">單引號字元</td>
+</tr>
+<tr>
+<td style="text-align:center">\“</td>
+<td style="text-align:center">雙引號字元</td>
+</tr>
+<tr>
+<td style="text-align:center">\\</td>
+<td style="text-align:center">反斜線</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:center">換行符號(Enter)</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:center">跳格符號(Tab)</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:center">游標移至行首、回車符號</td>
+</tr>
+<tr>
+<td style="text-align:center">\uxxxx</td>
+<td style="text-align:center">以 16 進位數指定 Unicode 輸出的字元，如：\u0024 表示 $</td>
+</tr>
+<tr>
+<td style="text-align:center">\xxx</td>
+<td style="text-align:center">以 8 進位數指定 Unicode 輸出的字元，如：\124 表示 T</td>
+</tr>
+</tbody>
+</table>
+<h3 id="布林值-Boolean"><a href="#布林值-Boolean" class="headerlink" title="布林值 Boolean"></a>布林值 Boolean</h3><p>真假值。True 和 False，記得開頭大寫。它們可以轉化為數值，True 表示 1，而 False 表示 0。</p>
 <blockquote>
-<p>指令說明：<br>npm install -g &lt;套件名稱&gt;：安裝 Global Package。也就是使用 <strong>npm</strong> 在<strong>全域層級</strong>去<strong>安裝套件</strong>。<br>npm：Node Package Manager，也就是 node.js 中負責相關套件的管理員。<br>-g：全域 (若移除則表示針對目前資料夾，也就是 Local 進行操作)。<br>hexo-cli：是我們要安裝的套件名稱。(hexo-cli 表示安裝了 hexo 和 hexo的命令。cli 表示可以透過命令行界面 (command-line interface) 來對 hexo 下指令。)</p>
+<p>Booleans are a subtype of integers.</p>
 </blockquote>
-<p>接著可以使用這一行來檢查，是否有正確安裝到 Hexo 和其版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure></p>
-<p>安裝完畢後，還有很長一段路要走 Q皿Q </p>
-<h2 id="準備「使用-Hexo-建立網誌的專屬資料夾」"><a href="#準備「使用-Hexo-建立網誌的專屬資料夾」" class="headerlink" title="準備「使用 Hexo 建立網誌的專屬資料夾」"></a>準備「使用 Hexo 建立網誌的專屬資料夾」</h2><p>需要為你的網誌或部落格建立一個特別的資料夾，為什麼說特別呢？因為只有這個資料夾裡面的文章，才能用Hexo處理並部署到網路中、網站上。</p>
-<p>所以要怎麼「準備」這個資料夾呢？</p>
-<h3 id="1-初始化-init-資料夾"><a href="#1-初始化-init-資料夾" class="headerlink" title="1. 初始化 (init) 資料夾"></a>1. 初始化 (init) 資料夾</h3><p>在終端機中輸入 <code>hexo</code> 我們可以看到各種指令碼，我們要選擇的是 <code>init</code><br><img src="https://i.imgur.com/sjDasEP.jpg" alt></p>
-<p>記得到<strong>目標資料夾裡面</strong>，輸入下面其中一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">$ hexo init &lt;資料夾名稱&gt;</span><br></pre></td></tr></table></figure></p>
-<div class="alert alert-warning">如果<strong>沒有輸入</strong>資料夾名稱，如第一行，表示直接對<strong>所在資料夾</strong>進行初始化動作。<br>如果有輸入<strong>資料夾名稱</strong>，如第二行，表示直接在所在資料夾，<strong>建立一個新的資料夾</strong>，並進行初始化動作。<br></div>
+<h3 id="列表-List"><a href="#列表-List" class="headerlink" title="列表 List"></a>列表 List</h3><p>有順序，可以新增、刪除和替換元素的列表。列表中的每個元素都有編號，又稱索引 (index)，第一個索引是 0，第二個索引是 1，以此類推。可以放不同資料型態。支持巢狀列表。以中括弧 <code>[]</code> 包圍：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"python"</span>, <span class="string">"java"</span>, <span class="string">"c++"</span>]</span><br><span class="line">[<span class="string">"Jenifer"</span>, <span class="number">999</span>] <span class="comment"># 不同資料型態</span></span><br><span class="line">[[<span class="string">"father"</span>, <span class="number">48</span>],[<span class="string">"mother"</span>, <span class="number">43</span>],[<span class="string">"son"</span>, <span class="number">15</span>]] <span class="comment"># 巢狀列表</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/nEX55iZ.jpg" alt></p>
+<h3 id="組合-Tuple"><a href="#組合-Tuple" class="headerlink" title="組合 Tuple"></a>組合 Tuple</h3><p>有順序，不可變動的組合。其餘特性和列表相同。以小括弧 <code>()</code> 包圍：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">"Google"</span>, <span class="string">"Amazon"</span>, <span class="string">"Apple"</span>)</span><br><span class="line">(<span class="number">150</span>, <span class="number">250</span>, <span class="string">"AAA"</span>) <span class="comment"># 不同資料型態</span></span><br><span class="line">((<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>), (<span class="string">"a"</span>, <span class="string">"p"</span>, <span class="string">"l"</span>)) <span class="comment"># 巢狀組合</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/uu4U7Co.jpg" alt></p>
+<h3 id="集合-Set"><a href="#集合-Set" class="headerlink" title="集合 Set"></a>集合 Set</h3><p>沒有順序，且元素不重複的一群資料的集合。可以使用大括號 <code>{}</code> 或 <code>set()</code> 函數創造集合。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在印出集合元素時</span></span><br><span class="line"><span class="comment"># 會自動刪去重複的元素</span></span><br><span class="line"><span class="comment"># 印出順序和我們寫的順序不一定一樣</span></span><br><span class="line">print(&#123;<span class="string">'apple'</span>, <span class="string">'orange'</span>, <span class="string">'apple'</span>, <span class="string">'pear'</span>, <span class="string">'orange'</span>, <span class="string">'banana'</span>&#125;) <span class="comment"># &#123;'banana', 'apple', 'pear', 'orange'&#125;</span></span><br><span class="line">print(set(&#123;<span class="string">"a"</span>, <span class="string">"r"</span>, <span class="string">"d"</span>&#125;)) <span class="comment"># &#123;'r', 'd', 'a'&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/hQr1fXr.jpg" alt></p>
+<h3 id="字典-Dictionary"><a href="#字典-Dictionary" class="headerlink" title="字典 Dictionary"></a>字典 Dictionary</h3><p>鍵值對 (key-value pair) 的資料型態。用冒號連接 key-value pair，並且用大括號 <code>{}</code> 包圍。</p>
+<ul>
+<li>key：<ul>
+<li>必須是<strong>唯一的</strong>。</li>
+<li>必須是<strong>不可變動的</strong>，如字串，數字或 Tuple。List 可以變動，就不能當作 key。</li>
+</ul>
+</li>
+<li>value：<ul>
+<li>可以<strong>重複</strong>。</li>
+<li>可以是<strong>任何資料型態</strong>。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"father"</span>:<span class="number">48</span>, <span class="string">"mother"</span>:<span class="number">43</span>&#125;</span><br><span class="line">&#123;<span class="string">"name"</span>:<span class="string">"Jenifer"</span>, <span class="string">"age"</span>:<span class="number">10</span>, <span class="string">"studentID"</span>:<span class="string">"a12345"</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<div class="alert alert-danger">Python 3 的六個標準資料型態中：<br>- 不可變動：Number (數字)、String (字串)、Tuple (組合)<br>- 可變動：List (列表)、Set (集合)、Dictionary (字典)<br></div>
 
-<p>通常 <strong>Windows 和 Mac 系統</strong>的終端機一打開就是<strong>使用者</strong>底下的<strong>名稱</strong>的位置(不知道怎麼形容，哈哈哈)，如下圖。<br>記得使用下面這一行，一層一層移動到你的目標資料夾後，輸入上面第一行或第二行指令碼。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> 資料夾1/資料夾2/.../資料夾n/目標資料夾</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>指令說明：<br>cd：移動到”xx資料夾”</p>
-</blockquote>
-<p><img src="https://i.imgur.com/SnQGeTZ.png" alt></p>
-<p><img src="https://i.imgur.com/p0q1h8h.jpg" alt></p>
-<p>例如我是在桌面裡建一個 <strong>JeniferCodeWorld</strong> 資料夾，在裡面進行init。</p>
-<p>當你的資料夾有順利初始化完畢，就會出現如下這些東西(稍後說明他們的用途)：<br><img src="https://i.imgur.com/7hJZ1tf.jpg" alt></p>
-<p>這樣就結束了！！！(灑花～)</p>
-<p>那第二步驟是幹嘛的？</p>
-<p>如果安裝的過程中有出現錯誤資訊 <code>Failed to install dependencies. Please run &#39;npm install&#39; manually!</code> 表示安裝相依套件失敗，必須<strong>手動輸入 npm install</strong> 去安裝相依套件；或是你不放心，擔心有套件沒有安裝好，就進行下面第二步。</p>
-<h3 id="2-在已初始化的資料夾安裝相依套件"><a href="#2-在已初始化的資料夾安裝相依套件" class="headerlink" title="2. 在已初始化的資料夾安裝相依套件"></a>2. 在已初始化的資料夾安裝相依套件</h3><p>在終端機中，使用 <code>cd</code> 移動到Hexo目標資料夾中，例如我就是要移動到 <strong>JeniferCodeWorld</strong> 資料夾中，輸入下面這一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>指令說明：<br>通常會在專案(資料夾)裡面輸入此行。<br>npm install：安裝 Local Package。表示使用 npm <strong>依據 package.json(一種套件檔案列表，不同的軟體需要的相依套件不同)</strong> 對<strong>本地層級</strong>安裝所有<strong>相依套件</strong>。<br>:::info<br>此後開始，所有的指令碼操作，都是在 Hexo 目標資料夾中輸入，例如我就是在 <strong>JeniferCodeWorld</strong> 資料夾中輸入。<br>:::</p>
-</blockquote>
-<h2 id="本地端預覽-RUN-起來！"><a href="#本地端預覽-RUN-起來！" class="headerlink" title="本地端預覽 RUN 起來！"></a>本地端預覽 RUN 起來！</h2><p>因為在安裝 Hexo 時，有內建一篇使用文章，就先來 Run Run 看預覽這篇文章吧！</p>
-<p>在終端機中輸入 <code>hexo</code> 這次可以看到稍微不同的各種指令碼，我們要選擇的是 <code>server</code></p>
-<p><img src="https://i.imgur.com/zAcuE9F.jpg" alt></p>
-<p>輸入下面其中一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>指令說明：<br>server：開啟伺服器。<br>s：server的縮寫。</p>
-</blockquote>
-<p>通常預設是 <a style="border-bottom: 0px;" onclick="return false;"><strong>http://localhost:4000/</strong></a>。如果萬一 4000 連接埠(port) 被佔用了，可以輸入下列指令來更換 port。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -p 5000</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>指令說明：<br>-p：指定其他連接埠。</p>
-</blockquote>
-<p>伺服器成功開啟後，在瀏覽器中輸入網址，就可以看到如下這樣的網頁啦！同時在 Hexo 目標資料夾中產生一個快取檔案 (db.json)。<br><img src="https://i.imgur.com/Eszx5DW.jpg" alt></p>
-<p>要關掉伺服器，請在終端機介面，按 Ctrl+C。</p>
-<h2 id="建立一篇新文章"><a href="#建立一篇新文章" class="headerlink" title="建立一篇新文章"></a>建立一篇新文章</h2><p>當然我們會寫自己的文章。寫文章前要先打開一個新的編輯頁面，像是開一個新的 Microsoft Word 一樣。有三種方式：</p>
-<ol>
-<li>使用指令碼新增</li>
-<li>複製 <strong>scaffolds 資料夾</strong>的 <code>post.md</code> 到 <strong>source/_posts 資料夾</strong>中</li>
-<li>在 <strong>source/_posts 資料夾</strong>中建立一個 <code>.md</code> 檔案</li>
-</ol>
-<h3 id="1-使用指令碼新增"><a href="#1-使用指令碼新增" class="headerlink" title="1.使用指令碼新增"></a>1.使用指令碼新增</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>指令說明：<br>new：建立一個新的貼文<br>layout：用來指定文章的佈局。可以不寫，預設為 post。可以透過修改 <code>_config.yml</code> 中的 default_layout 設定來指定預設佈局。<br>title：文章的標題。</p>
-</blockquote>
-<blockquote>
-<p>補充說明：<br>_config.yml：用來設定網站的各種配置，例如：網站標題 (title)、網站描述 (description)、網站的網址 (url)等，其他可以參考官方的<a href="https://hexo.io/zh-tw/docs/configuration" target="_blank" rel="noopener">配置</a>。<br><img src="https://i.imgur.com/BU1YpHC.jpg" alt></p>
-</blockquote>
-<h3 id="2-複製-scaffolds-資料夾的-post-md-到-source-posts-資料夾中"><a href="#2-複製-scaffolds-資料夾的-post-md-到-source-posts-資料夾中" class="headerlink" title="2.複製 scaffolds 資料夾的 post.md 到 source/_posts 資料夾中"></a>2.複製 scaffolds 資料夾的 <code>post.md</code> 到 source/_posts 資料夾中</h3><p><strong>scaffolds 資料夾</strong>裡面裝的是文章的模板，官方是寫佈局 (layout)，Hexo 有三種預設佈局：post(文章)、page(首頁) 和 draft(草稿)。</p>
-<p>而 <strong>source 資料夾</strong>的 <code>_posts</code> 裡面裝的是我們要發佈的文章，之後會被產生成靜態檔案的一部分，其他可以參考官方的<a href="https://hexo.io/zh-tw/docs/writing" target="_blank" rel="noopener">寫作</a>。</p>
-<h3 id="3-在-source-posts-資料夾中建立一個-md-檔案"><a href="#3-在-source-posts-資料夾中建立一個-md-檔案" class="headerlink" title="3.在 source/_posts 資料夾中建立一個 .md 檔案"></a>3.在 <strong>source/_posts 資料夾</strong>中建立一個 <code>.md</code> 檔案</h3><p>建立新的檔案時，直接在檔案名稱後面加 <code>.md</code> 如下圖。<br><img src="https://i.imgur.com/8L9mkgG.jpg" alt></p>
-<h2 id="編譯：產生靜態檔案"><a href="#編譯：產生靜態檔案" class="headerlink" title="編譯：產生靜態檔案"></a>編譯：產生靜態檔案</h2><p>之前有提到使用 Hexo 必須先編譯 (將 Markdown 轉換成 HTML 文件)，才能丟到遠端伺服器 (GitHub) 上。</p>
-<p>如果選擇不編譯，只想在本地端(自己的電腦上)自己觀看，當然也是可以。但是大多數人會看到這邊，應該還是想不同的人都能隨時觀看你的網站對吧？</p>
-<p>輸入下面其中一行，就能產生產生靜態檔案了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></p>
-<p>此時會生成一個 <strong>public 資料夾</strong>。</p>
-<p>一樣使用 <code>hexo server</code> 開啟  <strong><a style="border-bottom: 0px;" onclick="return false;">http://localhost:4000/</a></strong>，就可以看到產生的新文章。</p>
-<p>下一站，前往 GitHub 囉～ &gt;&gt; <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">建立 GitHub 儲存庫</a></p>
-<h2 id="Hexo＋GitHub-網誌和部落格架設-系列文"><a href="#Hexo＋GitHub-網誌和部落格架設-系列文" class="headerlink" title="Hexo＋GitHub 網誌和部落格架設 系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2><p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a> ← 你在這～<br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
+<h2 id="變數"><a href="#變數" class="headerlink" title="變數"></a>變數</h2><p>Python 中的變數<span style="color: #ff0000;">不需要</span><strong>事先宣告</strong>以及<strong>提供資料型態</strong>。因此寫出變數時一定要賦予值，使用 <code>=</code> 將<span style="color: #ff0000;">右邊的值</span>賦予<span style="color: #ff0000;">左邊的變數</span>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python</span></span><br><span class="line">ID = <span class="string">"a12345"</span></span><br><span class="line">num = <span class="number">123</span></span><br><span class="line">grade = [<span class="string">"A+"</span>, <span class="string">"A"</span>, <span class="string">"A-"</span>, <span class="string">"B+"</span>]</span><br><span class="line">dic = &#123;<span class="string">"apple"</span>:<span class="number">50</span>, <span class="string">"banana"</span>:<span class="number">40</span>, <span class="string">"grape"</span>:<span class="number">90</span>&#125;</span><br><span class="line">print(ID)</span><br><span class="line">print(num)</span><br><span class="line">print(grade)</span><br><span class="line">print(dic)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/lQ1994S.jpg" alt><br>如果是 C# 需要先宣告並且確認資料型態：<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C#</span></span><br><span class="line"><span class="keyword">string</span> ID = <span class="string">"a12345"</span> <span class="comment">// string 為字串型態</span></span><br><span class="line"><span class="keyword">int</span> num = <span class="number">123</span> <span class="comment">// int 為整數型態</span></span><br></pre></td></tr></table></figure></p>
+<p>Python 中的變數也可以用以下的方式表示：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = b = c = <span class="number">100</span> <span class="comment"># 同時為多個變數賦值</span></span><br><span class="line">x, y, z = <span class="number">5</span>, <span class="number">10</span>, <span class="string">"Jenifer"</span> <span class="comment"># 為多個變數依序賦值</span></span><br><span class="line">print(a, b, c, x, y, z) <span class="comment"># 變數以逗號隔開，可以將想印出的變數放在同一行</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/1k5F0li.jpg" alt></p>
 
         </div>
     </div>
@@ -301,7 +317,7 @@ pagead/js/adsbygoogle.js"></script>
                 
                 本文作者 : Jenifer <br>
                 
-                原文連結 : <a href>https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2/</a><br>
+                原文連結 : <a href>https://jenifers001d.github.io/2019/11/29/Python/learning-Python-day2/</a><br>
                 版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
             </blockquote>
         </div>
@@ -324,26 +340,20 @@ pagead/js/adsbygoogle.js"></script>
                 <i class="iconfont icon-06tags"></i>標籤:
                 
                 <span class="span--tag">
-                    <a href="/tags/Hexo/">
-                        #Hexo
+                    <a href="/tags/Python/">
+                        #Python
                     </a>
                 </span>
                 
                 <span class="span--tag">
-                    <a href="/tags/網頁架設/">
-                        #網頁架設
+                    <a href="/tags/Elementary-Code/">
+                        #Elementary Code
                     </a>
                 </span>
                 
                 <span class="span--tag">
-                    <a href="/tags/GitHub/">
-                        #GitHub
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/靜態網頁/">
-                        #靜態網頁
+                    <a href="/tags/Elementary-Python/">
+                        #Elementary Python
                     </a>
                 </span>
                 
@@ -374,15 +384,9 @@ pagead/js/adsbygoogle.js"></script>
         <div class="nav-pre">
             <i class="iconfont icon-prev"></i>
             上一篇:
-            <a href="/2019/11/24/Git/Git-intro-1/" target="_self">Git 入門 (一)</a>
+            <a href="/2019/11/28/Python/learning-Python-day1/" target="_self">Python 自學第一天：環境設置 + 第一支程式</a>
         </div>
         
-        
-        <div class="nav-next">
-            下一篇:
-            <a href="/2019/11/24/Hexo/Hexo+GitHub-3/" target="_self">Hexo＋GitHub 網誌和部落格架設（三）</a>
-            <i class="iconfont icon-next"></i>
-        </div>
         
     </nav>
 
@@ -398,8 +402,8 @@ pagead/js/adsbygoogle.js"></script>
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
     if (true) {
         var disqus_config = function() {
-            this.page.url = "https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2/"; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2019/11/24/Hexo/Hexo+GitHub-2/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            this.page.url = "https://jenifers001d.github.io/2019/11/29/Python/learning-Python-day2/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/11/29/Python/learning-Python-day2/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
