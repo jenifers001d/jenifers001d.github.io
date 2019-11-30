@@ -7,7 +7,7 @@
     
     
 
-    <title>Python 自學第二天：資料型態和變數 | Jenifer.Code.World</title>
+    <title>Python 自學第三天：數字、字串的基本運算 | Jenifer.Code.World</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -24,7 +24,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;程式就是一堆資料的處理，每種不同的語言對資料型態的定義，都有細微的差別。&lt;br&gt;">
+    <meta name="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT">
     
 
     
@@ -198,12 +198,12 @@ pagead/js/adsbygoogle.js"></script>
 
 <div class="post">
     <h1 class="article-title">
-        <span>Python 自學第二天：資料型態和變數</span>
+        <span>Python 自學第三天：數字、字串的基本運算</span>
     </h1>
     <div class="article-top-meta">
         <span>
             發布 :
-            2019-11-29
+            2019-11-30
         </span>
         
         <span>
@@ -215,7 +215,7 @@ pagead/js/adsbygoogle.js"></script>
         
         
         <span>
-            瀏覽 : <span class="article-timer" data-identity="learning-Python-day2"></span>
+            瀏覽 : <span class="article-timer" data-identity="learning-Python-day3"></span>
         </span>
         
         
@@ -225,115 +225,33 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            
-<p>程式就是一堆資料的處理，每種不同的語言對資料型態的定義，都有細微的差別。<br></p>
-<h2 id="註解"><a href="#註解" class="headerlink" title="註解"></a>註解</h2><p>使用 <code>#</code> 開頭的該行文字，會被當作程式的註解，也就是直譯器會忽略，不屬於程式碼的部分。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 這是註解</span></span><br><span class="line"><span class="string">"沒有 # 開頭，不是註解，是字串"</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="資料型態"><a href="#資料型態" class="headerlink" title="資料型態"></a>資料型態</h2><h3 id="數字-Number"><a href="#數字-Number" class="headerlink" title="數字 Number"></a>數字 Number</h3><p>分為三種型態：整數、浮點數、複數。</p>
-<div class="alert alert-warning">Python 2 有另有長整數型態，也就是數字無限大的整數，結尾必須加大寫 L。但是在 Python 3 已經刪除。<br></div>
-
-<table>
-<thead>
-<tr>
-<th>Number 類別</th>
-<th>解說</th>
-<th>舉例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>整數</td>
-<td>正整數或負整數，没有大小限制，可以當長整數使用。</td>
-<td>0xA0F(十六進位制)、-786</td>
-</tr>
-<tr>
-<td>浮點數</td>
-<td>有小數點的數字，可以使用科學方法表示。</td>
-<td>32.3+e18、70.2-E12、-21.9</td>
-</tr>
-<tr>
-<td>複數</td>
-<td>由實數和虛數部分組成，可以用 a + bj，或者 complex(a, b) 表示，實部和虛部都是浮點數。</td>
-<td>9.322e-36j、3+4.53e-7j</td>
-</tr>
-</tbody>
-</table>
-<h3 id="字串-String"><a href="#字串-String" class="headerlink" title="字串 String"></a>字串 String</h3><p>用雙引號 (“) 或單引號 (‘) 包圍住的任意字母、文字和符號。如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Hello"</span></span><br><span class="line"><span class="string">"想出現雙引號 \" 方法一"</span> <span class="comment">#使用反斜線 \ 跳脫字元</span></span><br><span class="line"><span class="string">'想出現雙引號 " 方法二'</span> <span class="comment">#使用單、雙引號交錯表示</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.imgur.com/Cqt4coV.jpg" alt></p>
-<h4 id="跳脫字元"><a href="#跳脫字元" class="headerlink" title="跳脫字元"></a>跳脫字元</h4><p><strong>跳脫字元</strong>表示<strong>跳脫原本該字元的意思、作用和功能</strong>。</p>
-<p>原本 <code>&quot;</code> 在程式中是用來當作<span style="color: #ff0000;">字串的開頭或結尾</span>。如果加上反斜線  <code>\&quot;</code> 後， <code>&quot;</code> 就會被當作單純的符號，出現在字串中。<span style="color: #ff0000;">注意：<code>\</code> 不會出現在字串中。</span></p>
-<h4 id="常用跳脫字元"><a href="#常用跳脫字元" class="headerlink" title="常用跳脫字元"></a>常用跳脫字元</h4><table>
-<thead>
-<tr>
-<th style="text-align:center">樣式</th>
-<th style="text-align:center">含義</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">\‘</td>
-<td style="text-align:center">單引號字元</td>
-</tr>
-<tr>
-<td style="text-align:center">\“</td>
-<td style="text-align:center">雙引號字元</td>
-</tr>
-<tr>
-<td style="text-align:center">\\</td>
-<td style="text-align:center">反斜線</td>
-</tr>
-<tr>
-<td style="text-align:center">\n</td>
-<td style="text-align:center">換行符號(Enter)</td>
-</tr>
-<tr>
-<td style="text-align:center">\t</td>
-<td style="text-align:center">跳格符號(Tab)</td>
-</tr>
-<tr>
-<td style="text-align:center">\r</td>
-<td style="text-align:center">游標移至行首、回車符號</td>
-</tr>
-<tr>
-<td style="text-align:center">\uxxxx</td>
-<td style="text-align:center">以 16 進位數指定 Unicode 輸出的字元，如：\u0024 表示 $</td>
-</tr>
-<tr>
-<td style="text-align:center">\xxx</td>
-<td style="text-align:center">以 8 進位數指定 Unicode 輸出的字元，如：\124 表示 T</td>
-</tr>
-</tbody>
-</table>
-<h3 id="布林值-Boolean"><a href="#布林值-Boolean" class="headerlink" title="布林值 Boolean"></a>布林值 Boolean</h3><p>真假值。True 和 False，記得開頭大寫。它們可以轉化為數值，True 表示 1，而 False 表示 0。</p>
-<blockquote>
-<p>Booleans are a subtype of integers.</p>
-</blockquote>
-<h3 id="列表-List"><a href="#列表-List" class="headerlink" title="列表 List"></a>列表 List</h3><p>有順序，可以新增、刪除和替換元素的列表。列表中的每個元素都有編號，又稱索引 (index)，第一個索引是 0，第二個索引是 1，以此類推。可以放不同資料型態。支持巢狀列表。以中括弧 <code>[]</code> 包圍：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"python"</span>, <span class="string">"java"</span>, <span class="string">"c++"</span>]</span><br><span class="line">[<span class="string">"Jenifer"</span>, <span class="number">999</span>] <span class="comment"># 不同資料型態</span></span><br><span class="line">[[<span class="string">"father"</span>, <span class="number">48</span>],[<span class="string">"mother"</span>, <span class="number">43</span>],[<span class="string">"son"</span>, <span class="number">15</span>]] <span class="comment"># 巢狀列表</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.imgur.com/nEX55iZ.jpg" alt></p>
-<h3 id="組合-Tuple"><a href="#組合-Tuple" class="headerlink" title="組合 Tuple"></a>組合 Tuple</h3><p>有順序，不可變動的組合。其餘特性和列表相同。以小括弧 <code>()</code> 包圍：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">"Google"</span>, <span class="string">"Amazon"</span>, <span class="string">"Apple"</span>)</span><br><span class="line">(<span class="number">150</span>, <span class="number">250</span>, <span class="string">"AAA"</span>) <span class="comment"># 不同資料型態</span></span><br><span class="line">((<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>), (<span class="string">"a"</span>, <span class="string">"p"</span>, <span class="string">"l"</span>)) <span class="comment"># 巢狀組合</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.imgur.com/uu4U7Co.jpg" alt></p>
-<h3 id="集合-Set"><a href="#集合-Set" class="headerlink" title="集合 Set"></a>集合 Set</h3><p>沒有順序，且元素不重複的一群資料的集合。可以使用大括號 <code>{}</code> 或 <code>set()</code> 函數創造集合。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在印出集合元素時</span></span><br><span class="line"><span class="comment"># 會自動刪去重複的元素</span></span><br><span class="line"><span class="comment"># 印出順序和我們寫的順序不一定一樣</span></span><br><span class="line">print(&#123;<span class="string">'apple'</span>, <span class="string">'orange'</span>, <span class="string">'apple'</span>, <span class="string">'pear'</span>, <span class="string">'orange'</span>, <span class="string">'banana'</span>&#125;) <span class="comment"># &#123;'banana', 'apple', 'pear', 'orange'&#125;</span></span><br><span class="line">print(set(&#123;<span class="string">"a"</span>, <span class="string">"r"</span>, <span class="string">"d"</span>&#125;)) <span class="comment"># &#123;'r', 'd', 'a'&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.imgur.com/hQr1fXr.jpg" alt></p>
-<h3 id="字典-Dictionary"><a href="#字典-Dictionary" class="headerlink" title="字典 Dictionary"></a>字典 Dictionary</h3><p>鍵值對 (key-value pair) 的資料型態。用冒號連接 key-value pair，並且用大括號 <code>{}</code> 包圍。</p>
+            <h2 id="數字"><a href="#數字" class="headerlink" title="數字"></a>數字</h2><p>使用加 <code>+</code>、減 <code>-</code>、乘 <code>*</code> 和除 <code>/</code> 做基本運算。</p>
+<p>除法還有分兩種：</p>
 <ul>
-<li>key：<ul>
-<li>必須是<strong>唯一的</strong>。</li>
-<li>必須是<strong>不可變動的</strong>，如字串，數字或 Tuple。List 可以變動，就不能當作 key。</li>
-</ul>
+<li><p>小數除法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">3</span> / <span class="number">6</span></span><br><span class="line">print(x) <span class="comment"># 0.5</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>value：<ul>
-<li>可以<strong>重複</strong>。</li>
-<li>可以是<strong>任何資料型態</strong>。</li>
-</ul>
+<li><p>整數除法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y = <span class="number">3</span> // <span class="number">6</span></span><br><span class="line">print(y) <span class="comment"># 0 (只取整數，丟掉小數部分)</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"father"</span>:<span class="number">48</span>, <span class="string">"mother"</span>:<span class="number">43</span>&#125;</span><br><span class="line">&#123;<span class="string">"name"</span>:<span class="string">"Jenifer"</span>, <span class="string">"age"</span>:<span class="number">10</span>, <span class="string">"studentID"</span>:<span class="string">"a12345"</span>&#125;</span><br></pre></td></tr></table></figure>
-<div class="alert alert-danger">Python 3 的六個標準資料型態中：<br>- 不可變動：Number (數字)、String (字串)、Tuple (組合)<br>- 可變動：List (列表)、Set (集合)、Dictionary (字典)<br></div>
-
-<h2 id="變數"><a href="#變數" class="headerlink" title="變數"></a>變數</h2><p>Python 中的變數<span style="color: #ff0000;">不需要</span><strong>事先宣告</strong>以及<strong>提供資料型態</strong>。因此寫出變數時一定要賦予值，使用 <code>=</code> 將<span style="color: #ff0000;">右邊的值</span>賦予<span style="color: #ff0000;">左邊的變數</span>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python</span></span><br><span class="line">ID = <span class="string">"a12345"</span></span><br><span class="line">num = <span class="number">123</span></span><br><span class="line">grade = [<span class="string">"A+"</span>, <span class="string">"A"</span>, <span class="string">"A-"</span>, <span class="string">"B+"</span>]</span><br><span class="line">dic = &#123;<span class="string">"apple"</span>:<span class="number">50</span>, <span class="string">"banana"</span>:<span class="number">40</span>, <span class="string">"grape"</span>:<span class="number">90</span>&#125;</span><br><span class="line">print(ID)</span><br><span class="line">print(num)</span><br><span class="line">print(grade)</span><br><span class="line">print(dic)</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/lQ1994S.jpg" alt><br>如果是 C# 需要先宣告並且確認資料型態：<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C#</span></span><br><span class="line"><span class="keyword">string</span> ID = <span class="string">"a12345"</span> <span class="comment">// string 為字串型態</span></span><br><span class="line"><span class="keyword">int</span> num = <span class="number">123</span> <span class="comment">// int 為整數型態</span></span><br></pre></td></tr></table></figure></p>
-<p>Python 中的變數也可以用以下的方式表示：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = b = c = <span class="number">100</span> <span class="comment"># 同時為多個變數賦值</span></span><br><span class="line">x, y, z = <span class="number">5</span>, <span class="number">10</span>, <span class="string">"Jenifer"</span> <span class="comment"># 為多個變數依序賦值</span></span><br><span class="line">print(a, b, c, x, y, z) <span class="comment"># 變數以逗號隔開，可以將想印出的變數放在同一行</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.imgur.com/1k5F0li.jpg" alt></p>
+<p>:::danger<br> <code>//</code> 不一定得到整數結果，主要是和分子、分母的型別有關：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">y = <span class="number">13</span> // <span class="number">6</span></span><br><span class="line">print(y) <span class="comment"># 2 (只取整數，丟掉小數部分，然後給予整數的型別)</span></span><br><span class="line">y = <span class="number">13.0</span> // <span class="number">6</span></span><br><span class="line">print(y) <span class="comment"># 2.0 (只取整數，丟掉小數部分，然後給予浮點數的型別)</span></span><br><span class="line">y = <span class="number">13</span> // <span class="number">6.0</span></span><br><span class="line">print(y) <span class="comment"># 2.0 (只取整數，丟掉小數部分，然後給予浮點數的型別)</span></span><br></pre></td></tr></table></figure></p>
+<p>:::</p>
+<h3 id="除法的餘數"><a href="#除法的餘數" class="headerlink" title="除法的餘數"></a>除法的餘數</h3><p>使用 <code>%</code>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = <span class="number">8</span> % <span class="number">6</span></span><br><span class="line">print(w) <span class="comment"># 2</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="指數-開根號、平方、三次方等"><a href="#指數-開根號、平方、三次方等" class="headerlink" title="指數 (開根號、平方、三次方等)"></a>指數 (開根號、平方、三次方等)</h3><p>使用 <code>**</code>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">z = <span class="number">2</span> ** <span class="number">0.5</span></span><br><span class="line">a = <span class="number">5</span> ** <span class="number">3</span></span><br><span class="line">print(z) <span class="comment"># 1.4142135623730951 (2^0.5)</span></span><br><span class="line">print(a) <span class="comment"># 125 (5^3 = 5*5*5)</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/QJEa2Te.jpg" alt></p>
+<h2 id="字串"><a href="#字串" class="headerlink" title="字串"></a>字串</h2><h3 id="截取字串"><a href="#截取字串" class="headerlink" title="截取字串"></a>截取字串</h3><p>可以把一個字串想成是一組 Tuple，每個字母都有對應的位置 (index)，從 0 開始編號，如下圖。<br><img src="https://i.imgur.com/cjaOSC2.jpg" alt></p>
+<p>用<span style="color: #ff0000;">中括弧 <code>[]</code></span> 取得該位置的字元。用 <code>[n:m]</code> 截取從 <code>n</code> 到 <code>m-1</code> 的一段字串。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">z = <span class="string">"Hello Jenifer"</span></span><br><span class="line">print(z[<span class="number">0</span>]) <span class="comment"># H</span></span><br><span class="line">print(z[<span class="number">-6</span>]) <span class="comment"># e</span></span><br><span class="line">print(z[<span class="number">0</span>:<span class="number">-1</span>]) <span class="comment"># Hello Jenife 取得 0~(-1)(不包含最後一個字元) 位置的字串</span></span><br><span class="line">print(z[<span class="number">1</span>:<span class="number">5</span>]) <span class="comment"># ello 取得 1~5(不包含 5) 位置的字串</span></span><br><span class="line">print(z[<span class="number">4</span>:]) <span class="comment"># o Jenifer 取得 4~最尾 位置的字串</span></span><br><span class="line">print(z[:<span class="number">4</span>]) <span class="comment"># Hell 取得 第一個~4(不包含 4) 位置的字串</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/8wzSmqZ.jpg" alt></p>
+<h3 id="字串串接"><a href="#字串串接" class="headerlink" title="字串串接"></a>字串串接</h3><p>使用 <code>+</code>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = <span class="string">"Hello"</span> + <span class="string">"Jenifer"</span></span><br><span class="line">print(w) <span class="comment"># HelloJenifer</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="重複輸出"><a href="#重複輸出" class="headerlink" title="重複輸出"></a>重複輸出</h3><p>使用 <code>*</code>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = <span class="string">"Hello"</span> * <span class="number">2</span> + <span class="string">"Jenifer"</span></span><br><span class="line">print(w) <span class="comment"># HelloHelloJenifer</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="多行輸出"><a href="#多行輸出" class="headerlink" title="多行輸出"></a>多行輸出</h3><p>使用 <code>\n</code>、<code>&#39;&#39;&#39;可換行&#39;&#39;&#39;</code> (三個單引號包圍) 或 <code>&quot;&quot;&quot;可換行&quot;&quot;&quot;</code> (三個雙引號包圍)。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">"Hello\nJenifer"</span></span><br><span class="line">y = <span class="string">"""Hello</span></span><br><span class="line"><span class="string">   中間的字可以有縮排、空格</span></span><br><span class="line"><span class="string">        空格不會被自動移除</span></span><br><span class="line"><span class="string">Jenifer"""</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/pOg6pcA.jpg" alt></p>
+<h3 id="包含、不包含"><a href="#包含、不包含" class="headerlink" title="包含、不包含"></a>包含、不包含</h3><p>使用 <code>in</code> 和 <code>not in</code>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">"Hello Jenifer"</span></span><br><span class="line">print(<span class="string">"H"</span> <span class="keyword">in</span> x) <span class="comment"># True (大寫 H 在變數 x 中嗎？)</span></span><br><span class="line">print(<span class="string">"E"</span> <span class="keyword">in</span> x) <span class="comment"># False (大寫 E 在變數 x 中嗎？)</span></span><br><span class="line">print(<span class="string">"E"</span> <span class="keyword">not</span> <span class="keyword">in</span> x) <span class="comment"># True (大寫 E 不在變數 x 中嗎？)</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/Tx79dHy.jpg" alt></p>
+<h3 id="輸出原始字串，移除特殊意義"><a href="#輸出原始字串，移除特殊意義" class="headerlink" title="輸出原始字串，移除特殊意義"></a>輸出原始字串，移除特殊意義</h3><p>使用 <code>r</code> 或 <code>R</code> 放在字串第一個引號前面。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">r"\n"</span>) <span class="comment"># \n (原本是換行符號)</span></span><br><span class="line">print(<span class="string">r"\""</span>) <span class="comment"># \" (原本是只有輸出 " 引號)</span></span><br><span class="line">print(R<span class="string">"\u0024"</span>) <span class="comment"># \u0024 (原本是輸出 $ 符號)</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/ipd78bH.jpg" alt></p>
+<h3 id="字串格式化"><a href="#字串格式化" class="headerlink" title="字串格式化"></a>字串格式化</h3><p>使用 <code>%</code> 開頭表示即將插入的變數。</p>
 
         </div>
     </div>
@@ -345,7 +263,7 @@ pagead/js/adsbygoogle.js"></script>
                 
                 本文作者 : Jenifer <br>
                 
-                原文連結 : <a href>https://jenifers001d.github.io/2019/11/29/Python/learning-Python-day2/</a><br>
+                原文連結 : <a href>https://jenifers001d.github.io/2019/11/30/Python/learning-Python-day3/</a><br>
                 版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
             </blockquote>
         </div>
@@ -412,15 +330,9 @@ pagead/js/adsbygoogle.js"></script>
         <div class="nav-pre">
             <i class="iconfont icon-prev"></i>
             上一篇:
-            <a href="/2019/11/28/Python/learning-Python-day1/" target="_self">Python 自學第一天：環境設置 + 第一支程式</a>
+            <a href="/2019/11/29/Python/learning-Python-day2/" target="_self">Python 自學第二天：資料型態和變數</a>
         </div>
         
-        
-        <div class="nav-next">
-            下一篇:
-            <a href="/2019/11/30/Python/learning-Python-day3/" target="_self">Python 自學第三天：數字、字串的基本運算</a>
-            <i class="iconfont icon-next"></i>
-        </div>
         
     </nav>
 
@@ -436,8 +348,8 @@ pagead/js/adsbygoogle.js"></script>
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
     if (true) {
         var disqus_config = function() {
-            this.page.url = "https://jenifers001d.github.io/2019/11/29/Python/learning-Python-day2/"; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2019/11/29/Python/learning-Python-day2/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            this.page.url = "https://jenifers001d.github.io/2019/11/30/Python/learning-Python-day3/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/11/30/Python/learning-Python-day3/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
