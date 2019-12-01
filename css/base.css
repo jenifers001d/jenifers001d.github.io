@@ -1442,8 +1442,13 @@ header .iconfont.icon-menu {
 #sidebar ol li {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    /* 增加這行*/
+    /*單行文字溢出元素，以上三行一起使用*/
     text-align: justify;
     line-height: 2;
+    color: #ccc;
+    /* 增加這行*/
 }
 
 #sidebar ol a {
@@ -1452,6 +1457,8 @@ header .iconfont.icon-menu {
     border-bottom: solid 1px #777;
 }
 
+#sidebar ol li:hover,
+/* 增加這行*/
 #sidebar ol a:hover {
     color: #87ffb2;
     border-bottom-color: #87ffb2;
