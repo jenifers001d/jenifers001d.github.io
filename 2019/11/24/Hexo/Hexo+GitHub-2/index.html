@@ -24,7 +24,8 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/1RNsYe7.jpg&#34; alt&gt;&lt;br&gt;">
+    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/1RNsYe7.jpg&#34; alt&gt;&lt;/p&gt;
+&lt;h2 id=&#34;block-安裝-hexo&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#block-安裝-hexo&#34;&gt;&lt;/a&gt;">
     
 
     
@@ -226,70 +227,118 @@ pagead/js/adsbygoogle.js"></script>
     <div class="article-content">
         <div class="markdown-body">
             
-<p><img src="https://i.imgur.com/1RNsYe7.jpg" alt><br></p>
-<h2 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h2><p>如果電腦已經安裝過 Node.js 和 Git，就只要在終端機中輸入下面這一行，就能完成安裝啦！(灑花～)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/1RNsYe7.jpg" alt></p>
+<h2 id="block-安裝-hexo"><a class="header-anchor" href="#block-安裝-hexo"></a><br>
+安裝 Hexo</h2>
+<p>如果電腦已經安裝過 Node.js 和 Git，就只要在終端機中輸入下面這一行，就能完成安裝啦！(灑花～)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>指令說明：<br>npm install -g &lt;套件名稱&gt;：安裝 Global Package。也就是使用 <strong>npm</strong> 在<strong>全域層級</strong>去<strong>安裝套件</strong>。<br>npm：Node Package Manager，也就是 node.js 中負責相關套件的管理員。<br>-g：全域 (若移除則表示針對目前資料夾，也就是 Local 進行操作)。<br>hexo-cli：是我們要安裝的套件名稱。(hexo-cli 表示安裝了 hexo 和 hexo的命令。cli 表示可以透過命令行界面 (command-line interface) 來對 hexo 下指令。)</p>
+<p>指令說明：<br>
+npm install -g &lt;套件名稱&gt;：安裝 Global Package。也就是使用 <strong>npm</strong> 在<strong>全域層級</strong>去<strong>安裝套件</strong>。<br>
+npm：Node Package Manager，也就是 node.js 中負責相關套件的管理員。<br>
+-g：全域 (若移除則表示針對目前資料夾，也就是 Local 進行操作)。<br>
+hexo-cli：是我們要安裝的套件名稱。(hexo-cli 表示安裝了 hexo 和 hexo的命令。cli 表示可以透過命令行界面 (command-line interface) 來對 hexo 下指令。)</p>
 </blockquote>
-<p>接著可以使用這一行來檢查，是否有正確安裝到 Hexo 和其版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure></p>
-<p>安裝完畢後，還有很長一段路要走 Q皿Q </p>
-<h2 id="準備「使用-Hexo-建立網誌的專屬資料夾」"><a href="#準備「使用-Hexo-建立網誌的專屬資料夾」" class="headerlink" title="準備「使用 Hexo 建立網誌的專屬資料夾」"></a>準備「使用 Hexo 建立網誌的專屬資料夾」</h2><p>需要為你的網誌或部落格建立一個特別的資料夾，為什麼說特別呢？因為只有這個資料夾裡面的文章，才能用Hexo處理並部署到網路中、網站上。</p>
+<p>接著可以使用這一行來檢查，是否有正確安裝到 Hexo 和其版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
+<p>安裝完畢後，還有很長一段路要走 Q皿Q</p>
+<h2 id="準備-使用-hexo-建立網誌的專屬資料夾"><a class="header-anchor" href="#準備-使用-hexo-建立網誌的專屬資料夾"></a>準備「使用 Hexo 建立網誌的專屬資料夾」</h2>
+<p>需要為你的網誌或部落格建立一個特別的資料夾，為什麼說特別呢？因為只有這個資料夾裡面的文章，才能用Hexo處理並部署到網路中、網站上。</p>
 <p>所以要怎麼「準備」這個資料夾呢？</p>
-<h3 id="1-初始化-init-資料夾"><a href="#1-初始化-init-資料夾" class="headerlink" title="1. 初始化 (init) 資料夾"></a>1. 初始化 (init) 資料夾</h3><p>在終端機中輸入 <code>hexo</code> 我們可以看到各種指令碼，我們要選擇的是 <code>init</code><br><img src="https://i.imgur.com/sjDasEP.jpg" alt></p>
-<p>記得到<strong>目標資料夾裡面</strong>，輸入下面其中一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">$ hexo init &lt;資料夾名稱&gt;</span><br></pre></td></tr></table></figure></p>
-<div class="alert alert-warning">如果<strong>沒有輸入</strong>資料夾名稱，如第一行，表示直接對<strong>所在資料夾</strong>進行初始化動作。<br>如果有輸入<strong>資料夾名稱</strong>，如第二行，表示直接在所在資料夾，<strong>建立一個新的資料夾</strong>，並進行初始化動作。<br></div>
-
-<p>通常 <strong>Windows 和 Mac 系統</strong>的終端機一打開就是<strong>使用者</strong>底下的<strong>名稱</strong>的位置(不知道怎麼形容，哈哈哈)，如下圖。<br>記得使用下面這一行，一層一層移動到你的目標資料夾後，輸入上面第一行或第二行指令碼。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> 資料夾1/資料夾2/.../資料夾n/目標資料夾</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-初始化-init-資料夾"><a class="header-anchor" href="#1-初始化-init-資料夾"></a>1. 初始化 (init) 資料夾</h3>
+<p>在終端機中輸入 <code>hexo</code> 我們可以看到各種指令碼，我們要選擇的是 <code>init</code><br>
+<img src="https://i.imgur.com/sjDasEP.jpg" alt></p>
+<p>記得到<strong>目標資料夾裡面</strong>，輸入下面其中一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">$ hexo init &lt;資料夾名稱&gt;</span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>如果<strong>沒有輸入</strong>資料夾名稱，如第一行，表示直接對<strong>所在資料夾</strong>進行初始化動作。<br>
+如果有輸入<strong>資料夾名稱</strong>，如第二行，表示直接在所在資料夾，<strong>建立一個新的資料夾</strong>，並進行初始化動作。</p>
+</div>
+<p>通常 <strong>Windows 和 Mac 系統</strong>的終端機一打開就是<strong>使用者</strong>底下的<strong>名稱</strong>的位置(不知道怎麼形容，哈哈哈)，如下圖。<br>
+記得使用下面這一行，一層一層移動到你的目標資料夾後，輸入上面第一行或第二行指令碼。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> 資料夾1/資料夾2/.../資料夾n/目標資料夾</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>指令說明：<br>cd：移動到”xx資料夾”</p>
+<p>指令說明：<br>
+cd：移動到&quot;xx資料夾&quot;</p>
 </blockquote>
 <p><img src="https://i.imgur.com/SnQGeTZ.png" alt></p>
 <p><img src="https://i.imgur.com/p0q1h8h.jpg" alt></p>
 <p>例如我是在桌面裡建一個 <strong>JeniferCodeWorld</strong> 資料夾，在裡面進行init。</p>
-<p>當你的資料夾有順利初始化完畢，就會出現如下這些東西(稍後說明他們的用途)：<br><img src="https://i.imgur.com/7hJZ1tf.jpg" alt></p>
+<p>當你的資料夾有順利初始化完畢，就會出現如下這些東西(稍後說明他們的用途)：<br>
+<img src="https://i.imgur.com/7hJZ1tf.jpg" alt></p>
 <p>這樣就結束了！！！(灑花～)</p>
 <p>那第二步驟是幹嘛的？</p>
-<p>如果安裝的過程中有出現錯誤資訊 <code>Failed to install dependencies. Please run &#39;npm install&#39; manually!</code> 表示安裝相依套件失敗，必須<strong>手動輸入 npm install</strong> 去安裝相依套件；或是你不放心，擔心有套件沒有安裝好，就進行下面第二步。</p>
-<h3 id="2-在已初始化的資料夾安裝相依套件"><a href="#2-在已初始化的資料夾安裝相依套件" class="headerlink" title="2. 在已初始化的資料夾安裝相依套件"></a>2. 在已初始化的資料夾安裝相依套件</h3><p>在終端機中，使用 <code>cd</code> 移動到Hexo目標資料夾中，例如我就是要移動到 <strong>JeniferCodeWorld</strong> 資料夾中，輸入下面這一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
+<p>如果安裝的過程中有出現錯誤資訊 <code>Failed to install dependencies. Please run 'npm install' manually!</code> 表示安裝相依套件失敗，必須<strong>手動輸入 npm install</strong> 去安裝相依套件；或是你不放心，擔心有套件沒有安裝好，就進行下面第二步。</p>
+<h3 id="2-在已初始化的資料夾安裝相依套件"><a class="header-anchor" href="#2-在已初始化的資料夾安裝相依套件"></a>2. 在已初始化的資料夾安裝相依套件</h3>
+<p>在終端機中，使用 <code>cd</code> 移動到Hexo目標資料夾中，例如我就是要移動到 <strong>JeniferCodeWorld</strong> 資料夾中，輸入下面這一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>指令說明：<br>通常會在專案(資料夾)裡面輸入此行。<br>npm install：安裝 Local Package。表示使用 npm <strong>依據 package.json(一種套件檔案列表，不同的軟體需要的相依套件不同)</strong> 對<strong>本地層級</strong>安裝所有<strong>相依套件</strong>。<br>:::info<br>此後開始，所有的指令碼操作，都是在 Hexo 目標資料夾中輸入，例如我就是在 <strong>JeniferCodeWorld</strong> 資料夾中輸入。<br>:::</p>
+<p>指令說明：<br>
+通常會在專案(資料夾)裡面輸入此行。<br>
+npm install：安裝 Local Package。表示使用 npm <strong>依據 package.json(一種套件檔案列表，不同的軟體需要的相依套件不同)</strong> 對<strong>本地層級</strong>安裝所有<strong>相依套件</strong>。</p>
 </blockquote>
-<h2 id="本地端預覽-RUN-起來！"><a href="#本地端預覽-RUN-起來！" class="headerlink" title="本地端預覽 RUN 起來！"></a>本地端預覽 RUN 起來！</h2><p>因為在安裝 Hexo 時，有內建一篇使用文章，就先來 Run Run 看預覽這篇文章吧！</p>
+<div class="info">
+<p>此後開始，所有的指令碼操作，都是在 Hexo 目標資料夾中輸入，例如我就是在 <strong>JeniferCodeWorld</strong> 資料夾中輸入。</p>
+</div>
+<h2 id="本地端預覽-run-起來"><a class="header-anchor" href="#本地端預覽-run-起來"></a>本地端預覽 RUN 起來！</h2>
+<p>因為在安裝 Hexo 時，有內建一篇使用文章，就先來 Run Run 看預覽這篇文章吧！</p>
 <p>在終端機中輸入 <code>hexo</code> 這次可以看到稍微不同的各種指令碼，我們要選擇的是 <code>server</code></p>
 <p><img src="https://i.imgur.com/zAcuE9F.jpg" alt></p>
-<p>輸入下面其中一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
+<p>輸入下面其中一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>指令說明：<br>server：開啟伺服器。<br>s：server的縮寫。</p>
+<p>指令說明：<br>
+server：開啟伺服器。<br>
+s：server的縮寫。</p>
 </blockquote>
-<p>通常預設是 <a style="border-bottom: 0px;" onclick="return false;"><strong>http://localhost:4000/</strong></a>。如果萬一 4000 連接埠(port) 被佔用了，可以輸入下列指令來更換 port。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -p 5000</span><br></pre></td></tr></table></figure></p>
+<p>通常預設是 <a style="border-bottom: 0px;" onclick="return false;"><strong>http://localhost:4000/</strong></a>。如果萬一 4000 連接埠(port) 被佔用了，可以輸入下列指令來更換 port。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -p 5000</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>指令說明：<br>-p：指定其他連接埠。</p>
+<p>指令說明：<br>
+-p：指定其他連接埠。</p>
 </blockquote>
-<p>伺服器成功開啟後，在瀏覽器中輸入網址，就可以看到如下這樣的網頁啦！同時在 Hexo 目標資料夾中產生一個快取檔案 (db.json)。<br><img src="https://i.imgur.com/Eszx5DW.jpg" alt></p>
+<p>伺服器成功開啟後，在瀏覽器中輸入網址，就可以看到如下這樣的網頁啦！同時在 Hexo 目標資料夾中產生一個快取檔案 (db.json)。<br>
+<img src="https://i.imgur.com/Eszx5DW.jpg" alt></p>
 <p>要關掉伺服器，請在終端機介面，按 Ctrl+C。</p>
-<h2 id="建立一篇新文章"><a href="#建立一篇新文章" class="headerlink" title="建立一篇新文章"></a>建立一篇新文章</h2><p>當然我們會寫自己的文章。寫文章前要先打開一個新的編輯頁面，像是開一個新的 Microsoft Word 一樣。有三種方式：</p>
+<h2 id="建立一篇新文章"><a class="header-anchor" href="#建立一篇新文章"></a>建立一篇新文章</h2>
+<p>當然我們會寫自己的文章。寫文章前要先打開一個新的編輯頁面，像是開一個新的 Microsoft Word 一樣。有三種方式：</p>
 <ol>
 <li>使用指令碼新增</li>
 <li>複製 <strong>scaffolds 資料夾</strong>的 <code>post.md</code> 到 <strong>source/_posts 資料夾</strong>中</li>
 <li>在 <strong>source/_posts 資料夾</strong>中建立一個 <code>.md</code> 檔案</li>
 </ol>
-<h3 id="1-使用指令碼新增"><a href="#1-使用指令碼新增" class="headerlink" title="1.使用指令碼新增"></a>1.使用指令碼新增</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-使用指令碼新增"><a class="header-anchor" href="#1-使用指令碼新增"></a>1.使用指令碼新增</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>指令說明：<br>new：建立一個新的貼文<br>layout：用來指定文章的佈局。可以不寫，預設為 post。可以透過修改 <code>_config.yml</code> 中的 default_layout 設定來指定預設佈局。<br>title：文章的標題。</p>
+<p>指令說明：<br>
+new：建立一個新的貼文<br>
+layout：用來指定文章的佈局。可以不寫，預設為 post。可以透過修改 <code>_config.yml</code> 中的 default_layout 設定來指定預設佈局。<br>
+title：文章的標題。</p>
 </blockquote>
 <blockquote>
-<p>補充說明：<br>_config.yml：用來設定網站的各種配置，例如：網站標題 (title)、網站描述 (description)、網站的網址 (url)等，其他可以參考官方的<a href="https://hexo.io/zh-tw/docs/configuration" target="_blank" rel="noopener">配置</a>。<br><img src="https://i.imgur.com/BU1YpHC.jpg" alt></p>
+<p>補充說明：<br>
+_config.yml：用來設定網站的各種配置，例如：網站標題 (title)、網站描述 (description)、網站的網址 (url)等，其他可以參考官方的<a href="https://hexo.io/zh-tw/docs/configuration" target="_blank" rel="noopener">配置</a>。<br>
+<img src="https://i.imgur.com/BU1YpHC.jpg" alt></p>
 </blockquote>
-<h3 id="2-複製-scaffolds-資料夾的-post-md-到-source-posts-資料夾中"><a href="#2-複製-scaffolds-資料夾的-post-md-到-source-posts-資料夾中" class="headerlink" title="2.複製 scaffolds 資料夾的 post.md 到 source/_posts 資料夾中"></a>2.複製 scaffolds 資料夾的 <code>post.md</code> 到 source/_posts 資料夾中</h3><p><strong>scaffolds 資料夾</strong>裡面裝的是文章的模板，官方是寫佈局 (layout)，Hexo 有三種預設佈局：post(文章)、page(首頁) 和 draft(草稿)。</p>
+<h3 id="2-複製-scaffolds-資料夾的-post-md-到-source-posts-資料夾中"><a class="header-anchor" href="#2-複製-scaffolds-資料夾的-post-md-到-source-posts-資料夾中"></a>2.複製 scaffolds 資料夾的 <code>post.md</code> 到 source/_posts 資料夾中</h3>
+<p><strong>scaffolds 資料夾</strong>裡面裝的是文章的模板，官方是寫佈局 (layout)，Hexo 有三種預設佈局：post(文章)、page(首頁) 和 draft(草稿)。</p>
 <p>而 <strong>source 資料夾</strong>的 <code>_posts</code> 裡面裝的是我們要發佈的文章，之後會被產生成靜態檔案的一部分，其他可以參考官方的<a href="https://hexo.io/zh-tw/docs/writing" target="_blank" rel="noopener">寫作</a>。</p>
-<h3 id="3-在-source-posts-資料夾中建立一個-md-檔案"><a href="#3-在-source-posts-資料夾中建立一個-md-檔案" class="headerlink" title="3.在 source/_posts 資料夾中建立一個 .md 檔案"></a>3.在 <strong>source/_posts 資料夾</strong>中建立一個 <code>.md</code> 檔案</h3><p>建立新的檔案時，直接在檔案名稱後面加 <code>.md</code> 如下圖。<br><img src="https://i.imgur.com/8L9mkgG.jpg" alt></p>
-<h2 id="編譯：產生靜態檔案"><a href="#編譯：產生靜態檔案" class="headerlink" title="編譯：產生靜態檔案"></a>編譯：產生靜態檔案</h2><p>之前有提到使用 Hexo 必須先編譯 (將 Markdown 轉換成 HTML 文件)，才能丟到遠端伺服器 (GitHub) 上。</p>
+<h3 id="3-在-source-posts-資料夾中建立一個-md-檔案"><a class="header-anchor" href="#3-在-source-posts-資料夾中建立一個-md-檔案"></a>3.在 <strong>source/_posts 資料夾</strong>中建立一個 <code>.md</code> 檔案</h3>
+<p>建立新的檔案時，直接在檔案名稱後面加 <code>.md</code> 如下圖。<br>
+<img src="https://i.imgur.com/8L9mkgG.jpg" alt></p>
+<h2 id="編譯：產生靜態檔案"><a class="header-anchor" href="#編譯：產生靜態檔案"></a>編譯：產生靜態檔案</h2>
+<p>之前有提到使用 Hexo 必須先編譯 (將 Markdown 轉換成 HTML 文件)，才能丟到遠端伺服器 (GitHub) 上。</p>
 <p>如果選擇不編譯，只想在本地端(自己的電腦上)自己觀看，當然也是可以。但是大多數人會看到這邊，應該還是想不同的人都能隨時觀看你的網站對吧？</p>
-<p>輸入下面其中一行，就能產生產生靜態檔案了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></p>
+<p>輸入下面其中一行，就能產生產生靜態檔案了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>此時會生成一個 <strong>public 資料夾</strong>。</p>
 <p>一樣使用 <code>hexo server</code> 開啟  <strong><a style="border-bottom: 0px;" onclick="return false;">http://localhost:4000/</a></strong>，就可以看到產生的新文章。</p>
 <p>下一站，前往 GitHub 囉～ &gt;&gt; <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">建立 GitHub 儲存庫</a></p>
-<h2 id="Hexo＋GitHub-網誌和部落格架設-系列文"><a href="#Hexo＋GitHub-網誌和部落格架設-系列文" class="headerlink" title="Hexo＋GitHub 網誌和部落格架設 系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2><p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a> ← 你在這～<br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
+<h2 id="hexo-github-網誌和部落格架設-系列文"><a class="header-anchor" href="#hexo-github-網誌和部落格架設-系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2>
+<p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a><br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a> ← 你在這～<br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
 
         </div>
     </div>

@@ -24,7 +24,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;配置文件常以 &lt;a href=&#34;https://zh.wikipedia.org/wiki/YAML&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YAML&lt;/a&gt; 語法撰寫，YAML (Yet Another Markup Language) 是一個可讀性高，被設計用來表達資料序列化的格式。它跟 JSON 格式非常的相近。&lt;br&gt;">
+    <meta name="description" content="&lt;p&gt;配置文件常以 &lt;a href=&#34;https://zh.wikipedia.org/wiki/YAML&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YAML&lt;/a&gt; 語法撰寫，YAML (Yet Another Markup Language) 是一個可讀性高，被設計用來表達資料序列化的格式。它跟 JSON 格式非常的相近。&lt;/p&gt;">
     
 
     
@@ -226,7 +226,8 @@ pagead/js/adsbygoogle.js"></script>
     <div class="article-content">
         <div class="markdown-body">
             
-<p>配置文件常以 <a href="https://zh.wikipedia.org/wiki/YAML" target="_blank" rel="noopener">YAML</a> 語法撰寫，YAML (Yet Another Markup Language) 是一個可讀性高，被設計用來表達資料序列化的格式。它跟 JSON 格式非常的相近。<br></p>
+<p>配置文件常以 <a href="https://zh.wikipedia.org/wiki/YAML" target="_blank" rel="noopener">YAML</a> 語法撰寫，YAML (Yet Another Markup Language) 是一個可讀性高，被設計用來表達資料序列化的格式。它跟 JSON 格式非常的相近。</p>
+
 <p>有兩大資料格式：</p>
 <ul>
 <li>key: value 對 (map)。<strong><span style="color: #ff0000">注意：冒號為半形+空白字元+value。</span></strong></li>
@@ -238,15 +239,21 @@ pagead/js/adsbygoogle.js"></script>
 <li>使用縮進表示層級，同層級要對齊。</li>
 <li>不可以用 tab，只能用空白鍵。</li>
 </ul>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="關於網站"><a href="#關於網站" class="headerlink" title="關於網站"></a>關於網站</h3><p>打開 <code>_config.yml</code> 檔案，可以看到使用 Hexo 架設網站的基本配置，如下：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">網站標題</span> <span class="string">//通常是會出現在「網頁頁籤」上的名稱</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">網站副標題</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">網站描述</span> <span class="string">//關於網站的描述</span> </span><br><span class="line"><span class="attr">keywords:</span> <span class="string">網站的關鍵詞</span> <span class="string">//以逗號分隔「搜尋關鍵字」，有</span></span><br><span class="line"><span class="string">利於</span> <span class="string">SEO</span> </span><br><span class="line"><span class="attr">author:</span> <span class="string">作者名字</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">網站使用的語言</span>  <span class="string">//zh-TW(繁中)</span> <span class="string">或</span> <span class="string">en(英文)</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">網站時區，Hexo</span> <span class="string">預設使用您電腦的時區</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.imgur.com/7tZheLJ.jpg" alt><br><img src="https://i.imgur.com/hm93pYY.jpg" alt></p>
-<h3 id="關於網址"><a href="#關於網址" class="headerlink" title="關於網址"></a>關於網址</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">網站的網址</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">網站的根目錄</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">文章連結的格式</span> <span class="string">//預設是</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
-<p>如果你 <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3#建立-GitHub-儲存庫">GitHub 儲存庫建立</a>的位置是<strong>用戶名</strong>的話，<code>url: https://username.github.io/</code>，如下：</p>
+<h2 id="配置"><a class="header-anchor" href="#配置"></a>配置</h2>
+<h3 id="關於網站"><a class="header-anchor" href="#關於網站"></a>關於網站</h3>
+<p>打開 <code>_config.yml</code> 檔案，可以看到使用 Hexo 架設網站的基本配置，如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">網站標題</span> <span class="string">//通常是會出現在「網頁頁籤」上的名稱</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">網站副標題</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">網站描述</span> <span class="string">//關於網站的描述</span> </span><br><span class="line"><span class="attr">keywords:</span> <span class="string">網站的關鍵詞</span> <span class="string">//以逗號分隔「搜尋關鍵字」，有</span></span><br><span class="line"><span class="string">利於</span> <span class="string">SEO</span> </span><br><span class="line"><span class="attr">author:</span> <span class="string">作者名字</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">網站使用的語言</span>  <span class="string">//zh-TW(繁中)</span> <span class="string">或</span> <span class="string">en(英文)</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">網站時區，Hexo</span> <span class="string">預設使用您電腦的時區</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/7tZheLJ.jpg" alt><br>
+<img src="https://i.imgur.com/hm93pYY.jpg" alt></p>
+<h3 id="關於網址"><a class="header-anchor" href="#關於網址"></a>關於網址</h3>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">網站的網址</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">網站的根目錄</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">文章連結的格式</span> <span class="string">//預設是</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
+<p>如果你 <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3#%E5%BB%BA%E7%AB%8B-GitHub-%E5%84%B2%E5%AD%98%E5%BA%AB">GitHub 儲存庫建立</a>的位置是<strong>用戶名</strong>的話，<code>url: https://username.github.io/</code>，如下：</p>
 <p><img src="https://i.imgur.com/wxvrZQf.jpg" alt></p>
 <p>如果你 GitHub 儲存庫建立的位置是<strong>專案名</strong>的話，<code>url: https://username.github.io/{專案名稱}</code>，根目錄位置也要修改成 <code>root: /{專案名稱}/</code>，如下：</p>
 <p><img src="https://i.imgur.com/vSi2bgm.jpg" alt></p>
 <p>文章的網址也可以依照你的設定，修改成你想要的形式。例如：我想要在<strong>文章發布日期</strong>和<strong>文章檔案名稱</strong>中間加入我的文章分類，就可以增加 <span style="color: #ff0000"><code>:category</code></span>，改成 <code>permalink: :year/:month/:day/:category/:title/</code>。</p>
-<h3 id="關於部署"><a href="#關於部署" class="headerlink" title="關於部署"></a>關於部署</h3><p>請前往 <strong>Hexo＋GitHub 網誌和部落格架設（三）</strong> 的 <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3#%E8%A8%AD%E5%AE%9A%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AE">設定部署配置</a>。</p>
+<h3 id="關於部署"><a class="header-anchor" href="#關於部署"></a>關於部署</h3>
+<p>請前往 <strong>Hexo＋GitHub 網誌和部落格架設（三）</strong> 的 <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3#%E8%A8%AD%E5%AE%9A%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AE">設定部署配置</a>。</p>
 
         </div>
     </div>

@@ -24,7 +24,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;關於如何修改以 BMW 主題為主的網站，頁面中的一些細節。&lt;br&gt;">
+    <meta name="description" content="&lt;p&gt;關於如何修改以 BMW 主題為主的網站，頁面中的一些細節。&lt;/p&gt;">
     
 
     
@@ -226,32 +226,46 @@ pagead/js/adsbygoogle.js"></script>
     <div class="article-content">
         <div class="markdown-body">
             
-<p>關於如何修改以 BMW 主題為主的網站，頁面中的一些細節。<br></p>
-<div class="alert alert-danger">注意：修改 <code>ejs</code> 檔案的時候因為編輯器<strong>儲存自動排版 (Beautify)</strong> 的功能，會導致 <code>ejs</code> 語法錯誤。記得使用<strong>純文字編輯器</strong>修正錯誤。<br></div>
+<p>關於如何修改以 BMW 主題為主的網站，頁面中的一些細節。</p>
 
+<div class="danger">
+<p>注意：修改 <code>ejs</code> 檔案的時候因為編輯器<strong>儲存自動排版 (Beautify)</strong> 的功能，會導致 <code>ejs</code> 語法錯誤。記得使用<strong>純文字編輯器</strong>修正錯誤。</p>
+</div>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 正確語法 --&gt;</span></span><br><span class="line">new Date( <span class="tag">&lt;<span class="name">%-</span> <span class="attr">footerStartTime.year</span> %&gt;</span> )</span><br><span class="line"><span class="comment">&lt;!-- 會變成錯誤語法，如下： --&gt;</span></span><br><span class="line">new Date( <span class="tag">&lt; % <span class="attr">-</span> <span class="attr">footerStartTime.year</span> % &gt;</span> )</span><br></pre></td></tr></table></figure>
-<h2 id="keywords-SEO-關鍵字"><a href="#keywords-SEO-關鍵字" class="headerlink" title="keywords (SEO 關鍵字)"></a>keywords (SEO 關鍵字)</h2><p>BMW 主題的 <code>_config.yml</code> 檔案中有一個 <code>keywords: Hexo, theme-bmw</code> key-value 對。在 BMW 主題的 <code>layout/_partial/header.ejs</code> 檔案中，會優先選擇該 key-value 對，來做為網站首頁的關鍵字搜尋，而不是選擇我們之前提過的 <a href="https://hackmd.io/lfdgObIoQj-NJAVRPM6J7Q#%E9%97%9C%E6%96%BC%E7%B6%B2%E7%AB%99" target="_blank" rel="noopener">Hexo 基本配置</a>中的 <code>keywords</code>。</p>
+<h2 id="keywords-seo-關鍵字"><a class="header-anchor" href="#keywords-seo-關鍵字"></a>keywords (SEO 關鍵字)</h2>
+<p>BMW 主題的 <code>_config.yml</code> 檔案中有一個 <code>keywords: Hexo, theme-bmw</code> key-value 對。在 BMW 主題的 <code>layout/_partial/header.ejs</code> 檔案中，會優先選擇該 key-value 對，來做為網站首頁的關鍵字搜尋，而不是選擇我們之前提過的 <a href="https://hackmd.io/lfdgObIoQj-NJAVRPM6J7Q#%E9%97%9C%E6%96%BC%E7%B6%B2%E7%AB%99" target="_blank" rel="noopener">Hexo 基本配置</a>中的 <code>keywords</code>。</p>
 <p>可以直接修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>keywords</code> 的值。</p>
-<p>或是修改 BMW 主題的 <code>layout/_partial/header.ejs</code> 檔案，改成選擇 <span style="color: #ff0000;">Hexo 基本配置中的 <code>keywords</code></span>：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"&lt;%= config.keywords %&gt;"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>或是修改 BMW 主題的 <code>layout/_partial/header.ejs</code> 檔案，改成選擇 <span style="color: #ff0000;">Hexo 基本配置中的 <code>keywords</code></span>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"&lt;%= config.keywords %&gt;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/E7nXr56.jpg" alt></p>
-<div class="alert alert-warning">如果是以 <code>theme</code> 開頭的變數，表示 BMW 主題 <code>_config.yml</code> 檔案的變數。<br>如果是以 <code>config</code> 開頭的變數，表示 Hexo  <code>_config.yml</code> 檔案的變數。<br></div>
-
-<h2 id="custom-style-自定義-css-檔案位置"><a href="#custom-style-自定義-css-檔案位置" class="headerlink" title="custom_style (自定義 css 檔案位置)"></a>custom_style (自定義 css 檔案位置)</h2><p>修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>custom_style</code> 的值。因為我是將<strong>客製化的 css 檔案</strong>放在 BMW 主題的 <code>source/custom</code> 資料夾中，因此將配置修改成：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自定義 css 檔案位置</span></span><br><span class="line"><span class="attr">custom_style:</span> <span class="string">/custom/檔案名稱.css</span></span><br></pre></td></tr></table></figure></p>
+<div class="warning">
+<p>如果是以 <code>theme</code> 開頭的變數，表示 BMW 主題 <code>_config.yml</code> 檔案的變數。<br>
+如果是以 <code>config</code> 開頭的變數，表示 Hexo  <code>_config.yml</code> 檔案的變數。</p>
+</div>
+<h2 id="custom-style-自定義-css-檔案位置"><a class="header-anchor" href="#custom-style-自定義-css-檔案位置"></a>custom_style (自定義 css 檔案位置)</h2>
+<p>修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>custom_style</code> 的值。因為我是將<strong>客製化的 css 檔案</strong>放在 BMW 主題的 <code>source/custom</code> 資料夾中，因此將配置修改成：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自定義 css 檔案位置</span></span><br><span class="line"><span class="attr">custom_style:</span> <span class="string">/custom/檔案名稱.css</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/GPbK28W.jpg" alt></p>
-<div class="img-w250"><img src="https://i.imgur.com/ZbW6t1f.jpg" alt><br></div>
-
-<h2 id="custom-script-自定義-js-檔案位置"><a href="#custom-script-自定義-js-檔案位置" class="headerlink" title="custom_script (自定義 js 檔案位置)"></a>custom_script (自定義 js 檔案位置)</h2><p>修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>custom_script</code> 的值，<strong>客製化的 js 檔案</strong>一樣放在主題的 <code>source/custom</code> 資料夾中：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自定義 js 檔案位置 (以陣列形式支援多個 js 檔案)</span></span><br><span class="line"><span class="attr">custom_script:</span></span><br><span class="line"><span class="bullet">   -</span> </span><br><span class="line"><span class="attr">     src:</span> <span class="string">/custom/檔案名稱.js</span></span><br><span class="line"><span class="attr">     load:</span> <span class="string">&lt;script&gt;加載方式(async/defer/默認)</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/ZbW6t1f.jpg" alt width="200"></p>
+<h2 id="custom-script-自定義-js-檔案位置"><a class="header-anchor" href="#custom-script-自定義-js-檔案位置"></a>custom_script (自定義 js 檔案位置)</h2>
+<p>修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>custom_script</code> 的值，<strong>客製化的 js 檔案</strong>一樣放在主題的 <code>source/custom</code> 資料夾中：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自定義 js 檔案位置 (以陣列形式支援多個 js 檔案)</span></span><br><span class="line"><span class="attr">custom_script:</span></span><br><span class="line"><span class="bullet">   -</span> </span><br><span class="line"><span class="attr">     src:</span> <span class="string">/custom/檔案名稱.js</span></span><br><span class="line"><span class="attr">     load:</span> <span class="string">&lt;script&gt;加載方式(async/defer/默認)</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/bx2TIkh.jpg" alt></p>
-<h2 id="footer-頁尾設計"><a href="#footer-頁尾設計" class="headerlink" title="footer (頁尾設計)"></a>footer (頁尾設計)</h2><p>修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>footer</code> 的值：</p>
+<h2 id="footer-頁尾設計"><a class="header-anchor" href="#footer-頁尾設計"></a>footer (頁尾設計)</h2>
+<p>修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>footer</code> 的值：</p>
 <p><img src="https://i.imgur.com/KTAeXRO.jpg" alt></p>
-<p>BMW 主題的 <code>layout/_partial/footer.ejs</code> 檔案中，以 <code>theme.footer.start</code> 取得變數，如下：<br><img src="https://i.imgur.com/hKnheNZ.jpg" alt></p>
+<p>BMW 主題的 <code>layout/_partial/footer.ejs</code> 檔案中，以 <code>theme.footer.start</code> 取得變數，如下：<br>
+<img src="https://i.imgur.com/hKnheNZ.jpg" alt></p>
 <p>再修改 <code>footer.ejs</code> 檔案中文字設定：</p>
 <p><img src="https://i.imgur.com/hg91986.jpg" alt></p>
 <p><img src="https://i.imgur.com/KUalBJh.jpg" alt></p>
-<p>呈現結果如下：<br><img src="https://i.imgur.com/BNCCid6.jpg" alt></p>
-<h2 id="leancloud-儲存數據的後端式服務"><a href="#leancloud-儲存數據的後端式服務" class="headerlink" title="leancloud (儲存數據的後端式服務)"></a>leancloud (儲存數據的後端式服務)</h2><p>BMW 主題的作者使用 <a href="https://www.leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a> 儲存<strong>留言紀錄</strong>和<strong>瀏覽次數</strong>。</p>
+<p>呈現結果如下：<br>
+<img src="https://i.imgur.com/BNCCid6.jpg" alt></p>
+<h2 id="leancloud-儲存數據的後端式服務"><a class="header-anchor" href="#leancloud-儲存數據的後端式服務"></a>leancloud (儲存數據的後端式服務)</h2>
+<p>BMW 主題的作者使用 <a href="https://www.leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a> 儲存<strong>留言紀錄</strong>和<strong>瀏覽次數</strong>。</p>
 <p>作者使用 <a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a> 留言系統，我會改成 <a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a> 留言系統。文章閱讀量統計之後會再搬移或以其他方式實現。</p>
-<p>BMW 主題的 <code>_config.yml</code> 檔案中的 <code>leancloud</code> 的值修改成 <code>false</code>：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">leancloud:</span></span><br><span class="line"><span class="attr">  appid:</span> <span class="string">************</span> <span class="comment"># 填写您的appid</span></span><br><span class="line"><span class="attr">  appkey:</span> <span class="string">***********</span> <span class="comment"># 填写您的appkey</span></span><br><span class="line"><span class="attr">  comment:</span> <span class="literal">false</span> <span class="comment"># 是否开启评论系统</span></span><br><span class="line"><span class="attr">  timer:</span> <span class="literal">false</span> <span class="comment"># 是否开启文章统计</span></span><br></pre></td></tr></table></figure></p>
+<p>BMW 主題的 <code>_config.yml</code> 檔案中的 <code>leancloud</code> 的值修改成 <code>false</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">leancloud:</span></span><br><span class="line"><span class="attr">  appid:</span> <span class="string">************</span> <span class="comment"># 填写您的appid</span></span><br><span class="line"><span class="attr">  appkey:</span> <span class="string">***********</span> <span class="comment"># 填写您的appkey</span></span><br><span class="line"><span class="attr">  comment:</span> <span class="literal">false</span> <span class="comment"># 是否开启评论系统</span></span><br><span class="line"><span class="attr">  timer:</span> <span class="literal">false</span> <span class="comment"># 是否开启文章统计</span></span><br></pre></td></tr></table></figure>
 
         </div>
     </div>

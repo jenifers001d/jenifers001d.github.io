@@ -24,7 +24,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;Git 是分散式的程式碼&lt;strong&gt;版本控制軟體&lt;/strong&gt;，Git 本身關心檔案的整體性是否有改變，但多數的版本控制系統如 CVS 或 Subversion 系統則在乎檔案內容的差異。&lt;br&gt;">
+    <meta name="description" content="&lt;p&gt;Git 是分散式的程式碼&lt;strong&gt;版本控制軟體&lt;/strong&gt;，Git 本身關心檔案的整體性是否有改變，但多數的版本控制系統如 CVS 或 Subversion 系統則在乎檔案內容的差異。&lt;/p&gt;">
     
 
     
@@ -225,44 +225,67 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            <h2 id="致謝"><a href="#致謝" class="headerlink" title="致謝"></a>致謝</h2><p>最初一開始是想要把<strong>高見龍</strong>先生的「<a href="https://gitbook.tw/" target="_blank" rel="noopener">為你自己學 Git</a>」讀完幫自己寫個筆記，還沒認真讀完前，就剛好搭上六角學院創辦人<strong>洧杰老師</strong>的【<a href="https://w3c.hexschool.com/git/cfdbd310" target="_blank" rel="noopener">Git 特訓班</a>】課程，才能在我無預期的時間內，快速認真地完成此筆記 (原本以為要半年後XD)。</p>
-<h2 id="Git-能吃嗎？"><a href="#Git-能吃嗎？" class="headerlink" title="Git 能吃嗎？"></a>Git 能吃嗎？</h2>
-<p>Git 是分散式的程式碼<strong>版本控制軟體</strong>，Git 本身關心檔案的整體性是否有改變，但多數的版本控制系統如 CVS 或 Subversion 系統則在乎檔案內容的差異。<br></p>
+            <h2 id="致謝"><a class="header-anchor" href="#致謝"></a>致謝</h2>
+<p>最初一開始是想要把<strong>高見龍</strong>先生的「<a href="https://gitbook.tw/" target="_blank" rel="noopener">為你自己學 Git</a>」讀完幫自己寫個筆記，還沒認真讀完前，就剛好搭上六角學院創辦人<strong>洧杰老師</strong>的【<a href="https://w3c.hexschool.com/git/cfdbd310" target="_blank" rel="noopener">Git 特訓班</a>】課程，才能在我無預期的時間內，快速認真地完成此筆記 (原本以為要半年後XD)。</p>
+<h2 id="git-能吃嗎？"><a class="header-anchor" href="#git-能吃嗎？"></a>Git 能吃嗎？</h2>
+
+<p>Git 是分散式的程式碼<strong>版本控制軟體</strong>，Git 本身關心檔案的整體性是否有改變，但多數的版本控制系統如 CVS 或 Subversion 系統則在乎檔案內容的差異。</p>
+
 <p>Git 拒絕保持每個檔案的版本修訂關係。因此檢視一個檔案的歷史需要遍歷各個 history 快照；Git 隱式處理檔案更名，即同名檔案預設為其前身，如果沒有同名檔案則在前一個版本中搜尋具有類似內容的檔案。</p>
 <p>因此可以看出和前一份檔案的差異，如下圖。</p>
 <p><img src="https://i.imgur.com/m1EZFKz.jpg" alt></p>
-<h2 id="Git-軟體安裝和使用方法"><a href="#Git-軟體安裝和使用方法" class="headerlink" title="Git 軟體安裝和使用方法"></a>Git 軟體安裝和使用方法</h2><p><a href="https://git-scm.com" target="_blank" rel="noopener">Git 軟體安裝</a></p>
+<h2 id="git-軟體安裝和使用方法"><a class="header-anchor" href="#git-軟體安裝和使用方法"></a>Git 軟體安裝和使用方法</h2>
+<p><a href="https://git-scm.com" target="_blank" rel="noopener">Git 軟體安裝</a></p>
 <ul>
 <li>指令</li>
 <li>GUI介面：<a href="https://www.sourcetreeapp.com" target="_blank" rel="noopener">SourceTree(較多人使用)</a>、<a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a></li>
 </ul>
-<h2 id="終端機指令"><a href="#終端機指令" class="headerlink" title="終端機指令"></a>終端機指令</h2><p><img src="https://i.imgur.com/KxS6vhg.jpg" alt></p>
-<h2 id="設定個人資料"><a href="#設定個人資料" class="headerlink" title="設定個人資料"></a>設定個人資料</h2><ul>
+<h2 id="終端機指令"><a class="header-anchor" href="#終端機指令"></a>終端機指令</h2>
+<p><img src="https://i.imgur.com/KxS6vhg.jpg" alt></p>
+<h2 id="設定個人資料"><a class="header-anchor" href="#設定個人資料"></a>設定個人資料</h2>
+<ul>
 <li>輸入姓名：<code>git config --global user.name &quot;gon&quot;</code></li>
 <li>輸入個人的 email：<code>git config --global user.email &quot;gonsakon@gmail.com&quot;</code></li>
 <li>查詢 git 個人資料：<code>git config --list</code></li>
 </ul>
-<h2 id="基本指令架構"><a href="#基本指令架構" class="headerlink" title="基本指令架構"></a>基本指令架構</h2><p><img src="https://i.imgur.com/U700LyG.jpg" alt><br><img src="https://i.imgur.com/ey5mwYl.png" alt><br><img src="https://i.imgur.com/CCMADE2.png" alt></p>
-<h2 id="Git-常用指令"><a href="#Git-常用指令" class="headerlink" title="Git 常用指令"></a>Git 常用指令</h2><ul>
+<h2 id="基本指令架構"><a class="header-anchor" href="#基本指令架構"></a>基本指令架構</h2>
+<p><img src="https://i.imgur.com/U700LyG.jpg" alt><br>
+<img src="https://i.imgur.com/ey5mwYl.png" alt><br>
+<img src="https://i.imgur.com/CCMADE2.png" alt></p>
+<h2 id="git-常用指令"><a class="header-anchor" href="#git-常用指令"></a>Git 常用指令</h2>
+<ul>
 <li>初始化儲存庫： <code>git init</code></li>
 <li>查詢當前狀態：<code>git status</code></li>
 <li>將檔案加入到「索引/暫存區」：<code>git add .</code></li>
 <li>將「索引/暫存區」檔案放入本地端儲存庫：<code>git commit -m &quot;修改內容&quot;</code></li>
 <li>觀察 commit 歷史紀錄： <code>git log</code></li>
-<li>更新遠端儲存庫： <code>git push origin master</code><blockquote>
+<li>更新遠端儲存庫： <code>git push origin master</code></li>
+</ul>
+<blockquote>
 <p>git push <remote name> &lt;遠端分支名稱&gt;：上傳本地端分支修改內容到，標籤名為 origin 的遠端數據庫的 master 分支。</remote></p>
 </blockquote>
-</li>
-</ul>
-<div class="alert alert-danger">如果只輸入 <code>git commit</code>，會進入 <a href="https://zh.wikipedia.org/wiki/Vi" target="_blank" rel="noopener">vi</a>。<br>如果不在純文字編輯模式 (insert mode)，可以輸入 <code>i, I, o, O, a, A, r, R</code> 其中一個進入 insert mode。<br>按下 esc 退出鍵，「編輯模式」會更改為「一般指令模式」。<br>在一般指令模式輸入 <code>:</code> 跳到最底下一列， <code>wq</code> 存檔 (write) 並離開 (quit)。</div>
-
-<p>參考資料：<br><a href="http://linux.vbird.org/linux_basic/0310vi.php#vi" target="_blank" rel="noopener">鳥哥的 Linux 私房菜 - 9.2 vi 的使用</a></p>
-<h2 id="常用環境設定"><a href="#常用環境設定" class="headerlink" title="常用環境設定"></a>常用環境設定</h2><div class="alert alert-warning">指令碼前面的 <code>$</code> 不需要輸入<br>(其實我並不清楚指令碼前的 <code>$</code> 表示什麼意思，完全查不到，但是我猜是<strong>在 shell 中輸入</strong>的意思，shell 就是外殼、介面、終端機，麻煩請知道的大神指證我或告訴我正確的解釋，謝謝！)<br>所以 <code>$</code> 後面的指令才是重點，有些網站提到指令碼時並不會出現 <code>$</code><br></div>
-
-<p>更換 Git 編輯器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global core.editor <span class="string">"code --wait"</span></span><br></pre></td></tr></table></figure></p>
-<p>設定 Git 指令縮寫：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.co checkout</span><br><span class="line">$ git config --global alias.br branch</span><br><span class="line">$ git config --global alias.st status</span><br><span class="line">$ git config --global alias.ci commit</span><br></pre></td></tr></table></figure></p>
-<p>>&gt; <a href="https://hackmd.io/@OQeeWHXgRk6Fwb8MEh1Jww/SyrnAIMaV" target="_blank" rel="noopener">Git 入門(二)：遠端操作(使用GitHub的伺服器)</a></p>
-<p>參考資料：<br><a href="https://hexschool.tw/n1C7O" target="_blank" rel="noopener">六角學院 -「Git &amp; GitHub 入門」線上講義</a><br><a href="https://hexschool.tw/PDcLZ" target="_blank" rel="noopener">六角學院 -「Git 遠端  Repository 操作」線上講義</a></p>
+<div class="danger">
+<p>如果只輸入 <code>git commit</code>，會進入 <a href="https://zh.wikipedia.org/wiki/Vi" target="_blank" rel="noopener">vi</a>。<br>
+如果不在純文字編輯模式 (insert mode)，可以輸入 <code>i, I, o, O, a, A, r, R</code> 其中一個進入 insert mode。<br>
+按下 esc 退出鍵，「編輯模式」會更改為「一般指令模式」。<br>
+在一般指令模式輸入 <code>:</code> 跳到最底下一列， <code>wq</code> 存檔 (write) 並離開 (quit)。</p>
+</div>
+<p>參考資料：<br>
+<a href="http://linux.vbird.org/linux_basic/0310vi.php#vi" target="_blank" rel="noopener">鳥哥的 Linux 私房菜 - 9.2 vi 的使用</a></p>
+<h2 id="常用環境設定"><a class="header-anchor" href="#常用環境設定"></a>常用環境設定</h2>
+<div class="warning">
+<p>指令碼前面的 <code>$</code> 不需要輸入<br>
+(其實我並不清楚指令碼前的 <code>$</code> 表示什麼意思，完全查不到，但是我猜是<strong>在 shell 中輸入</strong>的意思，shell 就是外殼、介面、終端機，麻煩請知道的大神指證我或告訴我正確的解釋，謝謝！)<br>
+所以 <code>$</code> 後面的指令才是重點，有些網站提到指令碼時並不會出現 <code>$</code></p>
+</div>
+<p>更換 Git 編輯器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global core.editor <span class="string">"code --wait"</span></span><br></pre></td></tr></table></figure>
+<p>設定 Git 指令縮寫：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.co checkout</span><br><span class="line">$ git config --global alias.br branch</span><br><span class="line">$ git config --global alias.st status</span><br><span class="line">$ git config --global alias.ci commit</span><br></pre></td></tr></table></figure>
+<p>&gt;&gt; <a href="https://hackmd.io/@OQeeWHXgRk6Fwb8MEh1Jww/SyrnAIMaV" target="_blank" rel="noopener">Git 入門(二)：遠端操作(使用GitHub的伺服器)</a></p>
+<p>參考資料：<br>
+<a href="https://hexschool.tw/n1C7O" target="_blank" rel="noopener">六角學院 -「Git &amp; GitHub 入門」線上講義</a><br>
+<a href="https://hexschool.tw/PDcLZ" target="_blank" rel="noopener">六角學院 -「Git 遠端  Repository 操作」線上講義</a></p>
 
         </div>
     </div>

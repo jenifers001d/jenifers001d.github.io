@@ -24,7 +24,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/Python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python&lt;/a&gt;（蟒蛇，這個單字原本就有自己的意思XD）是一種廣泛使用的&lt;strong&gt;直譯式、高階式、通用型程式語言&lt;/strong&gt;，由吉多·范羅蘇姆 (Guido van Rossum) 創造，第一版釋出於1991年。&lt;br&gt;">
+    <meta name="description" content="&lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/Python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python&lt;/a&gt;（蟒蛇，這個單字原本就有自己的意思XD）是一種廣泛使用的&lt;strong&gt;直譯式、高階式、通用型程式語言&lt;/strong&gt;，由吉多·范羅蘇姆 (Guido van Rossum) 創造，第一版釋出於1991年。&lt;/p&gt;">
     
 
     
@@ -225,38 +225,62 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            <h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2>
-<p><a href="https://zh.wikipedia.org/wiki/Python" target="_blank" rel="noopener">Python</a>（蟒蛇，這個單字原本就有自己的意思XD）是一種廣泛使用的<strong>直譯式、高階式、通用型程式語言</strong>，由吉多·范羅蘇姆 (Guido van Rossum) 創造，第一版釋出於1991年。<br></p>
+            <h2 id="介紹"><a class="header-anchor" href="#介紹"></a>介紹</h2>
+
+<p><a href="https://zh.wikipedia.org/wiki/Python" target="_blank" rel="noopener">Python</a>（蟒蛇，這個單字原本就有自己的意思XD）是一種廣泛使用的<strong>直譯式、高階式、通用型程式語言</strong>，由吉多·范羅蘇姆 (Guido van Rossum) 創造，第一版釋出於1991年。</p>
+
 <p>特色是使用<span style="color: #ff0000;"><strong>縮排</strong></span>表示區塊。簡潔易讀的語法能讓初學者容易上手。</p>
-<h2 id="環境設置"><a href="#環境設置" class="headerlink" title="環境設置"></a>環境設置</h2><p>要寫出自己的第一支程式前，首先需要<strong>文字編輯器</strong>和<a href="https://zh.wikipedia.org/wiki/%E7%B7%A8%E8%AD%AF%E5%99%A8" target="_blank" rel="noopener"><strong>編譯器</strong></a>。</p>
+<h2 id="環境設置"><a class="header-anchor" href="#環境設置"></a>環境設置</h2>
+<p>要寫出自己的第一支程式前，首先需要<strong>文字編輯器</strong>和<a href="https://zh.wikipedia.org/wiki/%E7%B7%A8%E8%AD%AF%E5%99%A8" target="_blank" rel="noopener"><strong>編譯器</strong></a>。</p>
 <ul>
 <li>文字編輯器：寫程式碼的地方。</li>
 <li>編譯器：將程式碼轉換成<a href="https://zh.wikipedia.org/wiki/%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80" target="_blank" rel="noopener">機器語言</a> (00111100001) 的程式。</li>
 </ul>
-<h3 id="直譯器"><a href="#直譯器" class="headerlink" title="直譯器"></a>直譯器</h3><p>Python 的編譯器 (直譯器，因為是直譯式語言) 可以直接到<a href="https://www.python.org/" target="_blank" rel="noopener">官網</a>的 <strong>Downloads</strong> 下載 <span style="color: #ff0000;">Python v3</span> (與 Python v2 的語法有一點不一樣，v2 應該已經成為歷史了…)</p>
-<h3 id="文字編輯器"><a href="#文字編輯器" class="headerlink" title="文字編輯器"></a>文字編輯器</h3><p>Python 的文字編輯器有很多，可以參照：<a href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/624907/" target="_blank" rel="noopener">推薦10 款最好用的 Python IDE</a>、<a href="https://www.guru99.com/python-ide-code-editor.html" target="_blank" rel="noopener">11 BEST Python IDEs in 2019</a>。滿多人會推薦 PyCharm，主要還是看個人習慣，我個人是使用 VS Code。</p>
-<div class="alert alert-info"><a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" target="_blank" rel="noopener">IDE</a> (整合開發環境，Integrated Development Environment) 是一種輔助工程師開發軟體的應用程式。有一些 IDE 支援多種程式語言，但是一般而言，主要還是針對特定的程式語言。<br></div><div class="alert alert-warning">我理解的 IDE 是一般安裝好時，就會包含文字編輯器、編譯器和除錯器等各種功能，不需要再額外安裝其他編譯器。但是使用 VS Code 時，一樣需要自己安裝 Python 直譯器。個人覺得 VS Code 不能稱為 IDE，雖然滿多網站這麼稱呼。<br></div>
-
-<h2 id="第一支-Python-程式！"><a href="#第一支-Python-程式！" class="headerlink" title="第一支 Python 程式！"></a>第一支 Python 程式！</h2><p>在 VS Code 中開啟 (File &gt;&gt; Open) 一個準備好的空資料夾。</p>
-<p><div class="img-w250"><img src="https://i.imgur.com/sZdLpU0.jpg =250x" alt></div><br>在資料夾中開啟一個副檔名為 <code>.py</code> 的檔案<br><img src="https://i.imgur.com/9tQPvCA.jpg" alt><br>輸入：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="直譯器"><a class="header-anchor" href="#直譯器"></a>直譯器</h3>
+<p>Python 的編譯器 (直譯器，因為是直譯式語言) 可以直接到<a href="https://www.python.org/" target="_blank" rel="noopener">官網</a>的 <strong>Downloads</strong> 下載 <span style="color: #ff0000;">Python v3</span> (與 Python v2 的語法有一點不一樣，v2 應該已經成為歷史了…)</p>
+<h3 id="文字編輯器"><a class="header-anchor" href="#文字編輯器"></a>文字編輯器</h3>
+<p>Python 的文字編輯器有很多，可以參照：<a href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/624907/" target="_blank" rel="noopener">推薦10 款最好用的 Python IDE</a>、<a href="https://www.guru99.com/python-ide-code-editor.html" target="_blank" rel="noopener">11 BEST Python IDEs in 2019</a>。滿多人會推薦 PyCharm，主要還是看個人習慣，我個人是使用 VS Code。</p>
+<div class="info">
+<p><a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" target="_blank" rel="noopener">IDE</a> (整合開發環境，Integrated Development Environment) 是一種輔助工程師開發軟體的應用程式。有一些 IDE 支援多種程式語言，但是一般而言，主要還是針對特定的程式語言。</p>
+</div>
+<div class="warning">
+<p>我理解的 IDE 是一般安裝好時，就會包含文字編輯器、編譯器和除錯器等各種功能，不需要再額外安裝其他編譯器。但是使用 VS Code 時，一樣需要自己安裝 Python 直譯器。個人覺得 VS Code 不能稱為 IDE，雖然滿多網站這麼稱呼。</p>
+</div>
+<h2 id="第一支-python-程式"><a class="header-anchor" href="#第一支-python-程式"></a>第一支 Python 程式！</h2>
+<p>在 VS Code 中開啟 (File &gt;&gt; Open) 一個準備好的空資料夾。</p>
+<p><img src="https://i.imgur.com/sZdLpU0.jpg" alt width="250"></p>
+<p>在資料夾中開啟一個副檔名為 <code>.py</code> 的檔案<br>
+<img src="https://i.imgur.com/9tQPvCA.jpg" alt><br>
+輸入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>print(資料)：在控制台輸出資料。<br>“Hello World!”：用雙引號 (“) 包住的是<strong>字串</strong>資料。也可以用單引號 (‘) 包住。</p>
+<p>print(資料)：在控制台輸出資料。<br>
+“Hello World!”：用雙引號 (&quot;) 包住的是<strong>字串</strong>資料。也可以用單引號 (’) 包住。</p>
 </blockquote>
 <p>儲存後，在 VS Code 中開啟 (Terminal &gt;&gt; New Terminal) 終端機畫面。</p>
-<p><div class="img-w250"><img src="https://i.imgur.com/MnoKHon.jpg =250x" alt></div></p>
-<p><div class="alert alert-warning">注意：終端機指令碼前面的 <code>$</code> 不需要輸入。<br></div>在終端機輸入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python 檔案名稱.py</span><br></pre></td></tr></table></figure></p>
-<p>可以在終端機的畫面中看到 <code>Hello World!</code> 字樣，就表示成功了！<br><img src="https://i.imgur.com/efy7A9J.jpg" alt></p>
-<h2 id="安裝-Python-相關套件-可不做"><a href="#安裝-Python-相關套件-可不做" class="headerlink" title="安裝 Python 相關套件 (可不做)"></a>安裝 Python 相關套件 (可不做)</h2><ol>
+<p><img src="https://i.imgur.com/MnoKHon.jpg" alt width="250"></p>
+<p>在終端機輸入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python 檔案名稱.py</span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>指令碼前面的 <code>$</code> 不需要輸入。</p>
+</div>
+<p>可以在終端機的畫面中看到 <code>Hello World!</code> 字樣，就表示成功了！<br>
+<img src="https://i.imgur.com/efy7A9J.jpg" alt></p>
+<h2 id="安裝-python-相關套件-可不做"><a class="header-anchor" href="#安裝-python-相關套件-可不做"></a>安裝 Python 相關套件 (可不做)</h2>
+<ol>
 <li>點擊 Extensions 按鈕</li>
 <li>輸入 python</li>
 <li>點擊 Python 最熱門相關套件</li>
 <li>點擊 install</li>
 </ol>
 <p><img src="https://i.imgur.com/RgHRqUg.jpg" alt></p>
-<p>安裝該套件後，左下角會出現可以選擇直譯器版本的按鈕，如圖：<br><img src="https://i.imgur.com/R5KSYBB.jpg" alt></p>
+<p>安裝該套件後，左下角會出現可以選擇直譯器版本的按鈕，如圖：<br>
+<img src="https://i.imgur.com/R5KSYBB.jpg" alt></p>
 <p>我們之前安裝的是 Python 3.8.0 版本，兩個都是一樣的 (<code>/usr/local/bin/python3</code> 是 symlink，會指向 <code>/Library/Frameworks/Python.framework/Versions/3.8/bin/python3</code>)。而 Python 2.7.10 版本則是 Mac 內建的 Python。我們要使用的是 Python 3.8.0 版本。</p>
-<p>此外，安裝套件也會在右上角出現 Run 的按鈕，就不用在終端機一直輸入 <code>python 檔案名稱.py</code> 啦～<br><img src="https://i.imgur.com/kkKNLbT.jpg" alt></p>
-<p>參考資料：<br><a href="https://medium.com/denix-daily/macos%E4%B8%8A%E7%9A%84python%E8%B7%AF%E5%BE%91%E5%95%8F%E9%A1%8C-%E5%AE%89%E8%A3%9D%E6%96%B9%E6%B3%95-a10c01cc42a" target="_blank" rel="noopener">MacOS上的Python路徑問題＆安裝方法</a></p>
+<p>此外，安裝套件也會在右上角出現 Run 的按鈕，就不用在終端機一直輸入 <code>python 檔案名稱.py</code> 啦～<br>
+<img src="https://i.imgur.com/kkKNLbT.jpg" alt></p>
+<p>參考資料：<br>
+<a href="https://medium.com/denix-daily/macos%E4%B8%8A%E7%9A%84python%E8%B7%AF%E5%BE%91%E5%95%8F%E9%A1%8C-%E5%AE%89%E8%A3%9D%E6%96%B9%E6%B3%95-a10c01cc42a" target="_blank" rel="noopener">MacOS上的Python路徑問題＆安裝方法</a></p>
 
         </div>
     </div>

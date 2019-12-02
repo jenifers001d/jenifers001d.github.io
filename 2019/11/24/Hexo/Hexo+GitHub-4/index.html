@@ -226,31 +226,52 @@ pagead/js/adsbygoogle.js"></script>
     <div class="article-content">
         <div class="markdown-body">
             
-<p>最後一步 - 部署到 GitHub！<br><img src="https://i.imgur.com/IbYZ8bU.jpg" alt><br></p>
-<h2 id="部署到-GitHub"><a href="#部署到-GitHub" class="headerlink" title="部署到 GitHub"></a>部署到 GitHub</h2><p>終於來到最後一步了，歐耶～</p>
-<p>在 <code>_config.yml</code> 中設定好部署 (# Deployment) 相關的配置後，輸入下面其中一行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<p>最後一步 - 部署到 GitHub！<br>
+<img src="https://i.imgur.com/IbYZ8bU.jpg" alt></p>
+<h2 id="block-部署到-github"><a class="header-anchor" href="#block-部署到-github"></a><br>
+部署到 GitHub</h2>
+<p>終於來到最後一步了，歐耶～</p>
+<p>在 <code>_config.yml</code> 中設定好部署 (# Deployment) 相關的配置後，輸入下面其中一行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>指令說明：<br>deploy：部署你的網站。<br>d：deploy的縮寫。</p>
+<p>指令說明：<br>
+deploy：部署你的網站。<br>
+d：deploy的縮寫。</p>
 </blockquote>
-<h3 id="用戶名-選擇專案名請跳過"><a href="#用戶名-選擇專案名請跳過" class="headerlink" title="用戶名 (選擇專案名請跳過)"></a>用戶名 (選擇專案名請跳過)</h3><p>public 資料夾裡面的東西被推到 master 分支啦～</p>
+<h3 id="用戶名-選擇專案名請跳過"><a class="header-anchor" href="#用戶名-選擇專案名請跳過"></a>用戶名 (選擇專案名請跳過)</h3>
+<p>public 資料夾裡面的東西被推到 master 分支啦～</p>
 <p><img src="https://i.imgur.com/d7jo9ME.jpg" alt></p>
-<p>在同一個頁面的 Settings 裡面，找到 <strong>GitHub Pages</strong>，裡面有網址的部分，按下去就是你的網頁啦！<br><img src="https://i.imgur.com/GQMHyxJ.jpg" alt></p>
-<h3 id="專案名-選擇用戶名請跳過"><a href="#專案名-選擇用戶名請跳過" class="headerlink" title="專案名 (選擇用戶名請跳過)"></a>專案名 (選擇用戶名請跳過)</h3><p>可以看到 public 資料夾裡面的東西被推到 gh-pages 分支中啦～</p>
+<p>在同一個頁面的 Settings 裡面，找到 <strong>GitHub Pages</strong>，裡面有網址的部分，按下去就是你的網頁啦！<br>
+<img src="https://i.imgur.com/GQMHyxJ.jpg" alt></p>
+<h3 id="專案名-選擇用戶名請跳過"><a class="header-anchor" href="#專案名-選擇用戶名請跳過"></a>專案名 (選擇用戶名請跳過)</h3>
+<p>可以看到 public 資料夾裡面的東西被推到 gh-pages 分支中啦～</p>
 <p><img src="https://i.imgur.com/iyhbwpA.jpg" alt></p>
-<p>在同一個頁面的 Settings 裡面，找到 <strong>GitHub Pages</strong>，裡面有網址的部分，按下去就是你的網頁啦！(gh-pages branch下拉式選單不用動)<br><img src="https://i.imgur.com/W36o3Nx.jpg" alt></p>
-<div class="alert alert-danger">可是按進去看會發現樣式跑掉了，原因是因為 css 樣式的路徑，當初預設是絕對路徑，這邊因為我們不是用 Hexo 建議的<strong>用戶名儲存庫</strong>，所以要將路徑改成<strong>相對路徑</strong>。<br></div>
-
-<p>打開 <code>_config.yml</code> 設定配置，將 # Writing 中的相對路徑從 false 改成 true。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">relative_link:  true</span><br></pre></td></tr></table></figure></p>
+<p>在同一個頁面的 Settings 裡面，找到 <strong>GitHub Pages</strong>，裡面有網址的部分，按下去就是你的網頁啦！(gh-pages branch下拉式選單不用動)<br>
+<img src="https://i.imgur.com/W36o3Nx.jpg" alt></p>
+<div class="danger">
+<p>可是按進去看會發現樣式跑掉了，原因是因為 css 樣式的路徑，當初預設是絕對路徑，這邊因為我們不是用 Hexo 建議的<strong>用戶名儲存庫</strong>，所以要將路徑改成<strong>相對路徑</strong>。</p>
+</div>
+<p>打開 <code>_config.yml</code> 設定配置，將 # Writing 中的相對路徑從 false 改成 true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">relative_link:  true</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/3quRpFJ.jpg" alt></p>
-<p>改完儲存後，再輸入一次指令碼<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<p>改完儲存後，再輸入一次指令碼</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 <p>等待一下，重整就能看到正確的顯示方式了！</p>
-<h2 id="寫在部署之後"><a href="#寫在部署之後" class="headerlink" title="寫在部署之後"></a>寫在部署之後</h2><p>為了方便起見，之後每次 new 完新的文章，可以輸入下面其中一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d</span><br><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure></p>
+<h2 id="寫在部署之後"><a class="header-anchor" href="#寫在部署之後"></a>寫在部署之後</h2>
+<p>為了方便起見，之後每次 new 完新的文章，可以輸入下面其中一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d</span><br><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>指令說明：<br>g -d：產生靜態檔後佈署<br>d -g：佈署前產生靜態檔</p>
+<p>指令說明：<br>
+g -d：產生靜態檔後佈署<br>
+d -g：佈署前產生靜態檔</p>
 </blockquote>
 <p>有更新檔案時，可以輸入下面指令碼來清除快取檔案 (db.json) 和已產生的靜態檔案 (public)。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-<h2 id="Hexo＋GitHub-網誌和部落格架設-系列文"><a href="#Hexo＋GitHub-網誌和部落格架設-系列文" class="headerlink" title="Hexo＋GitHub 網誌和部落格架設 系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2><p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a> ← 你在這～</p>
+<h2 id="hexo-github-網誌和部落格架設-系列文"><a class="header-anchor" href="#hexo-github-網誌和部落格架設-系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2>
+<p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a><br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a> ← 你在這～</p>
 
         </div>
     </div>

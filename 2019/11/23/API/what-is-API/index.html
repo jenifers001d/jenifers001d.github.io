@@ -24,7 +24,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;相信接觸了程式語言一陣子的大家，都會從前輩們口中聽到、或是從各種技術文章中看到 API 這個名詞，那它到底是什麼呢？&lt;br&gt;">
+    <meta name="description" content="&lt;p&gt;相信接觸了程式語言一陣子的大家，都會從前輩們口中聽到、或是從各種技術文章中看到 API 這個名詞，那它到底是什麼呢？&lt;/p&gt;">
     
 
     
@@ -225,20 +225,32 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
-<p>相信接觸了程式語言一陣子的大家，都會從前輩們口中聽到、或是從各種技術文章中看到 API 這個名詞，那它到底是什麼呢？<br></p>
-<p>大家先來看看一部很有名的影片<br><div class="video-container"><iframe src="//www.youtube.com/embed/zvKadd9Cflc" frameborder="0" allowfullscreen></iframe></div></p>
+            <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+
+<p>相信接觸了程式語言一陣子的大家，都會從前輩們口中聽到、或是從各種技術文章中看到 API 這個名詞，那它到底是什麼呢？</p>
+
+<p>大家先來看看一部很有名的影片</p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/zvKadd9Cflc" frameborder="0" allowfullscreen></iframe></div>
 <p>結果看完好像懂了，又好像沒懂？？！！</p>
-<h2 id="名詞解釋"><a href="#名詞解釋" class="headerlink" title="名詞解釋"></a>名詞解釋</h2><p>首先我們先釐清幾個名詞</p>
+<h2 id="名詞解釋"><a class="header-anchor" href="#名詞解釋"></a>名詞解釋</h2>
+<p>首先我們先釐清幾個名詞</p>
 <ul>
-<li><p><strong>Method/Function：</strong><br>Java/C# 稱為 Method；C/C++ 稱為 Function，但不完全相同。<br>(在物件導向中的 method 有分兩種：一種是需要先實體化一個物件。一種是可以直接使用。前者我們稱為 method，後者我們稱為 static method。而 function 對應到的是 static method。)</p>
+<li>
+<p><strong>Method/Function：</strong><br>
+Java/C# 稱為 Method；C/C++ 稱為 Function，但不完全相同。<br>
+(在物件導向中的 method 有分兩種：一種是需要先實體化一個物件。一種是可以直接使用。前者我們稱為 method，後者我們稱為 static method。而 function 對應到的是 static method。)</p>
 </li>
-<li><p><strong>Library：</strong><br>函式庫，表示將一堆已經寫好的 method/function 包成一個 library，當我們在應用程式的最上方 import(引用) 這個 library 後就能使用其包含的 function。像是我們要使用碘酒或酒精棉片 (function) 會先拿出醫藥箱 (醫藥箱library)。<br>(或稱<strong>程式庫</strong>、C# 又稱為<strong>類別庫</strong>)</p>
+<li>
+<p><strong>Library：</strong><br>
+函式庫，表示將一堆已經寫好的 method/function 包成一個 library，當我們在應用程式的最上方 import(引用) 這個 library 後就能使用其包含的 function。像是我們要使用碘酒或酒精棉片 (function) 會先拿出醫藥箱 (醫藥箱library)。<br>
+(或稱<strong>程式庫</strong>、C# 又稱為<strong>類別庫</strong>)</p>
 </li>
 </ul>
 <hr>
 <p>舉個例子來說明：</p>
-<p>小明應公司要求，寫了一個 C# 遊戲引擎(幫助遊戲設計者容易和快速地做出遊戲程式的應用程式)。<br>其中有一個 method 定義如下<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">RoundDoubleNumber</span>(<span class="params"><span class="keyword">double</span> a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Math.Round(Math.Pow(a, <span class="number">2</span>));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>小明應公司要求，寫了一個 C# 遊戲引擎(幫助遊戲設計者容易和快速地做出遊戲程式的應用程式)。<br>
+其中有一個 method 定義如下</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">RoundDoubleNumber</span>(<span class="params"><span class="keyword">double</span> a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Math.Round(Math.Pow(a, <span class="number">2</span>));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>Math.Round()、Math.Pow()</code>，是由 C# 內建 library 提供的兩個 static method。</p>
 <p><code>RoundDoubleNumber()</code>，是小明寫的 method，並且小明在官方說明文件中，詳細說明外部程式如何使用 RoundDoubleNumber()。</p>
 <p>小明的同事小光要設計一款遊戲 A，需要用到小明寫的遊戲引擎，小光不需要知道 RoundDoubleNumber() 內部的定義，只需要透過官方說明文件來知道<strong>用途</strong>和<strong>使用方法</strong>。</p>
@@ -246,13 +258,17 @@ pagead/js/adsbygoogle.js"></script>
 <hr>
 <p>由上面的例子得知</p>
 <ul>
-<li><strong>API(Application Programming Interface)：</strong><br>應用程式介面，指已經寫好的 method/function 提供給外部程式存取。通常是一些系統廠商，為了能夠讓第三方的開發者可以額外開發應用程式來強化他們的產品，所推出可以與他們系統溝通的介面。</li>
+<li><strong>API(Application Programming Interface)：</strong><br>
+應用程式介面，指已經寫好的 method/function 提供給外部程式存取。通常是一些系統廠商，為了能夠讓第三方的開發者可以額外開發應用程式來強化他們的產品，所推出可以與他們系統溝通的介面。</li>
 </ul>
-<h2 id="舉例"><a href="#舉例" class="headerlink" title="舉例"></a>舉例</h2><h4 id="1-Google-Map"><a href="#1-Google-Map" class="headerlink" title="1. Google Map"></a>1. Google Map</h4><p>Google Map 本身是個應用程式，有許多的功能，例如<strong>查詢地址</strong>或是<strong>顯示衛星地圖</strong>等。</p>
+<h2 id="舉例"><a class="header-anchor" href="#舉例"></a>舉例</h2>
+<h4 id="1-google-map"><a class="header-anchor" href="#1-google-map"></a>1. Google Map</h4>
+<p>Google Map 本身是個應用程式，有許多的功能，例如<strong>查詢地址</strong>或是<strong>顯示衛星地圖</strong>等。</p>
 <p>當 Google 想把部分功能提供給外部的網頁應用程式開發者、手機應用程式開發者，它不必把程式碼開源給大家，而是將想提供的功能 (method) 包成一份 Google Map API。並撰寫官方說明文件，說明如何使用。</p>
-<p>>&gt; <a href="https://developers.google.com/maps/documentation/?hl=zh-tw" target="_blank" rel="noopener">Google Maps Platform</a></p>
-<h4 id="2-Firebase"><a href="#2-Firebase" class="headerlink" title="2. Firebase"></a>2. Firebase</h4><p>Firebase 這個應用程式，提供相當多的 API，有 <strong>即時資料庫(Realtime Database)</strong>、<strong>數據分析(Google Analytics)</strong> 和 <strong>使用者驗證(Authentication)</strong> 等的功能。</p>
-<p>>&gt; <a href="https://firebase.google.com/" target="_blank" rel="noopener">Firebase</a></p>
+<p>&gt;&gt; <a href="https://developers.google.com/maps/documentation/?hl=zh-tw" target="_blank" rel="noopener">Google Maps Platform</a></p>
+<h4 id="2-firebase"><a class="header-anchor" href="#2-firebase"></a>2. Firebase</h4>
+<p>Firebase 這個應用程式，提供相當多的 API，有 <strong>即時資料庫(Realtime Database)</strong>、<strong>數據分析(Google Analytics)</strong> 和 <strong>使用者驗證(Authentication)</strong> 等的功能。</p>
+<p>&gt;&gt; <a href="https://firebase.google.com/" target="_blank" rel="noopener">Firebase</a></p>
 
         </div>
     </div>

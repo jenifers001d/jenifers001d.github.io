@@ -226,44 +226,75 @@ pagead/js/adsbygoogle.js"></script>
     <div class="article-content">
         <div class="markdown-body">
             
-<p><img src="https://i.imgur.com/OgYg94q.jpg" alt><br></p>
-<h2 id="建立-GitHub-儲存庫"><a href="#建立-GitHub-儲存庫" class="headerlink" title="建立 GitHub 儲存庫"></a>建立 GitHub 儲存庫</h2><p>從此開始分成兩種類型，取決於你想要將網站設在哪一種網址中，依照最初<strong>儲存庫名稱</strong>輸入時，分為：</p>
+<p><img src="https://i.imgur.com/OgYg94q.jpg" alt></p>
+<h2 id="block-建立-github-儲存庫"><a class="header-anchor" href="#block-建立-github-儲存庫"></a><br>
+建立 GitHub 儲存庫</h2>
+<p>從此開始分成兩種類型，取決於你想要將網站設在哪一種網址中，依照最初<strong>儲存庫名稱</strong>輸入時，分為：</p>
 <ul>
-<li>用戶名<ul>
+<li>用戶名
+<ul>
 <li>網址：https://{用戶名稱}.github.io</li>
 <li>每個帳戶只有一個，能放在最根目錄的專案</li>
 <li>部署Branch：<span style="color: #ff0000"><strong>master</strong></span></li>
 </ul>
 </li>
-<li>專案名<ul>
+<li>專案名
+<ul>
 <li>網址：https://{用戶名稱}.github.io/{專案名稱}</li>
 <li>任意、無數量限制</li>
 <li>部署Branch：<span style="color: #ff0000"><strong>gh-pages</strong></span></li>
 </ul>
 </li>
 </ul>
-<h3 id="用戶名-選擇專案名請跳過"><a href="#用戶名-選擇專案名請跳過" class="headerlink" title="用戶名 (選擇專案名請跳過)"></a>用戶名 (選擇專案名請跳過)</h3><p>輸入完 {用戶名稱}.github.io &gt;&gt; Create repository<br><img src="https://i.imgur.com/QIKRjfz.jpg" alt></p>
-<p><div class="alert alert-danger">請不要如同一般程式碼託管，輸入如下的指令碼：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"first commit"</span></span><br><span class="line">$ git remote add origin https://github.com/jenifers001d/jenifers001d.github.io.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure></div></p>
-<p><br><img src="https://i.imgur.com/OMGjDny.jpg" alt></p>
-<h3 id="專案名-選擇用戶名請跳過"><a href="#專案名-選擇用戶名請跳過" class="headerlink" title="專案名 (選擇用戶名請跳過)"></a>專案名 (選擇用戶名請跳過)</h3><p>輸入完專案名稱 &gt;&gt; Create repository<br><img src="https://i.imgur.com/TiYE6DU.jpg" alt></p>
-<p><div class="alert alert-danger">請不要如同一般程式碼託管，輸入如下的指令碼：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"first commit"</span></span><br><span class="line">$ git remote add origin https://github.com/jenifers001d/testHexo.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure></div></p>
-<p><br><img src="https://i.imgur.com/OMGjDny.jpg" alt></p>
-<h2 id="設定部署配置"><a href="#設定部署配置" class="headerlink" title="設定部署配置"></a>設定部署配置</h2><h3 id="用戶名-選擇專案名請跳過-1"><a href="#用戶名-選擇專案名請跳過-1" class="headerlink" title="用戶名 (選擇專案名請跳過)"></a>用戶名 (選擇專案名請跳過)</h3><p>打開 <code>_config.yml</code> 設定配置，將 # Deployment 中改成如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/jenifers001d/jenifers001d.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<h3 id="用戶名-選擇專案名請跳過"><a class="header-anchor" href="#用戶名-選擇專案名請跳過"></a>用戶名 (選擇專案名請跳過)</h3>
+<p>輸入完 {用戶名稱}.github.io &gt;&gt; Create repository<br>
+<img src="https://i.imgur.com/QIKRjfz.jpg" alt></p>
+<div class="danger">
+<p>請不要如同一般程式碼託管，輸入如下的指令碼：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"first commit"</span></span><br><span class="line">$ git remote add origin https://github.com/jenifers001d/jenifers001d.github.io.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+</div>
+<p><img src="https://i.imgur.com/OMGjDny.jpg" alt></p>
+<h3 id="專案名-選擇用戶名請跳過"><a class="header-anchor" href="#專案名-選擇用戶名請跳過"></a>專案名 (選擇用戶名請跳過)</h3>
+<p>輸入完專案名稱 &gt;&gt; Create repository<br>
+<img src="https://i.imgur.com/TiYE6DU.jpg" alt></p>
+<div class="danger">
+<p>請不要如同一般程式碼託管，輸入如下的指令碼：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"first commit"</span></span><br><span class="line">$ git remote add origin https://github.com/jenifers001d/testHexo.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+</div>
+<p><img src="https://i.imgur.com/OMGjDny.jpg" alt></p>
+<h2 id="設定部署配置"><a class="header-anchor" href="#設定部署配置"></a>設定部署配置</h2>
+<h3 id="用戶名-選擇專案名請跳過"><a class="header-anchor" href="#用戶名-選擇專案名請跳過"></a>用戶名 (選擇專案名請跳過)</h3>
+<p>打開 <code>_config.yml</code> 設定配置，將 # Deployment 中改成如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/jenifers001d/jenifers001d.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>說明：<br>type：即將部署在什麼伺服器上 (我們是用 git)<br>repo：儲存庫路徑 (請換成你自己的)</p>
+<p>說明：<br>
+type：即將部署在什麼伺服器上 (我們是用 git)<br>
+repo：儲存庫路徑 (請換成你自己的)</p>
 </blockquote>
 <p><img src="https://i.imgur.com/1Um0Rg2.jpg" alt></p>
-<h3 id="專案名-選擇用戶名請跳過-1"><a href="#專案名-選擇用戶名請跳過-1" class="headerlink" title="專案名 (選擇用戶名請跳過)"></a>專案名 (選擇用戶名請跳過)</h3><p>打開 <code>_config.yml</code> 設定配置，將 # Deployment 中改成如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/jenifers001d/testHexo.git</span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure></p>
+<h3 id="專案名-選擇用戶名請跳過"><a class="header-anchor" href="#專案名-選擇用戶名請跳過"></a>專案名 (選擇用戶名請跳過)</h3>
+<p>打開 <code>_config.yml</code> 設定配置，將 # Deployment 中改成如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/jenifers001d/testHexo.git</span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>說明：<br>type：即將部署在什麼伺服器上 (我們是用 git)<br>repo：儲存庫路徑 (請換成你自己的)</p>
+<p>說明：<br>
+type：即將部署在什麼伺服器上 (我們是用 git)<br>
+repo：儲存庫路徑 (請換成你自己的)</p>
 </blockquote>
 <p><img src="https://i.imgur.com/9OpCQhL.jpg" alt></p>
-<h2 id="安裝-Git-相依套件"><a href="#安裝-Git-相依套件" class="headerlink" title="安裝 Git 相依套件"></a>安裝 Git 相依套件</h2><p>Hexo 有設定，要發布到不同的伺服器，需要安裝不同的套件，我們要發佈到 git 上需要先安裝一個插件，輸入指令碼：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h2 id="安裝-git-相依套件"><a class="header-anchor" href="#安裝-git-相依套件"></a>安裝 Git 相依套件</h2>
+<p>Hexo 有設定，要發布到不同的伺服器，需要安裝不同的套件，我們要發佈到 git 上需要先安裝一個插件，輸入指令碼：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>指令說明：<br>npm install &lt;套件名稱&gt;：使用 npm 安裝套件<br>--save：表示記載此套件於專案相依清單</p>
+<p>指令說明：<br>
+npm install &lt;套件名稱&gt;：使用 npm 安裝套件<br>
+--save：表示記載此套件於專案相依清單</p>
 </blockquote>
 <p>接著，前往部署吧！ &gt;&gt; <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">部署到 GitHub</a></p>
-<h2 id="Hexo＋GitHub-網誌和部落格架設-系列文"><a href="#Hexo＋GitHub-網誌和部落格架設-系列文" class="headerlink" title="Hexo＋GitHub 網誌和部落格架設 系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2><p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a> ← 你在這～<br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
+<h2 id="hexo-github-網誌和部落格架設-系列文"><a class="header-anchor" href="#hexo-github-網誌和部落格架設-系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2>
+<p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a><br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a> ← 你在這～<br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
 
         </div>
     </div>

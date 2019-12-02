@@ -24,7 +24,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;Hexo 是一個快速、簡單且強大的&lt;strong&gt;網誌框架&lt;/strong&gt;。Hexo 使用 &lt;a href=&#34;https://zh.wikipedia.org/wiki/Markdown&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markdown&lt;/a&gt;(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。&lt;br&gt;">
+    <meta name="description" content="&lt;p&gt;Hexo 是一個快速、簡單且強大的&lt;strong&gt;網誌框架&lt;/strong&gt;。Hexo 使用 &lt;a href=&#34;https://zh.wikipedia.org/wiki/Markdown&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markdown&lt;/a&gt;(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。&lt;/p&gt;">
     
 
     
@@ -225,26 +225,39 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            <h2 id="Hexo-是什麼？"><a href="#Hexo-是什麼？" class="headerlink" title="Hexo 是什麼？"></a>Hexo 是什麼？</h2>
-<p>Hexo 是一個快速、簡單且強大的<strong>網誌框架</strong>。Hexo 使用 <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Markdown</a>(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。<br></p>
+            <h2 id="hexo-是什麼？"><a class="header-anchor" href="#hexo-是什麼？"></a>Hexo 是什麼？</h2>
+
+<p>Hexo 是一個快速、簡單且強大的<strong>網誌框架</strong>。Hexo 使用 <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Markdown</a>(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。</p>
+
 <p>短時間內，透過漂亮的主題(套用他人主題，或是自己做主題)產生靜態檔案(只有前端，也可以架設網誌和部落格！)。</p>
 <p>Hexo 支援許多強大的外掛和擴充系統，例如：搜尋、留言板、Facebook 社群工具等。</p>
 <p>以 Node.js 為核心，需要預先編譯，才能丟到 GitHub 上 (也就是遠端伺服器或網站上)，但是優點是一旦網頁內容很大，會比 Jekyll 速度快 (Ruby 為核心，不需要先編譯)。</p>
 <p>台灣人製作的！！！官方網站都有支援繁體中文，快去看看吧 &gt;&gt; <a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo</a></p>
-<h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><p>電腦要先安裝好</p>
+<h2 id="前置作業"><a class="header-anchor" href="#前置作業"></a>前置作業</h2>
+<p>電腦要先安裝好</p>
 <ul>
 <li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (版本至少要 6.9)</li>
 <li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> (不知道什麼是 Git 的人，請去 <a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1">Git 入門 (一)</a> )</li>
 </ul>
-<p>可以用下面其中一行來檢查 Node.js 的版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ node --version</span><br></pre></td></tr></table></figure></p>
-<p>可以用下面其中一行來檢查 Git 的版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br><span class="line">$ git version</span><br></pre></td></tr></table></figure></p>
-<div class="alert alert-warning">第一次使用指令碼的人不要緊張，指令碼前面的 <code>$</code> 不需要輸入<br>(其實新手如我並不清楚指令碼前的 <code>$</code> 表示什麼意思，完全查不到，但是我猜是<strong>在 shell 中輸入</strong>的意思，shell 就是外殼、介面、終端機，麻煩請知道的大神指證我或告訴我正確的解釋，謝謝！)<br>所以 <code>$</code> 後面的指令才是重點，有些網站提到指令碼時並不會出現 <code>$</code> </div>
-
+<p>可以用下面其中一行來檢查 Node.js 的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ node --version</span><br></pre></td></tr></table></figure>
+<p>可以用下面其中一行來檢查 Git 的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br><span class="line">$ git version</span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>第一次使用指令碼的人不要緊張，指令碼前面的 <code>$</code> 不需要輸入<br>
+(其實新手如我並不清楚指令碼前的 <code>$</code> 表示什麼意思，完全查不到，但是我猜是<strong>在 shell 中輸入</strong>的意思，shell 就是外殼、介面、終端機，麻煩請知道的大神指證我或告訴我正確的解釋，謝謝！)<br>
+所以 <code>$</code> 後面的指令才是重點，有些網站提到指令碼時並不會出現 <code>$</code></p>
+</div>
 <p>通常 Node.js 安裝完畢後，npm 即被安裝完成，等等會用到。</p>
-<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>等等進行的流程如下</p>
+<h2 id="流程"><a class="header-anchor" href="#流程"></a>流程</h2>
+<p>等等進行的流程如下</p>
 <p><img src="https://i.imgur.com/Ew4Knor.jpg" alt></p>
 <p>出發吧！ &gt;&gt; <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2/">安裝 Hexo</a></p>
-<h2 id="Hexo＋GitHub-網誌和部落格架設-系列文"><a href="#Hexo＋GitHub-網誌和部落格架設-系列文" class="headerlink" title="Hexo＋GitHub 網誌和部落格架設 系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2><p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a> ← 你在這～<br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
+<h2 id="hexo-github-網誌和部落格架設-系列文"><a class="header-anchor" href="#hexo-github-網誌和部落格架設-系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2>
+<p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a> ← 你在這～<br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br>
+<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
 
         </div>
     </div>

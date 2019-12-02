@@ -24,7 +24,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;Hexo 有許多協作開發者，他們將自己的主題樣式放置在&lt;a href=&#34;https://hexo.io/themes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官網&lt;/a&gt;上，到目前為止，已經有 277 個主題可供使用者下載。&lt;br&gt;">
+    <meta name="description" content="&lt;p&gt;Hexo 有許多協作開發者，他們將自己的主題樣式放置在&lt;a href=&#34;https://hexo.io/themes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官網&lt;/a&gt;上，到目前為止，已經有 277 個主題可供使用者下載。&lt;/p&gt;">
     
 
     
@@ -226,16 +226,24 @@ pagead/js/adsbygoogle.js"></script>
     <div class="article-content">
         <div class="markdown-body">
             
-<p>Hexo 有許多協作開發者，他們將自己的主題樣式放置在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">官網</a>上，到目前為止，已經有 277 個主題可供使用者下載。<br></p>
-<p>在你的 Hexo 資料夾中，可以看到有一個 <strong>themes 資料夾</strong>，裡面有預設的主題 <strong>landscape</strong>。此後下載的主題，都會放到 themes 資料夾中。</p>
-<h2 id="主題下載"><a href="#主題下載" class="headerlink" title="主題下載"></a>主題下載</h2><p>確認好你想要的主題之後，進入該主題的 GitHub 儲存庫，可以得知<strong>用戶名稱</strong>和<strong>專案名稱</strong>。</p>
-<p><img src="https://i.imgur.com/snIBN1C.jpg" alt></p>
-<p> 在終端機輸入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> 你的 Hexo 資料夾</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/&#123;用戶名稱&#125;/&#123;專案名稱&#125;.git themes/&#123;主題名稱(英文)&#125;</span><br></pre></td></tr></table></figure></p>
-<p>通常該主題的 GitHub 儲存庫中，<code>README.md</code> 檔案 (捲軸向下滾動) 會寫詳細的使用方式，如下：<br><img src="https://i.imgur.com/mPp10MW.jpg" alt></p>
-<h2 id="設定-Hexo-主題配置"><a href="#設定-Hexo-主題配置" class="headerlink" title="設定 Hexo 主題配置"></a>設定 Hexo 主題配置</h2><p>在 Hexo 的基本配置 <code>_config.yml</code> 檔案中，更改主題：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">主題名稱(英文)</span></span><br></pre></td></tr></table></figure></p>
-<div class="alert alert-warning">要小心的是，主題大多是使用模板引擎 <a href="https://node-swig.github.io/swig-templates/" target="_blank" rel="noopener">Swig</a> 或 <a href="https://ejs.co/" target="_blank" rel="noopener">EJS</a> 編寫而成。如果對模板引擎的語法不熟悉的話，有點難自行修改網站外貌和功能。<br></div>
+<p>Hexo 有許多協作開發者，他們將自己的主題樣式放置在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">官網</a>上，到目前為止，已經有 277 個主題可供使用者下載。</p>
 
-<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>網路上有很多使用 <a href="https://theme-next.org/" target="_blank" rel="noopener">NextT</a> 的相關文章，這邊大推薦 <a href="https://hsiangfeng.github.io/categories/hexo/" target="_blank" rel="noopener">Ray 的 Hexo 系列</a>。</p>
+<p>在你的 Hexo 資料夾中，可以看到有一個 <strong>themes 資料夾</strong>，裡面有預設的主題 <strong>landscape</strong>。此後下載的主題，都會放到 themes 資料夾中。</p>
+<h2 id="主題下載"><a class="header-anchor" href="#主題下載"></a>主題下載</h2>
+<p>確認好你想要的主題之後，進入該主題的 GitHub 儲存庫，可以得知<strong>用戶名稱</strong>和<strong>專案名稱</strong>。</p>
+<p><img src="https://i.imgur.com/snIBN1C.jpg" alt></p>
+<p>在終端機輸入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> 你的 Hexo 資料夾</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/&#123;用戶名稱&#125;/&#123;專案名稱&#125;.git themes/&#123;主題名稱(英文)&#125;</span><br></pre></td></tr></table></figure>
+<p>通常該主題的 GitHub 儲存庫中，<code>README.md</code> 檔案 (捲軸向下滾動) 會寫詳細的使用方式，如下：<br>
+<img src="https://i.imgur.com/mPp10MW.jpg" alt></p>
+<h2 id="設定-hexo-主題配置"><a class="header-anchor" href="#設定-hexo-主題配置"></a>設定 Hexo 主題配置</h2>
+<p>在 Hexo 的基本配置 <code>_config.yml</code> 檔案中，更改主題：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">主題名稱(英文)</span></span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>要小心的是，主題大多是使用模板引擎 <a href="https://node-swig.github.io/swig-templates/" target="_blank" rel="noopener">Swig</a> 或 <a href="https://ejs.co/" target="_blank" rel="noopener">EJS</a> 編寫而成。如果對模板引擎的語法不熟悉的話，有點難自行修改網站外貌和功能。</p>
+</div>
+<h2 id="後記"><a class="header-anchor" href="#後記"></a>後記</h2>
+<p>網路上有很多使用 <a href="https://theme-next.org/" target="_blank" rel="noopener">NextT</a> 的相關文章，這邊大推薦 <a href="https://hsiangfeng.github.io/categories/hexo/" target="_blank" rel="noopener">Ray 的 Hexo 系列</a>。</p>
 <p>我當初因為不想要和大多數人一樣使用 NextT，加上 NextT 是使用 Swig 撰寫 (我不會 &gt;皿&lt; )，因此拖延了半年，我的網站最近才上線。我當初是選中了 <a href="https://github.com/dongyuanxin/theme-bmw" target="_blank" rel="noopener">BMW</a> 這個主題，但是開發者好像已經很久沒有更新了…但是我也懶得再選另一個主題了，心太累。</p>
 
         </div>

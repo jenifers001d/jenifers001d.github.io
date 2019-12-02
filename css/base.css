@@ -1469,19 +1469,19 @@ header .iconfont.icon-menu {
 }
 
 #sidebar ol .toc-h3 {
-    padding-left: 30px;
+    padding-left: 33px;
 }
 
 #sidebar ol .toc-h4 {
-    padding-left: 40px;
+    padding-left: 46px;
 }
 
 #sidebar ol .toc-h5 {
-    padding-left: 50px;
+    padding-left: 59px;
 }
 
 #sidebar ol .toc-h6 {
-    padding-left: 60px;
+    padding-left: 72px;
 }
 
 @media (max-width: 768px) {
