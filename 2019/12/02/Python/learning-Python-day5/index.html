@@ -264,8 +264,9 @@ pagead/js/adsbygoogle.js"></script>
 <h2 id="迴圈"><a class="header-anchor" href="#迴圈"></a>迴圈</h2>
 <p>使用者可以運用簡單幾行的語法，使該區塊程式碼<span style="color: #ff0000;">重複執行多次</span>。</p>
 <h3 id="for-迴圈"><a class="header-anchor" href="#for-迴圈"></a>for 迴圈</h3>
+<p><code>for 迴圈</code> 中會有一個 <code>變數</code>，<span style="color: #ff0000;">依序</span>是<strong>列表中的元素</strong>或<strong>字串裡的字母</strong>，疊代完畢後結束 <code>for 迴圈</code>。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 變數 <span class="keyword">in</span> 列表或字串:    <span class="comment"># 記得加冒號 :</span></span><br><span class="line">    <span class="comment"># 執行此區塊的程式碼</span></span><br><span class="line">    <span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
-<p><code>變數</code> 會<span style="color: #ff0000;">依序</span>是<strong>列表中的元素</strong>或<strong>字串裡的字母</strong>。</p>
+<p>例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> [<span class="string">"Java"</span>, <span class="string">"C++"</span>, <span class="string">"JS"</span>, <span class="string">"Python"</span>]:</span><br><span class="line">    print(<span class="string">f"I will use <span class="subst">&#123;x&#125;</span>"</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># I will use Java</span></span><br><span class="line"><span class="comment"># I will use C++</span></span><br><span class="line"><span class="comment"># I will use JS</span></span><br><span class="line"><span class="comment"># I will use Python</span></span><br></pre></td></tr></table></figure>
 <p>1-2 行是一個 <code>for 迴圈區塊</code>。程式會先執行 <code>for 區塊</code> 的第一行，讓 <code>x = &quot;Java&quot;</code>，然後執行區塊中的程式碼。結束後，再回到 <code>for 區塊</code> 的第一行，讓 <code>x = 下一個資料</code>，再執行區塊中的程式碼。直到列表最後一個元素，並且結束 <code>for 迴圈區塊</code>。</p>
 <p>我們也經常會使用 <code>range()</code> 這個函式，產生一連串的數字列表。</p>
@@ -288,7 +289,7 @@ pagead/js/adsbygoogle.js"></script>
 <li><code>for 迴圈</code> 結束。印出 <code>sum</code> 的值。</li>
 </ol>
 <h3 id="while-迴圈"><a class="header-anchor" href="#while-迴圈"></a>while 迴圈</h3>
-<p>當判斷的結果為<strong>真</strong>時，就會<span style="color: #ff0000;">重複執行</span>程式碼，直到判斷的結果為<strong>假</strong>時，結束程式碼。</p>
+<p>當判斷的結果為<strong>真</strong>時，就會<span style="color: #ff0000;">重複執行</span>程式碼，直到判斷的結果為<strong>假</strong>時，結束 <code>while 迴圈</code>。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通常會在 while 上方，給判斷式中的變數一個初始值</span></span><br><span class="line"><span class="keyword">while</span> 判斷式:       <span class="comment"># 記得加冒號 :</span></span><br><span class="line">    <span class="comment"># 判斷式為 True，會執行此區塊的程式碼</span></span><br><span class="line">    <span class="comment"># 對判斷式中的變數，做一些修改</span></span><br></pre></td></tr></table></figure>
 <div class="danger">
 <p>設計迴圈時，要讓<strong>判斷式</strong>有出現 <code>False</code> 的機會，否則會進入無窮迴圈，程式無法停止。</p>
@@ -298,13 +299,14 @@ pagead/js/adsbygoogle.js"></script>
 <p>每執行一次 <code>while 區塊</code>，<code>i</code> 都會遞增，並且在下一輪時，與 <code>sum</code> 相加，直到 <code>i = 11</code> 時，判斷式結果為 <code>False</code>，結束 <code>while 迴圈</code>。印出 <code>sum</code> 的值。</p>
 <h3 id="do-while-迴圈"><a class="header-anchor" href="#do-while-迴圈"></a>do-while 迴圈</h3>
 <p><span style="color: #ff0000;">Python 3 目前沒有 do-while 迴圈。</span></p>
-<h3 id="break-continue-和-else-的使用"><a class="header-anchor" href="#break-continue-和-else-的使用"></a>break、continue 和 else 的使用</h3>
+<h3 id="break-continue-的使用"><a class="header-anchor" href="#break-continue-的使用"></a>break、continue 的使用</h3>
 <p><code>break</code> 出現在迴圈的區塊裡時，表示<strong>強制結束迴圈</strong>。</p>
 <p><code>continue</code> 出現在迴圈的區塊裡時，表示<strong>強制結束該次迴圈，不執行剩下的程式碼，重新開始新的一輪</strong>。</p>
-<p><code>break</code> 寫在 line 4~8 的 <code>while 迴圈</code> 中，當 <code>break</code> 被執行時，強制結束 line 4~8 這個 <code>while 迴圈</code>，執行第十行 <code>print(sum)</code>，如下：</p>
+<p>如下的程式碼中，<code>break</code> 寫在 line 4~8 的 <code>while 迴圈</code> 中，當 <code>break</code> 被執行時，強制結束 line 4~8 這個 <code>while 迴圈</code>，執行第十行 <code>print(sum)</code>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line">sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">5</span>: <span class="comment"># 當 i 的值為 5 時</span></span><br><span class="line">        <span class="keyword">break</span>  <span class="comment"># 結束 break 外層的這個迴圈</span></span><br><span class="line">    sum = sum + i</span><br><span class="line">    i = i + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print(sum)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 10   # 0+1+2+3+4 = 10</span></span><br></pre></td></tr></table></figure>
-<p><code>continue</code> 寫在 line 4~9 的 <code>while 迴圈</code> 中，當 <code>continue</code> 被執行時，強制結束剩下的程式碼 (line 8~9) ，進入新的一輪 <code>while 迴圈判斷</code>，如下：</p>
+<p>如下的程式碼中，<code>continue</code> 寫在 line 4~9 的 <code>while 迴圈</code> 中，當 <code>continue</code> 被執行時，強制結束剩下的程式碼 (line 8~9) ，進入新的一輪 <code>while 迴圈判斷</code>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line">sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>: <span class="comment"># 當 i 是偶數時 (i 除以 2 的餘數為 0)</span></span><br><span class="line">        i = i + <span class="number">1</span>  <span class="comment"># i 加 1</span></span><br><span class="line">        <span class="keyword">continue</span>   <span class="comment"># 結束該次迴圈，重新開始新的一輪</span></span><br><span class="line">    sum = sum + i</span><br><span class="line">    i = i + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print(sum)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 25   # 0+1+3+5+7+9 = 25</span></span><br></pre></td></tr></table></figure>
+<h3 id="break-搭配-else-的使用"><a class="header-anchor" href="#break-搭配-else-的使用"></a>break 搭配 else 的使用</h3>
 <p>通常使用 <code>break</code> 時，迴圈可以搭配 <code>else</code> 使用：</p>
 <ul>
 <li>如果 <code>break</code> 被執行時，強制結束 line 4~11 這個 <code>while 迴圈</code>，不會進入 <code>else 區塊</code> 執行程式。</li>
@@ -395,6 +397,12 @@ pagead/js/adsbygoogle.js"></script>
             <a href="/2019/12/01/Python/learning-Python-day4/" target="_self">Python 自學第四天：List、Tuple、Set 和 Dictionary 的基本運算</a>
         </div>
         
+        
+        <div class="nav-next">
+            下一篇:
+            <a href="/2019/12/04/Python/learning-Python-day6/" target="_self">Python 自學第六天：定義函式和參數相關設定</a>
+            <i class="iconfont icon-next"></i>
+        </div>
         
     </nav>
 
