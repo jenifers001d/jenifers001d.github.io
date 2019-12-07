@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Jenifer, jenifers001d@gmail.com">
+    
+    
+
+    <title>Python 自學第七天：Module 模組 | Jenifer.Code.World</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <meta name="keywords" content="Python,Python,Elementary Code,Elementary Python,">
+    
+
+    <script>
+        console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' +
+            '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n',
+            'color: #fadfa3; background: #030307; padding:3px 0;', '',
+            'color: #fadfa3; background: #030307; padding:3px 0;', '');
+
+    </script>
+
+    
+    <meta name="description" content="&lt;p&gt;也就是使用其他 &lt;code&gt;.py&lt;/code&gt; 檔案中，預先定義好的變數和函式。使用&lt;strong&gt;模組的好處&lt;/strong&gt;就是，別人寫過或自己定義過的變數和函式可以&lt;span style=&#34;color: #ff0000;&#34;&gt;直接拿來使用&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;Python 有一些內建好的模組，可以直接拿來使用，如：與作業系統相關的 &lt;code&gt;os&lt;/code&gt;、與命令行相關的 &lt;code&gt;sys&lt;/code&gt;、與數學相關的 &lt;code&gt;math&lt;/code&gt;、&lt;code&gt;random&lt;/code&gt;、&lt;code&gt;statistics&lt;/code&gt; 等，可以參考 &lt;a href=&#34;https://docs.python.org/zh-tw/3/tutorial/stdlib.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python 標準函式庫概覽&lt;/a&gt;。也有其他人寫好的模組，可以從網路上下載來使用。也可以自己定義模組。&lt;/p&gt;">
+    
+
+    
+
+    
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+    
+
+    <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/icon/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+
+    <script src="/js/util.js"></script>
+<script src="/js/valine.min.js"></script>
+
+    
+    <link rel="stylesheet" href="/custom/style.css">
+    
+
+    
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+    
+
+    
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+    
+
+    <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+
+    
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+    
+    <!-- 加入 Google AdSense -->
+    <script data-ad-client="ca-pub-6866375976707228" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="//pagead2.googlesyndication.com/
+pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "pub-6866375976707228",
+            enable_page_level_ads: true
+        });
+
+    </script>
+    <!-- Google AdSense 結束 -->
+
+</head>
+
+
+<body>
+
+    
+
+    <div id="app">
+
+        <div class="header-wrap">
+    <header>
+        <div class="site-brand">
+            <div class="site-title">
+                <a href="/">Jenifer.Code.World</a>
+            </div>
+        </div>
+        <nav class="site-navigation">
+            <ul class="nav-menu">
+                
+                <li class="nav-item" data-path="/">
+                    
+                    <a href="/" target="_self">
+                        首頁
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/archives/">
+                    
+                    <a href="/archives/" target="_self">
+                        歸檔
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/categories/">
+                    
+                    <a href="/categories/" target="_self">
+                        分類
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/tags/">
+                    
+                    <a href="/tags/" target="_self">
+                        標籤
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path>
+                    
+                    <a href="javascript:void(0);" v-else>抓到我</a>
+                    <ul class="nav-menu--dropdown">
+                        
+                        <li>
+                            <a href="https://github.com/jenifers001d" target="_blank">
+                                Github
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+        <i class="iconfont icon-menu"></i>
+    </header>
+</div>
+
+<script>
+    let links = document.querySelectorAll('.nav-item');
+    for (let link of links) {
+        let childrenLink = link.querySelector('ul');
+        link.addEventListener('mouseenter', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown active";
+            }
+        })
+        link.addEventListener('mouseleave', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown";
+            }
+        })
+    }
+    let rootRealPath = getRealPath(window.location.pathname, true);
+    for (let link of links) {
+        let linkPath = link.getAttribute("data-path");
+        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+            link.className = "nav-item hover";
+        }
+    }
+
+    let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+        iconMenuClicked = false;
+    let navDOM = document.querySelector("nav.site-navigation");
+    iconMenu.addEventListener("click", () => {
+        iconMenuClicked
+            ?
+            navDOM.className = "site-navigation active" :
+            navDOM.className = "site-navigation";
+        iconMenuClicked = !iconMenuClicked;
+    })
+
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+    
+
+<div class="post">
+    <h1 class="article-title">
+        <span>Python 自學第七天：Module 模組</span>
+    </h1>
+    <div class="article-top-meta">
+        <span>
+            發布 :
+            2019-12-07
+        </span>
+        
+        <span>
+            分類 :
+            <a href="/categories/Python/">
+                Python
+            </a>
+        </span>
+        
+        
+        <span>
+            瀏覽 : <span class="article-timer" data-identity="learning-Python-day7"></span>
+        </span>
+        
+        
+    </div>
+
+    
+
+    <div class="article-content">
+        <div class="markdown-body">
+            
+<p>也就是使用其他 <code>.py</code> 檔案中，預先定義好的變數和函式。使用<strong>模組的好處</strong>就是，別人寫過或自己定義過的變數和函式可以<span style="color: #ff0000;">直接拿來使用</span>。</p>
+<p>Python 有一些內建好的模組，可以直接拿來使用，如：與作業系統相關的 <code>os</code>、與命令行相關的 <code>sys</code>、與數學相關的 <code>math</code>、<code>random</code>、<code>statistics</code> 等，可以參考 <a href="https://docs.python.org/zh-tw/3/tutorial/stdlib.html" target="_blank" rel="noopener">Python 標準函式庫概覽</a>。也有其他人寫好的模組，可以從網路上下載來使用。也可以自己定義模組。</p>
+
+<h2 id="模組的引入和使用"><a class="header-anchor" href="#模組的引入和使用"></a>模組的引入和使用</h2>
+<h3 id="全部-的變數和函式"><a class="header-anchor" href="#全部-的變數和函式"></a>「全部」的變數和函式</h3>
+<h4 id="引入"><a class="header-anchor" href="#引入"></a>引入</h4>
+<p>使用模組前要先告知 Python 主程式，即將引入哪些模組，引入方法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 語法一：</span></span><br><span class="line"><span class="keyword">import</span> 模組名 (<span class="keyword">as</span> 別名)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 語法二：</span></span><br><span class="line"><span class="keyword">from</span> 模組名 <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>*：表示該模組中所有的變數和函式。<br>
+別名：可以幫很長不好記憶的模組自訂名稱。</p>
+</blockquote>
+<h4 id="使用"><a class="header-anchor" href="#使用"></a>使用</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">模組名.變數名</span><br><span class="line">模組名.函式名()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果有取「別名」則改成這樣</span></span><br><span class="line">別名.變數名</span><br><span class="line">別名.函式名()</span><br></pre></td></tr></table></figure>
+<h3 id="特定-的變數和函式"><a class="header-anchor" href="#特定-的變數和函式"></a>「特定」的變數和函式</h3>
+<h4 id="引入"><a class="header-anchor" href="#引入"></a>引入</h4>
+<p>但是每次將整個模組的變數和函式引入，會有造成程式運行效能降低的可能性。因此，還可以針對模組中的<strong>特定</strong>變數和函式來引入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> 模組名 <span class="keyword">import</span> 變數名</span><br><span class="line"><span class="keyword">from</span> 模組名 <span class="keyword">import</span> 函式名</span><br></pre></td></tr></table></figure>
+<h4 id="使用"><a class="header-anchor" href="#使用"></a>使用</h4>
+<p>不需要在變數和函式前面加 <code>模組名.</code> 或 <code>別名.</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">變數名</span><br><span class="line">函式名()</span><br></pre></td></tr></table></figure>
+<div class="danger">
+<p>因為簡化了呼叫變數和函式的方式，小心<strong>模組中的變數名、函式名</strong>和 <strong>Python 內建的變數名、函式名</strong>重疊。</p>
+</div>
+<h2 id="python-內建的模組"><a class="header-anchor" href="#python-內建的模組"></a>Python 內建的模組</h2>
+<p>以下列出一些常用的模組中的函式。</p>
+<h3 id="與作業系統相關的-os-模組"><a class="header-anchor" href="#與作業系統相關的-os-模組"></a>與作業系統相關的 <code>os</code> 模組</h3>
+<ul>
+<li><code>getcwd()</code>：<strong>回傳目前的工作目錄</strong>。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">print(os.getcwd()) <span class="comment"># Return the current working directory</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># /Users/zhengzhurong/Desktop/Python_beginning</span></span><br></pre></td></tr></table></figure>
+<p>也可以寫成如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> getcwd</span><br><span class="line">print(getcwd())</span><br></pre></td></tr></table></figure>
+<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/os.html#module-os" target="_blank" rel="noopener">Python 文件 os 模組</a></p>
+<h3 id="與命令行相關的-sys-模組"><a class="header-anchor" href="#與命令行相關的-sys-模組"></a>與命令行相關的 <code>sys</code> 模組</h3>
+<ul>
+<li><a href="https://docs.python.org/zh-tw/3/library/sys.html#sys.prefix" target="_blank" rel="noopener"><code>prefix</code></a>：<strong>Python 安裝位置路徑的前綴</strong>。</li>
+<li><a href="https://docs.python.org/zh-tw/3/library/sys.html#sys.path" target="_blank" rel="noopener"><code>path</code></a>：<strong>路徑 List，用來搜尋模組所在位置</strong>。<code>path[0]</code> 是主程式所在的目錄。其餘元素是 Python 內建模組的所在位置，為 <code>prefix/lib/python_version</code>。</li>
+<li><a href="https://docs.python.org/zh-tw/3/library/sys.html#sys.version" target="_blank" rel="noopener"><code>version</code></a>：<strong>Python 直譯器的版本號和其他訊息</strong>。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> prefix, path, version</span><br><span class="line"></span><br><span class="line">print(prefix)</span><br><span class="line">print(path)</span><br><span class="line">print(version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># /Library/Frameworks/Python.framework/Versions/3.8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ['/Users/zhengzhurong/Desktop/Python_beginning', '/Library/Frameworks/</span></span><br><span class="line"><span class="comment"># Python.framework/Versions/3.8/lib/python38.zip', '/Library/Frameworks/</span></span><br><span class="line"><span class="comment"># Python.framework/Versions/3.8/lib/python3.8', '/Library/Frameworks/</span></span><br><span class="line"><span class="comment"># Python.framework/Versions/3.8/lib/python3.8/lib-dynload', '/Users/</span></span><br><span class="line"><span class="comment"># zhengzhurong/Library/Python/3.8/lib/python/site-packages', '/Library/</span></span><br><span class="line"><span class="comment"># Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages']</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.8.0 (v3.8.0:fa919fdf25, Oct 14 2019, 10:23:27) </span></span><br><span class="line"><span class="comment"># [Clang 6.0 (clang-600.0.57)]</span></span><br></pre></td></tr></table></figure>
+<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/sys.html#module-sys" target="_blank" rel="noopener">Python 文件 sys 模組</a></p>
+<h3 id="與基本運算相關的-math-模組"><a class="header-anchor" href="#與基本運算相關的-math-模組"></a>與基本運算相關的 <code>math</code> 模組</h3>
+<ul>
+<li><code>fabs(a)</code>：取<strong>絕對值</strong>。</li>
+<li><code>log10(a)</code>：以 10 為底取<strong>對數</strong>。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> fabs, log10</span><br><span class="line"></span><br><span class="line">print(fabs(<span class="number">-5.5</span>))</span><br><span class="line">print(log10(<span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5.5</span></span><br><span class="line"><span class="comment"># 3.0</span></span><br></pre></td></tr></table></figure>
+<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/math.html#module-math" target="_blank" rel="noopener">Python 文件 math 模組</a></p>
+<h3 id="與隨機選擇相關的-random-模組"><a class="header-anchor" href="#與隨機選擇相關的-random-模組"></a>與隨機選擇相關的 <code>random</code> 模組</h3>
+<ul>
+<li><code>choice(seq)</code>：從 sequence 資料中，<strong>隨機選取一個元素</strong>。<a href="https://docs.python.org/zh-tw/3/glossary.html#term-sequence" target="_blank" rel="noopener">sequence</a> 是可以疊代的資料類型，有<strong>字串</strong>、<strong>List</strong>、<strong>Tuple</strong> 等。</li>
+<li><code>sample(seq, n)</code>：從 sequence 資料中，<strong>隨機選取 n 個元素</strong>。回傳 List 資料。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice, sample</span><br><span class="line"></span><br><span class="line">data = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">33</span>)</span><br><span class="line">print(choice(data))</span><br><span class="line">print(sample(data, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7</span></span><br><span class="line"><span class="comment"># [4, 2]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>shuffle(list)</code>：將<span style="color: #ff0000;">可變動</span>的 sequence 資料 (也就是 List) 中的元素，<strong>隨機調換位置</strong>。如果想要調換<span style="color: #ff0000;">不可變動</span>的 sequence 資料中的元素，只能利用 <code>sample(seq, n=len(seq))</code>  回傳一個新的 List。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> sample, shuffle</span><br><span class="line"></span><br><span class="line">data = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">33</span>)</span><br><span class="line">my_list = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">13</span>, <span class="number">6</span>, <span class="number">18</span>]</span><br><span class="line"></span><br><span class="line">print(my_list)</span><br><span class="line">shuffle(my_list)</span><br><span class="line">print(my_list)</span><br><span class="line"><span class="comment"># [2, 4, 5, 13, 6, 18]</span></span><br><span class="line"><span class="comment"># [6, 2, 18, 5, 13, 4]</span></span><br><span class="line"></span><br><span class="line">print(sample(data, len(data))) <span class="comment"># 利用 sample 調換不可變動 Tuple 的元素</span></span><br><span class="line"><span class="comment"># [11, 33, 7, 5, 4, 2]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>random()</code>：不需要傳入任何參數，<strong>隨機取得 0.0~1.0(不包含) 之間的浮點數 N</strong>。</li>
+<li><code>uniform(a, b)</code>：<strong>隨機取得介在 a 和 b 之間的浮點數 N</strong>。會不會包含 b 則以公式 <code>a + (b-a) * random()</code> 來決定。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> random, uniform</span><br><span class="line"></span><br><span class="line">print(random())</span><br><span class="line">print(uniform(<span class="number">1.2</span>, <span class="number">5.5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0.3670324625285356</span></span><br><span class="line"><span class="comment"># 3.0212954783263894</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>randint(a, b)</code>：<strong>隨機取得介在 a 和 b(<span style="color: #ff0000;">包含</span>) 之間的整數 N</strong>。</li>
+<li><code>randrange(a, b[, step])</code>：<strong>隨機取得介在 a 和 b(不包含) 之間的整數 N</strong>。可以指定<strong>數字間隔</strong>。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint, randrange</span><br><span class="line"></span><br><span class="line">print(randint(<span class="number">1</span>, <span class="number">3</span>))</span><br><span class="line">print(randrange(<span class="number">1</span>, <span class="number">10</span>, <span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 7</span></span><br></pre></td></tr></table></figure>
+<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/random.html#module-random" target="_blank" rel="noopener">Python 文件 random 模組</a></p>
+<h3 id="與統計相關的-statistics-模組"><a class="header-anchor" href="#與統計相關的-statistics-模組"></a>與統計相關的 <code>statistics</code> 模組</h3>
+<p>下列函式中，data 要是 sequence 或可疊代的資料。</p>
+<ul>
+<li><code>mean(data)</code>：計算 data 的<strong>平均數</strong>。</li>
+<li><code>median(data)</code>：計算 data 的<strong>中位數</strong>。</li>
+<li><code>mode(data)</code>：取<strong>出現最多次的元素</strong>。</li>
+<li><code>stdev(data)</code>：計算 data 的<strong>樣本標準差</strong>。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statistics <span class="keyword">import</span> mean, median, mode, stdev</span><br><span class="line"></span><br><span class="line">nums = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">13</span>, <span class="number">99</span>)</span><br><span class="line">print(mean(nums))</span><br><span class="line">print(median(nums))</span><br><span class="line">colors = [<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"blue"</span>, <span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"red"</span>, <span class="string">"red"</span>]</span><br><span class="line">print(mode(colors))</span><br><span class="line">print(stdev(nums))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 22.666666666666668</span></span><br><span class="line"><span class="comment"># 8.5</span></span><br><span class="line"><span class="comment"># red</span></span><br><span class="line"><span class="comment"># 37.59077901117063</span></span><br></pre></td></tr></table></figure>
+<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/statistics.html#module-statistics" target="_blank" rel="noopener">Python 文件 statistics 模組</a></p>
+<h2 id="自定義模組"><a class="header-anchor" href="#自定義模組"></a>自定義模組</h2>
+<p>定義模組很簡單，就是直接<span style="color: #ff0000;">建立一個 <code>.py</code> 檔案，裡面放置自訂的<strong>變數</strong>或<strong>函式</strong></span>即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ../my_math.py</span></span><br><span class="line">grade = <span class="string">"A-"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">practice</span><span class="params">(thing=<span class="string">"arithmetic"</span>)</span>:</span></span><br><span class="line">    print(<span class="string">"Practice "</span>+thing)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">doExercises</span><span class="params">(topic=<span class="string">"Trigonometric functions"</span>)</span>:</span></span><br><span class="line">    print(<span class="string">"Do exercises on "</span>+topic)</span><br></pre></td></tr></table></figure>
+<p>依照<strong>主程式</strong>和<strong>模組</strong>放置位置，需要執行不同的動作才能引入：</p>
+<h3 id="同層-目錄結構"><a class="header-anchor" href="#同層-目錄結構"></a>「同層」目錄結構</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Python_beginning</span><br><span class="line">  ├ main.py</span><br><span class="line">  └ my_math.py</span><br></pre></td></tr></table></figure>
+<p>不需要格外的動作，可以直接在主程式 <code>main.py</code> 中引入。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ../main.py</span></span><br><span class="line"><span class="keyword">import</span> my_math</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Math grade: "</span>+my_math.grade)</span><br><span class="line">my_math.practice()</span><br><span class="line"><span class="comment"># Math grade: A-</span></span><br><span class="line"><span class="comment"># Practice arithmetic</span></span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>因為如上述提過的 Python 內建 sys 模組中的 path 變數：路徑 List，用來搜尋模組所在位置。<code>path[0]</code> 是主程式 <code>main.py</code> 所在的資料夾，也就是 <code>../Python_beginning</code>。因此可以直接找到 <code>my_math</code> 模組。</p>
+</div>
+<h3 id="模組在-資料夾-中-屬於下一層"><a class="header-anchor" href="#模組在-資料夾-中-屬於下一層"></a>模組在「資料夾」中，屬於下一層</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Python_beginning</span><br><span class="line">  ├ main.py</span><br><span class="line">  └ subject</span><br><span class="line">     └ my_math.py</span><br></pre></td></tr></table></figure>
+<div class="danger">
+<p>當我直接引入 <code>my_math.py</code> 模組，會報錯：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> my_math</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Math grade: "</span>+my_math.grade)</span><br><span class="line">my_math.practice()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#  File "../Python_beginning/main.py", line 1, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#    import my_math</span></span><br><span class="line"><span class="comment"># ModuleNotFoundError: No module named 'my_math'</span></span><br></pre></td></tr></table></figure>
+<p>因為在 <code>sys.path[0]</code> 的位置，也就是 <code>../Python_beginning</code> 資料夾，找不到 <code>my_math</code> 模組。</p>
+</div>
+<p>需要在 <code>import my_math</code> 之前，自己增加路徑位置，動作如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">"./subject"</span>)</span><br><span class="line"><span class="comment"># sys.path.append("subject") # 這樣寫也可以</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>append()：在可變動 List 資料尾端，新增一個元素。</p>
+</blockquote>
+<h2 id="使用他人建置的模組"><a class="header-anchor" href="#使用他人建置的模組"></a>使用他人建置的模組</h2>
+<p><code>pip</code> 是 Python 的<strong>模組 package</strong> 管理工具，提供了對模組 package 的<strong>查詢</strong>、<strong>下載</strong>、<strong>安裝</strong>和<strong>卸載</strong>的功能。</p>
+<p>如果你的 Python 是從官網上面下載，就包含了 <code>pip</code> 工具。如果尚未安裝 <code>pip</code> 工具，請參考下方。</p>
+<h3 id="安裝-pip"><a class="header-anchor" href="#安裝-pip"></a>安裝 pip</h3>
+<p>在 <a href="https://pypi.org/project/pip/" target="_blank" rel="noopener">pip 官網</a>中，可以看到<a href="https://pip.pypa.io/en/stable/installing/" target="_blank" rel="noopener">安裝的方法</a>。</p>
+<ol>
+<li>獲得安裝 pip 的檔案。可以使用終端機 <code>cd</code> 進入某個資料夾，用下方指令碼下載；或是去<a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="noopener">這裏</a>將整個頁面存在一個 <code>.py</code> 的檔案中。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   <span class="comment"># 先下載安裝 pip 的檔案</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>curl：抓取網頁到一個檔案中。<br>
+-o：必須輸入檔案名，將網頁內容下載到該檔案中。</p>
+</blockquote>
+<ol start="2">
+<li>使用終端機 <code>cd</code> 進入 <code>get-pip.py</code> 所在資料夾，執行安裝 pip 的檔案。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo python3 get-pip.py    <span class="comment"># 執行安裝 pip 的檔案</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用-pip-安裝模組"><a class="header-anchor" href="#使用-pip-安裝模組"></a>使用 pip 安裝模組</h3>
+<p>有了 <code>pip</code> 工具後，使用它安裝他人建置的模組。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install 模組名</span><br></pre></td></tr></table></figure>
+
+        </div>
+    </div>
+    
+    <div class="copy-right">
+        <div class="markdown-body">
+            <blockquote>
+                
+                
+                本文作者 : Jenifer <br>
+                
+                原文連結 : <a href>https://jenifers001d.github.io/2019/12/07/Python/learning-Python-day7/</a><br>
+                版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
+            </blockquote>
+        </div>
+    </div>
+    
+
+    
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="google, facebook, twitter, qzone, qq, weibo, wechat, douban">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+    
+
+    
+
+    <div class="article-footer">
+        <div class="article-meta pull-left">
+            <span>
+                
+                <i class="iconfont icon-06tags"></i>標籤:
+                
+                <span class="span--tag">
+                    <a href="/tags/Python/">
+                        #Python
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Elementary-Code/">
+                        #Elementary Code
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Elementary-Python/">
+                        #Elementary Python
+                    </a>
+                </span>
+                
+                
+            </span>
+        </div>
+        <div class="article-meta pull-right">
+        </div>
+    </div>
+</div>
+
+
+<aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+</aside>
+<script async>
+    setTimeout(generateToc, 500);
+
+</script>
+
+
+
+
+
+    <nav class="post-navigation">
+        
+        <div class="nav-pre">
+            <i class="iconfont icon-prev"></i>
+            上一篇:
+            <a href="/2019/12/04/Python/learning-Python-day6/" target="_self">Python 自學第六天：定義函式和參數相關設定</a>
+        </div>
+        
+        
+        <div class="nav-next">
+            下一篇:
+            <a href="/2019/12/07/Python/learning-Python-day8/" target="_self">Python 自學第八天：Package 封包</a>
+            <i class="iconfont icon-next"></i>
+        </div>
+        
+    </nav>
+
+    
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足跡 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<div id="disqus_thread"></div>
+<script defer>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    if (true) {
+        var disqus_config = function() {
+            this.page.url = "https://jenifers001d.github.io/2019/12/07/Python/learning-Python-day7/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/12/07/Python/learning-Python-day7/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://jenifer-code-world.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    }
+
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+<script defer>
+    if (false) {
+        let path = getRealPath()
+        new Valine({
+            el: "#vcomments",
+            appId: "Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz",
+            appKey: "WaR7nrzhliHj9aVwdQzkdlGd",
+            notify: false,
+            verify: false,
+            avatar: "robohash",
+            placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+            path
+        });
+    }
+
+</script>
+
+    
+
+    
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz", "WaR7nrzhliHj9aVwdQzkdlGd");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+    
+
+</div>
+
+
+
+        <footer>
+    <p class="site-info">
+        Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+        <br>
+        Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+        <br>
+        
+    </p>
+</footer>
+
+
+
+<script>
+    const timeToNowDOM = document.querySelector("#time-to-now");
+    const startTimestamp = new Date( 2019 , 10 , 22 ).getTime();
+    const updateTimeStr = () => {
+        let offset = parseInt(
+                (new Date().getTime() - startTimestamp) / 1000,
+                10
+            ),
+            day = Math.floor(offset / 86400),
+            hour = Math.floor((offset % 86400) / 3600),
+            minute = Math.floor(((offset % 86400) % 3600) / 60),
+            second = Math.floor(((offset % 86400) % 3600) % 60);
+        timeToNowDOM.innerHTML =
+            day + " days " + hour + " hrs " + minute + " mins " + second + " secs ";
+        setTimeout(updateTimeStr, 500);
+    }
+    setTimeout(updateTimeStr, 500);
+</script>
+
+        <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+    
+    
+    <script src="/custom/all.js" ></script>
+    
+    
+    
+</body>
+
+</html>
