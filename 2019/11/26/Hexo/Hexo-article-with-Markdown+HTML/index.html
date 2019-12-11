@@ -286,6 +286,26 @@ pagead/js/adsbygoogle.js"></script>
 <h2 id="文章中的-標籤符號"><a class="header-anchor" href="#文章中的-標籤符號"></a>文章中的 &lt;&gt; 標籤符號</h2>
 <p>如上「&lt;a href=“javascript:void(0)”&gt; 这样写为什么不好?」，可以藉由在 <code>&gt;</code> 符號前增加 <code>\</code> 反斜線達成。如：<code>&lt;a href=&quot;javascript:void(0)&quot;\&gt; 这样写为什么不好?</code></p>
 <p>否則只會出現「这样写为什么不好?」</p>
+<h2 id="表格中的換行"><a class="header-anchor" href="#表格中的換行"></a>表格中的換行</h2>
+<p>不是用 <code>\n</code> 而是 <code>&lt;br&gt;</code>。例如如下，第三句話前面有加 <code>&lt;br&gt;</code>：</p>
+<table>
+<thead>
+<tr>
+<th>col1</th>
+<th>col2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row1</td>
+<td>第一句話。</td>
+</tr>
+<tr>
+<td>row2</td>
+<td>第一句話，寫一些東西。第二句話，喜歡吃美食。<br>第三句話，希望不要變胖。</td>
+</tr>
+</tbody>
+</table>
 <p><span style="color: #0000ff">持續不定期更新中…</span></p>
 
         </div>

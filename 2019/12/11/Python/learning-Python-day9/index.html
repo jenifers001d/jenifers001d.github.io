@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Jenifer, jenifers001d@gmail.com">
+    
+    
+
+    <title>Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案 | Jenifer.Code.World</title>
+    <!--  Google Search Console 驗證網站擁有權  -->
+    <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+    <!--  Provides a link to an XML document describing the layout of the site.  -->
+    <!--    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jenifers001d.github.io/sitemap.xml">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <meta name="keywords" content="Python,Python,Elementary Code,Elementary Python,File I/O,Text,JSON,CSV,">
+    
+
+    <script>
+        console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' +
+            '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n',
+            'color: #fadfa3; background: #030307; padding:3px 0;', '',
+            'color: #fadfa3; background: #030307; padding:3px 0;', '');
+
+    </script>
+
+    
+    <meta name="description" content="&lt;p&gt;程式時常需要處理各種不同的檔案。理解如何讀取、寫入 &lt;code&gt;Text&lt;/code&gt; 檔案非常重要。除此之外，網路上的公開資料 (Open Data) 也常會使用 &lt;code&gt;JSON&lt;/code&gt; 或 &lt;code&gt;CSV&lt;/code&gt; 格式的檔案，因此，我們也需要了解相關的操作方式。&lt;/p&gt;">
+    
+
+    
+
+    
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+    
+
+    <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/icon/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+
+    <script src="/js/util.js"></script>
+<script src="/js/valine.min.js"></script>
+
+    
+    <link rel="stylesheet" href="/custom/style.css">
+    
+
+    
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+    
+
+    
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+    
+
+    <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+
+    
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+    
+    <!-- 加入 Google AdSense -->
+    <script data-ad-client="ca-pub-6866375976707228" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="//pagead2.googlesyndication.com/
+pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "pub-6866375976707228",
+            enable_page_level_ads: true
+        });
+
+    </script>
+    <!-- Google AdSense 結束 -->
+
+</head>
+
+
+<body>
+
+    
+
+    <div id="app">
+
+        <div class="header-wrap">
+    <header>
+        <div class="site-brand">
+            <div class="site-title">
+                <a href="/">Jenifer.Code.World</a>
+            </div>
+        </div>
+        <nav class="site-navigation">
+            <ul class="nav-menu">
+                
+                <li class="nav-item" data-path="/">
+                    
+                    <a href="/" target="_self">
+                        首頁
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/archives/">
+                    
+                    <a href="/archives/" target="_self">
+                        歸檔
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/categories/">
+                    
+                    <a href="/categories/" target="_self">
+                        分類
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/tags/">
+                    
+                    <a href="/tags/" target="_self">
+                        標籤
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path>
+                    
+                    <a href="javascript:void(0);" v-else>抓到我</a>
+                    <ul class="nav-menu--dropdown">
+                        
+                        <li>
+                            <a href="https://github.com/jenifers001d" target="_blank">
+                                Github
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+        <i class="iconfont icon-menu"></i>
+    </header>
+</div>
+
+<script>
+    let links = document.querySelectorAll('.nav-item');
+    for (let link of links) {
+        let childrenLink = link.querySelector('ul');
+        link.addEventListener('mouseenter', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown active";
+            }
+        })
+        link.addEventListener('mouseleave', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown";
+            }
+        })
+    }
+    let rootRealPath = getRealPath(window.location.pathname, true);
+    for (let link of links) {
+        let linkPath = link.getAttribute("data-path");
+        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+            link.className = "nav-item hover";
+        }
+    }
+
+    let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+        iconMenuClicked = false;
+    let navDOM = document.querySelector("nav.site-navigation");
+    iconMenu.addEventListener("click", () => {
+        iconMenuClicked
+            ?
+            navDOM.className = "site-navigation active" :
+            navDOM.className = "site-navigation";
+        iconMenuClicked = !iconMenuClicked;
+    })
+
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+    
+
+<div class="post">
+    <h1 class="article-title">
+        <span>Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案</span>
+    </h1>
+    <div class="article-top-meta">
+        <span>
+            發布 :
+            2019-12-11
+        </span>
+        
+        <span>
+            分類 :
+            <a href="/categories/Python/">
+                Python
+            </a>
+        </span>
+        
+        
+        <span>
+            瀏覽 : <span class="article-timer" data-identity="learning-Python-day9"></span>
+        </span>
+        
+        
+    </div>
+
+    
+
+    <div class="article-content">
+        <div class="markdown-body">
+            
+<p>程式時常需要處理各種不同的檔案。理解如何讀取、寫入 <code>Text</code> 檔案非常重要。除此之外，網路上的公開資料 (Open Data) 也常會使用 <code>JSON</code> 或 <code>CSV</code> 格式的檔案，因此，我們也需要了解相關的操作方式。</p>
+
+<h2 id="檔案操作流程"><a class="header-anchor" href="#檔案操作流程"></a>檔案操作流程</h2>
+<p>開啟 &gt; 讀取或寫入 &gt; 關閉。</p>
+<div class="warning">
+<p>如果不想每次手動<strong>關閉</strong>檔案，或怕自己忘記<strong>關閉</strong>檔案，可以使用 <code>with</code> 關鍵字實作。</p>
+</div>
+<h2 id="text-檔案"><a class="header-anchor" href="#text-檔案"></a>Text 檔案</h2>
+<h3 id="開啟"><a class="header-anchor" href="#開啟"></a>開啟</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFile = open(檔案路徑, mode) <span class="comment"># 將回傳的 file 物件存在 myFile 變數中。</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>open()：會 return 一個 file 物件。file 物件會有一些和檔案相關的變數和函式。<br>
+檔案路徑：相對路徑或絕對路徑。<br>
+mode：檔案開啟模式。不寫，預設是：“r”，表示讀取檔案。</p>
+</blockquote>
+<p>模式參數的說明：</p>
+<ul>
+<li>b：檔案是二進位制。</li>
+<li>+：檔案可以讀寫。</li>
+<li>r：read。</li>
+<li>w：write。</li>
+<li>a：append。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>檔案開啟模式</th>
+<th>說明</th>
+<th style="text-align:center">檔案開啟的游標位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r, rb</td>
+<td>只讀取檔案</td>
+<td style="text-align:center">最前端</td>
+</tr>
+<tr>
+<td>r+, rb+</td>
+<td>檔案可讀寫</td>
+<td style="text-align:center">最前端</td>
+</tr>
+<tr>
+<td>w, wb</td>
+<td>如果檔案不存在，建立新的檔案，並且寫入資料。<br>如果檔案存在，<span style="color: #ff0000">覆蓋舊的資料，寫入新的資料</span>。</td>
+<td style="text-align:center">最前端</td>
+</tr>
+<tr>
+<td>w+, wb+</td>
+<td>同上，但是檔案可以讀寫。</td>
+<td style="text-align:center">最前端</td>
+</tr>
+<tr>
+<td>a, ab</td>
+<td>如果檔案不存在，建立新的檔案，並且寫入資料。<br>如果檔案存在，打開檔案，<span style="color: #ff0000">從資料尾部，寫入新的資料，不會覆蓋舊的內容</span>。</td>
+<td style="text-align:center">資料<strong>結尾</strong></td>
+</tr>
+<tr>
+<td>a+, ab+</td>
+<td>同上，但是檔案可以讀寫。</td>
+<td style="text-align:center">資料<strong>結尾</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="讀取或寫入"><a class="header-anchor" href="#讀取或寫入"></a>讀取或寫入</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># myFile 變數是一個 file 物件，有一些和檔案相關的變數和函式</span></span><br><span class="line"><span class="comment"># 以「.」呼叫</span></span><br><span class="line">myFile.read()</span><br><span class="line">myFile.readline()</span><br><span class="line">myFile.readlines()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>read()：讀取檔案全部內容，並且回傳。<br>
+read(n)：讀取寬度 <code>n</code> 的字節，並且回傳。<br>
+readline()：一次讀取一整行，包括結尾的換行符號 <code>\n</code>，並且回傳。如果讀取完第一行後再呼叫一次，則從上次游標結束的地方開始讀取，也就是會讀取第二行，以此類推。<br>
+readline(n)：讀取寬度 <code>n</code> 的字節，並且回傳。再呼叫一次，則從上次游標結束的地方開始讀取一整行 (如果沒有傳入參數) 或讀取寬度 <code>n</code> 的字節。<br>
+readlines()：讀取所有行，並且以 List 格式回傳。<br>
+readlines(n)：「從第一個元素」到「<code>n</code> 字節所在的元素」，以 List 格式回傳。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># myFile 變數是一個 file 物件，有一些和檔案相關的變數和函式</span></span><br><span class="line"><span class="comment"># 以「.」呼叫</span></span><br><span class="line">myFile.write(str)</span><br><span class="line">myFile.writelines(seq)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>write(str)：寫入資料。<code>str</code> 是欲寫入的字串。<br>
+writelines(seq)：寫入資料。<a href="https://docs.python.org/zh-tw/3/glossary.html#term-sequence" target="_blank" rel="noopener">sequence</a> 是可以疊代的資料類型，有<strong>字串</strong>、<strong>List</strong>、<strong>Tuple</strong> 等。</p>
+</blockquote>
+<h3 id="關閉"><a class="header-anchor" href="#關閉"></a>關閉</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFile.close()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>close()：關閉檔案。檔案關閉後無法再讀取或寫入。</p>
+</blockquote>
+<h3 id="一般讀取或寫入流程"><a class="header-anchor" href="#一般讀取或寫入流程"></a>一般讀取或寫入流程</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 開啟</span></span><br><span class="line">f1 = open(<span class="string">"file1.txt"</span>, <span class="string">"w"</span>)  <span class="comment"># 檔案路徑以相對路徑表示，寫入模式</span></span><br><span class="line"><span class="comment"># 操作：寫入</span></span><br><span class="line">f1.write(<span class="string">"測試 Python 第一行\n"</span>)</span><br><span class="line">data = [<span class="string">"這是第二行"</span>, <span class="string">"，接在第二行後面\n"</span>, <span class="string">"我是 Jenifer\n"</span>, <span class="string">"想要第三行"</span>]</span><br><span class="line">f1.writelines(data)</span><br><span class="line"><span class="comment"># 關閉</span></span><br><span class="line">f1.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ------- 檔案打開長這樣 -------</span></span><br><span class="line"><span class="comment"># 測試 Python 第一行</span></span><br><span class="line"><span class="comment"># 這是第二行，接在第二行後面</span></span><br><span class="line"><span class="comment"># 我是 Jenifer</span></span><br><span class="line"><span class="comment"># 想要第三行</span></span><br><span class="line"><span class="comment"># ---------------------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 開啟</span></span><br><span class="line">f1 = open(<span class="string">"file1.txt"</span>, <span class="string">"r"</span>)  <span class="comment"># 檔案路徑以相對路徑表示，讀取模式</span></span><br><span class="line"><span class="comment"># 操作：讀取</span></span><br><span class="line">line1 = f1.readline()</span><br><span class="line">print(line1)</span><br><span class="line">lines = f1.readlines()</span><br><span class="line">print(lines)</span><br><span class="line"><span class="comment"># 關閉</span></span><br><span class="line">f1.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># 測試 Python 第一行</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># ['這是第二行，接在第二行後面\n', '我是 Jenifer\n', '想要第三行']</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>因為 <code>readline()</code> 會連換行符號 <code>\n</code> 也一起讀取，所以 line 23 會是一個空白行。</p>
+</blockquote>
+<div class="danger">
+<p>有一個小坑，如果沒有寫 line 8 的關閉檔案，但是在 line 20 卻將同一個檔案指給另一個變數，例如：<code>f2 = open(&quot;file1.txt&quot;, &quot;r&quot;)</code>，不會報錯，但是輸出的結果會出現異常。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># []</span></span><br></pre></td></tr></table></figure>
+<p>在 line 6 執行結束時，游標已經在 <code>file1.txt</code> 檔案的資料尾端。因為檔案沒有關閉再打開，因此當它被指給新的變數 <code>f2</code> 時，游標就已經在「資料尾端」了，再向後也讀取不到任何資料。</p>
+</div>
+<h3 id="with-關鍵字實作"><a class="header-anchor" href="#with-關鍵字實作"></a><code>with</code> 關鍵字實作</h3>
+<p><strong>怕忘記關閉檔案，造成錯誤，改用 <code>with</code> 關鍵字實作。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"file1.txt"</span>, <span class="string">"w"</span>) <span class="keyword">as</span> f1:</span><br><span class="line">    f1.write(<span class="string">"測試 Python 第一行\n"</span>)</span><br><span class="line">    data = [<span class="string">"這是第二行"</span>, <span class="string">"，接在第二行後面\n"</span>, <span class="string">"我是 Jenifer\n"</span>, <span class="string">"想要第三行"</span>]</span><br><span class="line">    f1.writelines(data)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"file1.txt"</span>, <span class="string">"r"</span>) <span class="keyword">as</span> f2:</span><br><span class="line">    oneline = f2.readline()</span><br><span class="line">    print(oneline)</span><br><span class="line">    lines = f2.readlines()</span><br><span class="line">    print(lines)</span><br></pre></td></tr></table></figure>
+<h3 id="另外讀取多行的方式"><a class="header-anchor" href="#另外讀取多行的方式"></a>另外讀取多行的方式</h3>
+<h4 id="while-迴圈"><a class="header-anchor" href="#while-迴圈"></a>while 迴圈</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"file1.txt"</span>, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    line=f.readline()</span><br><span class="line">    <span class="keyword">while</span> line!=<span class="string">''</span>:</span><br><span class="line">        print(line)</span><br><span class="line">        line=f.readline()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># 測試 Python 第一行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 這是第二行，接在第二行後面</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我是 Jenifer</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 想要第三行</span></span><br></pre></td></tr></table></figure>
+<h4 id="for-in"><a class="header-anchor" href="#for-in"></a>for … in</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"file1.txt"</span>, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        print(line)</span><br><span class="line">        </span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># 同上一組程式碼</span></span><br></pre></td></tr></table></figure>
+<h3 id="在檔案的後方新增資料"><a class="header-anchor" href="#在檔案的後方新增資料"></a>在檔案的後方新增資料</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"file1.txt"</span>, <span class="string">"a"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">"，新增的字串！"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="json"><a class="header-anchor" href="#json"></a>JSON</h2>
+<p><a href="https://zh.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON</a> (JavaScript Object Notation)，又稱作 JavaScript 物件表示法，被設計用來讓人容易理解、閱讀和方便交換、傳遞資料。</p>
+<p>引入內建 <code>json</code> 模組，使用模組內的函式來操作 JSON <span style="color: #ff0000">字串資料</span>或<span style="color: #ff0000">檔案物件</span>。關於檔案的操作步驟和 Text 檔案類似。</p>
+<h3 id="json-字串資料"><a class="header-anchor" href="#json-字串資料"></a>JSON 字串資料</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json.dumps(Python數據結構)   <span class="comment"># 回傳 JSON 字串資料，類似 print(data)</span></span><br><span class="line">json.loads(JSON字串資料)     <span class="comment"># 回傳 Python 數據結構，類似 input()</span></span><br></pre></td></tr></table></figure>
+<p><span style="color: #ff0000">注意：結尾有 s。</span></p>
+<div class="warning">
+<p>這邊<span style="color: #ff0000">不是操作檔案</span>，只是操作 JSON 字串資料。說真的，Python 數據結構 (不含 Set) 中的 <strong>List、字典</strong>資料和 <strong>JSON</strong> 資料長得<span style="color: #ff0000">一模一樣</span> … 唯二差別是：</p>
+<ul>
+<li>JSON 字串資料中，Tuple 會被轉換成 List</li>
+<li>Python 數據結構中：空值用 None 表示。JSON 字串資料中：空值用 null 表示。</li>
+</ul>
+</div>
+<h4 id="傳入-python-obj-回傳-json-str"><a class="header-anchor" href="#傳入-python-obj-回傳-json-str"></a>傳入 Python obj，回傳 JSON str</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">python_data = [[<span class="string">"name"</span>], &#123;<span class="string">"test"</span>: (<span class="string">"orange"</span>, <span class="literal">None</span>, <span class="number">0.1</span>, <span class="number">20</span>)&#125;]</span><br><span class="line">json_str = json.dumps(python_data)</span><br><span class="line">print(json_str)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出 JSON str：</span></span><br><span class="line"><span class="comment"># [["name"], &#123;"test": ["orange", null, 0.1, 20]&#125;]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>json.dumps(python_data)：<code>json</code> 模組內的 <code>dumps()</code> 可以將 <strong>Python 數據結構</strong> <code>python_data</code> 轉換成 JSON 字串，並且回傳。</p>
+</blockquote>
+<h4 id="傳入-json-str-回傳-python-obj"><a class="header-anchor" href="#傳入-json-str-回傳-python-obj"></a>傳入 JSON str，回傳 Python obj</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">json_str = <span class="string">'[["name"], &#123;"test": ["orange", null, 0.1, 20]&#125;]'</span></span><br><span class="line">python_data = json.loads(json_str)</span><br><span class="line">print(python_data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出 Python obj：</span></span><br><span class="line"><span class="comment"># [['name'], &#123;'test': ['orange', None, 0.1, 20]&#125;]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>json.loads(json_str)：<code>json</code> 模組內的 <code>loads()</code> 可以將 <strong>JSON 字串</strong> <code>json_str</code> 轉換成 Python 數據結構，並且回傳。</p>
+</blockquote>
+<h3 id="json-檔案物件"><a class="header-anchor" href="#json-檔案物件"></a>JSON 檔案物件</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json.dump(Python數據結構, 檔案物件)   <span class="comment"># 類似 myFile.write(str)</span></span><br><span class="line">json.load(檔案物件)                  <span class="comment"># 類似 myFile.read()</span></span><br></pre></td></tr></table></figure>
+<p>注意：結尾<span style="color: #ff0000">沒有 s</span>。</p>
+<h4 id="寫入"><a class="header-anchor" href="#寫入"></a>寫入</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"config.json"</span>,<span class="string">"w"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = [[<span class="string">"name"</span>], &#123;<span class="string">"test"</span>: (<span class="string">"orange"</span>, <span class="literal">None</span>, <span class="number">0.1</span>, <span class="number">20</span>)&#125;]</span><br><span class="line">    json.dump(data, f) </span><br><span class="line"></span><br><span class="line"><span class="comment"># ----------- config.json 檔案打開長這樣 -----------</span></span><br><span class="line"><span class="comment"># [["name"], &#123;"test": ["orange", null, 0.1, 20]&#125;]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>json.dump(data, fp)：<code>json</code> 模組內的 <code>dump()</code> 可以將 <strong>Python 數據結構</strong> <code>data</code> 寫入 JSON 格式的 <code>fp</code> 檔案物件。</p>
+</blockquote>
+<h4 id="讀取"><a class="header-anchor" href="#讀取"></a>讀取</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"config.json"</span>,<span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = json.load(f)</span><br><span class="line">print(data) </span><br><span class="line">print(data[<span class="number">1</span>][<span class="string">"test"</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># [['name'], &#123;'test': ['orange', None, 0.1, 20]&#125;]</span></span><br><span class="line"><span class="comment"># ['orange', None, 0.1, 20]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>json.load(fp)：<code>json</code> 模組內的 <code>load()</code> 可以用來讀取  JSON 格式的 <code>fp</code> 檔案物件，並且回傳 <strong>Python 數據結構</strong>。</p>
+</blockquote>
+<h2 id="csv-檔案"><a class="header-anchor" href="#csv-檔案"></a>CSV 檔案</h2>
+<p><a href="https://zh.wikipedia.org/wiki/%E9%80%97%E5%8F%B7%E5%88%86%E9%9A%94%E5%80%BC" target="_blank" rel="noopener">CSV</a> (Comma-Separated Values)，又被稱為<strong>逗號分隔值</strong>或<strong>字元分隔值</strong>，因為可以用其他的字元取代逗號。</p>
+<p>引入內建 <code>csv</code> 模組，使用模組內的函式來操作 CSV 的 <span style="color: #ff0000">List、Tuple、Set 資料</span>和<span style="color: #ff0000">檔案物件</span>。關於檔案的操作步驟和 Text 檔案類似。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">csv.writer(csvfile, delimiter)     <span class="comment"># 類似 myFile.write(str)</span></span><br><span class="line">csv.reader(csvfile)     <span class="comment"># 類似 myFile.read()</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>csv.writer()：會回傳一個<span style="color: #ff0000">寫入物件</span>，有不同的函式，執行不同的寫入功能。<br>
+delimiter：可以指定分隔的字元。不寫，預設<strong>逗號</strong>。<br>
+csv.reader()：會回傳一個二維 List。</p>
+</blockquote>
+<p>事實上在 <a href="https://docs.python.org/3/library/csv.html" target="_blank" rel="noopener">Python 文件 csv 模組</a> 中提到：</p>
+<ul>
+<li><code>csv.writer()</code> 的參數 <code>csvfile</code> 需要含有 <code>write()</code> 函式的功能。我目前學到也只查到，只有<span style="color: #ff0000">檔案物件</span>有這個功能，List、Tuple、Set 資料都沒有 <code>write()</code> 函式。</li>
+<li><code>csv.reader()</code> 的參數 <code>csvfile</code> 需要是可以疊代的資料，包含<span style="color: #ff0000">檔案物件</span>和 <span style="color: #ff0000">List、Tuple、Set 資料</span>。</li>
+<li>如果 <code>csvfile</code> 是<span style="color: #ff0000">檔案物件</span>的話，一定要給予 <code>newline=&quot;&quot;</code> 參數。</li>
+</ul>
+<blockquote>
+<p>csv.writer()：csvfile can be any object with a <code>write()</code> method. If csvfile is a file object, it should be opened with <code>newline=''</code>.</p>
+</blockquote>
+<blockquote>
+<p>csv.reader()：csvfile can be any object which supports the iterator protocol and returns a string each time its <code>__next__()</code> method is called - file objects and list objects are both suitable.</p>
+</blockquote>
+<blockquote>
+<p>If csvfile is a file object, it should be opened with <code>newline=''</code>.</p>
+</blockquote>
+<h3 id="csv-類型之-list-tuple-set-資料"><a class="header-anchor" href="#csv-類型之-list-tuple-set-資料"></a>CSV 類型之 List、Tuple、Set 資料</h3>
+<div class="warning">
+<p>只有 <code>csv.reader(csvfile)</code> 可以用。由下面的例子可以看到，Set 資料會刪去重複的資料，並且前後順序不一樣。</p>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line">list_data = [<span class="string">"one,two,three"</span>,<span class="string">"100,150,300"</span>]</span><br><span class="line">set_data = &#123;<span class="string">"1,2,3,4"</span>, <span class="string">"5,6,7,8"</span>, <span class="string">"5,6,7,8"</span>&#125;</span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> csv.reader(list_data):</span><br><span class="line">    print(row)</span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> csv.reader(set_data):</span><br><span class="line">    print(row)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># ['one', 'two', 'three']</span></span><br><span class="line"><span class="comment"># ['100', '150', '300']</span></span><br><span class="line"><span class="comment"># ['5', '6', '7', '8']</span></span><br><span class="line"><span class="comment"># ['1', '2', '3', '4']</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>csv.reader()：會回傳一個二維 List，可以用 for … in 語法，取得每一列 (row)。</p>
+</blockquote>
+<h3 id="csv-檔案物件"><a class="header-anchor" href="#csv-檔案物件"></a>CSV 檔案物件</h3>
+<h4 id="寫入"><a class="header-anchor" href="#寫入"></a>寫入</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"example.csv"</span>, <span class="string">"w"</span>, newline=<span class="string">""</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">    wr = csv.writer(csvfile)</span><br><span class="line">    wr.writerow([<span class="string">"name"</span>, <span class="string">"age"</span>, <span class="string">"ID"</span>])</span><br><span class="line">    wr.writerow([<span class="string">"Jenifer"</span>, <span class="number">10</span>, <span class="string">"a12345"</span>])</span><br><span class="line">    wr.writerow([<span class="string">"Marry"</span>, <span class="number">12</span>, <span class="string">"a12400"</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------ example.csv 檔案打開長這樣 ------</span></span><br><span class="line"><span class="comment"># name,age,ID</span></span><br><span class="line"><span class="comment"># Jenifer,10,a12345</span></span><br><span class="line"><span class="comment"># Marry,12,a12400</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>csv.writer(csvfile)：<code>csv</code> 模組內的 <code>writer()</code>，確認好要寫入的檔案 <code>csvfile</code> 後，會回傳一個<strong>寫入物件</strong> <code>wr</code>。<br>
+writerow()：<strong>寫入物件</strong>的函式，可以將<span style="color: #ff0000">一維</span>的 List、Tuple、Set 資料寫入檔案。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line">list_2d = [</span><br><span class="line">    [<span class="string">"name"</span>, <span class="string">"age"</span>, <span class="string">"ID"</span>],</span><br><span class="line">    [<span class="string">"Jenifer"</span>, <span class="number">10</span>, <span class="string">"a12345"</span>],</span><br><span class="line">    [<span class="string">"Marry"</span>, <span class="number">12</span>, <span class="string">"a12400"</span>]</span><br><span class="line">]</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"example.csv"</span>, <span class="string">"w"</span>, newline=<span class="string">""</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">    wr = csv.writer(csvfile)</span><br><span class="line">    wr.writerows(list_2d)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>writerows()：寫入物件的函式，可以將<span style="color: #ff0000">二維</span>的 List、Tuple、Set 資料寫入檔案。</p>
+</blockquote>
+<h4 id="讀取"><a class="header-anchor" href="#讀取"></a>讀取</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"example.csv"</span>, newline=<span class="string">""</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> csv.reader(csvfile):</span><br><span class="line">        print(row)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># ['name', 'age', 'ID']</span></span><br><span class="line"><span class="comment"># ['Jenifer', '10', 'a12345']</span></span><br><span class="line"><span class="comment"># ['Marry', '12', 'a12400']</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>csv.reader(csvfile)：會讀取 <code>csvfile</code> 檔案，回傳一個二維 List，可以用 for … in 語法，取得每一列 (row)。</p>
+</blockquote>
+<p>參考資料：<br>
+<a href="https://www.youtube.com/watch?v=C4OkV6DrVRs" target="_blank" rel="noopener">彭彭的課程：Python 文字檔案的讀取和儲存</a><br>
+<a href="https://blog.gtwang.org/programming/python-csv-file-reading-and-writing-tutorial/" target="_blank" rel="noopener">Python 讀取與寫入 CSV 檔案教學與範例</a></p>
+
+        </div>
+    </div>
+    
+    <div class="copy-right">
+        <div class="markdown-body">
+            <blockquote>
+                
+                
+                本文作者 : Jenifer <br>
+                
+                原文連結 : <a href>https://jenifers001d.github.io/2019/12/11/Python/learning-Python-day9/</a><br>
+                版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
+            </blockquote>
+        </div>
+    </div>
+    
+
+    
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="google, facebook, twitter, qzone, qq, weibo, wechat, douban">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+    
+
+    
+
+    <div class="article-footer">
+        <div class="article-meta pull-left">
+            <span>
+                
+                <i class="iconfont icon-06tags"></i>標籤:
+                
+                <span class="span--tag">
+                    <a href="/tags/Python/">
+                        #Python
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Elementary-Code/">
+                        #Elementary Code
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Elementary-Python/">
+                        #Elementary Python
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/File-I-O/">
+                        #File I/O
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Text/">
+                        #Text
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/JSON/">
+                        #JSON
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/CSV/">
+                        #CSV
+                    </a>
+                </span>
+                
+                
+            </span>
+        </div>
+        <div class="article-meta pull-right">
+        </div>
+    </div>
+</div>
+
+
+<aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+</aside>
+<script async>
+    setTimeout(generateToc, 500);
+
+</script>
+
+
+
+
+
+    <nav class="post-navigation">
+        
+        <div class="nav-pre">
+            <i class="iconfont icon-prev"></i>
+            上一篇:
+            <a href="/2019/12/09/SEO/SEO1-Website-is-Not-Showing-in-Google-Search/" target="_self">SEO 優化 (一)：為什麼搜尋 (Google) 不到我的 Hexo 部落格？</a>
+        </div>
+        
+        
+    </nav>
+
+    
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足跡 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<div id="disqus_thread"></div>
+<script defer>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    if (true) {
+        var disqus_config = function() {
+            this.page.url = "https://jenifers001d.github.io/2019/12/11/Python/learning-Python-day9/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/12/11/Python/learning-Python-day9/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://jenifer-code-world.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    }
+
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+<script defer>
+    if (false) {
+        let path = getRealPath()
+        new Valine({
+            el: "#vcomments",
+            appId: "Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz",
+            appKey: "WaR7nrzhliHj9aVwdQzkdlGd",
+            notify: false,
+            verify: false,
+            avatar: "robohash",
+            placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+            path
+        });
+    }
+
+</script>
+
+    
+
+    
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz", "WaR7nrzhliHj9aVwdQzkdlGd");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+    
+
+</div>
+
+
+
+        <footer>
+    <p class="site-info">
+        Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+        <br>
+        Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+        <br>
+        
+    </p>
+</footer>
+
+
+
+<script>
+    const timeToNowDOM = document.querySelector("#time-to-now");
+    const startTimestamp = new Date( 2019 , 10 , 22 ).getTime();
+    const updateTimeStr = () => {
+        let offset = parseInt(
+                (new Date().getTime() - startTimestamp) / 1000,
+                10
+            ),
+            day = Math.floor(offset / 86400),
+            hour = Math.floor((offset % 86400) / 3600),
+            minute = Math.floor(((offset % 86400) % 3600) / 60),
+            second = Math.floor(((offset % 86400) % 3600) % 60);
+        timeToNowDOM.innerHTML =
+            day + " days " + hour + " hrs " + minute + " mins " + second + " secs ";
+        setTimeout(updateTimeStr, 500);
+    }
+    setTimeout(updateTimeStr, 500);
+</script>
+
+        <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+    
+    
+    <script src="/custom/all.js" ></script>
+    
+    
+    
+</body>
+
+</html>
