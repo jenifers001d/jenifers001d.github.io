@@ -7,7 +7,7 @@
     
     
 
-    <title>Hexo＋GitHub 網誌和部落格架設（一） | Jenifer.Code.World</title>
+    <title>Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原 | Jenifer.Code.World</title>
     <!--  Google Search Console 驗證網站擁有權  -->
     <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
     <!--  Provides a link to an XML document describing the layout of the site.  -->
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-    <meta name="keywords" content="Hexo,GitHub,Hexo,網頁架設,靜態網頁,">
+    <meta name="keywords" content="Git,Git,GitHub,">
     
 
     <script>
@@ -27,7 +27,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;Hexo 是一個快速、簡單且強大的&lt;strong&gt;網誌框架&lt;/strong&gt;。Hexo 使用 &lt;a href=&#34;https://zh.wikipedia.org/wiki/Markdown&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markdown&lt;/a&gt;(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。&lt;/p&gt;">
+    <meta name="description" content="&lt;p&gt;所謂的遠端操作，就是將本地端(電腦)&lt;strong&gt;版本控制狀態的資料&lt;/strong&gt;傳送到遠端伺服器上，我們要使用的是最有名的 GitHub，它是最大的 Git (版本控制系统軟體) 服務提供商 (Git Server)。&lt;/p&gt;">
     
 
     
@@ -201,24 +201,24 @@ pagead/js/adsbygoogle.js"></script>
 
 <div class="post">
     <h1 class="article-title">
-        <span>Hexo＋GitHub 網誌和部落格架設（一）</span>
+        <span>Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原</span>
     </h1>
     <div class="article-top-meta">
         <span>
             發布 :
-            2019-11-24
+            2019-12-12
         </span>
         
         <span>
             分類 :
-            <a href="/categories/Hexo/">
-                Hexo
+            <a href="/categories/Git/">
+                Git
             </a>
         </span>
         
         
         <span>
-            瀏覽 : <span class="article-timer" data-identity="Hexo+GitHub-1"></span>
+            瀏覽 : <span class="article-timer" data-identity="Git-intro-2"></span>
         </span>
         
         
@@ -228,39 +228,130 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            <h2 id="hexo-是什麼？"><a class="header-anchor" href="#hexo-是什麼？"></a>Hexo 是什麼？</h2>
+            
+<p>所謂的遠端操作，就是將本地端(電腦)<strong>版本控制狀態的資料</strong>傳送到遠端伺服器上，我們要使用的是最有名的 GitHub，它是最大的 Git (版本控制系统軟體) 服務提供商 (Git Server)。</p>
 
-<p>Hexo 是一個快速、簡單且強大的<strong>網誌框架</strong>。Hexo 使用 <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Markdown</a>(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。</p>
-
-<p>短時間內，透過漂亮的主題(套用他人主題，或是自己做主題)產生靜態檔案(只有前端，也可以架設網誌和部落格！)。</p>
-<p>Hexo 支援許多強大的外掛和擴充系統，例如：搜尋、留言板、Facebook 社群工具等。</p>
-<p>以 Node.js 為核心，需要預先編譯，才能丟到 GitHub 上 (也就是遠端伺服器或網站上)，但是優點是一旦網頁內容很大，會比 Jekyll 速度快 (Ruby 為核心，不需要先編譯)。</p>
-<p>台灣人製作的！！！官方網站都有支援繁體中文，快去看看吧 &gt;&gt; <a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo</a></p>
-<h2 id="前置作業"><a class="header-anchor" href="#前置作業"></a>前置作業</h2>
-<p>電腦要先安裝好</p>
-<ul>
-<li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (版本至少要 6.9)</li>
-<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> (不知道什麼是 Git 的人，請去 <a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1">Git 入門 (一)</a> )</li>
-</ul>
-<p>可以用下面其中一行來檢查 Node.js 的版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ node --version</span><br></pre></td></tr></table></figure>
-<p>可以用下面其中一行來檢查 Git 的版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br><span class="line">$ git version</span><br></pre></td></tr></table></figure>
-<div class="warning">
-<p>第一次使用指令碼的人不要緊張，指令碼前面的 <code>$</code> 不需要輸入<br>
-(其實新手如我並不清楚指令碼前的 <code>$</code> 表示什麼意思，完全查不到，但是我猜是<strong>在 shell 中輸入</strong>的意思，shell 就是外殼、介面、終端機，麻煩請知道的大神指證我或告訴我正確的解釋，謝謝！)<br>
-所以 <code>$</code> 後面的指令才是重點，有些網站提到指令碼時並不會出現 <code>$</code></p>
+<p>使用 GitHub 的好處有如下幾點：</p>
+<ol>
+<li>程式碼托管 (其實就是備份在 GitHub 的伺服器)</li>
+<li>項目管理 (它最初是為了管理開發項目而產生)</li>
+<li>Github Pages(可以產生靜態網頁，即 <code>gh-pages</code> 分支)</li>
+</ol>
+<p>除了 GitHub 之外，還有：<br>
+<a href="https://bitbucket.org/product/pricing" target="_blank" rel="noopener">Bitbucket</a>：可擁有私人數據庫，免費方案是五人以下團隊。(公司專案的小型團隊可用)<br>
+<a href="https://about.gitlab.com/" target="_blank" rel="noopener">GitLab</a>：自架 Git 伺服器，有提供 web 視覺化管理介面，常用於企業內部開發</p>
+<h2 id="在github-遠端伺服器-中新開一個儲存庫-repository-後"><a class="header-anchor" href="#在github-遠端伺服器-中新開一個儲存庫-repository-後"></a>在GitHub(遠端伺服器)中新開一個儲存庫(repository)後…</h2>
+<p>儲存庫：可以進行版本管理的資料夾</p>
+<p>下圖中，可以看到有兩個區塊的指令<br>
+<img src="https://i.imgur.com/u931iHB.jpg" alt></p>
+<h3 id="create-a-new-repository-on-command-line"><a class="header-anchor" href="#create-a-new-repository-on-command-line"></a>Create a new repository on command line</h3>
+<p>如果你想傳到 GitHub 上的資料，還沒有在版本管理的狀態下，那麼你需要使用終端機或命令提示字元，創建一個本地端的 repository (其實就是對原本一般的資料夾進行初始化 <code>init</code> 動作，想像成使一般的資料夾，新增一個<strong>可以進行版本管理的資料夾</strong>，也就是 <code>.git</code> 資料夾)</p>
+<p>通常 <strong>Windows 和 Mac 系統</strong>的終端機一打開就是<strong>使用者</strong>底下的<strong>名稱</strong>的位置(不知道怎麼形容，哈哈哈)，如下圖。</p>
+<p><img src="https://i.imgur.com/SnQGeTZ.png" alt></p>
+<p><img src="https://i.imgur.com/p0q1h8h.jpg" alt></p>
+<p>記得使用 <code>cd</code> 指令，一層一層移動到你的目標資料夾後，輸入如下第二行指令碼。例如我是在桌面裡建一個 <strong>JeniferCodeWorld</strong> 資料夾，就在裡面進行 init。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> 資料夾1/資料夾2/.../資料夾n/目標資料夾</span><br><span class="line">$ git init</span><br><span class="line">$ git add &lt;資料名稱 or .&gt;</span><br><span class="line">$ git commit -m <span class="string">"first commit"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>指令說明：<br>
+cd：移動到&quot;xx資料夾&quot;。<br>
+init：初始化。<br>
+add：想要增加什麼資料到儲存庫中。例如：想要買東西前，要先列一個清單。網購時，要先把物品加到購物車。<br>
+.：加入全部的檔案的意思。<br>
+commit：英文有「把xx交託給a；把xx提交給a」的含義。也就是確定把剛剛列的清單中的檔案，交給儲存庫的意思。<br>
+-m：message，後面的訊息請加 <code>&quot;&quot;雙引號</code> 。</p>
+</blockquote>
+<p>到這邊都還是在對本地端的檔案，進行版本管理。</p>
+<h3 id="push-an-existing-repository-from-the-command-line"><a class="header-anchor" href="#push-an-existing-repository-from-the-command-line"></a>Push an existing repository from the command line</h3>
+<p>如果你的檔案已經在版本管理的狀態下，就直接或接著上面的指令輸入下面兩行指令碼。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin https://github.com/jenifers001d/test.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>指令說明：<br>
+remote：遠端儲存庫。<br>
+origin：為遠端儲存庫命名、貼一個標籤。通常是 origin，也可以不一樣。<br>
+<url>：剛剛新開的github儲存庫的位置。<br>
+git remote add <name> <url>：告知本地端的儲存庫，遠端伺服器上有一個儲存庫，標籤名是什麼，位置在哪，我要拿來使用並管理檔案。<br>
+push：將本地端版本管理狀態下的檔案，推上去遠端的儲存庫。<br>
+git push <remote name> &lt;遠端分支名稱&gt;：上傳本地端分支修改內容到，標籤名為xx的遠端數據庫的xx分支。</remote></url></name></url></p>
+</blockquote>
+<blockquote>
+<p>-u：等同於 --set-upstream，將遠端分支設為追蹤目標 (預設會推到哪個遠端儲存庫)，會將本地端分支 (如：master) 和遠端分支 (如：origin/master) 建立連結，往後只需要輸入 git push 即可。可不加，需要一直輸入 git push origin master (指定推送位置)。</p>
+</blockquote>
+<div class="danger">
+<p>如果今天要開第二個遠端儲存庫，orgin 已經是第一個遠端儲存庫的名字了，第二個遠端儲存庫的命名就要用不一樣的。</p>
 </div>
-<p>通常 Node.js 安裝完畢後，npm 即被安裝完成，等等會用到。</p>
-<h2 id="流程"><a class="header-anchor" href="#流程"></a>流程</h2>
-<p>等等進行的流程如下</p>
-<p><img src="https://i.imgur.com/Ew4Knor.jpg" alt></p>
-<p>出發吧！ &gt;&gt; <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2/">安裝 Hexo</a></p>
-<h2 id="hexo-github-網誌和部落格架設-系列文"><a class="header-anchor" href="#hexo-github-網誌和部落格架設-系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2>
-<p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a> ← 你在這～<br>
-<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br>
-<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br>
-<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a></p>
+<h2 id="想要切換到不同-git-版本下-查看檔案的狀態"><a class="header-anchor" href="#想要切換到不同-git-版本下-查看檔案的狀態"></a>想要切換到不同 git 版本下，查看檔案的狀態</h2>
+<p>先用 <code>git log</code> 查看版本號<br>
+<span style="color: #ff0000">HEAD 指標、reference</span>，是用來標記當前位置。<code>checkout</code> 可以將 HEAD 移動到特定位置，但是不移動分支標籤。</p>
+<ul>
+<li>回頭觀看版本內容：<code>git checkout commit編號</code></li>
+<li>返回最新的版本：<code>git checkout master(分支名稱)</code></li>
+</ul>
+<p>使用 Sourcetree 直接點兩下就好。</p>
+<p><strong>HEAD 指向 master</strong>，Sourcetree 左側欄也可以看到 <strong>master 是粗體</strong>：<br>
+<img src="https://i.imgur.com/wOrHEPZ.jpg" alt></p>
+<p><strong>HEAD 指向 eb7c240</strong>，Sourcetree 左側欄可以看到<strong>多了一個 HEAD 粗體</strong>：<br>
+<img src="https://i.imgur.com/XBAYasT.jpg" alt></p>
+<h2 id="檔案狀態"><a class="header-anchor" href="#檔案狀態"></a>檔案狀態</h2>
+<ul>
+<li>檔案新增後還沒輸入 <code>git add &lt;file&gt;</code> =&gt; 未追蹤
+<ul>
+<li>Untracked (紅：untracked_1.html)</li>
+</ul>
+</li>
+<li>檔案新增後輸入 <code>git add &lt;file&gt;</code> =&gt; 已加入索引
+<ul>
+<li>new file (綠：newIndex.html)</li>
+<li>new file (綠：second.html)</li>
+<li>new file (綠：not_staged_for_commit_*.html)</li>
+<li>new file (綠：this_is_to_be_committed_*.html)</li>
+</ul>
+</li>
+<li>檔案已被 commit 過，又被編輯但還沒有輸入 <code>git add &lt;file&gt;</code> =&gt; 未加入索引
+<ul>
+<li>modified (紅)</li>
+</ul>
+</li>
+<li>新增檔案加入索引 <code>(git add)</code> 後，在 commit 前又修改內容，但又還沒輸入 <code>git add &lt;file&gt;</code> =&gt; 未加入索引
+<ul>
+<li>modified (紅：newIndex.html)</li>
+<li>modified (紅：not_staged_for_commit_*.html)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/obx6aQX.jpg" alt></p>
+<p><img src="https://i.imgur.com/N0DalzX.jpg" alt></p>
+<h2 id="檔案還原技巧"><a class="header-anchor" href="#檔案還原技巧"></a>檔案還原技巧</h2>
+<h3 id="modified-deleted-unmodified-working-directory"><a class="header-anchor" href="#modified-deleted-unmodified-working-directory"></a>Modified / Deleted =&gt; Unmodified (Working directory)</h3>
+<ul>
+<li>Undo 編輯過的檔案、還原已加入索引但是被刪除的檔案：<code>git checkout --&lt;file&gt;</code></li>
+</ul>
+<p><span style="color: #ff0000">把<strong>暫存區</strong>裡的所有檔案，拿來覆蓋工作區的所有檔案。如果一個 untracked file 被刪除，是沒有辦法用此方法復原的。</span></p>
+<p><a href="https://gitbook.tw/chapters/using-git/recover-deleted-files.html" target="_blank" rel="noopener">【狀況題】啊！不小心把檔案或目錄刪掉了…</a></p>
+<h3 id="index-staging-area-working-directory"><a class="header-anchor" href="#index-staging-area-working-directory"></a>Index / Staging area =&gt; Working directory</h3>
+<ul>
+<li>將索引區的檔案放回工作目錄：<code>git reset HEAD</code> (還原到該版本原先的樣子)</li>
+</ul>
+<h3 id="版本還原：reset"><a class="header-anchor" href="#版本還原：reset"></a>版本還原：reset</h3>
+<ul>
+<li><a href="https://gitbook.tw/chapters/using-git/reset-commit.html" target="_blank" rel="noopener">git reset：【狀況題】剛才的 Commit 後悔了，想要拆掉重做…</a></li>
+<li>還原 HEAD 前兩個版本，檔案退回<strong>索引區</strong>狀態：<code>git reset HEAD^^ --soft</code></li>
+<li>還原 HEAD 前兩個版本，檔案退回<strong>工作區</strong>狀態：<code>git reset HEAD^^ --mixed</code></li>
+<li>還原 HEAD 前兩個版本 (預設是 --mixed)：<code>git reset HEAD^^</code></li>
+<li>還原 HEAD 前兩個版本，所有更新檔案<strong>都放棄</strong>：<code>git reset HEAD^^ --hard</code></li>
+<li>還原到特定 commit：<code>git reset commit編號</code></li>
+<li>觀看詳細歷史紀錄：<code>git reflog</code></li>
+</ul>
+<div class="danger">
+<p>使用 reset 記得是以<strong>當前 HEAD 位置</strong>為基準。<br>
+實際上 <code>git reset</code> 指令不是真的刪除或是重新設定 commit，而是<strong>讓 HEAD 「前往」到指定的 commit編號</strong>，那些看起來好像不見的東西只是暫時看不到，但隨時都可以再撿回來。<br>
+如果 HEAD 和分支標籤黏在一起的時候，分支標籤會跟著 HEAD 一起移動。</p>
+</div>
+<p><img src="https://i.imgur.com/zqPRJNI.jpg" alt></p>
+<p>參考資料：<br>
+<a href="https://hexschool.tw/PDcLZ" target="_blank" rel="noopener">六角學院 -「Git 遠端  Repository 操作」線上講義</a></p>
+<h2 id="git-入門-系列文"><a class="header-anchor" href="#git-入門-系列文"></a>Git 入門 系列文</h2>
+<p><a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1/">Git 入門 (一)：介紹和基本指令</a><br>
+<a href="https://jenifers001d.github.io/2019/12/12/Git/Git-intro-2/">Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原</a> ← 你在這～</p>
 
         </div>
     </div>
@@ -272,7 +363,7 @@ pagead/js/adsbygoogle.js"></script>
                 
                 本文作者 : Jenifer <br>
                 
-                原文連結 : <a href>https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1/</a><br>
+                原文連結 : <a href>https://jenifers001d.github.io/2019/12/12/Git/Git-intro-2/</a><br>
                 版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
             </blockquote>
         </div>
@@ -295,26 +386,14 @@ pagead/js/adsbygoogle.js"></script>
                 <i class="iconfont icon-06tags"></i>標籤:
                 
                 <span class="span--tag">
+                    <a href="/tags/Git/">
+                        #Git
+                    </a>
+                </span>
+                
+                <span class="span--tag">
                     <a href="/tags/GitHub/">
                         #GitHub
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/Hexo/">
-                        #Hexo
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/網頁架設/">
-                        #網頁架設
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/靜態網頁/">
-                        #靜態網頁
                     </a>
                 </span>
                 
@@ -345,15 +424,9 @@ pagead/js/adsbygoogle.js"></script>
         <div class="nav-pre">
             <i class="iconfont icon-prev"></i>
             上一篇:
-            <a href="/2019/11/23/API/what-is-API/" target="_self">API 到底是什麼？</a>
+            <a href="/2019/12/11/Python/learning-Python-day9/" target="_self">Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案</a>
         </div>
         
-        
-        <div class="nav-next">
-            下一篇:
-            <a href="/2019/11/24/Git/Git-intro-1/" target="_self">Git 入門 (一)：介紹和基本指令</a>
-            <i class="iconfont icon-next"></i>
-        </div>
         
     </nav>
 
@@ -369,8 +442,8 @@ pagead/js/adsbygoogle.js"></script>
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
     if (true) {
         var disqus_config = function() {
-            this.page.url = "https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1/"; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2019/11/24/Hexo/Hexo+GitHub-1/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            this.page.url = "https://jenifers001d.github.io/2019/12/12/Git/Git-intro-2/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/12/12/Git/Git-intro-2/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
