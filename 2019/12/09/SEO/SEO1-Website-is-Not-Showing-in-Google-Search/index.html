@@ -135,7 +135,7 @@ pagead/js/adsbygoogle.js"></script>
                     <ul class="nav-menu--dropdown">
                         
                         <li>
-                            <a href="https://github.com/jenifers001d" target="_blank">
+                            <a href="https://github.com/jenifers001d" target="_blank" rel="external nofollow noopener noreferrer">
                                 Github
                             </a>
                         </li>
@@ -331,7 +331,26 @@ rel：預設 false。開啟的話，會產生指向網站地圖檔案的連結 <
 <p><img src="https://i.imgur.com/EVZeEu8.jpg" alt></p>
 </li>
 </ol>
-<p><strong>網址審查結果</strong>請參照<a href="https://support.google.com/webmasters/answer/9012289#presence_google" target="_blank" rel="noopener">網址檢查工具</a>中的檢查結果資訊欄：「Google 服務呈現狀態」和「索引涵蓋範圍」。</p>
+<h2 id="提交-sitemap-後的觀察日記"><a class="header-anchor" href="#提交-sitemap-後的觀察日記"></a>提交 Sitemap 後的觀察日記</h2>
+<h3 id="一天後"><a class="header-anchor" href="#一天後"></a>一天後</h3>
+<p>主動提交 Sitemap 檔案路徑經過<span style="color: #ff0000">一天後</span>，顯示「<strong>網址在 Google 服務中</strong>」，表示<span style="color: #ff0000">網站已經可顯示在 Google 搜尋結果中</span>。但是 Sitemap 好像還「不適用」。</p>
+<p><img src="https://i.imgur.com/5sA2iiP.jpg" alt></p>
+<p>搜尋我的網站名稱 <code>Jenifer.Code.World</code> 已經可以找到少數的網頁，如下：</p>
+<p><img src="https://i.imgur.com/BFXxLEn.jpg" alt></p>
+<p>但是如果直接搜尋文章標題或網址片段，還無法找到任何結果：</p>
+<p><img src="https://i.imgur.com/jzTAc7R.jpg" alt></p>
+<p><img src="https://i.imgur.com/EatqHu6.jpg" alt></p>
+<h3 id="三天後"><a class="header-anchor" href="#三天後"></a>三天後</h3>
+<p>主動提交 Sitemap 檔案路徑經過<span style="color: #ff0000">三天後</span>，也就是<strong>網站已經可顯示在 Google 搜尋結果中</strong>的<span style="color: #ff0000">兩天後</span>，Sitemap 還是「不適用」，但是已經有分析結果出現了。</p>
+<p><img src="https://i.imgur.com/WkNqwo8.jpg" alt></p>
+<p>直接搜尋文章標題，有機率可以找到自己的文章啦！</p>
+<p><img src="https://i.imgur.com/58V1DxC.jpg" alt></p>
+<h3 id="四天後"><a class="header-anchor" href="#四天後"></a>四天後</h3>
+<p>主動提交 Sitemap 檔案路徑經過<span style="color: #ff0000">四天後</span>，也就是<strong>網站已經可顯示在 Google 搜尋結果中</strong>的<span style="color: #ff0000">三天後</span>，Sitemap 還是「不適用」，可是索引的「涵蓋範圍」有出現執行結果了！</p>
+<p><img src="https://i.imgur.com/movZMQP.jpg" alt></p>
+<p>在「詳細資料」裡的「排除」欄位，可以觀察到新發布的文章，不會馬上被建立索引，會出現「已檢索 - 目前尚未建立索引」的字句。有時候甚至還沒被檢索到。</p>
+<p><img src="https://i.imgur.com/reLPgbN.jpg" alt></p>
+<p><span style="color: #ff0000"><strong>網址審查結果</strong></span>請參照<a href="https://support.google.com/webmasters/answer/9012289#presence_google" target="_blank" rel="noopener">網址檢查工具</a>中的檢查結果資訊欄：「Google 服務呈現狀態」和「索引涵蓋範圍」。</p>
 <h2 id="不想主動登錄新建的網站-也可以建立-sitemap"><a class="header-anchor" href="#不想主動登錄新建的網站-也可以建立-sitemap"></a>不想主動登錄新建的網站，也可以建立 Sitemap</h2>
 <p>Sitemap 是為了讓網路爬蟲能快速、便捷地認識該網站中的結構。因此，如果不想去搜尋引擎登錄新建的網站，也還是可以建立 Sitemap。它有助於 SEO，因為，等到某一天，某隻爬蟲爬入網站中的某一頁，就還是能認識到網站的結構啦！</p>
 <p>除了在資料夾中放入 Sitemap 檔案，還需要將 <span style="color: #ff0000">Sitemap 檔案位置</span>放置在爬蟲會發現的地方：</p>
@@ -651,7 +670,7 @@ if(true){
     <p class="site-info">
         Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
         <br>
-        Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+        Theme - <a href="https://github.com/dongyuanxin/theme-bmw" rel="external nofollow noopener noreferrer">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/" rel="external nofollow noopener noreferrer">GodBMW</a>
         <br>
         
     </p>
@@ -661,7 +680,8 @@ if(true){
 
 <script>
     const timeToNowDOM = document.querySelector("#time-to-now");
-    const startTimestamp = new Date( 2019 , 10 , 22 ).getTime();
+    const startTimestamp = new Date( < % -footerStartTime.year % > , < % -footerStartTime.month - 1 % > , < % -
+        footerStartTime.day % > ).getTime();
     const updateTimeStr = () => {
         let offset = parseInt(
                 (new Date().getTime() - startTimestamp) / 1000,
@@ -676,7 +696,9 @@ if(true){
         setTimeout(updateTimeStr, 500);
     }
     setTimeout(updateTimeStr, 500);
+
 </script>
+
 
         <div class="back-to-top hidden">
   <span>

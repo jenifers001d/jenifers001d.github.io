@@ -137,7 +137,7 @@ pagead/js/adsbygoogle.js"></script>
                     <ul class="nav-menu--dropdown">
                         
                         <li>
-                            <a href="https://github.com/jenifers001d" target="_blank">
+                            <a href="https://github.com/jenifers001d" target="_blank" rel="external nofollow noopener noreferrer">
                                 Github
                             </a>
                         </li>
@@ -191,6 +191,84 @@ pagead/js/adsbygoogle.js"></script>
 
         
 <div class="container home-index">
+    
+    <div class="post">
+        <h1 class="article-title">
+            <a href="/2019/11/24/Git/Git-intro-1/">
+                <span>Git 入門 (一)：介紹和基本指令</span>
+            </a>
+        </h1>
+        <!-- PC端文章信息 -->
+        <div class="article-top-meta pc-view">
+            <span>
+                發布時間 : 2019-11-24
+            </span>
+        </div>
+        <!-- 移动端文章信息 -->
+        <div class="article-top-meta mobile-view">
+            <span>
+                發布 : 2019-11-24
+            </span>
+            
+            <span>
+                分類 :
+                <a href="/categories/Git/">
+                    Git
+                </a>
+            </span>
+            
+            
+            <span>
+                瀏覽 : <span class="article-timer" data-identity="Git-intro-1">0</span>
+            </span>
+            
+        </div>
+        
+        <!-- 文章简介 -->
+        <div class="article-content">
+            <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+                <p>Git 是分散式的程式碼<strong>版本控制軟體</strong>，Git 本身關心檔案的整體性是否有改變，但多數的版本控制系統如 CVS 或 Subversion 系統則在乎檔案內容的差異。</p>
+            </div>
+        </div>
+        <div class="article-footer">
+            <div class="article-meta pull-left">
+                <!-- 分类pc端可见 -->
+                <span class="pc-view">
+                    
+                    <i class="iconfont icon-tag"></i>分類:
+                    <a href="/categories/Git/">
+                        Git
+                    </a>
+                </span>
+                
+                <span>
+                    
+                    <i class="iconfont icon-06tags"></i>標籤:
+                    
+                    <span class="span--tag">
+                        <a href="/tags/Git/">
+                            #Git
+                        </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                        <a href="/tags/GitHub/">
+                            #GitHub
+                        </a>
+                    </span>
+                    
+                    
+                </span>
+            </div>
+            
+            <div class="article-meta pull-right">
+                <span class="pc-view">
+                    <i class="iconfont icon-view"></i>瀏覽: <span class="article-timer" data-identity="Git-intro-1"></span>
+                </span>
+            </div>
+            
+        </div>
+    </div>
     
     <div class="post">
         <h1 class="article-title">
@@ -471,7 +549,7 @@ C# 沒有<strong>指標 (pointer)</strong>，有<strong>值 (value)</strong> 和
     
     <div class="post">
         <h1 class="article-title">
-            <a href="/2019/11/22/JavaScript/lang-type/">
+            <a href="/2019/11/22/JavaScript/programming-language-type/">
                 <span>靜態語言 / 動態語言、強型別 / 弱型別、静態作用域 / 動態作用域</span>
             </a>
         </h1>
@@ -496,7 +574,7 @@ C# 沒有<strong>指標 (pointer)</strong>，有<strong>值 (value)</strong> 和
             
             
             <span>
-                瀏覽 : <span class="article-timer" data-identity="lang-type">0</span>
+                瀏覽 : <span class="article-timer" data-identity="programming-language-type">0</span>
             </span>
             
         </div>
@@ -541,7 +619,7 @@ C# 沒有<strong>指標 (pointer)</strong>，有<strong>值 (value)</strong> 和
             
             <div class="article-meta pull-right">
                 <span class="pc-view">
-                    <i class="iconfont icon-view"></i>瀏覽: <span class="article-timer" data-identity="lang-type"></span>
+                    <i class="iconfont icon-view"></i>瀏覽: <span class="article-timer" data-identity="programming-language-type"></span>
                 </span>
             </div>
             
@@ -691,7 +769,7 @@ if(true){
     <p class="site-info">
         Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
         <br>
-        Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+        Theme - <a href="https://github.com/dongyuanxin/theme-bmw" rel="external nofollow noopener noreferrer">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/" rel="external nofollow noopener noreferrer">GodBMW</a>
         <br>
         
     </p>
@@ -701,7 +779,8 @@ if(true){
 
 <script>
     const timeToNowDOM = document.querySelector("#time-to-now");
-    const startTimestamp = new Date( 2019 , 10 , 22 ).getTime();
+    const startTimestamp = new Date( < % -footerStartTime.year % > , < % -footerStartTime.month - 1 % > , < % -
+        footerStartTime.day % > ).getTime();
     const updateTimeStr = () => {
         let offset = parseInt(
                 (new Date().getTime() - startTimestamp) / 1000,
@@ -716,7 +795,9 @@ if(true){
         setTimeout(updateTimeStr, 500);
     }
     setTimeout(updateTimeStr, 500);
+
 </script>
+
 
         <div class="back-to-top hidden">
   <span>

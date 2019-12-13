@@ -134,7 +134,7 @@ pagead/js/adsbygoogle.js"></script>
                     <ul class="nav-menu--dropdown">
                         
                         <li>
-                            <a href="https://github.com/jenifers001d" target="_blank">
+                            <a href="https://github.com/jenifers001d" target="_blank" rel="external nofollow noopener noreferrer">
                                 Github
                             </a>
                         </li>
@@ -524,7 +524,7 @@ if(true){
     <p class="site-info">
         Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
         <br>
-        Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+        Theme - <a href="https://github.com/dongyuanxin/theme-bmw" rel="external nofollow noopener noreferrer">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/" rel="external nofollow noopener noreferrer">GodBMW</a>
         <br>
         
     </p>
@@ -534,7 +534,8 @@ if(true){
 
 <script>
     const timeToNowDOM = document.querySelector("#time-to-now");
-    const startTimestamp = new Date( 2019 , 10 , 22 ).getTime();
+    const startTimestamp = new Date( < % -footerStartTime.year % > , < % -footerStartTime.month - 1 % > , < % -
+        footerStartTime.day % > ).getTime();
     const updateTimeStr = () => {
         let offset = parseInt(
                 (new Date().getTime() - startTimestamp) / 1000,
@@ -549,7 +550,9 @@ if(true){
         setTimeout(updateTimeStr, 500);
     }
     setTimeout(updateTimeStr, 500);
+
 </script>
+
 
         <div class="back-to-top hidden">
   <span>

@@ -7,7 +7,7 @@
     
     
 
-    <title>Hexo 的 BMW 主題配置 | Jenifer.Code.World</title>
+    <title>Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone) | Jenifer.Code.World</title>
     <!--  Google Search Console 驗證網站擁有權  -->
     <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
     <!--  Provides a link to an XML document describing the layout of the site.  -->
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     
-    <meta name="keywords" content="Hexo,Hexo,網頁架設,靜態網頁,">
+    <meta name="keywords" content="Git,Git,GitHub,">
     
 
     <script>
@@ -27,7 +27,8 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;關於如何修改以 BMW 主題為主的網站，頁面中的一些細節。&lt;/p&gt;">
+    <meta name="description" content="&lt;p&gt;多人協作時，不可能都在 &lt;strong&gt;master分支&lt;/strong&gt; 上更動程式碼，通常會另外開分支來做測試或開發，藉此不影響正式主機分支。&lt;/p&gt;
+&lt;p&gt;branch 非常不佔空間。它們只是一個指向某個 commit 的 reference，就這麼簡單。使用 branch 其實就是在說：「我想要包含這一次的 commit 以及它的所有 parent 的 commit。」&lt;/p&gt;">
     
 
     
@@ -201,24 +202,24 @@ pagead/js/adsbygoogle.js"></script>
 
 <div class="post">
     <h1 class="article-title">
-        <span>Hexo 的 BMW 主題配置</span>
+        <span>Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone)</span>
     </h1>
     <div class="article-top-meta">
         <span>
             發布 :
-            2019-11-27
+            2019-12-13
         </span>
         
         <span>
             分類 :
-            <a href="/categories/Hexo/">
-                Hexo
+            <a href="/categories/Git/">
+                Git
             </a>
         </span>
         
         
         <span>
-            瀏覽 : <span class="article-timer" data-identity="Hexo-theme-config"></span>
+            瀏覽 : <span class="article-timer" data-identity="Git-intro-3"></span>
         </span>
         
         
@@ -228,47 +229,98 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            
-<p>關於如何修改以 BMW 主題為主的網站，頁面中的一些細節。</p>
+            <h2 id="為什麼要用分支？"><a class="header-anchor" href="#為什麼要用分支？"></a>為什麼要用分支？</h2>
 
+<p>多人協作時，不可能都在 <strong>master分支</strong> 上更動程式碼，通常會另外開分支來做測試或開發，藉此不影響正式主機分支。</p>
+<p>branch 非常不佔空間。它們只是一個指向某個 commit 的 reference，就這麼簡單。使用 branch 其實就是在說：「我想要包含這一次的 commit 以及它的所有 parent 的 commit。」</p>
+
+<h2 id="分支常用指令：branch-checkout-reset"><a class="header-anchor" href="#分支常用指令：branch-checkout-reset"></a>分支常用指令：branch、checkout、reset</h2>
+<p>開發情境：我有一個正式主機 master 分支，有一個開發分支 develop。</p>
+<ul>
+<li>新增分支：<code>git branch 分支名稱</code></li>
+<li>查看有哪些分支：<code>git branch</code></li>
+<li>切換分支 (將 HEAD 指向分支)：<code>git checkout 分支名稱</code></li>
+<li>回頭觀看版本內容 (將 HEAD 指向 commit 版本)：<code>git checkout commit編號</code></li>
+<li>返回最新的版本：<code>git checkout master(分支名稱)</code></li>
+<li>還原上個版本：<code>git reset HEAD^</code></li>
+<li>將特定 commit 貼上新分支：<code>git branch 新分支名稱 commit編號</code></li>
+<li>將特定 commit 貼上舊分支 (移動分支標籤)：<code>git branch -f 舊分支名稱 commit編號</code></li>
+</ul>
+<h2 id="checkout-與-reset-的差異"><a class="header-anchor" href="#checkout-與-reset-的差異"></a>checkout 與 reset 的差異</h2>
 <div class="danger">
-<p>注意：修改 <code>ejs</code> 檔案的時候因為編輯器<strong>儲存自動排版 (Beautify)</strong> 的功能，會導致 <code>ejs</code> 語法錯誤。記得使用<strong>純文字編輯器</strong>修正錯誤。</p>
+<p><code>git checkout</code> 將 HEAD 移動到特定位置，但是不對檔案做更動。也不移動分支標籤。</p>
+<p><code>git reset</code> 將 HEAD 移動到特定位置，但是依照 <code>--soft</code> <code>--mixed</code> <code>--hard</code> 指令，對檔案做更動：退回索引區、退回工作區、檔案都放棄。如果 HEAD 和分支黏在一起的時候，分支標籤會跟著 HEAD 一起移動。</p>
 </div>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 正確語法 --&gt;</span></span><br><span class="line">new Date( <span class="tag">&lt;<span class="name">%-</span> <span class="attr">footerStartTime.year</span> %&gt;</span> )</span><br><span class="line"><span class="comment">&lt;!-- 會變成錯誤語法，如下： --&gt;</span></span><br><span class="line">new Date( <span class="tag">&lt; % <span class="attr">-</span> <span class="attr">footerStartTime.year</span> % &gt;</span> )</span><br></pre></td></tr></table></figure>
-<h2 id="keywords-seo-關鍵字"><a class="header-anchor" href="#keywords-seo-關鍵字"></a>keywords (SEO 關鍵字)</h2>
-<p>BMW 主題的 <code>_config.yml</code> 檔案中有一個 <code>keywords: Hexo, theme-bmw</code> key-value 對。在 BMW 主題的 <code>layout/_partial/header.ejs</code> 檔案中，會優先選擇該 key-value 對，來做為網站首頁的關鍵字搜尋，而不是選擇我們之前提過的 <a href="https://hackmd.io/lfdgObIoQj-NJAVRPM6J7Q#%E9%97%9C%E6%96%BC%E7%B6%B2%E7%AB%99" target="_blank" rel="noopener">Hexo 基本配置</a>中的 <code>keywords</code>。</p>
-<p>可以直接修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>keywords</code> 的值。</p>
-<p>或是修改 BMW 主題的 <code>layout/_partial/header.ejs</code> 檔案，改成選擇 <span style="color: #ff0000;">Hexo 基本配置中的 <code>keywords</code></span>：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"&lt;%= config.keywords %&gt;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/E7nXr56.jpg" alt></p>
-<div class="warning">
-<p>如果是以 <code>theme</code> 開頭的變數，表示 BMW 主題 <code>_config.yml</code> 檔案的變數。<br>
-如果是以 <code>config</code> 開頭的變數，表示 Hexo  <code>_config.yml</code> 檔案的變數。</p>
+<h3 id="checkout-head"><a class="header-anchor" href="#checkout-head"></a>checkout HEAD^</h3>
+<p>如下圖 HEAD 原本在 815b5bc(new branch) 這個 commit，當我下了 <code>git checkout HEAD^</code>，HEAD 會移動到 4e77317(add h1)，並出現如下文字：</p>
+<div class="success">
+<p>Previous HEAD position was 815b5bc new branch<br>
+HEAD is now at 4e77317 add h1</p>
 </div>
-<h2 id="custom-style-自定義-css-檔案位置"><a class="header-anchor" href="#custom-style-自定義-css-檔案位置"></a>custom_style (自定義 css 檔案位置)</h2>
-<p>修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>custom_style</code> 的值。因為我是將<strong>客製化的 css 檔案</strong>放在 BMW 主題的 <code>source/custom</code> 資料夾中，因此將配置修改成：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自定義 css 檔案位置</span></span><br><span class="line"><span class="attr">custom_style:</span> <span class="string">/custom/檔案名稱.css</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/GPbK28W.jpg" alt></p>
-<p><img src="https://i.imgur.com/ZbW6t1f.jpg" alt width="200"></p>
-<h2 id="custom-script-自定義-js-檔案位置"><a class="header-anchor" href="#custom-script-自定義-js-檔案位置"></a>custom_script (自定義 js 檔案位置)</h2>
-<p>修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>custom_script</code> 的值，<strong>客製化的 js 檔案</strong>一樣放在主題的 <code>source/custom</code> 資料夾中：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自定義 js 檔案位置 (以陣列形式支援多個 js 檔案)</span></span><br><span class="line"><span class="attr">custom_script:</span></span><br><span class="line"><span class="bullet">   -</span> </span><br><span class="line"><span class="attr">     src:</span> <span class="string">/custom/檔案名稱.js</span></span><br><span class="line"><span class="attr">     load:</span> <span class="string">&lt;script&gt;加載方式(async/defer/默認)</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/bx2TIkh.jpg" alt></p>
-<h2 id="footer-頁尾設計"><a class="header-anchor" href="#footer-頁尾設計"></a>footer (頁尾設計)</h2>
-<p>修改 BMW 主題的 <code>_config.yml</code> 檔案中的 <code>footer</code> 的值：</p>
-<p><img src="https://i.imgur.com/KTAeXRO.jpg" alt></p>
-<p>BMW 主題的 <code>layout/_partial/footer.ejs</code> 檔案中，以 <code>theme.footer.start</code> 取得變數，如下：<br>
-<img src="https://i.imgur.com/hKnheNZ.jpg" alt></p>
-<p>再修改 <code>footer.ejs</code> 檔案中文字設定：</p>
-<p><img src="https://i.imgur.com/hg91986.jpg" alt></p>
-<p><img src="https://i.imgur.com/KUalBJh.jpg" alt></p>
-<p>呈現結果如下：<br>
-<img src="https://i.imgur.com/BNCCid6.jpg" alt></p>
-<h2 id="leancloud-儲存數據的後端式服務"><a class="header-anchor" href="#leancloud-儲存數據的後端式服務"></a>leancloud (儲存數據的後端式服務)</h2>
-<p>BMW 主題的作者使用 <a href="https://www.leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a> 儲存<strong>留言紀錄</strong>和<strong>瀏覽次數</strong>。</p>
-<p>作者使用 <a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a> 留言系統，我會改成 <a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a> 留言系統。文章閱讀量統計之後會再搬移或以其他方式實現。</p>
-<p>BMW 主題的 <code>_config.yml</code> 檔案中的 <code>leancloud</code> 的值修改成 <code>false</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">leancloud:</span></span><br><span class="line"><span class="attr">  appid:</span> <span class="string">************</span> <span class="comment"># 填写您的appid</span></span><br><span class="line"><span class="attr">  appkey:</span> <span class="string">***********</span> <span class="comment"># 填写您的appkey</span></span><br><span class="line"><span class="attr">  comment:</span> <span class="literal">false</span> <span class="comment"># 是否开启评论系统</span></span><br><span class="line"><span class="attr">  timer:</span> <span class="literal">false</span> <span class="comment"># 是否开启文章统计</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/7GsLPE8.jpg" alt><br>
+<img src="https://i.imgur.com/yBl31ef.jpg" alt></p>
+<h3 id="reset-head-hard"><a class="header-anchor" href="#reset-head-hard"></a>reset HEAD^ --hard</h3>
+<p>如果 HEAD 原本在 815b5bc(new branch) 這個 commit，當我下了 <code>git reset HEAD^ --hard</code>，HEAD 會移動到 4e77317(add h1)，並出現如下文字：</p>
+<div class="success">
+<p>HEAD is now at 4e77317 add h1</p>
+</div>
+<p>圖雖然看起來一樣，但是 git 背後做的動作並不一樣。因為 reset 是危險動作，git 會把 HEAD 的狀態存放在 <a href="https://gitbook.tw/chapters/branch/how-git-know-what-current-branch-is.html" target="_blank" rel="noopener">ORIG_HEAD</a> 的檔案夾，讓你隨時可以跳回危險動作之前的狀態。<br>
+<img src="https://i.imgur.com/X0sOb5u.jpg" alt></p>
+<h3 id="reset-head-mixed"><a class="header-anchor" href="#reset-head-mixed"></a>reset HEAD^ (- -mixed)</h3>
+<p>如果 HEAD 原本在 815b5bc(new branch) 這個 commit，當我下了 <code>git reset HEAD^</code>，HEAD 會移動到 4e77317(add h1)，並出現如下文字：</p>
+<div class="success">
+<p>Unstaged changes after reset:<br>
+M	index.html</p>
+</div>
+<p>圖中可以看到多了一個 uncommitted changes 的線，它是 815b5bc(new branch) 的<strong>工作區 (Working area)</strong> 版本。</p>
+<blockquote>
+<p>modified index.html, index2.html and index3.html 還沒加入索引區。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/7Kjiadi.jpg" alt><br>
+<img src="https://i.imgur.com/4ARkdRN.jpg" alt></p>
+<h3 id="reset-head-soft"><a class="header-anchor" href="#reset-head-soft"></a>reset HEAD^ --soft</h3>
+<p>如果 HEAD 原本在 815b5bc(new branch) 這個 commit，當我下了 <code>git reset HEAD^ --soft</code>，HEAD 會移動到 4e77317(add h1)，沒有出現文字說明。</p>
+<p>圖中可以看到多了一個 uncommitted changes 的線，它是 815b5bc(new branch) 的<strong>索引區 (Staging area)</strong> 版本。</p>
+<p><img src="https://i.imgur.com/MGld4qk.jpg" alt><br>
+<img src="https://i.imgur.com/mAvPhIZ.jpg" alt></p>
+<h2 id="合併分支-快轉機制"><a class="header-anchor" href="#合併分支-快轉機制"></a>合併分支、快轉機制</h2>
+<p>通常會以舊的 commit 為基底 <code>(git checkout 分支名稱)</code>，去合併新的編輯過的 commit。(merge 新branch 到 master)</p>
+<p>先輸入 <code>git checkout master</code>，再輸入 <code>git merge dev</code>。<br>
+<img src="https://i.imgur.com/GmVf9py.jpg" alt></p>
+<ul>
+<li>合併分支 (快轉)：<code>git merge 分支名稱</code></li>
+<li>取消快轉：<code>git merge 分支名稱 --no-ff</code></li>
+<li>觀看線圖：<code>git log --oneline --graph</code></li>
+<li>還原合併前狀態：<code>git reset ORIG_HEAD --hard</code></li>
+<li>刪除已經合併的分支：<code>git branch -d 分支名稱</code></li>
+<li>強制刪除未合併的分支：<code>git branch -D 分支名稱</code></li>
+</ul>
+<h2 id="還原到危險動作前的狀態"><a class="header-anchor" href="#還原到危險動作前的狀態"></a>還原到危險動作前的狀態</h2>
+<p>當你在做一些比較「危險」的操作 (例如像：<strong>merge、rebase 或 reset</strong> 之類的)，Git 就會把 HEAD 的狀態存放在 ORIG_HEAD 的檔案夾，讓你隨時可以跳回危險動作之前的狀態。</p>
+<ul>
+<li>還原 reset 前狀態：<code>git reset ORIG_HEAD --hard</code>、<code>git reset commit編號 --hard</code></li>
+</ul>
+<p>雖然 git reflog 指令也可以查到相關資訊，但 reflog 的資料比較雜一點，這個 ORIG_HEAD 會更方便的讓你找到最近的一次危險動作之前的 SHA-1 值。</p>
+<p><a href="https://gitbook.tw/chapters/branch/how-git-know-what-current-branch-is.html" target="_blank" rel="noopener">ORIG_HEAD 是什麼東西？</a><br>
+<a href="https://gitbook.tw/chapters/using-git/restore-hard-reset-commit.html" target="_blank" rel="noopener">【狀況題】不小心使用 hard 模式 Reset 了某個 Commit，救得回來嗎？</a></p>
+<h2 id="下載遠端儲存庫-clone"><a class="header-anchor" href="#下載遠端儲存庫-clone"></a>下載遠端儲存庫 (clone)</h2>
+<ul>
+<li>下載遠端儲存庫： <code>git clone 儲存庫網址</code></li>
+</ul>
+<div class="danger">
+<p>clone 和 gitHub 上的 Download ZIP 是完全不同的東西，一開始不知道的時候，踩了一個大坑。</p>
+<p>clone 會將<strong>檔案和遠端的儲存庫</strong>一並取下來。而 Download ZIP 只會將<strong>檔案</strong>取下來。</p>
+<p>所以這時你想要 push 上遠端的儲存庫時，必須先在本地端初始化一個儲存庫，然後執行 commit，然而你的本地端儲存庫和遠端儲存庫裡面的 commit 歷史不同，因此會造成衝突，無法 push 上去。</p>
+</div>
+<p><img src="https://i.imgur.com/LV3kvkU.jpg" alt><br>
+<img src="https://i.imgur.com/KahxAkH.jpg" alt></p>
+<p>參考資料：<br>
+<a href="https://hexschool.tw/qCPbw" target="_blank" rel="noopener">六角學院 -「Git 分支 (branch)」線上講義</a><br>
+<a href="https://hexschool.tw/v9bxz" target="_blank" rel="noopener">六角學院 -「Git 分支中階教學」線上講義</a></p>
+<h2 id="git-入門-系列文"><a class="header-anchor" href="#git-入門-系列文"></a>Git 入門 系列文</h2>
+<p><a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1/">Git 入門 (一)：介紹和基本指令</a><br>
+<a href="https://jenifers001d.github.io/2019/12/12/Git/Git-intro-2/">Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原</a><br>
+<a href="https://jenifers001d.github.io/2019/12/13/Git/Git-intro-3/">Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone)</a> ← 你在這～</p>
 
         </div>
     </div>
@@ -280,7 +332,7 @@ pagead/js/adsbygoogle.js"></script>
                 
                 本文作者 : Jenifer <br>
                 
-                原文連結 : <a href>https://jenifers001d.github.io/2019/11/27/Hexo/Hexo-theme-config/</a><br>
+                原文連結 : <a href>https://jenifers001d.github.io/2019/12/13/Git/Git-intro-3/</a><br>
                 版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
             </blockquote>
         </div>
@@ -303,20 +355,14 @@ pagead/js/adsbygoogle.js"></script>
                 <i class="iconfont icon-06tags"></i>標籤:
                 
                 <span class="span--tag">
-                    <a href="/tags/Hexo/">
-                        #Hexo
+                    <a href="/tags/Git/">
+                        #Git
                     </a>
                 </span>
                 
                 <span class="span--tag">
-                    <a href="/tags/網頁架設/">
-                        #網頁架設
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/靜態網頁/">
-                        #靜態網頁
+                    <a href="/tags/GitHub/">
+                        #GitHub
                     </a>
                 </span>
                 
@@ -347,15 +393,9 @@ pagead/js/adsbygoogle.js"></script>
         <div class="nav-pre">
             <i class="iconfont icon-prev"></i>
             上一篇:
-            <a href="/2019/11/26/Hexo/Hexo-article-with-Markdown+HTML/" target="_self">撰寫 Hexo 文章，Markdown + HTML 語法</a>
+            <a href="/2019/12/12/Git/Git-intro-2/" target="_self">Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原</a>
         </div>
         
-        
-        <div class="nav-next">
-            下一篇:
-            <a href="/2019/11/28/Python/learning-Python-day1/" target="_self">Python 自學第一天：環境設置 + 第一支程式</a>
-            <i class="iconfont icon-next"></i>
-        </div>
         
     </nav>
 
@@ -371,8 +411,8 @@ pagead/js/adsbygoogle.js"></script>
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
     if (true) {
         var disqus_config = function() {
-            this.page.url = "https://jenifers001d.github.io/2019/11/27/Hexo/Hexo-theme-config/"; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2019/11/27/Hexo/Hexo-theme-config/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            this.page.url = "https://jenifers001d.github.io/2019/12/13/Git/Git-intro-3/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/12/13/Git/Git-intro-3/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
