@@ -7,7 +7,7 @@
     
     
 
-    <title>Python 自學第十天：寫在 Class 類別之前的物件導向 (OOP) 概念 | Jenifer.Code.World</title>
+    <title>Python 自學第十一天：Class 類別 | Jenifer.Code.World</title>
     <!--  Google Search Console 驗證網站擁有權  -->
     <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
     <!--  Provides a link to an XML document describing the layout of the site.  -->
@@ -27,7 +27,7 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;要理解 class 的特性，就一定得提到&lt;strong&gt;物件導向 (OOP，Object Oriented Programming)&lt;/strong&gt; 的概念。&lt;/p&gt;">
+    <meta name="description" content="&lt;p&gt;Class 類別主要用來定義封裝的&lt;strong&gt;變數&lt;/strong&gt;和&lt;strong&gt;函式&lt;/strong&gt; (又稱作&lt;strong&gt;屬性&lt;/strong&gt;)。定義&lt;strong&gt;類別名稱&lt;/strong&gt;時，習慣&lt;strong&gt;首字大寫&lt;/strong&gt;。&lt;/p&gt;">
     
 
     
@@ -201,12 +201,12 @@ pagead/js/adsbygoogle.js"></script>
 
 <div class="post">
     <h1 class="article-title">
-        <span>Python 自學第十天：寫在 Class 類別之前的物件導向 (OOP) 概念</span>
+        <span>Python 自學第十一天：Class 類別</span>
     </h1>
     <div class="article-top-meta">
         <span>
             發布 :
-            2019-12-14
+            2019-12-15
         </span>
         
         <span>
@@ -218,7 +218,7 @@ pagead/js/adsbygoogle.js"></script>
         
         
         <span>
-            瀏覽 : <span class="article-timer" data-identity="learning-Python-day10"></span>
+            瀏覽 : <span class="article-timer" data-identity="learning-Python-day11"></span>
         </span>
         
         
@@ -229,69 +229,64 @@ pagead/js/adsbygoogle.js"></script>
     <div class="article-content">
         <div class="markdown-body">
             
-<p>要理解 class 的特性，就一定得提到<strong>物件導向 (OOP，Object Oriented Programming)</strong> 的概念。</p>
+<p>Class 類別主要用來定義封裝的<strong>變數</strong>和<strong>函式</strong> (又稱作<strong>屬性</strong>)。定義<strong>類別名稱</strong>時，習慣<strong>首字大寫</strong>。</p>
 
-<h2 id="物件導向"><a class="header-anchor" href="#物件導向"></a>物件導向</h2>
-<h3 id="class-類別"><a class="header-anchor" href="#class-類別"></a>Class 類別</h3>
-<div class="info">
-<p>Class 類別是<span style="color: #ff0000">設計藍圖</span>、<span style="color: #ff0000">模具</span>或<span style="color: #ff0000">產品規格</span>，它主要用來定義一個產品的<strong>特徵</strong> (Python：變數、C#：屬性、Field) 和<strong>功能</strong> (Python：函式、C#：方法、Method)。</p>
-</div>
-<p>每個程式的稱呼方式不太一樣。</p>
-<h3 id="object-物件-instance-實體"><a class="header-anchor" href="#object-物件-instance-實體"></a>Object 物件、Instance 實體</h3>
-<div class="info">
-<p>利用產品規格產生出來的<span style="color: #ff0000">實品</span>，每個實品可能有<strong>特徵或功能上的不同</strong>。</p>
-</div>
-<h3 id="舉例"><a class="header-anchor" href="#舉例"></a>舉例</h3>
-<p>以下為虛擬碼 (Pseudo Code)，每個程式的語法略有不同。</p>
-<h4 id="狗"><a class="header-anchor" href="#狗"></a>狗</h4>
-<p>Class 類別是狗。因此我們要定義狗的特徵和功能。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">類別 狗</span><br><span class="line">    品種</span><br><span class="line">    尺寸</span><br><span class="line">    顏色</span><br><span class="line"></span><br><span class="line">    吠叫()</span><br><span class="line">        print(<span class="string">"汪！汪！汪！"</span>)</span><br><span class="line">    撒嬌()</span><br></pre></td></tr></table></figure>
-<p>藉由這個狗的模具產生出不同隻的狗狗 (物件、實體)。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lucky = 狗(馬爾濟斯, 小型犬, 白)   <span class="comment"># 創造 lucky 這隻狗</span></span><br><span class="line">miya = 狗(哈士奇, 中型犬, 黑白)  <span class="comment"># 創造 miya 這隻狗</span></span><br><span class="line">print(lucky.品種)</span><br><span class="line">print(Miya.品種)</span><br><span class="line"><span class="keyword">if</span> 有人闖空門</span><br><span class="line">    lucky.吠叫()</span><br><span class="line">    miya.吠叫()</span><br><span class="line"><span class="keyword">if</span> 主人回家</span><br><span class="line">    miya.撒嬌()</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># 馬爾濟斯</span></span><br><span class="line"><span class="comment"># 哈士奇</span></span><br></pre></td></tr></table></figure>
-<h4 id="房產"><a class="header-anchor" href="#房產"></a>房產</h4>
-<p>Class 類別是房產。因此我們要定義房產的特徵和功能。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">類別 房產</span><br><span class="line">    定價</span><br><span class="line">    售價</span><br><span class="line">    坪數</span><br><span class="line">    </span><br><span class="line">    升值()</span><br><span class="line">    出租()</span><br><span class="line">    變賣()</span><br></pre></td></tr></table></figure>
-<p>藉由這個房產的產品規格產生出不同的物件/實體。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">信義第一棟 =  房產(五千萬, 四千五百萬, <span class="number">40</span>)  <span class="comment"># 創造「信義第一棟」這個房產</span></span><br><span class="line">信義第一棟.出租()</span><br><span class="line"><span class="keyword">if</span> 信義第一棟.升值() &gt; 一千萬</span><br><span class="line">    信義第一棟.變賣()</span><br></pre></td></tr></table></figure>
-<h3 id="總結"><a class="header-anchor" href="#總結"></a>總結</h3>
-<div class="info">
-<p>簡單來說，Class 就是產品規格、Object 就是製作出來的實品。</p>
-</div>
-<p>一旦 Object 被建立了，系統才會分配<span style="color: #ff0000"><strong>記憶體空間</strong></span>給 Object，用來儲存它的<strong>變動過的特徵</strong>以及<strong>執行功能後產生的一些結果</strong>。</p>
 <h2 id="靜態類別-不需要實體物件"><a class="header-anchor" href="#靜態類別-不需要實體物件"></a>靜態類別，不需要實體物件</h2>
-<p>一般的 Class，無法直接使用，必須創造一個實體後，利用實體才能呼叫屬性 (變數和函式)。</p>
-<p><span style="color: #ff0000">有一些 Class，不需要創造實體</span> (C# 中稱作靜態類別，我不知道 Python 中有沒有固定名稱？)，可以直接<span style="color: #ff0000">使用 Class 名稱呼叫變數和函式</span>。</p>
-<h2 id="三大特性"><a class="header-anchor" href="#三大特性"></a>三大特性</h2>
-<p>物件導向有非常著名的三大特性：封裝、繼承、多型。</p>
-<h3 id="封裝"><a class="header-anchor" href="#封裝"></a>封裝</h3>
-<p>將物件的<span style="color: #ff0000">詳細執行步驟隱藏起來</span>，就像個黑盒子一樣，使用者不需要知道運作的邏輯規則，只要知道透過什麼關鍵字，呼叫到想要的變數或函式就好。</p>
-<p>就像我們一直使用的 <code>print(參數)</code>，實際上我們不知道他是如何將傳入的資料，輸出到終端機上，但是我們會使用就好。</p>
-<h3 id="繼承"><a class="header-anchor" href="#繼承"></a>繼承</h3>
-<p>在父類別之下可以產生<strong>子類別</strong>，子類別的特徵和功能除了繼承自父類別外，還可以有屬於子類別<span style="color: #ff0000">自己獨特的屬性</span>。</p>
-<p>例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">哈士奇 繼承 狗</span><br><span class="line">    眼周有無黑色色塊</span><br><span class="line">    有無鴛鴦眼</span><br><span class="line">    </span><br><span class="line">    偷偷跑出家門()</span><br><span class="line">    把肉骨頭藏起來()</span><br></pre></td></tr></table></figure>
-<h3 id="多型"><a class="header-anchor" href="#多型"></a>多型</h3>
-<p>所謂的多型，是體現在<span style="color: #ff0000"><strong>函式</strong></span>上，它<span style="color: #ff0000">讓函式有更佳的適用性</span>，而<strong>變數沒有多型</strong>。像是不同型態的物件都能使用同樣的名字呼叫函式，也都能做出相對的反應；或是使用不同個數的參數，會有不同的結果。</p>
-<h4 id="覆寫-overriding"><a class="header-anchor" href="#覆寫-overriding"></a>覆寫 Overriding</h4>
-<p>例如，如果我又另外定義一種狗，並且<span style="color: #ff0000">重新定義</span> <code>吠叫()</code>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">吉娃娃 繼承 狗</span><br><span class="line">    神經質程度</span><br><span class="line">    </span><br><span class="line">    躲起來()</span><br><span class="line">    吠叫()</span><br><span class="line">        print(<span class="string">"尖銳地吠叫"</span>)</span><br></pre></td></tr></table></figure>
-<p>哈士奇和吉娃娃都可以呼叫 <code>吠叫()</code> 這個函式，但是產生的結果會不一樣。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">二哈 = 哈士奇(哈士奇, 中型犬, 黑白)</span><br><span class="line">小吉 = 吉娃娃(吉娃娃, 小型犬, 棕)</span><br><span class="line">二哈.吠叫()</span><br><span class="line">小吉.吠叫()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># 汪！汪！汪！</span></span><br><span class="line"><span class="comment"># 尖銳地吠叫</span></span><br></pre></td></tr></table></figure>
-<h4 id="多載-overloading"><a class="header-anchor" href="#多載-overloading"></a>多載 Overloading</h4>
-<p>同樣名稱的函式，但是<span style="color: #ff0000">參數個數不一樣</span>。</p>
-<h2 id="file-物件"><a class="header-anchor" href="#file-物件"></a>file 物件</h2>
-<p>前一節提過的 <code>file 物件</code>，就是類別的實例。主要是利用 <code>open(檔案路徑, mode)</code> 在傳入不同的參數時，創造 <code>file 物件</code> 並且回傳。</p>
-<p><code>mode</code> 是 <code>&quot;r&quot;</code> 為文字檔案，<code>&quot;rb&quot;</code> 為二進位檔案，創造出來的 <code>file 物件</code> 分別屬於<br>
-TextIOWrapper、BufferedReader 類別，繼承自 TextIOBase，而 TextIOBase 又繼承自 IOBase。</p>
-<p>IOBase 中有 <code>readlines()</code>、<code>writelines()</code>、<code>close()</code> 等函式。TextIOBase 中有 <code>read()</code> 等函式。</p>
-<h2 id="後記"><a class="header-anchor" href="#後記"></a>後記</h2>
-<p>物件導向的概念看起來很簡單，但是實作起來困難重重，我很喜歡參考資料中，作者的前言，裡面有一段：</p>
-<blockquote>
-<p>雖然到處都是物件，但並不是任意地將物件給 “塞” 入軟體系統內，物件導向的設計，是將問題領域 (problem domain) 的概念，呈現與對映 (mapping) 至軟體系統內，那麼，如何正確地捕捉 (capture) 問題領域的概念成為物件，就成為是軟體設計中，最為重要的技能與素養了。</p>
-</blockquote>
-<p>期許自己和大家都能擁有這樣的技能。</p>
+<h3 id="定義"><a class="header-anchor" href="#定義"></a>定義</h3>
+<p>在 Class 中定義屬性，不需要 <code>self</code> 關鍵字。</p>
+<p>基本語法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 類別名稱:</span></span><br><span class="line">    變數</span><br><span class="line">    <span class="function"><span class="keyword">def</span> 函式名稱<span class="params">()</span>:</span></span><br><span class="line">        <span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+<p>舉例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyDog</span>:</span></span><br><span class="line">    types = [<span class="string">"哈士奇"</span>, <span class="string">"柴犬"</span>, <span class="string">"馬爾濟斯"</span>, <span class="string">"薩摩耶"</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(dog)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> dog == <span class="string">"哈士奇"</span>:</span><br><span class="line">            print(<span class="string">"會跳火圈"</span>)</span><br><span class="line">        <span class="keyword">elif</span> dog == <span class="string">"馬爾濟斯"</span>:</span><br><span class="line">            print(<span class="string">"會坐下"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"什麼都不會"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a class="header-anchor" href="#使用"></a>使用</h3>
+<p>定義完之後，直接使用 <code>類別名稱.屬性名稱</code> 呼叫屬性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">my_dogs = MyDog.types</span><br><span class="line">print(my_dogs)</span><br><span class="line">MyDog.show(<span class="string">"柴犬"</span>)</span><br><span class="line">MyDog.show(<span class="string">"哈士奇"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ['哈士奇', '柴犬', '馬爾濟斯', '薩摩耶']</span></span><br><span class="line"><span class="comment"># 什麼都不會</span></span><br><span class="line"><span class="comment"># 會跳火圈</span></span><br></pre></td></tr></table></figure>
+<h2 id="一般類別-需要實體物件"><a class="header-anchor" href="#一般類別-需要實體物件"></a>一般類別，需要實體物件</h2>
+<h3 id="定義"><a class="header-anchor" href="#定義"></a>定義</h3>
+<p>在 Class 中定義</p>
+<ol>
+<li>創造實體的初始化函式，使用 <code>__init__()</code> 和 <code>self</code> 關鍵字。在區塊中定義<span style="color: #ff0000">物件的變數</span> (需要物件才能呼叫的變數)。</li>
+<li>會和物件綁在一起的函式，需要 <code>self</code> 關鍵字。也就是<span style="color: #ff0000">物件的函式</span> (需要物件才能呼叫的函式)。</li>
+</ol>
+<p>基本語法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 類別名稱:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, 參數<span class="number">1</span>, 參數<span class="number">2</span>, ...)</span>:</span>     <span class="comment"># 創造實體的初始化函式</span></span><br><span class="line">        self.參數<span class="number">1</span> = 參數<span class="number">1</span>        <span class="comment"># 物件的變數1</span></span><br><span class="line">        self.參數<span class="number">2</span> = 參數<span class="number">2</span>        <span class="comment"># 物件的變數2</span></span><br><span class="line">        <span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> 函式名稱<span class="params">(self, 參數a, 參數b, ...)</span>:</span>      <span class="comment"># 物件的函式</span></span><br><span class="line">        <span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+<p>舉例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, types, size, age)</span>:</span>   <span class="comment"># 第一個參數一定要寫 self</span></span><br><span class="line">        self.types = types</span><br><span class="line">        self.size = size</span><br><span class="line">        self.age = age</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span>      <span class="comment"># 第一個參數一定要寫 self，才會和物件綁在一起</span></span><br><span class="line">        <span class="keyword">if</span> self.types == <span class="string">"哈士奇"</span>:</span><br><span class="line">            print(<span class="string">"會跳火圈"</span>)</span><br><span class="line">        <span class="keyword">elif</span> self.types == <span class="string">"馬爾濟斯"</span>:</span><br><span class="line">            print(<span class="string">"會坐下"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"什麼都不會"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a class="header-anchor" href="#使用"></a>使用</h3>
+<p>定義完之後：</p>
+<ol>
+<li>
+<p>先利用 <code>自訂物件名稱 = 類別名稱(參數1, 參數2, ...)</code> 創造物件實體。例如：<code>my_dog = Dog(types參數, size參數, age參數)</code>。不需要傳入 <code>self參數</code>。</p>
+<p><img src="https://i.imgur.com/Q7XNM9X.jpg" alt></p>
+</li>
+<li>
+<p>再使用 <code>自訂物件名稱.變數</code>、<code>自訂物件名稱.函式(參數a, ...)</code> 呼叫<span style="color: #ff0000">物件的屬性</span>。不需要傳入 <code>self參數</code>。</p>
+<p><img src="https://i.imgur.com/MME0zYK.jpg" alt></p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dog1 = Dog(<span class="string">"哈士奇"</span>, <span class="string">"大型犬"</span>, <span class="number">2</span>)          <span class="comment"># 創造物件實體</span></span><br><span class="line">print(dog1.types + <span class="string">" is "</span> + dog1.size)   <span class="comment"># 呼叫變數</span></span><br><span class="line">dog1.show()                              <span class="comment"># 呼叫函式</span></span><br><span class="line"></span><br><span class="line">dog2 = Dog(<span class="string">"柴犬"</span>, <span class="string">"中型犬"</span>, <span class="number">1</span>)</span><br><span class="line">print(dog2.types + <span class="string">" is "</span> + dog2.size)</span><br><span class="line">dog2.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 哈士奇 is 大型犬</span></span><br><span class="line"><span class="comment"># 會跳火圈</span></span><br><span class="line"><span class="comment"># 柴犬 is 中型犬</span></span><br><span class="line"><span class="comment"># 什麼都不會</span></span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>值得注意的是，如果我使用 <code>類別名稱.屬性名稱</code> 會出現如下錯誤：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Dog.types</span><br><span class="line"><span class="comment"># AttributeError: type object 'Dog' has no attribute 'types'</span></span><br><span class="line"><span class="comment"># Dog 這個類別沒有 'types' 這個屬性。</span></span><br><span class="line"></span><br><span class="line">Dog.show()</span><br><span class="line"><span class="comment"># TypeError: show() missing 1 required positional argument: 'self'</span></span><br><span class="line"><span class="comment"># show 缺少一個必要的參數 'self'</span></span><br></pre></td></tr></table></figure>
+<p>咦！咦！</p>
+<ol>
+<li>
+<p>為什麼 Dog 類別沒有 <code>types</code> 屬性？<br>
+因為 <code>types</code> 是<span style="color: #ff0000">物件的變數</span>，<code>show()</code> 也是<span style="color: #ff0000">物件的函式</span>。如果用<strong>類別</strong>呼叫，程式無法找到<strong>類別的 <code>types</code> 和 <code>show()</code></strong>，自然就會報錯。</p>
+</li>
+<li>
+<p>前面不是提到，不需要傳入 <code>self參數</code>，為什麼又說少一個必要的參數 <code>self</code> 呢？<br>
+因為<strong>定義</strong>函式時，第一個參數 <code>self</code> 其實表示的是<span style="color: #ff0000">物件實體</span>。如下圖，使用 <code>dog1.</code> 呼叫 <code>show()</code> 時，就表示 <code>dog1</code> 被當作 <code>self參數</code> 傳入。</p>
+</li>
+</ol>
+<p><img src="https://i.imgur.com/1WNWK1g.jpg" alt></p>
+</div>
+<p>所以<span style="color: #ff0000">想使用 <code>類別名稱</code> 呼叫函式，需要傳入 <code>self</code> 參數</span>，改寫成這樣：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dog1 = Dog(<span class="string">"哈士奇"</span>, <span class="string">"大型犬"</span>, <span class="number">2</span>)</span><br><span class="line">print(dog1.types + <span class="string">" is "</span> + dog1.size)</span><br><span class="line">Dog.show(dog1)       <span class="comment"># 使用「類別名稱」呼叫函式，需要傳入 self 參數</span></span><br></pre></td></tr></table></figure>
 <p>參考資料：<br>
-<a href="https://expect7.pixnet.net/blog/post/38682120-%5B%E7%A8%8B%E5%BC%8F%5D%5B%E6%A6%82%E5%BF%B5%5D-%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%82%E4%BB%80%E9%BA%BC%E6%98%AF%E7%89%A9%E4%BB%B6" target="_blank" rel="noopener">[程式][概念] 物件導向基本概念。什麼是物件導向程式設計(OOP)呢?</a></p>
+<a href="https://www.youtube.com/watch?v=uPKgQ3FoVtY" target="_blank" rel="noopener">彭彭的課程：Python 類別的定義與使用</a><br>
+<a href="https://www.youtube.com/watch?v=Lr5N2r1rmtM" target="_blank" rel="noopener">彭彭的課程：Python 實體物件的建立與使用 - 上篇 - 實體屬性 Instance Attributes</a><br>
+<a href="https://www.youtube.com/watch?v=MZtTClJ74NU" target="_blank" rel="noopener">彭彭的課程：Python 實體物件的建立與使用 - 下篇 - 實體屬性 Instance Attributes</a></p>
 
         </div>
     </div>
@@ -303,7 +298,7 @@ TextIOWrapper、BufferedReader 類別，繼承自 TextIOBase，而 TextIOBase �
                 
                 本文作者 : Jenifer <br>
                 
-                原文連結 : <a href>https://jenifers001d.github.io/2019/12/14/Python/learning-Python-day10/</a><br>
+                原文連結 : <a href>https://jenifers001d.github.io/2019/12/15/Python/learning-Python-day11/</a><br>
                 版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
             </blockquote>
         </div>
@@ -376,15 +371,9 @@ TextIOWrapper、BufferedReader 類別，繼承自 TextIOBase，而 TextIOBase �
         <div class="nav-pre">
             <i class="iconfont icon-prev"></i>
             上一篇:
-            <a href="/2019/12/13/Git/Git-intro-3/" target="_self">Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone)</a>
+            <a href="/2019/12/14/Python/learning-Python-day10/" target="_self">Python 自學第十天：寫在 Class 類別之前的物件導向 (OOP) 概念</a>
         </div>
         
-        
-        <div class="nav-next">
-            下一篇:
-            <a href="/2019/12/15/Python/learning-Python-day11/" target="_self">Python 自學第十一天：Class 類別</a>
-            <i class="iconfont icon-next"></i>
-        </div>
         
     </nav>
 
@@ -400,8 +389,8 @@ TextIOWrapper、BufferedReader 類別，繼承自 TextIOBase，而 TextIOBase �
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
     if (true) {
         var disqus_config = function() {
-            this.page.url = "https://jenifers001d.github.io/2019/12/14/Python/learning-Python-day10/"; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2019/12/14/Python/learning-Python-day10/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            this.page.url = "https://jenifers001d.github.io/2019/12/15/Python/learning-Python-day11/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/12/15/Python/learning-Python-day11/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
