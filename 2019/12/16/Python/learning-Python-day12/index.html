@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Jenifer, jenifers001d@gmail.com">
+    
+    
+
+    <title>Python 自學第十二天：Class 類別的應用範例 | Jenifer.Code.World</title>
+    <!--  Google Search Console 驗證網站擁有權  -->
+    <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+    <!--  Provides a link to an XML document describing the layout of the site.  -->
+    <!--    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jenifers001d.github.io/sitemap.xml">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <meta name="keywords" content="Python,Python,Elementary Code,Elementary Python,物件導向 OOP,">
+    
+
+    <script>
+        console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' +
+            '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n',
+            'color: #fadfa3; background: #030307; padding:3px 0;', '',
+            'color: #fadfa3; background: #030307; padding:3px 0;', '');
+
+    </script>
+
+    
+    <meta name="description" content="&lt;p&gt;實際練習幾個類別的運用，將程式碼&lt;strong&gt;封裝&lt;/strong&gt;在裡面，使用者不需要寫很多行程式碼，即可操作。&lt;/p&gt;">
+    
+
+    
+
+    
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+    
+
+    <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/icon/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+
+    <script src="/js/util.js"></script>
+<script src="/js/valine.min.js"></script>
+
+    
+    <link rel="stylesheet" href="/custom/style.css">
+    
+
+    
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+    
+
+    
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+    
+
+    <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+
+    
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+    
+    <!-- 加入 Google AdSense -->
+    <script data-ad-client="ca-pub-6866375976707228" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="//pagead2.googlesyndication.com/
+pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "pub-6866375976707228",
+            enable_page_level_ads: true
+        });
+
+    </script>
+    <!-- Google AdSense 結束 -->
+
+</head>
+
+
+<body>
+
+    
+
+    <div id="app">
+
+        <div class="header-wrap">
+    <header>
+        <div class="site-brand">
+            <div class="site-title">
+                <a href="/">Jenifer.Code.World</a>
+            </div>
+        </div>
+        <nav class="site-navigation">
+            <ul class="nav-menu">
+                
+                <li class="nav-item" data-path="/">
+                    
+                    <a href="/" target="_self">
+                        首頁
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/archives/">
+                    
+                    <a href="/archives/" target="_self">
+                        歸檔
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/categories/">
+                    
+                    <a href="/categories/" target="_self">
+                        分類
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/tags/">
+                    
+                    <a href="/tags/" target="_self">
+                        標籤
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path>
+                    
+                    <a href="javascript:void(0);" v-else>抓到我</a>
+                    <ul class="nav-menu--dropdown">
+                        
+                        <li>
+                            <a href="https://github.com/jenifers001d" target="_blank" rel="external nofollow noopener noreferrer">
+                                Github
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+        <i class="iconfont icon-menu"></i>
+    </header>
+</div>
+
+<script>
+    let links = document.querySelectorAll('.nav-item');
+    for (let link of links) {
+        let childrenLink = link.querySelector('ul');
+        link.addEventListener('mouseenter', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown active";
+            }
+        })
+        link.addEventListener('mouseleave', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown";
+            }
+        })
+    }
+    let rootRealPath = getRealPath(window.location.pathname, true);
+    for (let link of links) {
+        let linkPath = link.getAttribute("data-path");
+        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+            link.className = "nav-item hover";
+        }
+    }
+
+    let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+        iconMenuClicked = false;
+    let navDOM = document.querySelector("nav.site-navigation");
+    iconMenu.addEventListener("click", () => {
+        iconMenuClicked
+            ?
+            navDOM.className = "site-navigation active" :
+            navDOM.className = "site-navigation";
+        iconMenuClicked = !iconMenuClicked;
+    })
+
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+    
+
+<div class="post">
+    <h1 class="article-title">
+        <span>Python 自學第十二天：Class 類別的應用範例</span>
+    </h1>
+    <div class="article-top-meta">
+        <span>
+            發布 :
+            2019-12-16
+        </span>
+        
+        <span>
+            分類 :
+            <a href="/categories/Python/">
+                Python
+            </a>
+        </span>
+        
+        
+        <span>
+            瀏覽 : <span class="article-timer" data-identity="learning-Python-day12"></span>
+        </span>
+        
+        
+    </div>
+
+    
+
+    <div class="article-content">
+        <div class="markdown-body">
+            
+<p>實際練習幾個類別的運用，將程式碼<strong>封裝</strong>在裡面，使用者不需要寫很多行程式碼，即可操作。</p>
+
+<h2 id="範例一：檔案讀取"><a class="header-anchor" href="#範例一：檔案讀取"></a>範例一：檔案讀取</h2>
+<p>定義一個<span style="color: #ff0000"><strong>檔案讀取</strong></span>的 Class，將如何讀取檔案的將程式碼<strong>封裝</strong>在裡面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReadFile</span>:</span></span><br><span class="line">    <span class="comment"># 定義「創造實體的初始化函式」</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, path)</span>:</span></span><br><span class="line">        self.name = path</span><br><span class="line">        self.fileObj = open(self.name, mode=<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">readFile</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.fileObj.read()</span><br></pre></td></tr></table></figure>
+<p>如下列程式碼使用時：</p>
+<ul>
+<li>line 1 首先先<span style="color: #ff0000">創造 <code>ReadFile類別</code> 的實體 <code>f</code></span>，<code>f</code> 實體有兩個變數：<strong>路徑名稱 <code>name</code></strong> 和以該路徑開啟的<strong>檔案物件 <code>fileObj</code></strong>。</li>
+<li>line 2 以 <code>f</code> 呼叫 <code>readFile()</code> 函式時，會讓檔案物件 <code>fileObj</code> 呼叫 <code>read()</code> 並且回傳讀取到的資料。最後成功輸出結果！</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">f = ReadFile(<span class="string">"file1.txt"</span>)</span><br><span class="line">txt = f.readFile()</span><br><span class="line">print(txt)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># 測試 Python 第一行</span></span><br><span class="line"><span class="comment"># 這是第二行，接在第二行後面</span></span><br><span class="line"><span class="comment"># 我是 Jenifer</span></span><br><span class="line"><span class="comment"># 想要第三行，新增的字串！</span></span><br></pre></td></tr></table></figure>
+<h2 id="範例二：英雄與怪物-一"><a class="header-anchor" href="#範例二：英雄與怪物-一"></a>範例二：英雄與怪物 (一)</h2>
+<p>定義一個<span style="color: #ff0000"><strong>怪物</strong></span>和一個<span style="color: #ff0000"><strong>英雄</strong></span>的 Class，情境如下：</p>
+<ul>
+<li>英雄可以選擇攻擊目標。</li>
+<li>英雄可以攻擊怪物，怪物不能攻擊英雄。</li>
+<li>英雄不需要血條，怪物需要血條。</li>
+<li>英雄的攻擊力介於 <code>基礎攻擊力*0.8</code> ~ <code>基礎攻擊力*1.2</code> 的範圍。</li>
+<li>英雄會一直攻擊怪物，直到怪物死亡。</li>
+<li>顯示出怪物剩餘血量。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monster</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, m_name, m_HP=<span class="number">500</span>)</span>:</span></span><br><span class="line">        self.name = m_name</span><br><span class="line">        self.HP = m_HP</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hero</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, h_name, h_attack=<span class="number">50</span>)</span>:</span></span><br><span class="line">        self.name = h_name</span><br><span class="line">        self.attack = h_attack</span><br><span class="line">        self.enemy = <span class="literal">None</span>     <span class="comment"># 英雄的敵人還未知</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Target</span><span class="params">(self, m)</span>:</span></span><br><span class="line">        self.enemy = m        <span class="comment"># 英雄選擇的攻擊目標，是一個怪物物件</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Attack</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.enemy.HP = self.enemy.HP - self.attack*random.uniform(<span class="number">0.8</span>, <span class="number">1.2</span>)</span><br><span class="line">        <span class="keyword">if</span> self.enemy.HP &lt; <span class="number">0</span>:</span><br><span class="line">            self.enemy.HP = <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">f"剩下 <span class="subst">&#123;round(self.enemy.HP, <span class="number">3</span>)&#125;</span> 血量"</span>)</span><br></pre></td></tr></table></figure>
+<p>使用時，如下列程式碼：</p>
+<ul>
+<li>line 1 首先先<span style="color: #ff0000">創造 <code>Monster類別</code> 的實體 <code>monster</code></span>，<code>monster</code> 實體有兩個變數：<strong>名字 <code>name</code></strong> 和<strong>血量 <code>HP</code></strong> (預設 500)。</li>
+<li>line 2 <span style="color: #ff0000">創造 <code>Hero類別</code> 的實體 <code>hero</code></span>，<code>hero</code> 實體有三個變數：<strong>名字 <code>name</code></strong>、<strong>攻擊力 <code>attack</code></strong> 和<strong>敵人 <code>enemy</code></strong> (等等會儲存一個<strong>怪物物件</strong>)。</li>
+<li>line 3 英雄選擇攻擊目標時，<span style="color: #ff0000">將怪物物件儲存到 <code>enemy</code> 變數中</span>。怪物物件有自己的<strong>名字</strong>和<strong>血量</strong>。</li>
+<li>line 5 英雄攻擊時，敵人的血量減去英雄攻擊力 0.8~1.2 倍的範圍。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">monster = Monster(<span class="string">"卡比獸"</span>)</span><br><span class="line">hero = Hero(<span class="string">"Jenifer"</span>)</span><br><span class="line">hero.Target(monster)</span><br><span class="line"><span class="keyword">while</span> monster.HP &gt; <span class="number">0</span>:</span><br><span class="line">    hero.Attack()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(hero.name + <span class="string">" 擊敗了"</span> + monster.name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 剩下 453.401 血量</span></span><br><span class="line"><span class="comment"># 剩下 408.594 血量</span></span><br><span class="line"><span class="comment"># 剩下 356.474 血量</span></span><br><span class="line"><span class="comment"># 剩下 310.718 血量</span></span><br><span class="line"><span class="comment"># 剩下 265.959 血量</span></span><br><span class="line"><span class="comment"># 剩下 217.678 血量</span></span><br><span class="line"><span class="comment"># 剩下 169.36 血量</span></span><br><span class="line"><span class="comment"># 剩下 114.043 血量</span></span><br><span class="line"><span class="comment"># 剩下 65.406 血量</span></span><br><span class="line"><span class="comment"># 剩下 6.47 血量</span></span><br><span class="line"><span class="comment"># Jenifer 擊敗了卡比獸</span></span><br></pre></td></tr></table></figure>
+<h2 id="範例三：英雄與怪物-二"><a class="header-anchor" href="#範例三：英雄與怪物-二"></a>範例三：英雄與怪物 (二)</h2>
+<p>定義一個<span style="color: #ff0000"><strong>角色</strong></span>的 Class，情境如下：</p>
+<ul>
+<li>角色有名字、血量和攻擊力基本屬性。</li>
+<li>角色可以確認攻擊目標。</li>
+<li>角色攻擊完敵人後，顯示敵人剩餘血量。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Character</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, c_name, c_HP=<span class="number">600</span>, c_attack=<span class="number">50</span>)</span>:</span></span><br><span class="line">        self.name = c_name</span><br><span class="line">        self.HP = c_HP</span><br><span class="line">        self.attack = c_attack</span><br><span class="line">        self.enemy = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Target</span><span class="params">(self, m)</span>:</span></span><br><span class="line">        self.enemy = m</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Attack</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.enemy.HP = self.enemy.HP - self.attack*random.uniform(<span class="number">0.8</span>, <span class="number">1.2</span>)</span><br><span class="line">        <span class="keyword">if</span> self.enemy.HP &lt; <span class="number">0</span>:</span><br><span class="line">            self.enemy.HP = <span class="number">0</span></span><br><span class="line">            print(<span class="string">f"<span class="subst">&#123;self.enemy.name&#125;</span> 剩下 <span class="subst">&#123;round(self.enemy.HP, <span class="number">3</span>)&#125;</span> 血量"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">f"<span class="subst">&#123;self.enemy.name&#125;</span> 剩下 <span class="subst">&#123;round(self.enemy.HP, <span class="number">3</span>)&#125;</span> 血量"</span>)</span><br></pre></td></tr></table></figure>
+<p>另外包裝一個 <code>battle()</code> 函式，將英雄攻擊怪物的流程包裝在內，情境如下：</p>
+<ul>
+<li>英雄先將怪物視為攻擊目標，然後攻擊怪物。</li>
+<li>怪物被攻擊後，將英雄視為攻擊目標。</li>
+<li>英雄會攻擊兩次，怪物只攻擊一次。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">battle</span><span class="params">(hero, mon)</span>:</span></span><br><span class="line">    print(hero.name + <span class="string">"率先發動攻擊～"</span>)</span><br><span class="line">    hero.Target(mon)</span><br><span class="line">    hero.Attack()</span><br><span class="line">    mon.Target(hero)</span><br><span class="line">    <span class="keyword">while</span> hero.HP &gt; <span class="number">0</span> <span class="keyword">and</span> mon.HP &gt; <span class="number">0</span>:</span><br><span class="line">        hero.Attack()</span><br><span class="line">        <span class="keyword">if</span> mon.HP &gt; <span class="number">0</span>:</span><br><span class="line">            print(mon.name + <span class="string">"反攻！"</span>)</span><br><span class="line">            mon.Attack()</span><br><span class="line">            <span class="keyword">if</span> hero.HP &gt; <span class="number">0</span>:</span><br><span class="line">                print(<span class="string">"-------------------- new round --------------------"</span>)</span><br><span class="line">                print(hero.name + <span class="string">" 攻擊"</span> + mon.name + <span class="string">"～～～"</span>)</span><br><span class="line">                hero.Attack()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> hero.HP == <span class="number">0</span>:</span><br><span class="line">            print(mon.name + <span class="string">" 擊敗了"</span> + hero.name)</span><br><span class="line">        <span class="keyword">elif</span> mon.HP == <span class="number">0</span>:</span><br><span class="line">            print(hero.name + <span class="string">" 擊敗了"</span> + mon.name)</span><br></pre></td></tr></table></figure>
+<p>使用時，利用 <code>Character類別</code> 創造一個怪物實體、一個英雄實體。將怪物和英雄實體傳入 <code>battle()</code> 函式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">monster = Character(<span class="string">"卡比獸"</span>, <span class="number">500</span>, <span class="number">280</span>)</span><br><span class="line">my_hero = Character(<span class="string">"Jenifer"</span>, <span class="number">600</span>, <span class="number">100</span>)</span><br><span class="line">battle(my_hero, monster)</span><br></pre></td></tr></table></figure>
+<p>英雄<strong>勝利</strong>劇本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Jenifer率先發動攻擊～</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 409.446 血量</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 303.631 血量</span></span><br><span class="line"><span class="comment"># 卡比獸反攻！</span></span><br><span class="line"><span class="comment"># Jenifer 剩下 338.239 血量</span></span><br><span class="line"><span class="comment"># -------------------- new round --------------------</span></span><br><span class="line"><span class="comment"># Jenifer 攻擊卡比獸～～～</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 216.06 血量</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 110.494 血量</span></span><br><span class="line"><span class="comment"># 卡比獸反攻！</span></span><br><span class="line"><span class="comment"># Jenifer 剩下 93.172 血量</span></span><br><span class="line"><span class="comment"># -------------------- new round --------------------</span></span><br><span class="line"><span class="comment"># Jenifer 攻擊卡比獸～～～</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 3.573 血量</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 0 血量</span></span><br><span class="line"><span class="comment"># Jenifer 擊敗了卡比獸</span></span><br></pre></td></tr></table></figure>
+<p>英雄<strong>失敗</strong>劇本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Jenifer率先發動攻擊～</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 382.197 血量</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 284.08 血量</span></span><br><span class="line"><span class="comment"># 卡比獸反攻！</span></span><br><span class="line"><span class="comment"># Jenifer 剩下 281.792 血量</span></span><br><span class="line"><span class="comment"># -------------------- new round --------------------</span></span><br><span class="line"><span class="comment"># Jenifer 攻擊卡比獸～～～</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 189.142 血量</span></span><br><span class="line"><span class="comment"># 卡比獸 剩下 70.712 血量</span></span><br><span class="line"><span class="comment"># 卡比獸反攻！</span></span><br><span class="line"><span class="comment"># Jenifer 剩下 0 血量</span></span><br><span class="line"><span class="comment"># 卡比獸 擊敗了Jenifer</span></span><br></pre></td></tr></table></figure>
+<p>參考資料：<br>
+<a href="https://www.youtube.com/watch?v=MZtTClJ74NU" target="_blank" rel="noopener">彭彭的課程：Python 實體物件的建立與使用 - 下篇 - 實體屬性 Instance Attributes</a></p>
+
+        </div>
+    </div>
+    
+    <div class="copy-right">
+        <div class="markdown-body">
+            <blockquote>
+                
+                
+                本文作者 : Jenifer <br>
+                
+                原文連結 : <a href>https://jenifers001d.github.io/2019/12/16/Python/learning-Python-day12/</a><br>
+                版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
+            </blockquote>
+        </div>
+    </div>
+    
+
+    
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="google, facebook, twitter, qzone, qq, weibo, wechat, douban">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+    
+
+    
+
+    <div class="article-footer">
+        <div class="article-meta pull-left">
+            <span>
+                
+                <i class="iconfont icon-06tags"></i>標籤:
+                
+                <span class="span--tag">
+                    <a href="/tags/Python/">
+                        #Python
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Elementary-Code/">
+                        #Elementary Code
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Elementary-Python/">
+                        #Elementary Python
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/物件導向-OOP/">
+                        #物件導向 OOP
+                    </a>
+                </span>
+                
+                
+            </span>
+        </div>
+        <div class="article-meta pull-right">
+        </div>
+    </div>
+</div>
+
+
+<aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+</aside>
+<script async>
+    setTimeout(generateToc, 500);
+
+</script>
+
+
+
+
+
+    <nav class="post-navigation">
+        
+        <div class="nav-pre">
+            <i class="iconfont icon-prev"></i>
+            上一篇:
+            <a href="/2019/12/15/Python/learning-Python-day11/" target="_self">Python 自學第十一天：Class 類別</a>
+        </div>
+        
+        
+    </nav>
+
+    
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足跡 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<div id="disqus_thread"></div>
+<script defer>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    if (true) {
+        var disqus_config = function() {
+            this.page.url = "https://jenifers001d.github.io/2019/12/16/Python/learning-Python-day12/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/12/16/Python/learning-Python-day12/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://jenifer-code-world.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    }
+
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+<script defer>
+    if (false) {
+        let path = getRealPath()
+        new Valine({
+            el: "#vcomments",
+            appId: "Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz",
+            appKey: "WaR7nrzhliHj9aVwdQzkdlGd",
+            notify: false,
+            verify: false,
+            avatar: "robohash",
+            placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+            path
+        });
+    }
+
+</script>
+
+    
+
+    
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz", "WaR7nrzhliHj9aVwdQzkdlGd");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+    
+
+</div>
+
+
+
+        <footer>
+    <p class="site-info">
+        Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+        <br>
+        Theme - <a href="https://github.com/dongyuanxin/theme-bmw" rel="external nofollow noopener noreferrer">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/" rel="external nofollow noopener noreferrer">GodBMW</a>
+        <br>
+        
+    </p>
+</footer>
+
+
+
+<script>
+    const timeToNowDOM = document.querySelector("#time-to-now");
+    const startTimestamp = new Date( < % -footerStartTime.year % > , < % -footerStartTime.month - 1 % > , < % -
+        footerStartTime.day % > ).getTime();
+    const updateTimeStr = () => {
+        let offset = parseInt(
+                (new Date().getTime() - startTimestamp) / 1000,
+                10
+            ),
+            day = Math.floor(offset / 86400),
+            hour = Math.floor((offset % 86400) / 3600),
+            minute = Math.floor(((offset % 86400) % 3600) / 60),
+            second = Math.floor(((offset % 86400) % 3600) % 60);
+        timeToNowDOM.innerHTML =
+            day + " days " + hour + " hrs " + minute + " mins " + second + " secs ";
+        setTimeout(updateTimeStr, 500);
+    }
+    setTimeout(updateTimeStr, 500);
+
+</script>
+
+
+        <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+    
+    
+    <script src="/custom/all.js" ></script>
+    
+    
+    
+</body>
+
+</html>
