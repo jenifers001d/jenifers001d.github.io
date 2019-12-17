@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Jenifer, jenifers001d@gmail.com">
+    
+    
+
+    <title>Python 自學第十三天：取得網路公開資料 Open Data | Jenifer.Code.World</title>
+    <!--  Google Search Console 驗證網站擁有權  -->
+    <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+    <!--  Provides a link to an XML document describing the layout of the site.  -->
+    <!--    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jenifers001d.github.io/sitemap.xml">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <meta name="keywords" content="Python,Python,Elementary Code,Elementary Python,JSON,Open Data,">
+    
+
+    <script>
+        console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' +
+            '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n',
+            'color: #fadfa3; background: #030307; padding:3px 0;', '',
+            'color: #fadfa3; background: #030307; padding:3px 0;', '');
+
+    </script>
+
+    
+    <meta name="description" content="&lt;p&gt;在這一篇文章中，我們以 &lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HTTP 通訊協定&lt;/a&gt;為例，利用 Python 直接讀取已經整理好的公開資料 (Open Data)，通常 Open Data 會是固定的幾種格式： &lt;code&gt;XML&lt;/code&gt;、&lt;code&gt;JSON&lt;/code&gt;、&lt;code&gt;CSV&lt;/code&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%96%87%E6%A1%A3%E6%A0%BC%E5%BC%8F&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;ODT&lt;/code&gt;&lt;/a&gt;等。&lt;/p&gt;">
+    
+
+    
+
+    
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+    
+
+    <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/icon/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+
+    <script src="/js/util.js"></script>
+<script src="/js/valine.min.js"></script>
+
+    
+    <link rel="stylesheet" href="/custom/style.css">
+    
+
+    
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+    
+
+    
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+    
+
+    <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+
+    
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+    
+    <!-- 加入 Google AdSense -->
+    <script data-ad-client="ca-pub-6866375976707228" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="//pagead2.googlesyndication.com/
+pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "pub-6866375976707228",
+            enable_page_level_ads: true
+        });
+
+    </script>
+    <!-- Google AdSense 結束 -->
+
+</head>
+
+
+<body>
+
+    
+
+    <div id="app">
+
+        <div class="header-wrap">
+    <header>
+        <div class="site-brand">
+            <div class="site-title">
+                <a href="/">Jenifer.Code.World</a>
+            </div>
+        </div>
+        <nav class="site-navigation">
+            <ul class="nav-menu">
+                
+                <li class="nav-item" data-path="/">
+                    
+                    <a href="/" target="_self">
+                        首頁
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/archives/">
+                    
+                    <a href="/archives/" target="_self">
+                        歸檔
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/categories/">
+                    
+                    <a href="/categories/" target="_self">
+                        分類
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path="/tags/">
+                    
+                    <a href="/tags/" target="_self">
+                        標籤
+                    </a>
+                    
+                </li>
+                
+                <li class="nav-item" data-path>
+                    
+                    <a href="javascript:void(0);" v-else>抓到我</a>
+                    <ul class="nav-menu--dropdown">
+                        
+                        <li>
+                            <a href="https://github.com/jenifers001d" target="_blank" rel="external nofollow noopener noreferrer">
+                                Github
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+        <i class="iconfont icon-menu"></i>
+    </header>
+</div>
+
+<script>
+    let links = document.querySelectorAll('.nav-item');
+    for (let link of links) {
+        let childrenLink = link.querySelector('ul');
+        link.addEventListener('mouseenter', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown active";
+            }
+        })
+        link.addEventListener('mouseleave', () => {
+            if (childrenLink) {
+                childrenLink.className = "nav-menu--dropdown";
+            }
+        })
+    }
+    let rootRealPath = getRealPath(window.location.pathname, true);
+    for (let link of links) {
+        let linkPath = link.getAttribute("data-path");
+        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+            link.className = "nav-item hover";
+        }
+    }
+
+    let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+        iconMenuClicked = false;
+    let navDOM = document.querySelector("nav.site-navigation");
+    iconMenu.addEventListener("click", () => {
+        iconMenuClicked
+            ?
+            navDOM.className = "site-navigation active" :
+            navDOM.className = "site-navigation";
+        iconMenuClicked = !iconMenuClicked;
+    })
+
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+    
+
+<div class="post">
+    <h1 class="article-title">
+        <span>Python 自學第十三天：取得網路公開資料 Open Data</span>
+    </h1>
+    <div class="article-top-meta">
+        <span>
+            發布 :
+            2019-12-17
+        </span>
+        
+        <span>
+            分類 :
+            <a href="/categories/Python/">
+                Python
+            </a>
+        </span>
+        
+        
+        <span>
+            瀏覽 : <span class="article-timer" data-identity="learning-Python-day13"></span>
+        </span>
+        
+        
+    </div>
+
+    
+
+    <div class="article-content">
+        <div class="markdown-body">
+            
+<p>在這一篇文章中，我們以 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">HTTP 通訊協定</a>為例，利用 Python 直接讀取已經整理好的公開資料 (Open Data)，通常 Open Data 會是固定的幾種格式： <code>XML</code>、<code>JSON</code>、<code>CSV</code>、<a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%96%87%E6%A1%A3%E6%A0%BC%E5%BC%8F" target="_blank" rel="noopener"><code>ODT</code></a>等。</p>
+
+<h2 id="網路連線"><a class="header-anchor" href="#網路連線"></a>網路連線</h2>
+<p>想要取得 Open Data，必須要網路連線至網站伺服器，要求 Server 回傳網頁資訊。因此，python 會模擬瀏覽器，使用模組向網站伺服器提出一些要求 (Request)。也就是如同一般我們在網址欄輸入網址後，瀏覽器背後運行的簡易過程。</p>
+<ol>
+<li>引用 <strong><code>urllib.request</code> 模組</strong>。</li>
+<li>以 <strong><code>urlopen()</code> 函式</strong>模擬瀏覽器，向目標網址建立連線：<strong>傳送要求 (Request) 和參數</strong>給網站伺服器，並且<strong>接收網站伺服器的回應 (Response)</strong>，然後 <code>urlopen()</code> 函式會<span style="color: #ff0000">將<strong>回應</strong>包裝成<strong>物件</strong></span>，回傳給程式中的變數。可以使用 <code>with</code> 關鍵字實作，開啟 (得到)、讀取和關閉 Response 物件。</li>
+<li>在 <code>with</code> 區塊中，依照不同檔案格式以不同語法讀取 <code>res</code>。和讀取檔案的語法相同，如果不熟悉，請參考：<a href="https://jenifers001d.github.io/2019/12/11/Python/learning-Python-day9/">Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案</a>。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request <span class="keyword">as</span> req</span><br><span class="line"><span class="keyword">with</span> req.urlopen(網址) <span class="keyword">as</span> res:</span><br><span class="line">    <span class="comment"># 依照不同檔案格式讀取 res</span></span><br></pre></td></tr></table></figure>
+<h2 id="html-格式"><a class="header-anchor" href="#html-格式"></a>HTML 格式</h2>
+<p>如果目標網址是一般的網頁，也就是 HTML 格式，網站伺服器的回應就會是 <strong>HTML 網頁原始碼</strong> (在網頁中，滑鼠按右鍵，點擊「檢視網頁原始碼」出現的東西)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request <span class="keyword">as</span> req</span><br><span class="line"><span class="keyword">with</span> req.urlopen(網址) <span class="keyword">as</span> res:</span><br><span class="line">    page_data = res.read()    <span class="comment"># 以一般文字格式，讀取「網站伺服器的回應」</span></span><br><span class="line">print(page_data)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>網址：字串格式。<br>
+read()：回傳字串。</p>
+</blockquote>
+<p>如果要讀取中文網頁，記得 <code>read()</code> 讀取完後要解碼，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> req.urlopen(網址) <span class="keyword">as</span> res:</span><br><span class="line">    page_data = res.read().decode(<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="json-格式"><a class="header-anchor" href="#json-格式"></a>JSON 格式</h2>
+<p>如果目標網址是 Open Data 中的 JSON 格式，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request <span class="keyword">as</span> req</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">with</span> req.urlopen(網址) <span class="keyword">as</span> res:</span><br><span class="line">    page_data = json.load(res)    <span class="comment"># 以 JSON 格式，讀取「網站伺服器的回應」</span></span><br><span class="line">print(page_data)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>json.load(res)：回傳 List、字典資料格式。</p>
+</blockquote>
+<p>例如，從<a href="https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&amp;rid=b7f17d01-30b0-4978-840b-e039b98103af" target="_blank" rel="noopener">臺北市內湖科技園區廠商名錄</a>讀取，<code>page_data</code> 會得到如下的資料格式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"result"</span>:&#123;</span><br><span class="line">    <span class="attr">"limit"</span>:<span class="number">1000</span>,</span><br><span class="line">    <span class="attr">"offset"</span>:<span class="number">0</span>,</span><br><span class="line">    <span class="attr">"count"</span>:<span class="number">67602</span>,</span><br><span class="line">    <span class="attr">"sort"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="attr">"results"</span>:[</span><br><span class="line">        &#123;<span class="attr">"派工項目"</span>:<span class="string">"場所與設施噪音舉發"</span>,<span class="attr">"_id"</span>:<span class="number">1</span>,<span class="attr">"立案時間"</span>:<span class="string">"2016\/3\/1 00:09"</span>,<span class="attr">"caseid"</span>:<span class="string">"2016030100001 "</span>,<span class="attr">"案件地址"</span>:<span class="string">"松山區三民路80巷"</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">"派工項目"</span>:<span class="string">"場所與設施噪音舉發"</span>,<span class="attr">"_id"</span>:<span class="number">2</span>,<span class="attr">"立案時間"</span>:<span class="string">"2016\/3\/1 00:09"</span>,<span class="attr">"caseid"</span>:<span class="string">"2016030100002 "</span>,<span class="attr">"案件地址"</span>:<span class="string">"文山區興隆路一段70巷"</span>&#125;,</span><br><span class="line">        &#123; ... &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>想要取得資料結構中的每一筆「案件地址」，語法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先用字典格式的語法取得 "results" 的值，也就是資料 List (上面的資料 line 8~9)</span></span><br><span class="line">data_list = page_data[<span class="string">"result"</span>][<span class="string">"results"</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data_list:</span><br><span class="line">    print(i[<span class="string">"案件地址"</span>])</span><br></pre></td></tr></table></figure>
+<p>最後，可以試著將讀取到的每一筆資料，依照之前學過的方法，寫入 (儲存) 到檔案中。</p>
+<p>參考資料：<br>
+<a href="https://www.youtube.com/watch?v=sUzR3QVBKIo" target="_blank" rel="noopener">彭彭的課程：Python 網路連線程式、公開資料串接</a></p>
+<h2 id="ssl-認證"><a class="header-anchor" href="#ssl-認證"></a>SSL 認證</h2>
+<p><strong>傳輸層安全性協定 (Transport Layer Security，TLS)</strong> 及其前身<strong>安全通訊協定 (Secure Sockets Layer，SSL)</strong> 是一種安全協定，目的是為網際網路通訊提供安全及資料完整性保障。想了解更多請參考<a href="https://zh.wikipedia.org/wiki/%E5%82%B3%E8%BC%B8%E5%B1%A4%E5%AE%89%E5%85%A8%E6%80%A7%E5%8D%94%E5%AE%9A" target="_blank" rel="noopener">維基百科</a>。</p>
+<h3 id="問題"><a class="header-anchor" href="#問題"></a>問題</h3>
+<p>在使用 python 模擬<strong>瀏覽器</strong>，向<strong>網站伺服器</strong>提出<span style="color: #ff0000"><strong>網頁請求 (Request)</strong></span> ，也就是讀取<strong>網路公開資料</strong>或<strong>網頁</strong>的時候，如果網站伺服器的 <strong>https 證書</strong>不是從<strong>證書簽發機構</strong>購買，不符合 <a href="https://zh.wikipedia.org/wiki/X.509" target="_blank" rel="noopener">X509 憑證 (X509 Certificate Signatures)</a>，那麼就會報錯：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777)&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以參考 <a href="https://www.python.org/dev/peps/pep-0476/" target="_blank" rel="noopener">PEP 476</a> 其中一段：</p>
+<blockquote>
+<p>Currently when a standard library http client (the urllib, urllib2, http, and httplib modules) encounters an https:// URL it will wrap the network HTTP traffic in a TLS stream, as is necessary to communicate with such a server. However, during the TLS handshake it will not actually check that the server has an X509 certificate is signed by a CA in any trust root, nor will it verify that the Common Name (or Subject Alternate Name) on the presented certificate matches the requested host.</p>
+<p>The failure to do these checks means that anyone with a privileged network position is able to trivially execute a man in the middle attack against a Python application using either of these HTTP clients, and change traffic at will.</p>
+<p>This PEP proposes to enable verification of X509 certificate signatures, as well as hostname verification for Python’s HTTP clients by default, subject to opt-out on a per-call basis. This change would be applied to Python 2.7, Python 3.4, and Python 3.5.</p>
+</blockquote>
+<h3 id="解決方案"><a class="header-anchor" href="#解決方案"></a>解決方案</h3>
+<h4 id="mac-系統中"><a class="header-anchor" href="#mac-系統中"></a>Mac 系統中</h4>
+<p>應用程式 (Applications) &gt;&gt; Python 3.x &gt;&gt; Install Certificates.command<br>
+<img src="https://i.imgur.com/wuIr3h4.jpg" alt><br>
+或是在終端機輸入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /Applications/Python\ 3.x/Install\ Certificates.command</span><br></pre></td></tr></table></figure>
+<p>出現「程序完成」！<br>
+<img src="https://i.imgur.com/jbVHfLb.jpg" alt></p>
+<p>更多其他解決方法請參考：<br>
+<a href="https://www.jianshu.com/p/40c74a5cd075" target="_blank" rel="noopener">解决Python certificate verify failed的问题</a><br>
+<a href="https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error" target="_blank" rel="noopener">urllib and “SSL: CERTIFICATE_VERIFY_FAILED” Error</a></p>
+
+        </div>
+    </div>
+    
+    <div class="copy-right">
+        <div class="markdown-body">
+            <blockquote>
+                
+                
+                本文作者 : Jenifer <br>
+                
+                原文連結 : <a href>https://jenifers001d.github.io/2019/12/17/Python/learning-Python-day13/</a><br>
+                版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
+            </blockquote>
+        </div>
+    </div>
+    
+
+    
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="google, facebook, twitter, qzone, qq, weibo, wechat, douban">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+    
+
+    
+
+    <div class="article-footer">
+        <div class="article-meta pull-left">
+            <span>
+                
+                <i class="iconfont icon-06tags"></i>標籤:
+                
+                <span class="span--tag">
+                    <a href="/tags/Python/">
+                        #Python
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Elementary-Code/">
+                        #Elementary Code
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Elementary-Python/">
+                        #Elementary Python
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/JSON/">
+                        #JSON
+                    </a>
+                </span>
+                
+                <span class="span--tag">
+                    <a href="/tags/Open-Data/">
+                        #Open Data
+                    </a>
+                </span>
+                
+                
+            </span>
+        </div>
+        <div class="article-meta pull-right">
+        </div>
+    </div>
+</div>
+
+
+<aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+</aside>
+<script async>
+    setTimeout(generateToc, 500);
+
+</script>
+
+
+
+
+
+    <nav class="post-navigation">
+        
+        <div class="nav-pre">
+            <i class="iconfont icon-prev"></i>
+            上一篇:
+            <a href="/2019/12/16/Python/learning-Python-day12/" target="_self">Python 自學第十二天：Class 類別的應用範例</a>
+        </div>
+        
+        
+    </nav>
+
+    
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足跡 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<div id="disqus_thread"></div>
+<script defer>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    if (true) {
+        var disqus_config = function() {
+            this.page.url = "https://jenifers001d.github.io/2019/12/17/Python/learning-Python-day13/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2019/12/17/Python/learning-Python-day13/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://jenifer-code-world.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    }
+
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+<script defer>
+    if (false) {
+        let path = getRealPath()
+        new Valine({
+            el: "#vcomments",
+            appId: "Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz",
+            appKey: "WaR7nrzhliHj9aVwdQzkdlGd",
+            notify: false,
+            verify: false,
+            avatar: "robohash",
+            placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+            path
+        });
+    }
+
+</script>
+
+    
+
+    
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz", "WaR7nrzhliHj9aVwdQzkdlGd");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+    
+
+</div>
+
+
+
+        <footer>
+    <p class="site-info">
+        Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+        <br>
+        Theme - <a href="https://github.com/dongyuanxin/theme-bmw" rel="external nofollow noopener noreferrer">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/" rel="external nofollow noopener noreferrer">GodBMW</a>
+        <br>
+        
+    </p>
+</footer>
+
+
+
+<script>
+    const timeToNowDOM = document.querySelector("#time-to-now");
+    const startTimestamp = new Date( < % -footerStartTime.year % > , < % -footerStartTime.month - 1 % > , < % -
+        footerStartTime.day % > ).getTime();
+    const updateTimeStr = () => {
+        let offset = parseInt(
+                (new Date().getTime() - startTimestamp) / 1000,
+                10
+            ),
+            day = Math.floor(offset / 86400),
+            hour = Math.floor((offset % 86400) / 3600),
+            minute = Math.floor(((offset % 86400) % 3600) / 60),
+            second = Math.floor(((offset % 86400) % 3600) % 60);
+        timeToNowDOM.innerHTML =
+            day + " days " + hour + " hrs " + minute + " mins " + second + " secs ";
+        setTimeout(updateTimeStr, 500);
+    }
+    setTimeout(updateTimeStr, 500);
+
+</script>
+
+
+        <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+    
+    
+    <script src="/custom/all.js" ></script>
+    
+    
+    
+</body>
+
+</html>
