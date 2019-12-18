@@ -191,6 +191,84 @@ pagead/js/adsbygoogle.js"></script>
     
     <div class="post">
         <h1 class="article-title">
+            <a href="/2019/12/18/Git/Git-intro-4/">
+                <span>Git 入門 (四)：取得遠端新檔案並合併 (fetch + merge = pull)、衝突 (conflict)</span>
+            </a>
+        </h1>
+        <!-- PC端文章信息 -->
+        <div class="article-top-meta pc-view">
+            <span>
+                發布時間 : 2019-12-18
+            </span>
+        </div>
+        <!-- 移动端文章信息 -->
+        <div class="article-top-meta mobile-view">
+            <span>
+                發布 : 2019-12-18
+            </span>
+            
+            <span>
+                分類 :
+                <a href="/categories/Git/">
+                    Git
+                </a>
+            </span>
+            
+            
+            <span>
+                瀏覽 : <span class="article-timer" data-identity="Git-intro-4">0</span>
+            </span>
+            
+        </div>
+        
+        <!-- 文章简介 -->
+        <div class="article-content">
+            <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+                <p>這一篇提到，多人協作時，在自己開始更新本地端分支前，最好先取得遠端分支的更新版本，即可能避免<strong>更新到同一行檔案之衝突</strong>的發生。若是自己更新完了本地端該分支的現有版本，正要推上遠端分支時，發現檔案衝突，該如何解決？</p>
+            </div>
+        </div>
+        <div class="article-footer">
+            <div class="article-meta pull-left">
+                <!-- 分类pc端可见 -->
+                <span class="pc-view">
+                    
+                    <i class="iconfont icon-tag"></i>分類:
+                    <a href="/categories/Git/">
+                        Git
+                    </a>
+                </span>
+                
+                <span>
+                    
+                    <i class="iconfont icon-06tags"></i>標籤:
+                    
+                    <span class="span--tag">
+                        <a href="/tags/Git/">
+                            #Git
+                        </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                        <a href="/tags/GitHub/">
+                            #GitHub
+                        </a>
+                    </span>
+                    
+                    
+                </span>
+            </div>
+            
+            <div class="article-meta pull-right">
+                <span class="pc-view">
+                    <i class="iconfont icon-view"></i>瀏覽: <span class="article-timer" data-identity="Git-intro-4"></span>
+                </span>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="post">
+        <h1 class="article-title">
             <a href="/2019/12/17/Python/learning-Python-day13/">
                 <span>Python 自學第十三天：取得網路公開資料 Open Data</span>
             </a>
@@ -784,6 +862,12 @@ pagead/js/adsbygoogle.js"></script>
                     </span>
                     
                     <span class="span--tag">
+                        <a href="/tags/JSON/">
+                            #JSON
+                        </a>
+                    </span>
+                    
+                    <span class="span--tag">
                         <a href="/tags/File-I-O/">
                             #File I/O
                         </a>
@@ -792,12 +876,6 @@ pagead/js/adsbygoogle.js"></script>
                     <span class="span--tag">
                         <a href="/tags/Text/">
                             #Text
-                        </a>
-                    </span>
-                    
-                    <span class="span--tag">
-                        <a href="/tags/JSON/">
-                            #JSON
                         </a>
                     </span>
                     
@@ -1001,91 +1079,6 @@ pagead/js/adsbygoogle.js"></script>
             <div class="article-meta pull-right">
                 <span class="pc-view">
                     <i class="iconfont icon-view"></i>瀏覽: <span class="article-timer" data-identity="learning-Python-day8"></span>
-                </span>
-            </div>
-            
-        </div>
-    </div>
-    
-    <div class="post">
-        <h1 class="article-title">
-            <a href="/2019/12/07/Python/learning-Python-day7/">
-                <span>Python 自學第七天：Module 模組</span>
-            </a>
-        </h1>
-        <!-- PC端文章信息 -->
-        <div class="article-top-meta pc-view">
-            <span>
-                發布時間 : 2019-12-07
-            </span>
-        </div>
-        <!-- 移动端文章信息 -->
-        <div class="article-top-meta mobile-view">
-            <span>
-                發布 : 2019-12-07
-            </span>
-            
-            <span>
-                分類 :
-                <a href="/categories/Python/">
-                    Python
-                </a>
-            </span>
-            
-            
-            <span>
-                瀏覽 : <span class="article-timer" data-identity="learning-Python-day7">0</span>
-            </span>
-            
-        </div>
-        
-        <!-- 文章简介 -->
-        <div class="article-content">
-            <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-                <p>也就是使用其他 <code>.py</code> 檔案中，預先定義好的變數和函式。使用<strong>模組的好處</strong>就是，別人寫過或自己定義過的變數和函式可以<span style="color: #ff0000;">直接拿來使用</span>。</p>
-<p>Python 有一些內建好的模組，可以直接拿來使用，如：與作業系統相關的 <code>os</code>、與命令行相關的 <code>sys</code>、與數學相關的 <code>math</code>、<code>random</code>、<code>statistics</code> 等，可以參考 <a href="https://docs.python.org/zh-tw/3/tutorial/stdlib.html" target="_blank" rel="noopener">Python 標準函式庫概覽</a>。也有其他人寫好的模組，可以從網路上下載來使用。也可以自己定義模組。</p>
-            </div>
-        </div>
-        <div class="article-footer">
-            <div class="article-meta pull-left">
-                <!-- 分类pc端可见 -->
-                <span class="pc-view">
-                    
-                    <i class="iconfont icon-tag"></i>分類:
-                    <a href="/categories/Python/">
-                        Python
-                    </a>
-                </span>
-                
-                <span>
-                    
-                    <i class="iconfont icon-06tags"></i>標籤:
-                    
-                    <span class="span--tag">
-                        <a href="/tags/Python/">
-                            #Python
-                        </a>
-                    </span>
-                    
-                    <span class="span--tag">
-                        <a href="/tags/Elementary-Code/">
-                            #Elementary Code
-                        </a>
-                    </span>
-                    
-                    <span class="span--tag">
-                        <a href="/tags/Elementary-Python/">
-                            #Elementary Python
-                        </a>
-                    </span>
-                    
-                    
-                </span>
-            </div>
-            
-            <div class="article-meta pull-right">
-                <span class="pc-view">
-                    <i class="iconfont icon-view"></i>瀏覽: <span class="article-timer" data-identity="learning-Python-day7"></span>
                 </span>
             </div>
             
