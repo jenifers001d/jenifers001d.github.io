@@ -7,7 +7,7 @@
     
     
 
-    <title>掉進 ASP.NET MVC 馬里亞納海溝的第一天：Hello World~ | Jenifer.Code.World</title>
+    <title>掉進 ASP.NET MVC 馬里亞納海溝的第二天：URL 特性 + Controller 和 View 的關係 | Jenifer.Code.World</title>
     <!--  Google Search Console 驗證網站擁有權  -->
     <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
     <!--  Provides a link to an XML document describing the layout of the site.  -->
@@ -27,12 +27,8 @@
     </script>
 
     
-    <meta name="description" content="&lt;p&gt;學習前具備知識：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基礎 C#&lt;/li&gt;
-&lt;li&gt;基礎網頁前端 (HTML、CSS、JS) 和後端知識&lt;/li&gt;
-&lt;li&gt;.Net 的世界&lt;/li&gt;
-&lt;/ul&gt;">
+    <meta name="description" content="&lt;p&gt;MVC 的結構如下圖：&lt;br&gt;
+&lt;img src=&#34;https://i.imgur.com/zbxrPLU.jpg&#34; alt&gt;&lt;/p&gt;">
     
 
     
@@ -206,12 +202,12 @@ pagead/js/adsbygoogle.js"></script>
 
 <div class="post">
     <h1 class="article-title">
-        <span>掉進 ASP.NET MVC 馬里亞納海溝的第一天：Hello World~</span>
+        <span>掉進 ASP.NET MVC 馬里亞納海溝的第二天：URL 特性 + Controller 和 View 的關係</span>
     </h1>
     <div class="article-top-meta">
         <span>
             發布 :
-            2020-02-18
+            2020-02-19
         </span>
         
         <span>
@@ -223,7 +219,7 @@ pagead/js/adsbygoogle.js"></script>
         
         
         <span>
-            瀏覽 : <span class="article-timer" data-identity="learning-ASP.NET-MVC-1"></span>
+            瀏覽 : <span class="article-timer" data-identity="learning-ASP.NET-MVC-2"></span>
         </span>
         
         
@@ -233,47 +229,103 @@ pagead/js/adsbygoogle.js"></script>
 
     <div class="article-content">
         <div class="markdown-body">
-            
-<p>學習前具備知識：</p>
-<ul>
-<li>基礎 C#</li>
-<li>基礎網頁前端 (HTML、CSS、JS) 和後端知識</li>
-<li>.Net 的世界</li>
-</ul>
+            <h2 id="mvc-結構"><a class="header-anchor" href="#mvc-結構"></a>MVC 結構</h2>
 
-<h2 id="mvc-是什麼？"><a class="header-anchor" href="#mvc-是什麼？"></a>MVC 是什麼？</h2>
-<p>MVC 是一種<strong>架構模式</strong>，也就是「如何建構程式的設計理念」。主要把程式碼分為三個基本部分：<span style="color: #ff0000">模型 (Model)、視圖 (View) 和控制器 (Controller)</span>。</p>
-<ul>
-<li>M：與資料邏輯有關的操作。</li>
-<li>V：如何 (動態地) 呈現畫面。</li>
-<li>C：藉由轉發瀏覽器請求，對請求進行處理，並且控制模型和視圖。</li>
-</ul>
-<p>參考資料：<a href="https://medium.com/pierceshih/%E7%AD%86%E8%A8%98-%E4%BD%95%E8%AC%82-mvc-%E8%BB%9F%E9%AB%94%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F-af1ff10901e6" target="_blank" rel="noopener">「筆記」- 何謂 MVC 軟體設計模式</a></p>
-<h2 id="span-asp-net-span-中-web-form-和-mvc-的差異"><a class="header-anchor" href="#span-asp-net-span-中-web-form-和-mvc-的差異"></a><span>ASP.NET</span> 中 Web Form 和 MVC 的差異</h2>
-<p>可以參考下面的影片，從 <a href="https://www.youtube.com/watch?v=h5lrtdR9XF8&amp;t=1200s" target="_blank" rel="noopener">20:00</a> 開始觀看。</p>
-<div class="video-container"><iframe src="//www.youtube.com/embed/h5lrtdR9XF8" frameborder="0" allowfullscreen></iframe></div>
-<p>簡單來說，Web Form 用來<strong>簡單、快速地開發一個網頁</strong>。而 MVC 適合<strong>先設計、規劃好程式架構，設計思維是將 MVC 的程式碼分開撰寫</strong>。</p>
-<h2 id="如何建立一個專案"><a class="header-anchor" href="#如何建立一個專案"></a>如何建立一個專案</h2>
-<div class="warning">
-<p>目前沒有 Mac 版本，只能以 Windows 系統開發。</p>
+<p>MVC 的結構如下圖：<br>
+<img src="https://i.imgur.com/zbxrPLU.jpg" alt></p>
+
+<p>一開始瀏覽器在向網頁伺服器要求時，一定會<span style="color: #ff0000">先經過 Controller</span>。因此可知：</p>
+<div class="danger">
+<p>沒有 Controller 只有 View 是無法產生畫面的。<br>
+一定要有 Controller 才能產生畫面。如：前一天的 Hello World，沒有 View 也沒關係。</p>
 </div>
-<p>請選擇 <strong>File &gt;&gt; New &gt;&gt; Project</strong></p>
-<p><img src="https://i.imgur.com/9k39Ikc.jpg" alt="w"></p>
-<p>請選擇 <strong>最左列 <span style="color: #ff0000">Visual C#</span> &gt;&gt; 中間列的<br>
-<a style="color: #ff0000" onclick="return false;">ASP.NET Web Application (.Net Framework)</a> &gt;&gt; MVC &gt;&gt; OK</strong></p>
-<p><img src="https://i.imgur.com/eu5N6ym.jpg" alt></p>
-<p><img src="https://i.imgur.com/Wul0GTp.jpg" alt></p>
-<p>等待初始建置完成後，在右方的方案總管中，可以看到自動產生的目錄架構和 MVC 資料夾。<br>
-<img src="https://i.imgur.com/7fVRtVY.jpg" alt width="300"></p>
-<h2 id="hello-world"><a class="header-anchor" href="#hello-world"></a>Hello World~</h2>
-<p>不免俗，還是要來 Hello World 一下～</p>
+<h2 id="mvc-url-特性"><a class="header-anchor" href="#mvc-url-特性"></a>MVC URL 特性</h2>
+<p>MVC 網址並不是依照資料夾名稱，而是由 <span style="color: #ff0000"><strong>Controller 前面的名稱</strong></span>和<span style="color: #ff0000"><strong>該控制器底下的 Action Method 名稱</strong></span>組合而成，以斜線分開。<br>
+<img src="https://i.imgur.com/4Z07l7D.jpg" alt width="550"></p>
+<div class="info">
+<p>由 MVC 網址特性，也可以感受到程式利用 Controller 和 Action 來操縱 View 的特性。</p>
+<p>透過網址呼叫特定 Action，回傳特定資料，並且呈現在瀏覽器畫面上。</p>
+</div>
+<h2 id="新增-controller-和命名"><a class="header-anchor" href="#新增-controller-和命名"></a>新增 Controller 和命名</h2>
 <ol>
-<li>展開 Controllers 資料夾 &gt;&gt; 打開它設定好的<strong>首頁控制器 HomeController 檔案</strong> (首頁控制器，習慣被命名為 HomeController)。</li>
-<li>找到類別中的 Index() 方法，將回傳型態從 <code>ActionResult</code> 改成 <code>string</code>，回傳值從 <code>View()</code> 改成 <code>&quot;Hello World~&quot;</code>。<br>
-<img src="https://i.imgur.com/00h9gzz.jpg" alt width="350"></li>
-<li>執行，就會出現如下畫面啦！<br>
-<img src="https://i.imgur.com/bm5Go5M.jpg" alt width="350"></li>
+<li>滑鼠右鍵點擊方案總管中 Controllers 資料夾 &gt;&gt; Add &gt;&gt; Controller。</li>
+<li>選擇 Empty 控制器。<br>
+<img src="https://i.imgur.com/iGOYCfL.jpg" alt></li>
+<li>為控制器命名，只更改 Default，保留後面的 Controller，變成 <span style="color: #ff0000">Xxx</span>Controller (第一個字建議大寫)。MVC 網址中就會以 <span style="color: #ff0000">Xxx</span> 組合而成。<br>
+<img src="https://i.imgur.com/4pEDlie.jpg" alt></li>
 </ol>
+<h2 id="mvc-routing-方式"><a class="header-anchor" href="#mvc-routing-方式"></a>MVC Routing 方式</h2>
+<p>在 <code>Global.asax</code> 檔案中，可以看到 <code>RegisterRoutes()</code> 方法。對方法：點擊右鍵 &gt;&gt; Go To Definition。<br>
+<img src="https://i.imgur.com/ZCrjSvX.jpg" alt></p>
+<p>會打開 App_Start 資料夾底下的 <code>RouteConfig.cs</code> 檔案，可以看到在 <code>RegisterRoutes()</code> 方法中，有一個 <code>routes.MapRoute();</code>。其中第 17 行 <code>name: &quot;Defualt&quot;,</code> 表示下方定義的是<span style="color: #ff0000">預設的路由位置</span>，並且網址可以不顯示。<br>
+<img src="https://i.imgur.com/p7w9Joy.jpg" alt></p>
+<p>因此，如果網址中沒有顯示 controller 和 action 的名字，表示預設導向至 Home 控制器底下的 Index 方法。<br>
+<img src="https://i.imgur.com/GaP0RR3.jpg" alt width="350"></p>
+<div class="danger">
+<p>如果 Home 控制器底下沒有 Index 方法，上方會出現 404 錯誤。</p>
+</div>
+<h2 id="如何接收網址中的-id-和查詢字串？"><a class="header-anchor" href="#如何接收網址中的-id-和查詢字串？"></a>如何接收網址中的 ID 和查詢字串？</h2>
+<p>定義 Action method 時，可以定義接收 ID 的 parameter，如下圖。如果網址中沒有 ID 和查詢字串，畫面即不顯示，不會出錯。<br>
+<img src="https://i.imgur.com/XaPa3W5.jpg" alt></p>
+<h3 id="接收-id"><a class="header-anchor" href="#接收-id"></a>接收 ID</h3>
+<p>網址中有 ID 時，呈現在畫面：<br>
+<img src="https://i.imgur.com/reSCwd9.jpg" alt></p>
+<h3 id="接收查詢字串"><a class="header-anchor" href="#接收查詢字串"></a>接收查詢字串</h3>
+<p>網址中有 ID 和查詢字串時，以 <code>Request.QueryString[查詢字串的key]</code> 來接收查詢字串的 value，呈現在畫面：<br>
+<img src="https://i.imgur.com/ybMpgkq.jpg" alt></p>
+<p>或是以 <code>Action method 的 parameter</code> 來接收查詢字串的 value，如下：<br>
+<img src="https://i.imgur.com/Iee6AHj.jpg" alt></p>
+<h2 id="controller-和-view-的關係"><a class="header-anchor" href="#controller-和-view-的關係"></a>Controller 和 View 的關係</h2>
+<p><code>Controllers 資料夾</code> 中的控制器，會對應到 <code>Views 資料夾</code> 中的視圖資料夾，而且<span style="color: #ff0000">名稱會對應</span>，如下圖：<br>
+<img src="https://i.imgur.com/ufxRNns.jpg" alt width="350"></p>
+<div class="info">
+<p>因為，我們在新增一個 Controller 時，程式會依照你的命名，產生一個相同名字的視圖資料夾。</p>
+</div>
+<h2 id="controller-中-action-和-view-的關係"><a class="header-anchor" href="#controller-中-action-和-view-的關係"></a>Controller 中 Action 和 View 的關係</h2>
+<div class="danger">
+<p>前面提過，一定要有 Controller 才能產生畫面。其實是指 Controller 中要定義 Action method。</p>
+<p>因此又可以說是：<br>
+沒有 Controller 中的 Action，只有 View 是無法產生畫面的。<br>
+一定要有 Controller 中的 Action 才能產生畫面。</p>
+</div>
+<p>瀏覽器在向網頁伺服器發出 Request 時，一定會先經過 Controller，再藉由 Controller 中的 Action method 來決定產生什麼樣的畫面。以下依照不同的回傳值簡介三種類型：<strong>和 Action 對應的同名視圖、產生指定的不同名視圖、輸出字串到畫面</strong>。</p>
+<h3 id="和-action-對應的同名視圖"><a class="header-anchor" href="#和-action-對應的同名視圖"></a>和 Action 對應的同名視圖</h3>
+<p>如果 Action 的<strong>回傳型態是 <code>ActionResult</code></strong> 且<strong>回傳值是 <code>View()</code></strong>，則 <code>Views 底下和 Controller 同名的資料夾</code> 中，會有相對應<span style="color: #ff0000">和 Action 同名的 <code>.cshtml</code> 檔案</span>。</p>
+<p><img src="https://i.imgur.com/RJBfYLe.jpg" alt></p>
+<p>例：<br>
+如 <a href="https://jenifers001d.github.io/2020/02/19/MVC/learning-ASP.NET-MVC-2/#mvc-url-%E7%89%B9%E6%80%A7">MVC URL 特性</a>提到的，藉由網址輸入 <code>.../TestView</code> 來調用 <code>TestView()</code> Action method。</p>
+<p>回傳值 <code>View()</code>，表示有一個<span style="color: #ff0000">和 Action 同名的 <code>TestView.cshtml</code> 視圖檔案</span>，會將畫面顯示在瀏覽器上，如下圖。<br>
+<img src="https://i.imgur.com/tTOPltN.jpg" alt width="400"></p>
+<div class="danger">
+<p>這種做法的 Action <span style="color: #ff0000">需要</span>產生相對應的同名視圖檔案，否則報錯。</p>
+</div>
+<div class="info">
+<p>如果是新增的 Action 就會沒有相對應的視圖檔案。</p>
+<p>新增視圖檔案的步驟：右鍵點擊 Action method 名稱 &gt;&gt; Add View… &gt;&gt; 勾選和範本選擇如下圖 (初學者版本) &gt;&gt; OK<br>
+<img src="https://i.imgur.com/6hpWSG1.jpg" alt></p>
+</div>
+<h3 id="產生指定的不同名視圖"><a class="header-anchor" href="#產生指定的不同名視圖"></a>產生指定的不同名視圖</h3>
+<p>藉由網址輸入 <code>.../TestView1</code> 或 <code>.../TestView2</code> 來調用 <code>TestView1()</code> 或 <code>TestView2()</code> Action method。</p>
+<p>回傳值 <code>View(&quot;TestView&quot;)</code> 和 <code>View(&quot;~/Views/Home/TestView.cshtml&quot;)</code>，兩種寫法都可以用來表示將<span style="color: #ff0000">和 Action不同名的特定視圖</span>，顯示在瀏覽器畫面上。</p>
+<h4 id="指定-檔名"><a class="header-anchor" href="#指定-檔名"></a>指定「檔名」</h4>
+<p><img src="https://i.imgur.com/QUHEa4u.jpg" alt></p>
+<h4 id="指定-完整路徑和檔名"><a class="header-anchor" href="#指定-完整路徑和檔名"></a>指定「完整路徑和檔名」</h4>
+<p><img src="https://i.imgur.com/CKCcHfk.jpg" alt></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 產生不同名視圖</span></span><br><span class="line"><span class="keyword">return</span> View(<span class="string">"檔名"</span>)</span><br><span class="line"><span class="keyword">return</span> View(<span class="string">"完整路徑+檔名"</span>) <span class="comment">// 注意：要加副檔名</span></span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>這種做法的 Action <span style="color: #ff0000">不需要</span>產生相對應的同名視圖檔案。</p>
+</div>
+<h3 id="輸出字串到畫面"><a class="header-anchor" href="#輸出字串到畫面"></a>輸出字串到畫面</h3>
+<p>一樣藉由網址 <code>.../TestString1</code> 或 <code>.../TestString2</code> 來調用 <code>TestString1()</code> 或 <code>TestString2()</code> Action method。</p>
+<p>有兩種回傳值的寫法，都可以產生在畫面上，如下：</p>
+<h4 id="回傳型態是-string"><a class="header-anchor" href="#回傳型態是-string"></a>回傳型態是 string</h4>
+<p><img src="https://i.imgur.com/aFZ958A.jpg" alt></p>
+<h4 id="回傳型態是-actionresult"><a class="header-anchor" href="#回傳型態是-actionresult"></a>回傳型態是 ActionResult</h4>
+<p><img src="https://i.imgur.com/ivUpKen.jpg" alt></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 輸出字串</span></span><br><span class="line"><span class="keyword">return</span> <span class="string">"字串"</span></span><br><span class="line"><span class="keyword">return</span> Content(<span class="string">"字串"</span>)</span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>這種做法的 Action <span style="color: #ff0000">不需要</span>產生相對應的同名視圖檔案。</p>
+</div>
 
         </div>
     </div>
@@ -285,7 +337,7 @@ pagead/js/adsbygoogle.js"></script>
                 
                 本文作者 : Jenifer <br>
                 
-                原文連結 : <a href>https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/</a><br>
+                原文連結 : <a href>https://jenifers001d.github.io/2020/02/19/MVC/learning-ASP.NET-MVC-2/</a><br>
                 版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
             </blockquote>
         </div>
@@ -370,15 +422,9 @@ pagead/js/adsbygoogle.js"></script>
         <div class="nav-pre">
             <i class="iconfont icon-prev"></i>
             上一篇:
-            <a href="/2020/02/17/Csharp-C/learning-Csharp-console-app-L1-ch0/" target="_self">不學 JAVA 換學 C# 之覺得心累 - L1：ch0 程式架構</a>
+            <a href="/2020/02/18/MVC/learning-ASP.NET-MVC-1/" target="_self">掉進 ASP.NET MVC 馬里亞納海溝的第一天：Hello World~</a>
         </div>
         
-        
-        <div class="nav-next">
-            下一篇:
-            <a href="/2020/02/19/MVC/learning-ASP.NET-MVC-2/" target="_self">掉進 ASP.NET MVC 馬里亞納海溝的第二天：URL 特性 + Controller 和 View 的關係</a>
-            <i class="iconfont icon-next"></i>
-        </div>
         
     </nav>
 
@@ -394,8 +440,8 @@ pagead/js/adsbygoogle.js"></script>
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
     if (true) {
         var disqus_config = function() {
-            this.page.url = "https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/"; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2020/02/18/MVC/learning-ASP.NET-MVC-1/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            this.page.url = "https://jenifers001d.github.io/2020/02/19/MVC/learning-ASP.NET-MVC-2/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2020/02/19/MVC/learning-ASP.NET-MVC-2/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
