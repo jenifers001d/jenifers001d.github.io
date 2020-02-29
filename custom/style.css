@@ -69,9 +69,3 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
-.myAD-belowtitle,
-.myAD-belowcopyright {
-    padding: 20px 10px !important;
-    z-index: 0;
-}
