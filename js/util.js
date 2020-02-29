@@ -75,11 +75,4 @@ const generateToc = () => {
         });
         return false;
     });
-    $("#myAD-sidebar").append(`<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- 我的技術筆記 - 直條 -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="5578580149" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-
-        </script>`);
 }
