@@ -1,408 +1,475 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="author" content="Jenifer, jenifers001d@gmail.com">
-    
-    
+<link rel="stylesheet" href="/css/main.css">
 
-    <title>標籤: File I/O | Jenifer.Code.World</title>
-    <!--  Google Search Console 驗證網站擁有權  -->
-    <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
-    <!--  Provides a link to an XML document describing the layout of the site.  -->
-    <!--    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jenifers001d.github.io/sitemap.xml">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
-    <meta name="keywords" content="前端, 後端, 全端, 網頁, Front-End, Back-End, Full-Stack, JavaScript, HTML, CSS, 架設網站, IT, AI">
-    
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-    <script>
-        console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' +
-            '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n',
-            'color: #fadfa3; background: #030307; padding:3px 0;', '',
-            'color: #fadfa3; background: #030307; padding:3px 0;', '');
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-    </script>
+  <meta name="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT">
+<meta name="keywords" content="前端, 後端, 全端, 網頁, Front-End, Back-End, Full-Stack, JavaScript, HTML, CSS, 架設網站, IT, AI">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jenifer.Code.World">
+<meta property="og:url" content="https://jenifers001d.github.io/tags/File-I-O/index.html">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="My notes about web development, front-end, back-end and any kind techniques related to IT">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jenifer.Code.World">
+<meta name="twitter:description" content="My notes about web development, front-end, back-end and any kind techniques related to IT">
 
-    
-    <meta name="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT">
-    
+<link rel="canonical" href="https://jenifers001d.github.io/tags/File-I-O/">
 
-    
 
-    
-    <link rel="icon" href="/images/favicon.ico">
-    <link rel="apple-touch-icon" href="/images/touch-icon.png">
-    
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'default'
+  };
+</script>
 
-    <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/icon/iconfont.css">
-<link rel="stylesheet" href="/css/github-markdown.css">
-<link rel="stylesheet" href="/css/highlight.css">
+  <title>Tag: File I/O | Jenifer.Code.World</title>
+  
 
-    <script src="/js/util.js"></script>
-<script src="/js/valine.min.js"></script>
 
-    
-    <link rel="stylesheet" href="/custom/style.css">
-    
 
-    
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
-    
 
-    
-    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
-    
 
-    <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
 
-    
-    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
-    
-    <!-- 加入 Google AdSense -->
-<!--    <script data-ad-client="ca-pub-6866375976707228" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-    <script async src="//pagead2.googlesyndication.com/
-pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "pub-6866375976707228",
-            enable_page_level_ads: true
-        });
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    </script>
-    <!-- Google AdSense 結束 -->
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-<body>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-    
+  <div class="site-meta">
 
-    <div id="app">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jenifer.Code.World</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
 
-        <div class="header-wrap">
-    <header>
-        <div class="site-brand">
-            <div class="site-title">
-                <a href="/">Jenifer.Code.World</a>
-            </div>
-        </div>
-        <nav class="site-navigation">
-            <ul class="nav-menu">
-                
-                <li class="nav-item" data-path="/">
-                    
-                    <a href="/" target="_self">
-                        首頁
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/archives/">
-                    
-                    <a href="/archives/" target="_self">
-                        歸檔
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/categories/">
-                    
-                    <a href="/categories/" target="_self">
-                        分類
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/tags/">
-                    
-                    <a href="/tags/" target="_self">
-                        標籤
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path>
-                    
-                    <a href="javascript:void(0);" v-else>抓到我</a>
-                    <ul class="nav-menu--dropdown">
-                        
-                        <li>
-                            <a href="https://github.com/jenifers001d" target="_blank" rel="external nofollow noopener noreferrer">
-                                Github
-                            </a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            </ul>
-        </nav>
-        <i class="iconfont icon-menu"></i>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
     </header>
-</div>
 
-<script>
-    let links = document.querySelectorAll('.nav-item');
-    for (let link of links) {
-        let childrenLink = link.querySelector('ul');
-        link.addEventListener('mouseenter', () => {
-            if (childrenLink) {
-                childrenLink.className = "nav-menu--dropdown active";
-            }
-        })
-        link.addEventListener('mouseleave', () => {
-            if (childrenLink) {
-                childrenLink.className = "nav-menu--dropdown";
-            }
-        })
-    }
-    let rootRealPath = getRealPath(window.location.pathname, true);
-    for (let link of links) {
-        let linkPath = link.getAttribute("data-path");
-        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
-            link.className = "nav-item hover";
-        }
-    }
-
-    let iconMenu = document.querySelector("i.iconfont.icon-menu"),
-        iconMenuClicked = false;
-    let navDOM = document.querySelector("nav.site-navigation");
-    iconMenu.addEventListener("click", () => {
-        iconMenuClicked
-            ?
-            navDOM.className = "site-navigation active" :
-            navDOM.className = "site-navigation";
-        iconMenuClicked = !iconMenuClicked;
-    })
-
-</script>
-
-
-        <div class="container">
-    <div class="timeline">
-    <span class="archive-move-on"></span>
-    <span class="archive-page-counter">
-        
-        <span>當前位於 1/1 頁</span>
-        
-    </span>
     
-    
-    <div class="collection-title">
-        <h2>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content tag">
             
-            <span>標籤 : File I/O</span>
-            
+
+  
+  
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">File I/O
+          <small>Tag</small>
         </h2>
-    </div>
-    
-    
-    
-    <article class="posts-collapse">
-        <header>
-            <h2>
-                <a href="/2019/12/11/Python/learning-Python-day9/">
-                    <span>Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案</span>
-                </a>
-            </h2>
-            <div class="post-meta">
-                12-11
-            </div>
-        </header>
-    </article>
-    
-</div>
+      </div>
 
-    <nav class="page-navigation">
-        
-        
-    </nav>
-</div>
-
-
-        <footer>
-    <p class="site-info">
-        Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
-        <br>
-        Theme - <a href="https://github.com/dongyuanxin/theme-bmw" rel="external nofollow noopener noreferrer">BMW</a> |
-        Made With 💗 | Powered by <a href="https://godbmw.com/" rel="external nofollow noopener noreferrer">GodBMW</a>
-        <br>
-        
-    </p>
-</footer>
-
-
-
-<script>
-    const timeToNowDOM = document.querySelector("#time-to-now");
-    const startTimestamp = new Date( 2019 , 10 , 22 ).getTime();
-    const updateTimeStr = () => {
-        let offset = parseInt(
-                (new Date().getTime() - startTimestamp) / 1000,
-                10
-            ),
-            day = Math.floor(offset / 86400),
-            hour = Math.floor((offset % 86400) / 3600),
-            minute = Math.floor(((offset % 86400) % 3600) / 60),
-            second = Math.floor(((offset % 86400) % 3600) % 60);
-        timeToNowDOM.innerHTML =
-            day + " days " + hour + " hrs " + minute + " mins " + second + " secs ";
-        setTimeout(updateTimeStr, 500);
-    }
-    setTimeout(updateTimeStr, 500);
-</script>
-
-        <div class="back-to-top hidden">
-  <span>
-    <i class="iconfont icon-60"></i><span></span>%
-  </span>
-</div>
-
-<script>
-const updateIconToTop = percent => {
-  let dom = document.querySelector(".back-to-top span span");
-  dom.innerText = percent;
-  if(percent < 1) {
-    document.querySelector(".back-to-top").className = "back-to-top hidden";
-  } else {
-    document.querySelector(".back-to-top").className = "back-to-top";
-  }
-}
-
-const handleScoll = () => {
-  let isRunning = false;
-  return () => {
-    if (isRunning) return;
-    isRunning = true;
-    window.requestAnimationFrame(timestamp => {
-      let scrollTop =
-          document.documentElement.scrollTop || document.body.scrollTop,
-        scrollHeight =
-          document.documentElement.scrollHeight ||
-          document.body.scrollHeight,
-        clientHeight =
-          document.documentElement.clientHeight ||
-          document.body.clientHeight;
-      isRunning = false;
-      if (scrollTop <= 1) {
-        updateIconToTop(0);
-        return;
-      }
-      if (scrollTop + clientHeight >= scrollHeight) {
-        updateIconToTop(100);
-      } else {
-        updateIconToTop(parseInt(
-          100 * scrollTop / (scrollHeight - clientHeight),
-          10
-        ));
-      }
-    });
-  };
-}
-
-const backToTop = () => {
-  let scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop,
-    delay = 10,
-    time = 200;
-  if (scrollTop <= 20) {
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    return;
-  }
-  let step = Math.ceil(scrollTop * delay / time);
-  let timer = setInterval(() => {
-    scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop;
-    if (scrollTop - step <= 0) {
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-      clearInterval(timer);
-    } else {
-      document.documentElement.scrollTop = scrollTop - step;
-      document.body.scrollTop = scrollTop - step;
-    }
-  }, delay);
-}
-
-document.addEventListener("scroll", handleScoll(), false);
-
-document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
-
-</script>
-
-    </div>
-
-    
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-<script>
-  (() => {
-    const mathjaxConfig = {
-      showProcessingMessages: false, //关闭js加载过程信息
-      messageStyle: "none", //不显示信息
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
-        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
-        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
-      },
-      "HTML-CSS": {
-        availableFonts: ["STIX", "TeX"], //可选字体
-        showMathMenu: false //关闭右击菜单显示
-      }
-    }
-
-    let mathjaxInterval = setInterval(() => {
-      if(!window.MathJax){
-        return;
-      }
-      window.MathJax.Hub.Config(mathjaxConfig)
-      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
-
-      clearInterval(mathjaxInterval)
-    }, 10)    
-  })()
-</script>
-    
-
-    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
-<script async>
-  let fancyTimer = setInterval(function(){
-    if(!window.$){
-      return;
-    }
-    $(document).ready(function() {
-      $(".post img").each(function () {
-        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
-          return;
-        }
-        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "gallery");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      });
       
-      clearInterval(fancyTimer);
+    <div class="collection-year">
+      <span class="collection-header">2019</span>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-11T19:43:02+10:00"
+              content="2019-12-11">
+          12-11
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2019/12/11/Python/learning-Python-day9/" itemprop="url">
+            <span itemprop="name">Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+    </div>
+  </div>
+  
+  
+  
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
     });
-  }, 10);
+  }
 </script>
 
-    
-    
-    
-    <script src="/custom/all.js" ></script>
-    
-    
-    
-</body>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
 
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://example2.com/" title="http://example2.com/" rel="noopener" target="_blank">Title2</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jenifer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","app_key":"WaR7nrzhliHj9aVwdQzkdlGd","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://disqus-comments.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+</body>
 </html>

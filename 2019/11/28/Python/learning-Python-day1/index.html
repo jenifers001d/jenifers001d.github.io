@@ -1,246 +1,251 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="author" content="Jenifer, jenifers001d@gmail.com">
-    
-    
+<link rel="stylesheet" href="/css/main.css">
 
-    <title>Python 自學第一天：環境設置 + 第一支程式 | Jenifer.Code.World</title>
-    <!--  Google Search Console 驗證網站擁有權  -->
-    <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
-    <!--  Provides a link to an XML document describing the layout of the site.  -->
-    <!--    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jenifers001d.github.io/sitemap.xml">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
-    <meta name="keywords" content="Python,Python,Elementary Code,Elementary Python,">
-    
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-    <script>
-        console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' +
-            '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n',
-            'color: #fadfa3; background: #030307; padding:3px 0;', '',
-            'color: #fadfa3; background: #030307; padding:3px 0;', '');
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-    </script>
+  <meta name="description" content="Python（蟒蛇，這個單字原本就有自己的意思XD）是一種廣泛使用的直譯式、高階式、通用型程式語言，由吉多·范羅蘇姆 (Guido van Rossum) 創造，第一版釋出於1991年。">
+<meta name="keywords" content="Elementary Code,Python,Elementary Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 自學第一天：環境設置 + 第一支程式">
+<meta property="og:url" content="https://jenifers001d.github.io/2019/11/28/Python/learning-Python-day1/index.html">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="Python（蟒蛇，這個單字原本就有自己的意思XD）是一種廣泛使用的直譯式、高階式、通用型程式語言，由吉多·范羅蘇姆 (Guido van Rossum) 創造，第一版釋出於1991年。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/tq3hsp7.png">
+<meta property="og:image" content="https://i.imgur.com/sZdLpU0.jpg">
+<meta property="og:image" content="https://i.imgur.com/9tQPvCA.jpg">
+<meta property="og:image" content="https://i.imgur.com/MnoKHon.jpg">
+<meta property="og:image" content="https://i.imgur.com/efy7A9J.jpg">
+<meta property="og:image" content="https://i.imgur.com/RgHRqUg.jpg">
+<meta property="og:image" content="https://i.imgur.com/R5KSYBB.jpg">
+<meta property="og:image" content="https://i.imgur.com/kkKNLbT.jpg">
+<meta property="og:updated_time" content="2019-12-12T13:01:34.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 自學第一天：環境設置 + 第一支程式">
+<meta name="twitter:description" content="Python（蟒蛇，這個單字原本就有自己的意思XD）是一種廣泛使用的直譯式、高階式、通用型程式語言，由吉多·范羅蘇姆 (Guido van Rossum) 創造，第一版釋出於1991年。">
+<meta name="twitter:image" content="https://i.imgur.com/tq3hsp7.png">
 
-    
-    <meta name="description" content="&lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/Python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python&lt;/a&gt;（蟒蛇，這個單字原本就有自己的意思XD）是一種廣泛使用的&lt;strong&gt;直譯式、高階式、通用型程式語言&lt;/strong&gt;，由吉多·范羅蘇姆 (Guido van Rossum) 創造，第一版釋出於1991年。&lt;/p&gt;">
-    
+<link rel="canonical" href="https://jenifers001d.github.io/2019/11/28/Python/learning-Python-day1/">
 
-    
 
-    
-    <link rel="icon" href="/images/favicon.ico">
-    <link rel="apple-touch-icon" href="/images/touch-icon.png">
-    
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'default'
+  };
+</script>
 
-    <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/icon/iconfont.css">
-<link rel="stylesheet" href="/css/github-markdown.css">
-<link rel="stylesheet" href="/css/highlight.css">
+  <title>Python 自學第一天：環境設置 + 第一支程式 | Jenifer.Code.World</title>
+  
 
-    <script src="/js/util.js"></script>
-<script src="/js/valine.min.js"></script>
 
-    
-    <link rel="stylesheet" href="/custom/style.css">
-    
 
-    
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
-    
 
-    
-    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
-    
 
-    <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
 
-    
-    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
-    
-    <!-- 加入 Google AdSense -->
-<!--    <script data-ad-client="ca-pub-6866375976707228" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-    <script async src="//pagead2.googlesyndication.com/
-pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "pub-6866375976707228",
-            enable_page_level_ads: true
-        });
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    </script>
-    <!-- Google AdSense 結束 -->
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-<body>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-    
+  <div class="site-meta">
 
-    <div id="app">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jenifer.Code.World</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
 
-        <div class="header-wrap">
-    <header>
-        <div class="site-brand">
-            <div class="site-title">
-                <a href="/">Jenifer.Code.World</a>
-            </div>
-        </div>
-        <nav class="site-navigation">
-            <ul class="nav-menu">
-                
-                <li class="nav-item" data-path="/">
-                    
-                    <a href="/" target="_self">
-                        首頁
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/archives/">
-                    
-                    <a href="/archives/" target="_self">
-                        歸檔
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/categories/">
-                    
-                    <a href="/categories/" target="_self">
-                        分類
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/tags/">
-                    
-                    <a href="/tags/" target="_self">
-                        標籤
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path>
-                    
-                    <a href="javascript:void(0);" v-else>抓到我</a>
-                    <ul class="nav-menu--dropdown">
-                        
-                        <li>
-                            <a href="https://github.com/jenifers001d" target="_blank" rel="external nofollow noopener noreferrer">
-                                Github
-                            </a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            </ul>
-        </nav>
-        <i class="iconfont icon-menu"></i>
-    </header>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
-<script>
-    let links = document.querySelectorAll('.nav-item');
-    for (let link of links) {
-        let childrenLink = link.querySelector('ul');
-        link.addEventListener('mouseenter', () => {
-            if (childrenLink) {
-                childrenLink.className = "nav-menu--dropdown active";
-            }
-        })
-        link.addEventListener('mouseleave', () => {
-            if (childrenLink) {
-                childrenLink.className = "nav-menu--dropdown";
-            }
-        })
-    }
-    let rootRealPath = getRealPath(window.location.pathname, true);
-    for (let link of links) {
-        let linkPath = link.getAttribute("data-path");
-        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
-            link.className = "nav-item hover";
-        }
-    }
-
-    let iconMenu = document.querySelector("i.iconfont.icon-menu"),
-        iconMenuClicked = false;
-    let navDOM = document.querySelector("nav.site-navigation");
-    iconMenu.addEventListener("click", () => {
-        iconMenuClicked
-            ?
-            navDOM.className = "site-navigation active" :
-            navDOM.className = "site-navigation";
-        iconMenuClicked = !iconMenuClicked;
-    })
-
-</script>
 
 
-        
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
 
 
 
 
-
-
-
-
-<div class="container post-index">
+</div>
+    </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-<div class="post">
-    <h1 class="article-title">
-        <span>Python 自學第一天：環境設置 + 第一支程式</span>
-    </h1>
-    <div class="article-top-meta">
-        <span>
-            發布 :
-            2019-11-28
-        </span>
-        
-        <span>
-            分類 :
-            <a href="/categories/Python/">
-                Python
-            </a>
-        </span>
-        
-        
-        <span>
-            瀏覽 : <span class="article-timer" data-identity="learning-Python-day1"></span>
-        </span>
-        
-        
-    </div>
 
-    <!-- ture_google_adsense_place -->
-    <div class="myAD-belowtitle">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- 我的技術筆記 - 橫幅 -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-        </script>
-    </div>
-    <!-- ture_google_adsense_place -->
+          <div class="content post posts-expand">
+            
 
     
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2019/11/28/Python/learning-Python-day1/">
 
-    <div class="article-content">
-        <div class="markdown-body">
-            <h2 id="致謝"><a class="header-anchor" href="#致謝"></a>致謝</h2>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python 自學第一天：環境設置 + 第一支程式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-28 17:00:04" itemprop="dateCreated datePublished" datetime="2019-11-28T17:00:04+10:00">2019-11-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-12 23:01:34" itemprop="dateModified" datetime="2019-12-12T23:01:34+10:00">2019-12-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/11/28/Python/learning-Python-day1/" class="post-meta-item leancloud_visitors" data-flag-title="Python 自學第一天：環境設置 + 第一支程式" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/28/Python/learning-Python-day1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/28/Python/learning-Python-day1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="致謝"><a class="header-anchor" href="#致謝"></a>致謝</h2>
 <p>在 Google 搜尋「Python 教學」時，馬上出現<strong>彭彭老師</strong>在 YouTube 的 <a href="https://www.youtube.com/watch?v=wqRlKVRUV_k&amp;list=PL-g0fdC5RMboYEyt6QS2iLb_1m7QcgfHk&amp;index=1" target="_blank" rel="noopener">Python 系列課程</a>，教得清楚易懂，沒學過程式的人也能夠理解。我也曾經上過彭彭老師在台大的實體課程，大力推薦！大家可以去<a href="https://training.pada-x.com/" target="_blank" rel="noopener">彭彭的課程教學</a>看看！</p>
 <h2 id="介紹"><a class="header-anchor" href="#介紹"></a>介紹</h2>
 
@@ -265,7 +270,7 @@ pagead/js/adsbygoogle.js"></script>
 <div class="warning">
 <p>我理解的 IDE 是一般安裝好時，就會包含文字編輯器、編譯器和除錯器等各種功能，不需要再額外安裝其他編譯器。但是使用 VS Code 時，一樣需要自己安裝 Python 直譯器。個人覺得 VS Code 不能稱為 IDE，雖然滿多網站這麼稱呼。</p>
 </div>
-<h2 id="第一支-python-程式"><a class="header-anchor" href="#第一支-python-程式"></a>第一支 Python 程式！</h2>
+<h2 id="第一支-Python-程式！"><a class="header-anchor" href="#第一支-Python-程式！"></a>第一支 Python 程式！</h2>
 <p>在 VS Code 中開啟 (File &gt;&gt; Open) 一個準備好的空資料夾。</p>
 <p><img src="https://i.imgur.com/sZdLpU0.jpg" alt width="250"></p>
 <p>在資料夾中開啟一個副檔名為 <code>.py</code> 的檔案<br>
@@ -274,7 +279,7 @@ pagead/js/adsbygoogle.js"></script>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>print(資料)：在控制台輸出資料。<br>
-“Hello World!”：用雙引號 (&quot;) 包住的是<strong>字串</strong>資料。也可以用單引號 (’) 包住。</p>
+“Hello World!”：用雙引號 (&quot;) 包住的是<strong>字串</strong>資料。也可以用單引號 (') 包住。</p>
 </blockquote>
 <p>儲存後，在 VS Code 中開啟 (Terminal &gt;&gt; New Terminal) 終端機畫面。</p>
 <p><img src="https://i.imgur.com/MnoKHon.jpg" alt width="250"></p>
@@ -285,7 +290,7 @@ pagead/js/adsbygoogle.js"></script>
 </div>
 <p>可以在終端機的畫面中看到 <code>Hello World!</code> 字樣，就表示成功了！<br>
 <img src="https://i.imgur.com/efy7A9J.jpg" alt></p>
-<h2 id="安裝-python-相關套件-可不做"><a class="header-anchor" href="#安裝-python-相關套件-可不做"></a>安裝 Python 相關套件 (可不做)</h2>
+<h2 id="安裝-Python-相關套件-可不做"><a class="header-anchor" href="#安裝-Python-相關套件-可不做"></a>安裝 Python 相關套件 (可不做)</h2>
 <ol>
 <li>點擊 Extensions 按鈕</li>
 <li>輸入 python</li>
@@ -302,464 +307,337 @@ pagead/js/adsbygoogle.js"></script>
 <a href="https://www.youtube.com/watch?v=wqRlKVRUV_k" target="_blank" rel="noopener">彭彭的課程：Python 簡介、安裝、與快速開始</a><br>
 <a href="https://medium.com/denix-daily/macos%E4%B8%8A%E7%9A%84python%E8%B7%AF%E5%BE%91%E5%95%8F%E9%A1%8C-%E5%AE%89%E8%A3%9D%E6%96%B9%E6%B3%95-a10c01cc42a" target="_blank" rel="noopener">MacOS上的Python路徑問題＆安裝方法</a></p>
 
-        </div>
     </div>
+
     
-    <div class="copy-right">
-        <div class="markdown-body">
-            <blockquote>
-                
-                
-                本文作者 : Jenifer <br>
-                
-                原文連結 : <a href>https://jenifers001d.github.io/2019/11/28/Python/learning-Python-day1/</a><br>
-                版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
-            </blockquote>
-        </div>
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Elementary-Code/" rel="tag"># Elementary Code</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Elementary-Python/" rel="tag"># Elementary Python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/27/Hexo/Hexo-theme-config/" rel="prev" title="Hexo 的 BMW 主題配置">
+      <i class="fa fa-chevron-left"></i> Hexo 的 BMW 主題配置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/11/29/Python/learning-Python-day2/" rel="next" title="Python 自學第二天：資料型態和變數">
+      Python 自學第二天：資料型態和變數 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
+      </footer>
     
+  </article>
+  
+  
+  
 
+
+
+          </div>
+          
     
-    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="google, facebook, twitter, qzone, qq, weibo, wechat, douban">
-  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
-</div>
-<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
-    
-
-    <!-- ture_google_adsense_place -->
-    <div class="myAD-belowcopyright">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- 我的技術筆記 - 橫幅 -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-
-        </script>
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
-    <!-- ture_google_adsense_place -->
-
-    
-
-    <div class="article-footer">
-        <div class="article-meta pull-left">
-            <span>
-                
-                <i class="iconfont icon-06tags"></i>標籤:
-                
-                <span class="span--tag">
-                    <a href="/tags/Python/">
-                        #Python
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/Elementary-Code/">
-                        #Elementary Code
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/Elementary-Python/">
-                        #Elementary Python
-                    </a>
-                </span>
-                
-                
-            </span>
-        </div>
-        <div class="article-meta pull-right">
-        </div>
-    </div>
-</div>
-
-
-<aside id="sidebar">
-    <p id="sidebar-header"></p>
-    <ol id="sidebar-toc"></ol>
-</aside>
-<script async>
-    setTimeout(generateToc, 500);
-
-</script>
-
-
-
-
-
-    <nav class="post-navigation">
-        
-        <div class="nav-pre">
-            <i class="iconfont icon-prev"></i>
-            上一篇:
-            <a href="/2019/11/27/Hexo/Hexo-theme-config/" target="_self">Hexo 的 BMW 主題配置</a>
-        </div>
-        
-        
-        <div class="nav-next">
-            下一篇:
-            <a href="/2019/11/29/Python/learning-Python-day2/" target="_self">Python 自學第二天：資料型態和變數</a>
-            <i class="iconfont icon-next"></i>
-        </div>
-        
-    </nav>
-
-    
-    <a href="#comment" class="comment-anchor"></a>
-<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足跡 <i class="iconfont icon-footprint"></i></div>
-<div id="vcomments"></div>
-
-<div id="disqus_thread"></div>
-<script defer>
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-    if (true) {
-        var disqus_config = function() {
-            this.page.url = "https://jenifers001d.github.io/2019/11/28/Python/learning-Python-day1/"; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2019/11/28/Python/learning-Python-day1/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document,
-                s = d.createElement('script');
-            s.src = 'https://jenifer-code-world.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    }
-
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-<script defer>
-    if (false) {
-        let path = getRealPath()
-        new Valine({
-            el: "#vcomments",
-            appId: "Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz",
-            appKey: "WaR7nrzhliHj9aVwdQzkdlGd",
-            notify: false,
-            verify: false,
-            avatar: "robohash",
-            placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
-            path
-        });
-    }
-
-</script>
-
-    
-
-    
-    <script defer>
-const valineAPI = (() => {
-  try {
-    AV.init("Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz", "WaR7nrzhliHj9aVwdQzkdlGd");
-  } catch(error) {}
-  const isExist = (identity) => {
-    identity = identity || getRealPath();
-    let query = new AV.Query('Timer');
-    return new Promise((resolve, reject) => {
-      query.equalTo("identity", identity);
-      query.find().then(results => {
-        resolve(results.length > 0);
-      }, error => reject(error));
-    })
-  }
-
-  const _get = (identity) => {
-    let query = null;
-    if(identity && identity instanceof Array){
-      let querys = [];
-      for(let i = 0; i < identity.length; ++i) {
-        querys[i] = new AV.Query('Timer');
-        querys[i].equalTo('identity', identity[i]);
-      }
-      query = AV.Query.or.apply(null ,querys);
-    } else {
-      identity = identity || getRealPath();
-      query = new AV.Query("Timer");
-      query.equalTo("identity", identity);
-    }
-
-    return new Promise((resolve, reject) => {
-      query.find()
-      .then(results => resolve(results))
-      .catch(error => reject(error))
-    })
-  }
-
-  const create = (identity) => {
-    identity = identity || getRealPath();
-    return new Promise((resolve, reject) => {
-      let Todo = AV.Object.extend('Timer');
-      let todo = new Todo();
-      todo.set("times", 1);
-      todo.set("identity", identity);
-      todo.save().then(res => resolve(true), error => reject(error));
-    })
-  }
-
-  const update = (identity) => {
-    identity = identity || getRealPath();
-    return new Promise((resolve, reject) => {
-      let query = new AV.Query('Timer');
-      query.equalTo("identity", identity);
-      query.find().then(todos => {
-        todos.forEach(todo => {
-          todo.set("times", todo.attributes.times + 1);
-        });
-        return AV.Object.saveAll(todos);
-      }).then(todos => resolve(true), error => reject(error));
-    })
-  }
-
-  return {
-    isExist,
-    _get,
-    update,
-    create
-  }
-})()
-
-const calcAndWriteTimes = () => {
-  let isPost = true;
-
-  let timerAllDOM = document.querySelectorAll(".article-timer");
-
-  if(isPost) {
-    let identity = timerAllDOM[0].getAttribute("data-identity");
-    valineAPI.isExist(identity)
-    .then(exist => {
-      if(exist) {
-        return valineAPI.update(identity);
-      }
-      return new Promise(resolve => resolve(true));
-    })
-    .then( succuess => valineAPI._get(identity))
-    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
-    .catch(error => console.log(error.message))
-    return ;
-  }
-
-  let timerDOMCache = {};
-
-  for(let timerDOM of timerAllDOM) {
-    let identity = timerDOM.getAttribute("data-identity");
-    if(timerDOMCache.hasOwnProperty(identity)){
-      timerDOMCache[identity].dom.push(timerDOM);
-    }else{
-      timerDOMCache[identity] = {
-        dom: [timerDOM],
-        times: undefined
-      };
-    }
-  }
-
-  let identities = Object.keys(timerDOMCache);
-  valineAPI._get(identities).then(results => {
-    for(let result of results) {
-      let {identity, times} = result.attributes;
-      timerDOMCache[identity].times = times;
-      timerDOMCache[identity].dom.map(item => item.innerText = times);
-    }
-    for(let identity of identities) {
-      if(timerDOMCache[identity].times){
-        continue;
-      }
-      timerDOMCache[identity].dom.map(item => item.innerText = 1);
-      valineAPI.create(identity);
-    }
-  }).catch(error => console.log(error.message))
-}
-
-if(true){
-  calcAndWriteTimes();
-}
-</script>
-    
-
-</div>
-
-
-
-        <footer>
-    <p class="site-info">
-        Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
-        <br>
-        Theme - <a href="https://github.com/dongyuanxin/theme-bmw" rel="external nofollow noopener noreferrer">BMW</a> |
-        Made With 💗 | Powered by <a href="https://godbmw.com/" rel="external nofollow noopener noreferrer">GodBMW</a>
-        <br>
-        
-    </p>
-</footer>
-
-
+  </div>
+  
 
 <script>
-    const timeToNowDOM = document.querySelector("#time-to-now");
-    const startTimestamp = new Date( 2019 , 10 , 22 ).getTime();
-    const updateTimeStr = () => {
-        let offset = parseInt(
-                (new Date().getTime() - startTimestamp) / 1000,
-                10
-            ),
-            day = Math.floor(offset / 86400),
-            hour = Math.floor((offset % 86400) / 3600),
-            minute = Math.floor(((offset % 86400) % 3600) / 60),
-            second = Math.floor(((offset % 86400) % 3600) % 60);
-        timeToNowDOM.innerHTML =
-            day + " days " + hour + " hrs " + minute + " mins " + second + " secs ";
-        setTimeout(updateTimeStr, 500);
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
-    setTimeout(updateTimeStr, 500);
-</script>
-
-        <div class="back-to-top hidden">
-  <span>
-    <i class="iconfont icon-60"></i><span></span>%
-  </span>
-</div>
-
-<script>
-const updateIconToTop = percent => {
-  let dom = document.querySelector(".back-to-top span span");
-  dom.innerText = percent;
-  if(percent < 1) {
-    document.querySelector(".back-to-top").className = "back-to-top hidden";
-  } else {
-    document.querySelector(".back-to-top").className = "back-to-top";
-  }
-}
-
-const handleScoll = () => {
-  let isRunning = false;
-  return () => {
-    if (isRunning) return;
-    isRunning = true;
-    window.requestAnimationFrame(timestamp => {
-      let scrollTop =
-          document.documentElement.scrollTop || document.body.scrollTop,
-        scrollHeight =
-          document.documentElement.scrollHeight ||
-          document.body.scrollHeight,
-        clientHeight =
-          document.documentElement.clientHeight ||
-          document.body.clientHeight;
-      isRunning = false;
-      if (scrollTop <= 1) {
-        updateIconToTop(0);
-        return;
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
       }
-      if (scrollTop + clientHeight >= scrollHeight) {
-        updateIconToTop(100);
-      } else {
-        updateIconToTop(parseInt(
-          100 * scrollTop / (scrollHeight - clientHeight),
-          10
-        ));
-      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
     });
-  };
-}
-
-const backToTop = () => {
-  let scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop,
-    delay = 10,
-    time = 200;
-  if (scrollTop <= 20) {
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    return;
   }
-  let step = Math.ceil(scrollTop * delay / time);
-  let timer = setInterval(() => {
-    scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop;
-    if (scrollTop - step <= 0) {
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-      clearInterval(timer);
-    } else {
-      document.documentElement.scrollTop = scrollTop - step;
-      document.body.scrollTop = scrollTop - step;
-    }
-  }, delay);
-}
-
-document.addEventListener("scroll", handleScoll(), false);
-
-document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
-
 </script>
 
-    </div>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
 
-    
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-<script>
-  (() => {
-    const mathjaxConfig = {
-      showProcessingMessages: false, //关闭js加载过程信息
-      messageStyle: "none", //不显示信息
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
-        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
-        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
-      },
-      "HTML-CSS": {
-        availableFonts: ["STIX", "TeX"], //可选字体
-        showMathMenu: false //关闭右击菜单显示
-      }
-    }
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
-    let mathjaxInterval = setInterval(() => {
-      if(!window.MathJax){
-        return;
-      }
-      window.MathJax.Hub.Config(mathjaxConfig)
-      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      clearInterval(mathjaxInterval)
-    }, 10)    
-  })()
-</script>
-    
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#致謝"><span class="nav-number">1.</span> <span class="nav-text">致謝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介紹"><span class="nav-number">2.</span> <span class="nav-text">介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#環境設置"><span class="nav-number">3.</span> <span class="nav-text">環境設置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直譯器"><span class="nav-number">3.1.</span> <span class="nav-text">直譯器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字編輯器"><span class="nav-number">3.2.</span> <span class="nav-text">文字編輯器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一支-Python-程式！"><span class="nav-number">4.</span> <span class="nav-text">第一支 Python 程式！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝-Python-相關套件-可不做"><span class="nav-number">5.</span> <span class="nav-text">安裝 Python 相關套件 (可不做)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
 
-    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
-<script async>
-  let fancyTimer = setInterval(function(){
-    if(!window.$){
-      return;
-    }
-    $(document).ready(function() {
-      $(".post img").each(function () {
-        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
-          return;
-        }
-        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "gallery");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      });
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
       
-      clearInterval(fancyTimer);
-    });
-  }, 10);
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://example2.com/" title="http://example2.com/" rel="noopener" target="_blank">Title2</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jenifer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","app_key":"WaR7nrzhliHj9aVwdQzkdlGd","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
 </script>
 
-    
-    
-    
-    <script src="/custom/all.js" ></script>
-    
-    
-    
-</body>
 
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://disqus-comments.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jenifers001d.github.io/2019/11/28/Python/learning-Python-day1/";
+    this.page.identifier = "2019/11/28/Python/learning-Python-day1/";
+    this.page.title = "Python 自學第一天：環境設置 + 第一支程式";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://disqus-comments.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
 </html>

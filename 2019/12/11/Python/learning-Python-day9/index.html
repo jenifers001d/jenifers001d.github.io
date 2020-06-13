@@ -1,246 +1,236 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="author" content="Jenifer, jenifers001d@gmail.com">
-    
-    
+<link rel="stylesheet" href="/css/main.css">
 
-    <title>Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案 | Jenifer.Code.World</title>
-    <!--  Google Search Console 驗證網站擁有權  -->
-    <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
-    <!--  Provides a link to an XML document describing the layout of the site.  -->
-    <!--    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jenifers001d.github.io/sitemap.xml">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
-    <meta name="keywords" content="Python,Python,Elementary Code,Elementary Python,JSON,File I/O,Text,CSV,">
-    
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-    <script>
-        console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' +
-            '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n',
-            'color: #fadfa3; background: #030307; padding:3px 0;', '',
-            'color: #fadfa3; background: #030307; padding:3px 0;', '');
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-    </script>
+  <meta name="description" content="程式時常需要處理各種不同的檔案。理解如何讀取、寫入 Text 檔案非常重要。除此之外，網路上的公開資料 (Open Data) 也常會使用 JSON 或 CSV 格式的檔案，因此，我們也需要了解相關的操作方式。">
+<meta name="keywords" content="Elementary Code,Python,Elementary Python,JSON,File I&#x2F;O,Text,CSV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案">
+<meta property="og:url" content="https://jenifers001d.github.io/2019/12/11/Python/learning-Python-day9/index.html">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="程式時常需要處理各種不同的檔案。理解如何讀取、寫入 Text 檔案非常重要。除此之外，網路上的公開資料 (Open Data) 也常會使用 JSON 或 CSV 格式的檔案，因此，我們也需要了解相關的操作方式。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-12-11T09:56:21.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案">
+<meta name="twitter:description" content="程式時常需要處理各種不同的檔案。理解如何讀取、寫入 Text 檔案非常重要。除此之外，網路上的公開資料 (Open Data) 也常會使用 JSON 或 CSV 格式的檔案，因此，我們也需要了解相關的操作方式。">
 
-    
-    <meta name="description" content="&lt;p&gt;程式時常需要處理各種不同的檔案。理解如何讀取、寫入 &lt;code&gt;Text&lt;/code&gt; 檔案非常重要。除此之外，網路上的公開資料 (Open Data) 也常會使用 &lt;code&gt;JSON&lt;/code&gt; 或 &lt;code&gt;CSV&lt;/code&gt; 格式的檔案，因此，我們也需要了解相關的操作方式。&lt;/p&gt;">
-    
+<link rel="canonical" href="https://jenifers001d.github.io/2019/12/11/Python/learning-Python-day9/">
 
-    
 
-    
-    <link rel="icon" href="/images/favicon.ico">
-    <link rel="apple-touch-icon" href="/images/touch-icon.png">
-    
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'default'
+  };
+</script>
 
-    <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/icon/iconfont.css">
-<link rel="stylesheet" href="/css/github-markdown.css">
-<link rel="stylesheet" href="/css/highlight.css">
+  <title>Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案 | Jenifer.Code.World</title>
+  
 
-    <script src="/js/util.js"></script>
-<script src="/js/valine.min.js"></script>
 
-    
-    <link rel="stylesheet" href="/custom/style.css">
-    
 
-    
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
-    
 
-    
-    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
-    
 
-    <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
 
-    
-    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
-    
-    <!-- 加入 Google AdSense -->
-<!--    <script data-ad-client="ca-pub-6866375976707228" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-    <script async src="//pagead2.googlesyndication.com/
-pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "pub-6866375976707228",
-            enable_page_level_ads: true
-        });
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    </script>
-    <!-- Google AdSense 結束 -->
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-<body>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-    
+  <div class="site-meta">
 
-    <div id="app">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jenifer.Code.World</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
 
-        <div class="header-wrap">
-    <header>
-        <div class="site-brand">
-            <div class="site-title">
-                <a href="/">Jenifer.Code.World</a>
-            </div>
-        </div>
-        <nav class="site-navigation">
-            <ul class="nav-menu">
-                
-                <li class="nav-item" data-path="/">
-                    
-                    <a href="/" target="_self">
-                        首頁
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/archives/">
-                    
-                    <a href="/archives/" target="_self">
-                        歸檔
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/categories/">
-                    
-                    <a href="/categories/" target="_self">
-                        分類
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path="/tags/">
-                    
-                    <a href="/tags/" target="_self">
-                        標籤
-                    </a>
-                    
-                </li>
-                
-                <li class="nav-item" data-path>
-                    
-                    <a href="javascript:void(0);" v-else>抓到我</a>
-                    <ul class="nav-menu--dropdown">
-                        
-                        <li>
-                            <a href="https://github.com/jenifers001d" target="_blank" rel="external nofollow noopener noreferrer">
-                                Github
-                            </a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            </ul>
-        </nav>
-        <i class="iconfont icon-menu"></i>
-    </header>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
-<script>
-    let links = document.querySelectorAll('.nav-item');
-    for (let link of links) {
-        let childrenLink = link.querySelector('ul');
-        link.addEventListener('mouseenter', () => {
-            if (childrenLink) {
-                childrenLink.className = "nav-menu--dropdown active";
-            }
-        })
-        link.addEventListener('mouseleave', () => {
-            if (childrenLink) {
-                childrenLink.className = "nav-menu--dropdown";
-            }
-        })
-    }
-    let rootRealPath = getRealPath(window.location.pathname, true);
-    for (let link of links) {
-        let linkPath = link.getAttribute("data-path");
-        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
-            link.className = "nav-item hover";
-        }
-    }
-
-    let iconMenu = document.querySelector("i.iconfont.icon-menu"),
-        iconMenuClicked = false;
-    let navDOM = document.querySelector("nav.site-navigation");
-    iconMenu.addEventListener("click", () => {
-        iconMenuClicked
-            ?
-            navDOM.className = "site-navigation active" :
-            navDOM.className = "site-navigation";
-        iconMenuClicked = !iconMenuClicked;
-    })
-
-</script>
 
 
-        
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
 
 
 
 
-
-
-
-
-<div class="container post-index">
+</div>
+    </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-<div class="post">
-    <h1 class="article-title">
-        <span>Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案</span>
-    </h1>
-    <div class="article-top-meta">
-        <span>
-            發布 :
-            2019-12-11
-        </span>
-        
-        <span>
-            分類 :
-            <a href="/categories/Python/">
-                Python
-            </a>
-        </span>
-        
-        
-        <span>
-            瀏覽 : <span class="article-timer" data-identity="learning-Python-day9"></span>
-        </span>
-        
-        
-    </div>
 
-    <!-- ture_google_adsense_place -->
-    <div class="myAD-belowtitle">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- 我的技術筆記 - 橫幅 -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-        </script>
-    </div>
-    <!-- ture_google_adsense_place -->
-
-    
-
-    <div class="article-content">
-        <div class="markdown-body">
+          <div class="content post posts-expand">
             
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2019/12/11/Python/learning-Python-day9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-11 19:43:02 / Modified: 19:56:21" itemprop="dateCreated datePublished" datetime="2019-12-11T19:43:02+10:00">2019-12-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/12/11/Python/learning-Python-day9/" class="post-meta-item leancloud_visitors" data-flag-title="Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/12/11/Python/learning-Python-day9/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/11/Python/learning-Python-day9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        
 <p>程式時常需要處理各種不同的檔案。理解如何讀取、寫入 <code>Text</code> 檔案非常重要。除此之外，網路上的公開資料 (Open Data) 也常會使用 <code>JSON</code> 或 <code>CSV</code> 格式的檔案，因此，我們也需要了解相關的操作方式。</p>
 
 <h2 id="檔案操作流程"><a class="header-anchor" href="#檔案操作流程"></a>檔案操作流程</h2>
@@ -248,7 +238,7 @@ pagead/js/adsbygoogle.js"></script>
 <div class="warning">
 <p>如果不想每次手動<strong>關閉</strong>檔案，或怕自己忘記<strong>關閉</strong>檔案，可以使用 <code>with</code> 關鍵字實作。</p>
 </div>
-<h2 id="text-檔案"><a class="header-anchor" href="#text-檔案"></a>Text 檔案</h2>
+<h2 id="Text-檔案"><a class="header-anchor" href="#Text-檔案"></a>Text 檔案</h2>
 <h3 id="開啟"><a class="header-anchor" href="#開啟"></a>開啟</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFile = open(檔案路徑, mode) <span class="comment"># 將回傳的 file 物件存在 myFile 變數中。</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -341,14 +331,14 @@ writelines(seq)：寫入資料。<a href="https://docs.python.org/zh-tw/3/glossa
 <h3 id="另外讀取多行的方式"><a class="header-anchor" href="#另外讀取多行的方式"></a>另外讀取多行的方式</h3>
 <h4 id="while-迴圈"><a class="header-anchor" href="#while-迴圈"></a>while 迴圈</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"file1.txt"</span>, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    line=f.readline()</span><br><span class="line">    <span class="keyword">while</span> line!=<span class="string">''</span>:</span><br><span class="line">        print(line)</span><br><span class="line">        line=f.readline()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># 測試 Python 第一行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 這是第二行，接在第二行後面</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我是 Jenifer</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 想要第三行</span></span><br></pre></td></tr></table></figure>
-<h4 id="for-in"><a class="header-anchor" href="#for-in"></a>for … in</h4>
+<h4 id="for-…-in"><a class="header-anchor" href="#for-…-in"></a>for … in</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"file1.txt"</span>, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        print(line)</span><br><span class="line">        </span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># 同上一組程式碼</span></span><br></pre></td></tr></table></figure>
 <h3 id="在檔案的後方新增資料"><a class="header-anchor" href="#在檔案的後方新增資料"></a>在檔案的後方新增資料</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"file1.txt"</span>, <span class="string">"a"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">"，新增的字串！"</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="json"><a class="header-anchor" href="#json"></a>JSON</h2>
+<h2 id="JSON"><a class="header-anchor" href="#JSON"></a>JSON</h2>
 <p><a href="https://zh.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON</a> (JavaScript Object Notation)，又稱作 JavaScript 物件表示法，被設計用來讓人容易理解、閱讀和方便交換、傳遞資料。</p>
 <p>引入內建 <code>json</code> 模組，使用模組內的函式來操作 JSON <span style="color: #ff0000">字串資料</span>或<span style="color: #ff0000">檔案物件</span>。關於檔案的操作步驟和 Text 檔案類似。</p>
-<h3 id="json-字串資料"><a class="header-anchor" href="#json-字串資料"></a>JSON 字串資料</h3>
+<h3 id="JSON-字串資料"><a class="header-anchor" href="#JSON-字串資料"></a>JSON 字串資料</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json.dumps(Python數據結構)   <span class="comment"># 回傳 JSON 字串資料，類似 print(data)</span></span><br><span class="line">json.loads(JSON字串資料)     <span class="comment"># 回傳 Python 數據結構，類似 input()</span></span><br></pre></td></tr></table></figure>
 <p><span style="color: #ff0000">注意：結尾有 s。</span></p>
 <div class="warning">
@@ -358,17 +348,17 @@ writelines(seq)：寫入資料。<a href="https://docs.python.org/zh-tw/3/glossa
 <li>Python 數據結構中：空值用 None 表示。JSON 字串資料中：空值用 null 表示。</li>
 </ul>
 </div>
-<h4 id="傳入-python-obj-回傳-json-str"><a class="header-anchor" href="#傳入-python-obj-回傳-json-str"></a>傳入 Python obj，回傳 JSON str</h4>
+<h4 id="傳入-Python-obj，回傳-JSON-str"><a class="header-anchor" href="#傳入-Python-obj，回傳-JSON-str"></a>傳入 Python obj，回傳 JSON str</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">python_data = [[<span class="string">"name"</span>], &#123;<span class="string">"test"</span>: (<span class="string">"orange"</span>, <span class="literal">None</span>, <span class="number">0.1</span>, <span class="number">20</span>)&#125;]</span><br><span class="line">json_str = json.dumps(python_data)</span><br><span class="line">print(json_str)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出 JSON str：</span></span><br><span class="line"><span class="comment"># [["name"], &#123;"test": ["orange", null, 0.1, 20]&#125;]</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>json.dumps(python_data)：<code>json</code> 模組內的 <code>dumps()</code> 可以將 <strong>Python 數據結構</strong> <code>python_data</code> 轉換成 JSON 字串，並且回傳。</p>
 </blockquote>
-<h4 id="傳入-json-str-回傳-python-obj"><a class="header-anchor" href="#傳入-json-str-回傳-python-obj"></a>傳入 JSON str，回傳 Python obj</h4>
+<h4 id="傳入-JSON-str，回傳-Python-obj"><a class="header-anchor" href="#傳入-JSON-str，回傳-Python-obj"></a>傳入 JSON str，回傳 Python obj</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">json_str = <span class="string">'[["name"], &#123;"test": ["orange", null, 0.1, 20]&#125;]'</span></span><br><span class="line">python_data = json.loads(json_str)</span><br><span class="line">print(python_data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出 Python obj：</span></span><br><span class="line"><span class="comment"># [['name'], &#123;'test': ['orange', None, 0.1, 20]&#125;]</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>json.loads(json_str)：<code>json</code> 模組內的 <code>loads()</code> 可以將 <strong>JSON 字串</strong> <code>json_str</code> 轉換成 Python 數據結構，並且回傳。</p>
 </blockquote>
-<h3 id="json-檔案物件"><a class="header-anchor" href="#json-檔案物件"></a>JSON 檔案物件</h3>
+<h3 id="JSON-檔案物件"><a class="header-anchor" href="#JSON-檔案物件"></a>JSON 檔案物件</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json.dump(Python數據結構, 檔案物件)   <span class="comment"># 類似 myFile.write(str)</span></span><br><span class="line">json.load(檔案物件)                  <span class="comment"># 類似 myFile.read()</span></span><br></pre></td></tr></table></figure>
 <p>注意：結尾<span style="color: #ff0000">沒有 s</span>。</p>
 <h4 id="寫入"><a class="header-anchor" href="#寫入"></a>寫入</h4>
@@ -381,7 +371,7 @@ writelines(seq)：寫入資料。<a href="https://docs.python.org/zh-tw/3/glossa
 <blockquote>
 <p>json.load(fp)：<code>json</code> 模組內的 <code>load()</code> 可以用來讀取  JSON 格式的 <code>fp</code> 檔案物件，並且回傳 <strong>Python 數據結構</strong>。</p>
 </blockquote>
-<h2 id="csv-檔案"><a class="header-anchor" href="#csv-檔案"></a>CSV 檔案</h2>
+<h2 id="CSV-檔案"><a class="header-anchor" href="#CSV-檔案"></a>CSV 檔案</h2>
 <p><a href="https://zh.wikipedia.org/wiki/%E9%80%97%E5%8F%B7%E5%88%86%E9%9A%94%E5%80%BC" target="_blank" rel="noopener">CSV</a> (Comma-Separated Values)，又被稱為<strong>逗號分隔值</strong>或<strong>字元分隔值</strong>，因為可以用其他的字元取代逗號。</p>
 <p>引入內建 <code>csv</code> 模組，使用模組內的函式來操作 CSV 的 <span style="color: #ff0000">List、Tuple、Set 資料</span>和<span style="color: #ff0000">檔案物件</span>。關於檔案的操作步驟和 Text 檔案類似。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">csv.writer(csvfile, delimiter)     <span class="comment"># 類似 myFile.write(str)</span></span><br><span class="line">csv.reader(csvfile)     <span class="comment"># 類似 myFile.read()</span></span><br></pre></td></tr></table></figure>
@@ -405,7 +395,7 @@ csv.reader()：會回傳一個二維 List。</p>
 <blockquote>
 <p>If csvfile is a file object, it should be opened with <code>newline=''</code>.</p>
 </blockquote>
-<h3 id="csv-類型之-list-tuple-set-資料"><a class="header-anchor" href="#csv-類型之-list-tuple-set-資料"></a>CSV 類型之 List、Tuple、Set 資料</h3>
+<h3 id="CSV-類型之-List、Tuple、Set-資料"><a class="header-anchor" href="#CSV-類型之-List、Tuple、Set-資料"></a>CSV 類型之 List、Tuple、Set 資料</h3>
 <div class="warning">
 <p>只有 <code>csv.reader(csvfile)</code> 可以用。由下面的例子可以看到，Set 資料會刪去重複的資料，並且前後順序不一樣。</p>
 </div>
@@ -413,8 +403,8 @@ csv.reader()：會回傳一個二維 List。</p>
 <blockquote>
 <p>csv.reader()：會回傳一個二維 List，可以用 for … in 語法，取得每一列 (row)。</p>
 </blockquote>
-<h3 id="csv-檔案物件"><a class="header-anchor" href="#csv-檔案物件"></a>CSV 檔案物件</h3>
-<h4 id="寫入"><a class="header-anchor" href="#寫入"></a>寫入</h4>
+<h3 id="CSV-檔案物件"><a class="header-anchor" href="#CSV-檔案物件"></a>CSV 檔案物件</h3>
+<h4 id="寫入-v2"><a class="header-anchor" href="#寫入-v2"></a>寫入</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"example.csv"</span>, <span class="string">"w"</span>, newline=<span class="string">""</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">    wr = csv.writer(csvfile)</span><br><span class="line">    wr.writerow([<span class="string">"name"</span>, <span class="string">"age"</span>, <span class="string">"ID"</span>])</span><br><span class="line">    wr.writerow([<span class="string">"Jenifer"</span>, <span class="number">10</span>, <span class="string">"a12345"</span>])</span><br><span class="line">    wr.writerow([<span class="string">"Marry"</span>, <span class="number">12</span>, <span class="string">"a12400"</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------ example.csv 檔案打開長這樣 ------</span></span><br><span class="line"><span class="comment"># name,age,ID</span></span><br><span class="line"><span class="comment"># Jenifer,10,a12345</span></span><br><span class="line"><span class="comment"># Marry,12,a12400</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>csv.writer(csvfile)：<code>csv</code> 模組內的 <code>writer()</code>，確認好要寫入的檔案 <code>csvfile</code> 後，會回傳一個<strong>寫入物件</strong> <code>wr</code>。<br>
@@ -424,7 +414,7 @@ writerow()：<strong>寫入物件</strong>的函式，可以將<span style="colo
 <blockquote>
 <p>writerows()：寫入物件的函式，可以將<span style="color: #ff0000">二維</span>的 List、Tuple、Set 資料寫入檔案。</p>
 </blockquote>
-<h4 id="讀取"><a class="header-anchor" href="#讀取"></a>讀取</h4>
+<h4 id="讀取-v2"><a class="header-anchor" href="#讀取-v2"></a>讀取</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"example.csv"</span>, newline=<span class="string">""</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> csv.reader(csvfile):</span><br><span class="line">        print(row)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># ['name', 'age', 'ID']</span></span><br><span class="line"><span class="comment"># ['Jenifer', '10', 'a12345']</span></span><br><span class="line"><span class="comment"># ['Marry', '12', 'a12400']</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>csv.reader(csvfile)：會讀取 <code>csvfile</code> 檔案，回傳一個二維 List，可以用 for … in 語法，取得每一列 (row)。</p>
@@ -433,488 +423,341 @@ writerow()：<strong>寫入物件</strong>的函式，可以將<span style="colo
 <a href="https://www.youtube.com/watch?v=C4OkV6DrVRs" target="_blank" rel="noopener">彭彭的課程：Python 文字檔案的讀取和儲存</a><br>
 <a href="https://blog.gtwang.org/programming/python-csv-file-reading-and-writing-tutorial/" target="_blank" rel="noopener">Python 讀取與寫入 CSV 檔案教學與範例</a></p>
 
-        </div>
     </div>
+
     
-    <div class="copy-right">
-        <div class="markdown-body">
-            <blockquote>
-                
-                
-                本文作者 : Jenifer <br>
-                
-                原文連結 : <a href>https://jenifers001d.github.io/2019/12/11/Python/learning-Python-day9/</a><br>
-                版權聲明 : 所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明出處！
-            </blockquote>
-        </div>
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Elementary-Code/" rel="tag"># Elementary Code</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Elementary-Python/" rel="tag"># Elementary Python</a>
+              <a href="/tags/JSON/" rel="tag"># JSON</a>
+              <a href="/tags/File-I-O/" rel="tag"># File I/O</a>
+              <a href="/tags/Text/" rel="tag"># Text</a>
+              <a href="/tags/CSV/" rel="tag"># CSV</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/09/SEO/SEO1-Website-is-Not-Showing-in-Google-Search/" rel="prev" title="SEO 優化 (一)：為什麼搜尋 (Google) 不到我的 Hexo 部落格？">
+      <i class="fa fa-chevron-left"></i> SEO 優化 (一)：為什麼搜尋 (Google) 不到我的 Hexo 部落格？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/12/Git/Git-intro-2/" rel="next" title="Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原">
+      Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
+      </footer>
     
+  </article>
+  
+  
+  
 
+
+
+          </div>
+          
     
-    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="google, facebook, twitter, qzone, qq, weibo, wechat, douban">
-  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
-</div>
-<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
-    
-
-    <!-- ture_google_adsense_place -->
-    <div class="myAD-belowcopyright">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- 我的技術筆記 - 橫幅 -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-
-        </script>
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
-    <!-- ture_google_adsense_place -->
-
-    
-
-    <div class="article-footer">
-        <div class="article-meta pull-left">
-            <span>
-                
-                <i class="iconfont icon-06tags"></i>標籤:
-                
-                <span class="span--tag">
-                    <a href="/tags/Python/">
-                        #Python
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/Elementary-Code/">
-                        #Elementary Code
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/Elementary-Python/">
-                        #Elementary Python
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/JSON/">
-                        #JSON
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/File-I-O/">
-                        #File I/O
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/Text/">
-                        #Text
-                    </a>
-                </span>
-                
-                <span class="span--tag">
-                    <a href="/tags/CSV/">
-                        #CSV
-                    </a>
-                </span>
-                
-                
-            </span>
-        </div>
-        <div class="article-meta pull-right">
-        </div>
-    </div>
-</div>
-
-
-<aside id="sidebar">
-    <p id="sidebar-header"></p>
-    <ol id="sidebar-toc"></ol>
-</aside>
-<script async>
-    setTimeout(generateToc, 500);
-
-</script>
-
-
-
-
-
-    <nav class="post-navigation">
-        
-        <div class="nav-pre">
-            <i class="iconfont icon-prev"></i>
-            上一篇:
-            <a href="/2019/12/09/SEO/SEO1-Website-is-Not-Showing-in-Google-Search/" target="_self">SEO 優化 (一)：為什麼搜尋 (Google) 不到我的 Hexo 部落格？</a>
-        </div>
-        
-        
-        <div class="nav-next">
-            下一篇:
-            <a href="/2019/12/12/Git/Git-intro-2/" target="_self">Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原</a>
-            <i class="iconfont icon-next"></i>
-        </div>
-        
-    </nav>
-
-    
-    <a href="#comment" class="comment-anchor"></a>
-<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足跡 <i class="iconfont icon-footprint"></i></div>
-<div id="vcomments"></div>
-
-<div id="disqus_thread"></div>
-<script defer>
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-    if (true) {
-        var disqus_config = function() {
-            this.page.url = "https://jenifers001d.github.io/2019/12/11/Python/learning-Python-day9/"; // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2019/12/11/Python/learning-Python-day9/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document,
-                s = d.createElement('script');
-            s.src = 'https://jenifer-code-world.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    }
-
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-<script defer>
-    if (false) {
-        let path = getRealPath()
-        new Valine({
-            el: "#vcomments",
-            appId: "Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz",
-            appKey: "WaR7nrzhliHj9aVwdQzkdlGd",
-            notify: false,
-            verify: false,
-            avatar: "robohash",
-            placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
-            path
-        });
-    }
-
-</script>
-
-    
-
-    
-    <script defer>
-const valineAPI = (() => {
-  try {
-    AV.init("Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz", "WaR7nrzhliHj9aVwdQzkdlGd");
-  } catch(error) {}
-  const isExist = (identity) => {
-    identity = identity || getRealPath();
-    let query = new AV.Query('Timer');
-    return new Promise((resolve, reject) => {
-      query.equalTo("identity", identity);
-      query.find().then(results => {
-        resolve(results.length > 0);
-      }, error => reject(error));
-    })
-  }
-
-  const _get = (identity) => {
-    let query = null;
-    if(identity && identity instanceof Array){
-      let querys = [];
-      for(let i = 0; i < identity.length; ++i) {
-        querys[i] = new AV.Query('Timer');
-        querys[i].equalTo('identity', identity[i]);
-      }
-      query = AV.Query.or.apply(null ,querys);
-    } else {
-      identity = identity || getRealPath();
-      query = new AV.Query("Timer");
-      query.equalTo("identity", identity);
-    }
-
-    return new Promise((resolve, reject) => {
-      query.find()
-      .then(results => resolve(results))
-      .catch(error => reject(error))
-    })
-  }
-
-  const create = (identity) => {
-    identity = identity || getRealPath();
-    return new Promise((resolve, reject) => {
-      let Todo = AV.Object.extend('Timer');
-      let todo = new Todo();
-      todo.set("times", 1);
-      todo.set("identity", identity);
-      todo.save().then(res => resolve(true), error => reject(error));
-    })
-  }
-
-  const update = (identity) => {
-    identity = identity || getRealPath();
-    return new Promise((resolve, reject) => {
-      let query = new AV.Query('Timer');
-      query.equalTo("identity", identity);
-      query.find().then(todos => {
-        todos.forEach(todo => {
-          todo.set("times", todo.attributes.times + 1);
-        });
-        return AV.Object.saveAll(todos);
-      }).then(todos => resolve(true), error => reject(error));
-    })
-  }
-
-  return {
-    isExist,
-    _get,
-    update,
-    create
-  }
-})()
-
-const calcAndWriteTimes = () => {
-  let isPost = true;
-
-  let timerAllDOM = document.querySelectorAll(".article-timer");
-
-  if(isPost) {
-    let identity = timerAllDOM[0].getAttribute("data-identity");
-    valineAPI.isExist(identity)
-    .then(exist => {
-      if(exist) {
-        return valineAPI.update(identity);
-      }
-      return new Promise(resolve => resolve(true));
-    })
-    .then( succuess => valineAPI._get(identity))
-    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
-    .catch(error => console.log(error.message))
-    return ;
-  }
-
-  let timerDOMCache = {};
-
-  for(let timerDOM of timerAllDOM) {
-    let identity = timerDOM.getAttribute("data-identity");
-    if(timerDOMCache.hasOwnProperty(identity)){
-      timerDOMCache[identity].dom.push(timerDOM);
-    }else{
-      timerDOMCache[identity] = {
-        dom: [timerDOM],
-        times: undefined
-      };
-    }
-  }
-
-  let identities = Object.keys(timerDOMCache);
-  valineAPI._get(identities).then(results => {
-    for(let result of results) {
-      let {identity, times} = result.attributes;
-      timerDOMCache[identity].times = times;
-      timerDOMCache[identity].dom.map(item => item.innerText = times);
-    }
-    for(let identity of identities) {
-      if(timerDOMCache[identity].times){
-        continue;
-      }
-      timerDOMCache[identity].dom.map(item => item.innerText = 1);
-      valineAPI.create(identity);
-    }
-  }).catch(error => console.log(error.message))
-}
-
-if(true){
-  calcAndWriteTimes();
-}
-</script>
-    
-
-</div>
-
-
-
-        <footer>
-    <p class="site-info">
-        Code World have opened <span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
-        <br>
-        Theme - <a href="https://github.com/dongyuanxin/theme-bmw" rel="external nofollow noopener noreferrer">BMW</a> |
-        Made With 💗 | Powered by <a href="https://godbmw.com/" rel="external nofollow noopener noreferrer">GodBMW</a>
-        <br>
-        
-    </p>
-</footer>
-
-
+  </div>
+  
 
 <script>
-    const timeToNowDOM = document.querySelector("#time-to-now");
-    const startTimestamp = new Date( 2019 , 10 , 22 ).getTime();
-    const updateTimeStr = () => {
-        let offset = parseInt(
-                (new Date().getTime() - startTimestamp) / 1000,
-                10
-            ),
-            day = Math.floor(offset / 86400),
-            hour = Math.floor((offset % 86400) / 3600),
-            minute = Math.floor(((offset % 86400) % 3600) / 60),
-            second = Math.floor(((offset % 86400) % 3600) % 60);
-        timeToNowDOM.innerHTML =
-            day + " days " + hour + " hrs " + minute + " mins " + second + " secs ";
-        setTimeout(updateTimeStr, 500);
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
-    setTimeout(updateTimeStr, 500);
-</script>
-
-        <div class="back-to-top hidden">
-  <span>
-    <i class="iconfont icon-60"></i><span></span>%
-  </span>
-</div>
-
-<script>
-const updateIconToTop = percent => {
-  let dom = document.querySelector(".back-to-top span span");
-  dom.innerText = percent;
-  if(percent < 1) {
-    document.querySelector(".back-to-top").className = "back-to-top hidden";
-  } else {
-    document.querySelector(".back-to-top").className = "back-to-top";
-  }
-}
-
-const handleScoll = () => {
-  let isRunning = false;
-  return () => {
-    if (isRunning) return;
-    isRunning = true;
-    window.requestAnimationFrame(timestamp => {
-      let scrollTop =
-          document.documentElement.scrollTop || document.body.scrollTop,
-        scrollHeight =
-          document.documentElement.scrollHeight ||
-          document.body.scrollHeight,
-        clientHeight =
-          document.documentElement.clientHeight ||
-          document.body.clientHeight;
-      isRunning = false;
-      if (scrollTop <= 1) {
-        updateIconToTop(0);
-        return;
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
       }
-      if (scrollTop + clientHeight >= scrollHeight) {
-        updateIconToTop(100);
-      } else {
-        updateIconToTop(parseInt(
-          100 * scrollTop / (scrollHeight - clientHeight),
-          10
-        ));
-      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
     });
-  };
-}
-
-const backToTop = () => {
-  let scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop,
-    delay = 10,
-    time = 200;
-  if (scrollTop <= 20) {
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    return;
   }
-  let step = Math.ceil(scrollTop * delay / time);
-  let timer = setInterval(() => {
-    scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop;
-    if (scrollTop - step <= 0) {
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-      clearInterval(timer);
-    } else {
-      document.documentElement.scrollTop = scrollTop - step;
-      document.body.scrollTop = scrollTop - step;
-    }
-  }, delay);
-}
-
-document.addEventListener("scroll", handleScoll(), false);
-
-document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
-
 </script>
 
-    </div>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
 
-    
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-<script>
-  (() => {
-    const mathjaxConfig = {
-      showProcessingMessages: false, //关闭js加载过程信息
-      messageStyle: "none", //不显示信息
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
-        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
-        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
-      },
-      "HTML-CSS": {
-        availableFonts: ["STIX", "TeX"], //可选字体
-        showMathMenu: false //关闭右击菜单显示
-      }
-    }
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
-    let mathjaxInterval = setInterval(() => {
-      if(!window.MathJax){
-        return;
-      }
-      window.MathJax.Hub.Config(mathjaxConfig)
-      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      clearInterval(mathjaxInterval)
-    }, 10)    
-  })()
-</script>
-    
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#檔案操作流程"><span class="nav-number">1.</span> <span class="nav-text">檔案操作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text-檔案"><span class="nav-number">2.</span> <span class="nav-text">Text 檔案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#開啟"><span class="nav-number">2.1.</span> <span class="nav-text">開啟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#讀取或寫入"><span class="nav-number">2.2.</span> <span class="nav-text">讀取或寫入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#關閉"><span class="nav-number">2.3.</span> <span class="nav-text">關閉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一般讀取或寫入流程"><span class="nav-number">2.4.</span> <span class="nav-text">一般讀取或寫入流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with-關鍵字實作"><span class="nav-number">2.5.</span> <span class="nav-text">with 關鍵字實作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另外讀取多行的方式"><span class="nav-number">2.6.</span> <span class="nav-text">另外讀取多行的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在檔案的後方新增資料"><span class="nav-number">2.7.</span> <span class="nav-text">在檔案的後方新增資料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON"><span class="nav-number">3.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-字串資料"><span class="nav-number">3.1.</span> <span class="nav-text">JSON 字串資料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-檔案物件"><span class="nav-number">3.2.</span> <span class="nav-text">JSON 檔案物件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSV-檔案"><span class="nav-number">4.</span> <span class="nav-text">CSV 檔案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSV-類型之-List、Tuple、Set-資料"><span class="nav-number">4.1.</span> <span class="nav-text">CSV 類型之 List、Tuple、Set 資料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSV-檔案物件"><span class="nav-number">4.2.</span> <span class="nav-text">CSV 檔案物件</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
 
-    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
-<script async>
-  let fancyTimer = setInterval(function(){
-    if(!window.$){
-      return;
-    }
-    $(document).ready(function() {
-      $(".post img").each(function () {
-        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
-          return;
-        }
-        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "gallery");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      });
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
       
-      clearInterval(fancyTimer);
-    });
-  }, 10);
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://example2.com/" title="http://example2.com/" rel="noopener" target="_blank">Title2</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jenifer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","app_key":"WaR7nrzhliHj9aVwdQzkdlGd","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
 </script>
 
-    
-    
-    
-    <script src="/custom/all.js" ></script>
-    
-    
-    
-</body>
 
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://disqus-comments.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jenifers001d.github.io/2019/12/11/Python/learning-Python-day9/";
+    this.page.identifier = "2019/12/11/Python/learning-Python-day9/";
+    this.page.title = "Python 自學第九天：讀取、寫入 Text、JSON 或 CSV 檔案";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://disqus-comments.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
 </html>
