@@ -1165,7 +1165,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #81d67e;
+  background: #e8ffdf;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2395,6 +2395,9 @@ hr {
 .sub-menu .menu-item {
   display: inline-block;
 }
+/****************** header ******************/
+/**/
+/****************** main ******************/
 .posts-expand .post-title {
   font-size: 1.25em;
 }
@@ -2476,4 +2479,8 @@ hr {
 .info > .highlight > table {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+/****************** footer ******************/
+footer .footer-inner {
+  text-align: center;
 }

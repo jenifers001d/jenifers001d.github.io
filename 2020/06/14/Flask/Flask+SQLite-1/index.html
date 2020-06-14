@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="學習前具備知識：  Python3 基礎網頁前端 (HTML、CSS、JS) 和後端知識 一點點資料庫概念">
+<meta name="keywords" content="Flask,Python,SQLite,網頁架設,Intermediate Code,Intermediate Python,Jinja2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask + SQLite 網頁快速開發 (一) - Flask 簡介 + 工作流程">
+<meta property="og:url" content="https://jenifers001d.github.io/2020/06/14/Flask/Flask+SQLite-1/index.html">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="學習前具備知識：  Python3 基礎網頁前端 (HTML、CSS、JS) 和後端知識 一點點資料庫概念">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-14T06:00:52.358Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flask + SQLite 網頁快速開發 (一) - Flask 簡介 + 工作流程">
+<meta name="twitter:description" content="學習前具備知識：  Python3 基礎網頁前端 (HTML、CSS、JS) 和後端知識 一點點資料庫概念">
+
+<link rel="canonical" href="https://jenifers001d.github.io/2020/06/14/Flask/Flask+SQLite-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'default'
+  };
+</script>
+
+  <title>Flask + SQLite 網頁快速開發 (一) - Flask 簡介 + 工作流程 | Jenifer.Code.World</title>
+  
+
+
+
+
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: 'ca-pub-6866375976707228',
+          enable_page_level_ads: true
+     });
+</script>
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jenifer.Code.World</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/06/14/Flask/Flask+SQLite-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flask + SQLite 網頁快速開發 (一) - Flask 簡介 + 工作流程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-06-14 15:56:53 / Modified: 16:00:52" itemprop="dateCreated datePublished" datetime="2020-06-14T15:56:53+10:00">2020-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      <!--google_adsense-->
+<!--文章開始廣告-->
+
+  <div class="myAD">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+<!--/google_adsense-->
+        
+<p>學習前具備知識：</p>
+<ul>
+<li>Python3</li>
+<li>基礎網頁前端 (HTML、CSS、JS) 和後端知識</li>
+<li>一點點資料庫概念</li>
+</ul>
+
+<div class="info">
+<p>The series is my own notes derived from QUT IFN557 unit, Rapid Web Development.</p>
+</div>
+<h2 id="簡介"><a class="header-anchor" href="#簡介"></a>簡介</h2>
+<p>Flask 是一個使用 Python 編寫的輕量級 Web 應用框架。基於 <a href="https://werkzeug.palletsprojects.com/en/1.0.x/" target="_blank" rel="noopener">Werkzeug</a> <a href="https://zh.wikipedia.org/wiki/Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BD%91%E5%85%B3%E6%8E%A5%E5%8F%A3" target="_blank" rel="noopener">WSGI</a> 工具箱 (HTTP library) 和 <a href="https://jinja.palletsprojects.com/en/2.11.x/" target="_blank" rel="noopener">Jinja2</a> <a href="https://zh.wikipedia.org/wiki/%E6%A8%A3%E6%9D%BF%E8%99%95%E7%90%86%E5%99%A8" target="_blank" rel="noopener">模板引擎</a> (template engine)。</p>
+<blockquote>
+<p>WSGI：是為 Python 語言定義的「Web 伺服器」和「Web 應用程式或框架」之間的一種簡單而通用的<strong>介面</strong>。</p>
+</blockquote>
+<p>本來只是作者的一個愚人節玩笑，但是意外受到歡迎成為一個正式的專案。</p>
+<p>輕量級 Web 開發框架，主要的面向是需求簡單，項目週期短的<strong>小型網頁應用程式</strong>。</p>
+<p>Flask 又被稱為 microframework，因為它只實行了網頁基本的核心，沒有預設的資料庫、表單驗證功能，但是因為它有著彈性的擴展特性，也就是 <strong><a href="https://flask.palletsprojects.com/en/1.1.x/extensions/" target="_blank" rel="noopener">Flask-extension</a></strong> 功能，可以引入網路上很多其他人依照 Flask 的特性寫好的 package，可以在 <a href="https://pypi.org/" target="_blank" rel="noopener">PyPI</a> 上找到。</p>
+<blockquote>
+<p>如果要自己寫 Flask 擴展套件，可以參考：<a href="https://flask.palletsprojects.com/en/1.1.x/extensiondev/" target="_blank" rel="noopener">Flask Extension Development</a></p>
+</blockquote>
+<h2 id="常見-Flask-擴展套件"><a class="header-anchor" href="#常見-Flask-擴展套件"></a>常見 Flask 擴展套件</h2>
+<p>粗體字是這個系列中會使用到的套件。</p>
+<ul>
+<li><strong>Flask-SQLalchemy：操作市面上常見資料庫，包含這個系列要使用的 SQLite</strong></li>
+<li><strong>Flask-Bootstrap：應用 Bootstrap</strong></li>
+<li><strong>Flask-WTF：表單樣式及其驗證</strong></li>
+<li>Flask-migrate：管理遷移資料庫</li>
+<li>Flask-Mail：郵件</li>
+<li>Flask-script：插入 script 腳本</li>
+<li>Flask-Login：認證用戶狀態</li>
+<li>Flask-RESTful：開發 REST API 的工具</li>
+<li>Flask-Moment：利用 moment.js 套件操作日期和時間</li>
+</ul>
+<p>如果想更深入了解請參考：<br>
+<a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" rel="noopener">Flask 官網</a><br>
+<a href="http://docs.jinkan.org/docs/flask/" target="_blank" rel="noopener">Flask 中文文件</a></p>
+<h2 id="Django"><a class="header-anchor" href="#Django"></a>Django</h2>
+<p>Python 有另一個相當知名的 Web 框架：<strong>Django</strong>，和 Flask 相比它沒有那麼輕量級。因為 Django 在<strong>某些功能</strong>上比較全面，它提供搭配好的解決方案，<strong>不需要開發者自己決定：要不要額外引入擴展套件？</strong> 像是在操作資料庫方面，它就有自己的方法：使用 <code>django.db</code> 中的 <code>models</code> 和 <code>Django ORM</code> 來操作資料庫。但是相較之下，就沒有 Flask 那麼彈性。</p>
+<p>Django 採用了 <strong>MVT</strong> 的軟體設計模式，即模型 (Model)，視圖 (View) 和模板 (Template)，此外還整合了 <strong>ORM</strong> 和<strong>後台管理</strong>。適合快速開發的<strong>大型網頁應用程式</strong>。</p>
+<p>如果想更深入了解請參考：<br>
+<a href="https://www.djangoproject.com/" target="_blank" rel="noopener">Django 官網</a></p>
+<h2 id="工作流程"><a class="header-anchor" href="#工作流程"></a>工作流程</h2>
+<ol start="0">
+<li>預先準備好 View 視圖 (HTML + CSS)</li>
+<li>基礎 Flask 入門</li>
+<li>class 設計 (Data Model) + 寫死的假資料</li>
+<li>以裝飾器 @ 處理路由和相對應函式</li>
+<li>以 Jinja2 模板引擎修改 HTML</li>
+<li>修改 class，修改成可以寫入 SQLite 資料庫的模式</li>
+<li>創建和測試資料庫 + 寫入資料</li>
+</ol>
+
+    </div>
+
+    
+    
+    <!--google_adsense-->
+<!--文章結尾廣告-->
+
+  <div class="myAD">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+<!--/google_adsense-->
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Flask/" rel="tag"># Flask</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/SQLite/" rel="tag"># SQLite</a>
+              <a href="/tags/網頁架設/" rel="tag"># 網頁架設</a>
+              <a href="/tags/Intermediate-Code/" rel="tag"># Intermediate Code</a>
+              <a href="/tags/Intermediate-Python/" rel="tag"># Intermediate Python</a>
+              <a href="/tags/Jinja2/" rel="tag"># Jinja2</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/20/MVC/learning-ASP.NET-MVC-3/" rel="prev" title="掉進 ASP.NET MVC 馬里亞納海溝的第三天：Controller 傳資料給 View">
+      <i class="fa fa-chevron-left"></i> 掉進 ASP.NET MVC 馬里亞納海溝的第三天：Controller 傳資料給 View
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#簡介"><span class="nav-number">1.</span> <span class="nav-text">簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常見-Flask-擴展套件"><span class="nav-number">2.</span> <span class="nav-text">常見 Flask 擴展套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Django"><span class="nav-number">3.</span> <span class="nav-text">Django</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作流程"><span class="nav-number">4.</span> <span class="nav-text">工作流程</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jenifer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jenifers001d.github.io/2020/06/14/Flask/Flask+SQLite-1/";
+    this.page.identifier = "2020/06/14/Flask/Flask+SQLite-1/";
+    this.page.title = "Flask + SQLite 網頁快速開發 (一) - Flask 簡介 + 工作流程";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://disqus-comments.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

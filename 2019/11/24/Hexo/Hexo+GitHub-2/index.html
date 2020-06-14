@@ -21,7 +21,7 @@
     var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="keywords" content="GitHub,Hexo,網頁架設,靜態網頁">
+  <meta name="keywords" content="GitHub,網頁架設,Hexo,靜態網頁">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo＋GitHub 網誌和部落格架設（二）">
 <meta property="og:url" content="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2/index.html">
@@ -184,7 +184,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Jenifer">
-      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -222,27 +222,6 @@
             </span>
 
           
-            <span id="/2019/11/24/Hexo/Hexo+GitHub-2/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo＋GitHub 網誌和部落格架設（二）" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/11/24/Hexo/Hexo+GitHub-2/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/24/Hexo/Hexo+GitHub-2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -398,8 +377,8 @@ _config.yml：用來設定網站的各種配置，例如：網站標題 (title)�
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/GitHub/" rel="tag"># GitHub</a>
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
               <a href="/tags/網頁架設/" rel="tag"># 網頁架設</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
               <a href="/tags/靜態網頁/" rel="tag"># 靜態網頁</a>
           </div>
 
@@ -482,44 +461,34 @@ _config.yml：用來設定網站的各種配置，例如：網站標題 (title)�
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#block-安裝-Hexo"><span class="nav-number">1.</span> <span class="nav-text">
-安裝 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#準備「使用-Hexo-建立網誌的專屬資料夾」"><span class="nav-number">2.</span> <span class="nav-text">準備「使用 Hexo 建立網誌的專屬資料夾」</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-初始化-init-資料夾"><span class="nav-number">2.1.</span> <span class="nav-text">1. 初始化 (init) 資料夾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在已初始化的資料夾安裝相依套件"><span class="nav-number">2.2.</span> <span class="nav-text">2. 在已初始化的資料夾安裝相依套件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地端預覽-RUN-起來！"><span class="nav-number">3.</span> <span class="nav-text">本地端預覽 RUN 起來！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立一篇新文章"><span class="nav-number">4.</span> <span class="nav-text">建立一篇新文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用指令碼新增"><span class="nav-number">4.1.</span> <span class="nav-text">1.使用指令碼新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-複製-scaffolds-資料夾的-post-md-到-source-posts-資料夾中"><span class="nav-number">4.2.</span> <span class="nav-text">2.複製 scaffolds 資料夾的 post.md 到 source/_posts 資料夾中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在-source-posts-資料夾中建立一個-md-檔案"><span class="nav-number">4.3.</span> <span class="nav-text">3.在 source/_posts 資料夾中建立一個 .md 檔案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#編譯：產生靜態檔案"><span class="nav-number">5.</span> <span class="nav-text">編譯：產生靜態檔案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo＋GitHub-網誌和部落格架設-系列文"><span class="nav-number">6.</span> <span class="nav-text">Hexo＋GitHub 網誌和部落格架設 系列文</span></a></li></ol></div><!--google_adsense-->
-
-<div class="myAD">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-
-<!--/google_adsense-->
+安裝 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#準備「使用-Hexo-建立網誌的專屬資料夾」"><span class="nav-number">2.</span> <span class="nav-text">準備「使用 Hexo 建立網誌的專屬資料夾」</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-初始化-init-資料夾"><span class="nav-number">2.1.</span> <span class="nav-text">1. 初始化 (init) 資料夾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在已初始化的資料夾安裝相依套件"><span class="nav-number">2.2.</span> <span class="nav-text">2. 在已初始化的資料夾安裝相依套件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地端預覽-RUN-起來！"><span class="nav-number">3.</span> <span class="nav-text">本地端預覽 RUN 起來！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立一篇新文章"><span class="nav-number">4.</span> <span class="nav-text">建立一篇新文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用指令碼新增"><span class="nav-number">4.1.</span> <span class="nav-text">1.使用指令碼新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-複製-scaffolds-資料夾的-post-md-到-source-posts-資料夾中"><span class="nav-number">4.2.</span> <span class="nav-text">2.複製 scaffolds 資料夾的 post.md 到 source/_posts 資料夾中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在-source-posts-資料夾中建立一個-md-檔案"><span class="nav-number">4.3.</span> <span class="nav-text">3.在 source/_posts 資料夾中建立一個 .md 檔案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#編譯：產生靜態檔案"><span class="nav-number">5.</span> <span class="nav-text">編譯：產生靜態檔案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo＋GitHub-網誌和部落格架設-系列文"><span class="nav-number">6.</span> <span class="nav-text">Hexo＋GitHub 網誌和部落格架設 系列文</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Jenifer</p>
-  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT</div>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT.</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -534,22 +503,9 @@ _config.yml：用來設定網站的各種配置，例如：網站標題 (title)�
         <li class="links-of-blogroll-item">
           <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
         </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://example2.com/" title="http://example2.com/" rel="noopener" target="_blank">Title2</a>
-        </li>
     </ul>
   </div>
-<!--google_adsense-->
 
-<div class="myAD">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-
-<!--/google_adsense-->
       </div>
 
     </div>
@@ -585,97 +541,6 @@ _config.yml：用來設定網站的各種配置，例如：網站標題 (title)�
 
 
 
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.id);
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            let target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","app_key":"WaR7nrzhliHj9aVwdQzkdlGd","server_url":null,"security":false};
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
 
 
       </div>
@@ -712,16 +577,6 @@ _config.yml：用來設定網站的各種配置，例如：網站標題 (title)�
 
   
 
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://disqus-comments.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
 <script>
   var disqus_config = function() {
     this.page.url = "https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2/";
