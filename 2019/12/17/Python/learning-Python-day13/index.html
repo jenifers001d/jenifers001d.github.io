@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="在這一篇文章中，我們以 HTTP 通訊協定為例，利用 Python 直接讀取已經整理好的公開資料 (Open Data)，通常 Open Data 會是固定的幾種格式： XML、JSON、CSV、ODT等。">
@@ -234,7 +234,7 @@
 
 <!--/google_adsense-->
         
-<p>在這一篇文章中，我們以 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">HTTP 通訊協定</a>為例，利用 Python 直接讀取已經整理好的公開資料 (Open Data)，通常 Open Data 會是固定的幾種格式： <code>XML</code>、<code>JSON</code>、<code>CSV</code>、<a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%96%87%E6%A1%A3%E6%A0%BC%E5%BC%8F" target="_blank" rel="noopener"><code>ODT</code></a>等。</p>
+<p>在這一篇文章中，我們以 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUI2JTg1JUU2JTk2JTg3JUU2JTlDJUFDJUU0JUJDJUEwJUU4JUJFJTkzJUU1JThEJThGJUU4JUFFJUFF">HTTP 通訊協定<i class="fa fa-external-link-alt"></i></span>為例，利用 Python 直接讀取已經整理好的公開資料 (Open Data)，通常 Open Data 會是固定的幾種格式： <code>XML</code>、<code>JSON</code>、<code>CSV</code>、<a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%96%87%E6%A1%A3%E6%A0%BC%E5%BC%8F" target="_blank" rel="noopener"><code>ODT</code></a>等。</p>
 
 <h2 id="網路連線"><a class="header-anchor" href="#網路連線"></a>網路連線</h2>
 <p>想要取得 Open Data，必須要網路連線至網站伺服器，要求 Server 回傳網頁資訊。因此，python 會模擬瀏覽器，使用模組向網站伺服器提出一些要求 (Request)。也就是如同一般我們在網址欄輸入網址後，瀏覽器背後運行的簡易過程。</p>
@@ -259,19 +259,19 @@ read()：回傳字串。</p>
 <blockquote>
 <p>json.load(res)：回傳 List、字典資料格式。</p>
 </blockquote>
-<p>例如，從<a href="https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&amp;rid=b7f17d01-30b0-4978-840b-e039b98103af" target="_blank" rel="noopener">臺北市內湖科技園區廠商名錄</a>讀取，<code>page_data</code> 會得到如下的資料格式：</p>
+<p>例如，從<span class="exturl" data-url="aHR0cHM6Ly9kYXRhLnRhaXBlaS9vcGVuZGF0YS9kYXRhbGlzdC9hcGlBY2Nlc3M/c2NvcGU9cmVzb3VyY2VBcXVpcmUmYW1wO3JpZD1iN2YxN2QwMS0zMGIwLTQ5NzgtODQwYi1lMDM5Yjk4MTAzYWY=">臺北市內湖科技園區廠商名錄<i class="fa fa-external-link-alt"></i></span>讀取，<code>page_data</code> 會得到如下的資料格式：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"result"</span>:&#123;</span><br><span class="line">    <span class="attr">"limit"</span>:<span class="number">1000</span>,</span><br><span class="line">    <span class="attr">"offset"</span>:<span class="number">0</span>,</span><br><span class="line">    <span class="attr">"count"</span>:<span class="number">67602</span>,</span><br><span class="line">    <span class="attr">"sort"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="attr">"results"</span>:[</span><br><span class="line">        &#123;<span class="attr">"派工項目"</span>:<span class="string">"場所與設施噪音舉發"</span>,<span class="attr">"_id"</span>:<span class="number">1</span>,<span class="attr">"立案時間"</span>:<span class="string">"2016\/3\/1 00:09"</span>,<span class="attr">"caseid"</span>:<span class="string">"2016030100001 "</span>,<span class="attr">"案件地址"</span>:<span class="string">"松山區三民路80巷"</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">"派工項目"</span>:<span class="string">"場所與設施噪音舉發"</span>,<span class="attr">"_id"</span>:<span class="number">2</span>,<span class="attr">"立案時間"</span>:<span class="string">"2016\/3\/1 00:09"</span>,<span class="attr">"caseid"</span>:<span class="string">"2016030100002 "</span>,<span class="attr">"案件地址"</span>:<span class="string">"文山區興隆路一段70巷"</span>&#125;,</span><br><span class="line">        &#123; ... &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>想要取得資料結構中的每一筆「案件地址」，語法如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先用字典格式的語法取得 "results" 的值，也就是資料 List (上面的資料 line 8~9)</span></span><br><span class="line">data_list = page_data[<span class="string">"result"</span>][<span class="string">"results"</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data_list:</span><br><span class="line">    print(i[<span class="string">"案件地址"</span>])</span><br></pre></td></tr></table></figure>
 <p>最後，可以試著將讀取到的每一筆資料，依照之前學過的方法，寫入 (儲存) 到檔案中。</p>
 <p>參考資料：<br>
-<a href="https://www.youtube.com/watch?v=sUzR3QVBKIo" target="_blank" rel="noopener">彭彭的課程：Python 網路連線程式、公開資料串接</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1zVXpSM1FWQktJbw==">彭彭的課程：Python 網路連線程式、公開資料串接<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="SSL-認證"><a class="header-anchor" href="#SSL-認證"></a>SSL 認證</h2>
-<p><strong>傳輸層安全性協定 (Transport Layer Security，TLS)</strong> 及其前身<strong>安全通訊協定 (Secure Sockets Layer，SSL)</strong> 是一種安全協定，目的是為網際網路通訊提供安全及資料完整性保障。想了解更多請參考<a href="https://zh.wikipedia.org/wiki/%E5%82%B3%E8%BC%B8%E5%B1%A4%E5%AE%89%E5%85%A8%E6%80%A7%E5%8D%94%E5%AE%9A" target="_blank" rel="noopener">維基百科</a>。</p>
+<p><strong>傳輸層安全性協定 (Transport Layer Security，TLS)</strong> 及其前身<strong>安全通訊協定 (Secure Sockets Layer，SSL)</strong> 是一種安全協定，目的是為網際網路通訊提供安全及資料完整性保障。想了解更多請參考<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTgyJUIzJUU4JUJDJUI4JUU1JUIxJUE0JUU1JUFFJTg5JUU1JTg1JUE4JUU2JTgwJUE3JUU1JThEJTk0JUU1JUFFJTlB">維基百科<i class="fa fa-external-link-alt"></i></span>。</p>
 <h3 id="問題"><a class="header-anchor" href="#問題"></a>問題</h3>
-<p>在使用 python 模擬<strong>瀏覽器</strong>，向<strong>網站伺服器</strong>提出<span style="color: #ff0000"><strong>網頁請求 (Request)</strong></span> ，也就是讀取<strong>網路公開資料</strong>或<strong>網頁</strong>的時候，如果網站伺服器的 <strong>https 證書</strong>不是從<strong>證書簽發機構</strong>購買，不符合 <a href="https://zh.wikipedia.org/wiki/X.509" target="_blank" rel="noopener">X509 憑證 (X509 Certificate Signatures)</a>，那麼就會報錯：</p>
+<p>在使用 python 模擬<strong>瀏覽器</strong>，向<strong>網站伺服器</strong>提出<span style="color: #ff0000"><strong>網頁請求 (Request)</strong></span> ，也就是讀取<strong>網路公開資料</strong>或<strong>網頁</strong>的時候，如果網站伺服器的 <strong>https 證書</strong>不是從<strong>證書簽發機構</strong>購買，不符合 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvWC41MDk=">X509 憑證 (X509 Certificate Signatures)<i class="fa fa-external-link-alt"></i></span>，那麼就會報錯：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777)&gt;</span></span><br></pre></td></tr></table></figure>
-<p>可以參考 <a href="https://www.python.org/dev/peps/pep-0476/" target="_blank" rel="noopener">PEP 476</a> 其中一段：</p>
+<p>可以參考 <span class="exturl" data-url="aHR0cHM6Ly93d3cucHl0aG9uLm9yZy9kZXYvcGVwcy9wZXAtMDQ3Ni8=">PEP 476<i class="fa fa-external-link-alt"></i></span> 其中一段：</p>
 <blockquote>
 <p>Currently when a standard library http client (the urllib, urllib2, http, and httplib modules) encounters an https:// URL it will wrap the network HTTP traffic in a TLS stream, as is necessary to communicate with such a server. However, during the TLS handshake it will not actually check that the server has an X509 certificate is signed by a CA in any trust root, nor will it verify that the Common Name (or Subject Alternate Name) on the presented certificate matches the requested host.</p>
 <p>The failure to do these checks means that anyone with a privileged network position is able to trivially execute a man in the middle attack against a Python application using either of these HTTP clients, and change traffic at will.</p>
@@ -286,8 +286,8 @@ read()：回傳字串。</p>
 <p>出現「程序完成」！<br>
 <img src="https://i.imgur.com/jbVHfLb.jpg" alt></p>
 <p>更多其他解決方法請參考：<br>
-<a href="https://www.jianshu.com/p/40c74a5cd075" target="_blank" rel="noopener">解决Python certificate verify failed的问题</a><br>
-<a href="https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error" target="_blank" rel="noopener">urllib and “SSL: CERTIFICATE_VERIFY_FAILED” Error</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC80MGM3NGE1Y2QwNzU=">解决Python certificate verify failed的问题<i class="fa fa-external-link-alt"></i></span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjc4MzU2MTkvdXJsbGliLWFuZC1zc2wtY2VydGlmaWNhdGUtdmVyaWZ5LWZhaWxlZC1lcnJvcg==">urllib and “SSL: CERTIFICATE_VERIFY_FAILED” Error<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -407,7 +407,7 @@ read()：回傳字串。</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -433,7 +433,7 @@ read()：回傳字串。</p>
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+          <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="https://github.com/jenifers001d">GitHub</span>
         </li>
     </ul>
   </div>
@@ -463,7 +463,7 @@ read()：回傳字串。</p>
   </span>
   <span class="author" itemprop="copyrightHolder">Jenifer</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span>
   </div>
 
         

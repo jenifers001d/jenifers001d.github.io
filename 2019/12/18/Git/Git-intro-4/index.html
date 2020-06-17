@@ -18,11 +18,11 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="這一篇提到，多人協作時，在自己開始更新本地端分支前，最好先取得遠端分支的更新版本，即可能避免更新到同一行檔案之衝突的發生。若是自己更新完了本地端該分支的現有版本，正要推上遠端分支時，發現檔案衝突，該如何解決？">
-<meta name="keywords" content="Git,GitHub">
+<meta name="keywords" content="GitHub,Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 入門 (四)：取得遠端新檔案並合併 (fetch + merge = pull)、衝突 (conflict)">
 <meta property="og:url" content="https://jenifers001d.github.io/2019/12/18/Git/Git-intro-4/index.html">
@@ -256,7 +256,7 @@
 <li>取得遠端新檔案 (不合併)：<code>git fetch</code></li>
 <li>取得遠端新檔案並合併：<code>git pull = git fetch + git merge origin/master</code></li>
 </ul>
-<p><a href="https://gitbook.tw/chapters/github/pull-from-github.html" target="_blank" rel="noopener">Pull 下載更新</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3L2NoYXB0ZXJzL2dpdGh1Yi9wdWxsLWZyb20tZ2l0aHViLmh0bWw=">Pull 下載更新<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="GitHub-的-Pull-Request"><a class="header-anchor" href="#GitHub-的-Pull-Request"></a>GitHub 的 Pull Request</h2>
 <p>是與其它開發者的互動方式，發一個<strong>請原作將「我修改過的 commit」拉回去 (Pull) 的請求 (Request)</strong>，稱之 Pull Request，簡稱 PR。</p>
 <p>當我們對 GitHub 上的開源專案很有興趣，想幫忙、貢獻一己之力的時候，可以依照如下步驟：</p>
@@ -265,7 +265,7 @@
 <li>修改完後，<strong>在自己的專案頁面</strong>發個通知給原作者，也就是 <code>Pull Request</code>，讓原作者檢查一下。</li>
 <li>原作者檢查完覺得 ok，然後就把我們做的這些修改 <code>merge</code> 到他的專案裡。</li>
 </ol>
-<p><a href="https://gitbook.tw/chapters/github/pull-request.html" target="_blank" rel="noopener">與其它開發者的互動 - 使用 Pull Request（PR）</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3L2NoYXB0ZXJzL2dpdGh1Yi9wdWxsLXJlcXVlc3QuaHRtbA==">與其它開發者的互動 - 使用 Pull Request（PR）<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="檔案衝突"><a class="header-anchor" href="#檔案衝突"></a>檔案衝突</h2>
 <p>兩個 commit 在合併時，檔案裡的同一行有重複修改到，就會發生衝突。可能發生在本地與本地之間、本地與遠端之間。</p>
 <h3 id="本地與本地之間的-conflict"><a class="header-anchor" href="#本地與本地之間的-conflict"></a>本地與本地之間的 conflict</h3>
@@ -321,7 +321,7 @@ Automatic merge failed; fix conflicts and then commit the result.</p>
 <li><code>git push</code></li>
 </ol>
 <p>參考資料：<br>
-<a href="https://hexschool.tw/v9bxz" target="_blank" rel="noopener">六角學院 -「Git 分支中階教學」線上講義</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly9oZXhzY2hvb2wudHcvdjlieHo=">六角學院 -「Git 分支中階教學」線上講義<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="Git-入門-系列文"><a class="header-anchor" href="#Git-入門-系列文"></a>Git 入門 系列文</h2>
 <p><a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1/">Git 入門 (一)：介紹和基本指令</a><br>
 <a href="https://jenifers001d.github.io/2019/12/12/Git/Git-intro-2/">Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原</a><br>
@@ -347,8 +347,8 @@ Automatic merge failed; fix conflicts and then commit the result.</p>
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Git/" rel="tag"># Git</a>
               <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+              <a href="/tags/Git/" rel="tag"># Git</a>
           </div>
 
         
@@ -443,7 +443,7 @@ Automatic merge failed; fix conflicts and then commit the result.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -469,7 +469,7 @@ Automatic merge failed; fix conflicts and then commit the result.</p>
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+          <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="https://github.com/jenifers001d">GitHub</span>
         </li>
     </ul>
   </div>
@@ -499,7 +499,7 @@ Automatic merge failed; fix conflicts and then commit the result.</p>
   </span>
   <span class="author" itemprop="copyrightHolder">Jenifer</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span>
   </div>
 
         

@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="資訊爆炸的世代，每天會有上千萬新的網頁資料誕生，如果你想分析一間科技公司的成長能力，需要研究的資料有：營收成長率、主營業務增長率、股本比重、固定資產比等等，還不只包含當年當季度，可能需要收集連續十年的一堆資料。如果你想買運動彩券，則需要收集：多年 NBA 不同隊伍的比數，球員的上場時間、進球率、罰球進球率等等。 利用網路爬蟲，自動化地重複執行收集資料和萃取、處理資訊的步驟，可以大大地節省我們的時間">
@@ -244,11 +244,11 @@
         <h2 id="為什麼要學網路爬蟲？"><a class="header-anchor" href="#為什麼要學網路爬蟲？"></a>為什麼要學網路爬蟲？</h2>
 
 <p>資訊爆炸的世代，每天會有上千萬新的網頁資料誕生，如果你想分析一間科技公司的成長能力，需要研究的資料有：營收成長率、主營業務增長率、股本比重、固定資產比等等，還不只包含當年當季度，可能需要收集連續十年的一堆資料。如果你想買運動彩券，則需要收集：多年 NBA 不同隊伍的比數，球員的上場時間、進球率、罰球進球率等等。</p>
-<p>利用<a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2" target="_blank" rel="noopener">網路爬蟲</a>，自動化地重複執行<strong>收集資料</strong>和<strong>萃取、處理資訊</strong>的步驟，可以大大地節省我們的時間，還不會有運算上的錯誤發生 (除非你自己程式邏輯寫錯囉～)</p>
+<p>利用<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUI2JUIyJUU4JUI3JUFGJUU3JTg4JUFDJUU4JTlGJUIy">網路爬蟲<i class="fa fa-external-link-alt"></i></span>，自動化地重複執行<strong>收集資料</strong>和<strong>萃取、處理資訊</strong>的步驟，可以大大地節省我們的時間，還不會有運算上的錯誤發生 (除非你自己程式邏輯寫錯囉～)</p>
 
-<p>要寫出網路爬蟲的程式，當然要先對網頁有一些基本的理解和認識。還不懂 <a href="https://zh.wikipedia.org/wiki/HTML" target="_blank" rel="noopener">HTML</a> 和 <a href="https://zh.wikipedia.org/wiki/%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8" target="_blank" rel="noopener">CSS</a> 的人，可以先了解 HTML 中的<strong>標籤</strong>和<strong>屬性</strong>，並且閱讀下方參考資料中的「爬蟲是怎麼辦到的？」段落。</p>
+<p>要寫出網路爬蟲的程式，當然要先對網頁有一些基本的理解和認識。還不懂 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvSFRNTA==">HTML<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUIxJTgyJUU1JThGJUEwJUU2JUEwJUI3JUU1JUJDJThGJUU4JUExJUE4">CSS<i class="fa fa-external-link-alt"></i></span> 的人，可以先了解 HTML 中的<strong>標籤</strong>和<strong>屬性</strong>，並且閱讀下方參考資料中的「爬蟲是怎麼辦到的？」段落。</p>
 <p>參考資料：<br>
-<a href="https://medium.com/@bindaguo/%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2%E6%B7%BA%E8%AB%87-afcae0694f13" target="_blank" rel="noopener">網路爬蟲淺談</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BiaW5kYWd1by8lRTclQjYlQjIlRTglQjclQUYlRTclODglQUMlRTglOUYlQjIlRTYlQjclQkElRTglQUIlODctYWZjYWUwNjk0ZjEz">網路爬蟲淺談<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="取得-HTML-網頁原始碼"><a class="header-anchor" href="#取得-HTML-網頁原始碼"></a>取得 HTML 網頁原始碼</h2>
 <h3 id="基礎連線"><a class="header-anchor" href="#基礎連線"></a>基礎連線</h3>
 <p>如同上一篇文章<a href>取得網路公開資料 Open Data</a> 提到的，以  <code>urllib.request</code> 模組中的 <code>urlopen()</code> 函式模擬瀏覽器，向目標網址建立連線：<strong>傳送要求 (Request) 和參數</strong>給網站伺服器，並且<strong>接收網站伺服器的回應 (Response)</strong>，然後 <code>urlopen()</code> 函式會<span style="color: #ff0000">將 <strong>Response</strong> 包裝成<strong>物件</strong></span>，回傳給程式中的變數。</p>
@@ -293,8 +293,8 @@
 parser：用來指定<strong>解析器</strong>，告訴 <code>BeautifulSoup</code> 要怎麼解析 HTML 字串。可以不加，<code>BeautifulSoup</code> 會自動搜尋模組中的解析器，順序為：lxml &gt;&gt; html5lib &gt;&gt; Python 內建解析器 (html.parser)。</p>
 </blockquote>
 <p>參考資料：<br>
-<a href="https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#id52" target="_blank" rel="noopener">Beautiful Soup 4.4.0 文档 - 指定文档解析器</a><br>
-<a href="https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#id12" target="_blank" rel="noopener">Beautiful Soup 4.4.0 文档 - 安装解析器</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly9iZWF1dGlmdWxzb3VwLnJlYWR0aGVkb2NzLmlvL3poX0NOL3Y0LjQuMC8jaWQ1Mg==">Beautiful Soup 4.4.0 文档 - 指定文档解析器<i class="fa fa-external-link-alt"></i></span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9iZWF1dGlmdWxzb3VwLnJlYWR0aGVkb2NzLmlvL3poX0NOL3Y0LjQuMC8jaWQxMg==">Beautiful Soup 4.4.0 文档 - 安装解析器<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="樹最上層節點-root-物件常用變數"><a class="header-anchor" href="#樹最上層節點-root-物件常用變數"></a>樹最上層節點 (root) 物件常用變數</h3>
 <table>
 <thead>
@@ -320,7 +320,7 @@ parser：用來指定<strong>解析器</strong>，告訴 <code>BeautifulSoup</co
 </table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 連線至 iT邦幫忙 - python 入門到分析股市，作者：Summer</span></span><br><span class="line"><span class="comment"># https://ithelp.ithome.com.tw/users/20111390/ironman/1791</span></span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line">parsed_data = bs4.BeautifulSoup(page_data, <span class="string">"html.parser"</span>)</span><br><span class="line">print(parsed_data.title)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># &lt;title&gt;python 入門到分析股市 :: 2019 iT 邦幫忙鐵人賽&lt;/title&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="遍歷樹-Navigating-the-tree"><a class="header-anchor" href="#遍歷樹-Navigating-the-tree"></a>遍歷樹 Navigating the tree</h3>
-<p><a href="https://zh.wikipedia.org/wiki/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86" target="_blank" rel="noopener">樹的遍歷</a>，可以不重複地存取樹的所有節點，找到想要的節點。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JUEwJTkxJUU3JTlBJTg0JUU5JTgxJThEJUU1JThFJTg2">樹的遍歷<i class="fa fa-external-link-alt"></i></span>，可以不重複地存取樹的所有節點，找到想要的節點。</p>
 <h4 id="子節點物件常用變數"><a class="header-anchor" href="#子節點物件常用變數"></a>子節點物件常用變數</h4>
 <table>
 <thead>
@@ -371,7 +371,7 @@ parser：用來指定<strong>解析器</strong>，告訴 <code>BeautifulSoup</co
 <p>如果希望輸出結果以<span style="color: #ff0000">縮排格式</span>顯示，加 <code>.prettify()</code>，例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(parsed_data.h1.prettify())</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;h1 class="header__logo pull-left"&gt;</span></span><br><span class="line"><span class="comment">#  &lt;a href="/"&gt;</span></span><br><span class="line"><span class="comment">#   &lt;img alt="iT邦幫忙" class="img-responsive" src="https://ithelp.ithome.com.tw/storage/image/logo.svg"/&gt;</span></span><br><span class="line"><span class="comment">#  &lt;/a&gt;</span></span><br><span class="line"><span class="comment"># &lt;/h1&gt;</span></span><br></pre></td></tr></table></figure>
 <p>參考資料：<br>
-<a href="https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#id18" target="_blank" rel="noopener">Beautiful Soup 4.4.0 文档 - 遍历文档树</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly9iZWF1dGlmdWxzb3VwLnJlYWR0aGVkb2NzLmlvL3poX0NOL3Y0LjQuMC8jaWQxOA==">Beautiful Soup 4.4.0 文档 - 遍历文档树<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="搜尋樹-Searching-the-tree"><a class="header-anchor" href="#搜尋樹-Searching-the-tree"></a>搜尋樹 Searching the tree</h3>
 <p>透過不同的屬性，篩選出想要的節點。</p>
 <h4 id="find-系列函式及其參數"><a class="header-anchor" href="#find-系列函式及其參數"></a>find 系列函式及其參數</h4>
@@ -409,7 +409,7 @@ limit：限制搜尋結果，以數字傳入。<br>
 <h4 id="舉例-v2"><a class="header-anchor" href="#舉例-v2"></a>舉例</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 連線至 iT邦幫忙 - python 入門到分析股市，作者：Summer</span></span><br><span class="line"><span class="comment"># https://ithelp.ithome.com.tw/users/20111390/ironman/1791</span></span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line">parsed_data = bs4.BeautifulSoup(page_data, <span class="string">"html.parser"</span>)</span><br><span class="line"></span><br><span class="line">div_1 = parsed_data.find_all(<span class="string">"div"</span>, class_=<span class="string">"profile-header__name"</span>)</span><br><span class="line">a_1 = parsed_data.find_all(</span><br><span class="line">    <span class="string">"a"</span>, attrs=&#123;<span class="string">"href"</span>: <span class="string">"https://ithelp.ithome.com.tw/questions"</span>&#125;)</span><br><span class="line">print(div_1)</span><br><span class="line">print(a_1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># [&lt;div class="profile-header__name"&gt;</span></span><br><span class="line"><span class="comment">#             Summer &lt;span class="profile-header__account"&gt;(summer0531)&lt;/span&gt;</span></span><br><span class="line"><span class="comment"># &lt;/div&gt;]</span></span><br><span class="line"><span class="comment"># [&lt;a class="menu__item-link menu__item-link--pl" href="https://ithelp.ithome.com.tw/questions"&gt;技術問答&lt;/a&gt;]</span></span><br></pre></td></tr></table></figure>
 <p>參考資料：<br>
-<a href="https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#id27" target="_blank" rel="noopener">Beautiful Soup 4.4.0 文档 - 搜索文档树</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly9iZWF1dGlmdWxzb3VwLnJlYWR0aGVkb2NzLmlvL3poX0NOL3Y0LjQuMC8jaWQyNw==">Beautiful Soup 4.4.0 文档 - 搜索文档树<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="網路爬蟲基本應用"><a class="header-anchor" href="#網路爬蟲基本應用"></a>網路爬蟲基本應用</h2>
 <ol>
 <li>程式模擬瀏覽器，建立網路連線。</li>
@@ -422,7 +422,7 @@ limit：限制搜尋結果，以數字傳入。<br>
 <img src="https://i.imgur.com/ZJLjWDK.jpg" alt></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 連線至 批踢踢實業坊 - movie 版</span></span><br><span class="line"><span class="comment"># https://www.ptt.cc/bbs/movie/index.html</span></span><br><span class="line"><span class="keyword">import</span> urllib.request <span class="keyword">as</span> req</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立連線</span></span><br><span class="line">url = <span class="string">"https://www.ptt.cc/bbs/movie/index.html"</span></span><br><span class="line">URL = req.Request(url, headers=&#123;</span><br><span class="line">    <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">with</span> req.urlopen(URL) <span class="keyword">as</span> res:</span><br><span class="line">    data = res.read().decode(<span class="string">"utf-8"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析原始碼</span></span><br><span class="line">parsed_data = bs4.BeautifulSoup(page_data, <span class="string">"html.parser"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取得所有文章標題</span></span><br><span class="line">text_titles = parsed_data.find_all(<span class="string">"div"</span>, class_=<span class="string">"title"</span>)</span><br><span class="line"><span class="keyword">for</span> title <span class="keyword">in</span> text_titles:</span><br><span class="line">    <span class="keyword">if</span> title.a != <span class="literal">None</span>:</span><br><span class="line">        print(title.a.string)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># Re: [  雷] 星戰9──討論那一幕</span></span><br><span class="line"><span class="comment"># [公告] 板規 2019/08/24</span></span><br><span class="line"><span class="comment"># [公告] 板規新增每日發文上限規定</span></span><br><span class="line"><span class="comment"># Fw: [公告] 請使用安全的連線方式連線本站</span></span><br><span class="line"><span class="comment"># [公告] 獎季發文限制放寬</span></span><br></pre></td></tr></table></figure>
 <p>參考資料：<br>
-<a href="https://www.youtube.com/watch?v=9Z9xKWfNo7k" target="_blank" rel="noopener">彭彭的課程：Python 網路爬蟲 Web Crawler 基本教學</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj05Wjl4S1dmTm83aw==">彭彭的課程：Python 網路爬蟲 Web Crawler 基本教學<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -541,7 +541,7 @@ limit：限制搜尋結果，以數字傳入。<br>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -567,7 +567,7 @@ limit：限制搜尋結果，以數字傳入。<br>
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+          <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="https://github.com/jenifers001d">GitHub</span>
         </li>
     </ul>
   </div>
@@ -597,7 +597,7 @@ limit：限制搜尋結果，以數字傳入。<br>
   </span>
   <span class="author" itemprop="copyrightHolder">Jenifer</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span>
   </div>
 
         

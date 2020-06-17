@@ -18,11 +18,11 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Hexo 是一個快速、簡單且強大的網誌框架。Hexo 使用 Markdown(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。">
-<meta name="keywords" content="GitHub,網頁架設,Hexo,靜態網頁">
+<meta name="keywords" content="網頁架設,Hexo,GitHub,靜態網頁">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo＋GitHub 網誌和部落格架設（一）">
 <meta property="og:url" content="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1/index.html">
@@ -240,17 +240,17 @@
 <!--/google_adsense-->
         <h2 id="Hexo-是什麼？"><a class="header-anchor" href="#Hexo-是什麼？"></a>Hexo 是什麼？</h2>
 
-<p>Hexo 是一個快速、簡單且強大的<strong>網誌框架</strong>。Hexo 使用 <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Markdown</a>(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。</p>
+<p>Hexo 是一個快速、簡單且強大的<strong>網誌框架</strong>。Hexo 使用 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvTWFya2Rvd24=">Markdown<i class="fa fa-external-link-alt"></i></span>(一種簡單語法的文本語言，能讓使用者輕鬆編寫，並轉換成 HTML 文件) 解析文章，可以讓使用者專注在文章撰寫。</p>
 
 <p>短時間內，透過漂亮的主題(套用他人主題，或是自己做主題)產生靜態檔案(只有前端，也可以架設網誌和部落格！)。</p>
 <p>Hexo 支援許多強大的外掛和擴充系統，例如：搜尋、留言板、Facebook 社群工具等。</p>
 <p>以 Node.js 為核心，需要預先編譯，才能丟到 GitHub 上 (也就是遠端伺服器或網站上)，但是優點是一旦網頁內容很大，會比 Jekyll 速度快 (Ruby 為核心，不需要先編譯)。</p>
-<p>台灣人製作的！！！官方網站都有支援繁體中文，快去看看吧 &gt;&gt; <a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo</a></p>
+<p>台灣人製作的！！！官方網站都有支援繁體中文，快去看看吧 &gt;&gt; <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLXR3Lw==">Hexo<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="前置作業"><a class="header-anchor" href="#前置作業"></a>前置作業</h2>
 <p>電腦要先安裝好</p>
 <ul>
-<li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (版本至少要 6.9)</li>
-<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> (不知道什麼是 Git 的人，請去 <a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1">Git 入門 (一)</a> )</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnLw==">Node.js<i class="fa fa-external-link-alt"></i></span> (版本至少要 6.9)</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8=">Git<i class="fa fa-external-link-alt"></i></span> (不知道什麼是 Git 的人，請去 <a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1">Git 入門 (一)</a> )</li>
 </ul>
 <p>可以用下面其中一行來檢查 Node.js 的版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ node --version</span><br></pre></td></tr></table></figure>
@@ -291,9 +291,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/GitHub/" rel="tag"># GitHub</a>
               <a href="/tags/網頁架設/" rel="tag"># 網頁架設</a>
               <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/GitHub/" rel="tag"># GitHub</a>
               <a href="/tags/靜態網頁/" rel="tag"># 靜態網頁</a>
           </div>
 
@@ -389,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -415,7 +415,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+          <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="https://github.com/jenifers001d">GitHub</span>
         </li>
     </ul>
   </div>
@@ -445,7 +445,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Jenifer</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span>
   </div>
 
         

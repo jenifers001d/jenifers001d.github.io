@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="這篇主要是紀錄初學者會學習到的基本語法、程式內容和一些我自己的理解(有誤再請糾正)。 當初，我在自學 C# 的時候，就是從以下 freeCodeCamp 和小山的C#教學在 YouTube 上提供的影片學習的。 主要內容關於 變數、判斷式、迴圈、一維陣列、多維陣列、物件導向基礎、Class(建構子、this、getter/setter)、實質型別(Value Type)、參考型別(Referenc">
@@ -252,19 +252,19 @@
 <p>主要內容關於 <code>變數</code>、<code>判斷式</code>、<code>迴圈</code>、<code>一維陣列</code>、<code>多維陣列</code>、<code>物件導向基礎</code>、<code>Class(建構子、this、getter/setter)</code>、<code>實質型別(Value Type)</code>、<code>參考型別(Reference Type)</code>、<code>封裝</code>、<code>繼承</code>、<code>Class(override、Base)</code>、<code>Abstract Class &amp; Method</code>、<code>File/Stream</code>。</p>
 
 <h2 id="背景"><a class="header-anchor" href="#背景"></a>背景</h2>
-<p>C# 是微軟推出的一種基於 <a href="https://zh.wikipedia.org/wiki/.NET%E6%A1%86%E6%9E%B6" target="_blank" rel="noopener">.NET Framework</a>(.NET框架) 的進階程式語言，有 <code>物件導向(Object Oriented Programming)</code> 的特性。</p>
+<p>C# 是微軟推出的一種基於 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvLk5FVCVFNiVBMSU4NiVFNiU5RSVCNg==">.NET Framework<i class="fa fa-external-link-alt"></i></span>(.NET框架) 的進階程式語言，有 <code>物件導向(Object Oriented Programming)</code> 的特性。</p>
 <p>C# 以 <code>.NET Framework類別庫</code> (一堆預先寫好的工具，可以直接拿來使用，不稱 <code>函式庫</code> 是因為 C# 是完全物件導向的語言) 作為基礎，擁有類似 Visual Basic 的快速開發能力。微軟在 2000 年發布了這種語言，希望向 Java 靠攏，也因此語法與其類似。C#的發音為「C sharp」，藉助這樣的命名，表示 C# 在一些語言特性方面對 C++ 的提升的意思。</p>
 <p>註：物件導向、<code>Object Oriented Programming(OO/OOP)</code>，簡單的概念是每個物體 (object) 都有其類別 (class)，期望可以對應到現實世界中的事物。例如：來福的類別是西施犬，發財的類別是台灣土狗，而西施犬和台灣土狗的類別都是狗。</p>
 <h2 id="程式的執行方法"><a class="header-anchor" href="#程式的執行方法"></a>程式的執行方法</h2>
 <h3 id="編譯時-Compile-time：C-code-中間語言-IL"><a class="header-anchor" href="#編譯時-Compile-time：C-code-中間語言-IL"></a>編譯時 Compile time：C# code &gt;&gt; 中間語言 IL</h3>
-<p>C# 並不被編譯 (compile time) 成能夠直接在電腦上執行的二進位機器碼。與 Java 類似，它被編譯成為 <code>中間程式碼</code> 又稱 <code>中間語言</code>、<code>中繼語言</code>、<code>Microsoft Intermediate Language(IL)/(MSIL)</code>，然後通過 .NET Framework的虛擬機器 —— 被稱為<a href="https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E8%AA%9E%E8%A8%80%E9%81%8B%E8%A1%8C%E5%BA%AB" target="_blank" rel="noopener">通用語言運行庫</a>，又稱為 <code>通用語言執行層</code>、<code>通用語言運行平台</code>、<code>Common Language Runtime(CLR)</code> —— 將 <code>IL碼</code> 轉換為作業系統的原生碼 (Native code)，也就是二進位機器碼。</p>
+<p>C# 並不被編譯 (compile time) 成能夠直接在電腦上執行的二進位機器碼。與 Java 類似，它被編譯成為 <code>中間程式碼</code> 又稱 <code>中間語言</code>、<code>中繼語言</code>、<code>Microsoft Intermediate Language(IL)/(MSIL)</code>，然後通過 .NET Framework的虛擬機器 —— 被稱為<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JTgwJTlBJUU3JTk0JUE4JUU4JUFBJTlFJUU4JUE4JTgwJUU5JTgxJThCJUU4JUExJThDJUU1JUJBJUFC">通用語言運行庫<i class="fa fa-external-link-alt"></i></span>，又稱為 <code>通用語言執行層</code>、<code>通用語言運行平台</code>、<code>Common Language Runtime(CLR)</code> —— 將 <code>IL碼</code> 轉換為作業系統的原生碼 (Native code)，也就是二進位機器碼。</p>
 <p>所有的 .Net 程式語言都被編譯成這種被稱為通用中間語言的 <code>IL碼</code>。因此雖然最終的程式在表面上仍然與傳統意義上的可執行檔都具有「.exe」的字尾名。但是如果電腦上沒有安裝 .Net Framework，那麼這些程式會彈出對話方塊，要求用戶下載 .Net Framework。</p>
 <h3 id="執行時-Run-time：虛擬機器-CLR-載入類別庫-CLR-將-IL-翻譯成-Native-code-存在緩衝區"><a class="header-anchor" href="#執行時-Run-time：虛擬機器-CLR-載入類別庫-CLR-將-IL-翻譯成-Native-code-存在緩衝區"></a>執行時 Run time：虛擬機器 CLR 載入類別庫 &gt;&gt; CLR 將 IL 翻譯成 Native code &gt;&gt; 存在緩衝區</h3>
 <p>在程式執行時 (runtime)， .Net Framework的虛擬機器 CLR，會將預先定義好的類別庫，載入到記憶體中，再將中間程式碼翻譯成為二進位機器碼，從而使它得到正確的執行。最終的二進位程式碼被儲存在一個緩衝區 (Buffer) 中。</p>
 <p>一旦程式使用了相同的程式碼，那麼將會呼叫緩衝區中的版本。這樣如果一個 .Net程式第二次被執行，那麼這種翻譯不需要進行第二次，速度明顯加快。</p>
 <p>註1：IL 是介於高階程式語言和二進位機器碼中間，不直接被電腦執行。<br>
-註2：CLR 中有<a href="https://zh.wikipedia.org/wiki/%E5%8D%B3%E6%99%82%E7%B7%A8%E8%AD%AF" target="_blank" rel="noopener">即時編譯</a>這種編譯器，又稱 <code>Just-in-time compilation(JIT)</code>，屬於一邊執行一邊翻譯的動態編譯。</p>
-<p>參考資料：<a href="https://zh.wikipedia.org/wiki/C%E2%99%AF" target="_blank" rel="noopener">維基百科 - C#</a></p>
+註2：CLR 中有<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JThEJUIzJUU2JTk5JTgyJUU3JUI3JUE4JUU4JUFEJUFG">即時編譯<i class="fa fa-external-link-alt"></i></span>這種編譯器，又稱 <code>Just-in-time compilation(JIT)</code>，屬於一邊執行一邊翻譯的動態編譯。</p>
+<p>參考資料：<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQyVFMiU5OSVBRg==">維基百科 - C#<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="應用"><a class="header-anchor" href="#應用"></a>應用</h2>
 <p>C# 可以吃嗎？</p>
 <p>他的強大之處在於，.Net Framework 已经是 Windows 的一部分了，因此在開發 <code>Win桌面應用程式</code> 效率較高，此外還有 <code>網站</code>，<code>後端API</code>，<code>遊戲(Unity等框架)</code>、<code>Android</code>，<code>iOS</code> 等，可以在下圖中紅框處看到。</p>
@@ -273,10 +273,10 @@
 <p>因應不同的開發，在進入開發環境前，記得<strong>選對開發模式</strong>。</p>
 <p>此外，因為是微軟開發的語言，在Mac版中還有許多功能並沒有完全支援。</p>
 <p>此篇主要是關於 <span style="color: #ff0000">Console</span> 形式 (一種特殊的 <code>終端機</code>、<code>命令提示字元</code> ) 的學習筆記。不會出現 <code>Windows Forms App (Win桌面應用程式)</code>、<code>ASP.NET Web Application(網頁應用程式，有 Web Form、MVC 兩種)</code> 等的教學。</p>
-<p>想學 <a href="http://ASP.NET" target="_blank" rel="noopener">ASP.NET</a> Web Application &gt;&gt; <a href="https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/">掉入 ASP.NET MVC 馬里亞納海溝的第一天</a></p>
+<p>想學 <span class="exturl" data-url="aHR0cDovL0FTUC5ORVQ=">ASP.NET<i class="fa fa-external-link-alt"></i></span> Web Application &gt;&gt; <a href="https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/">掉入 ASP.NET MVC 馬里亞納海溝的第一天</a></p>
 <h2 id="整合開發環境-IDE"><a class="header-anchor" href="#整合開發環境-IDE"></a>整合開發環境 IDE</h2>
 <p><code>Integrated Development Environment</code>，簡稱 <code>IDE</code>，就是可以拿來寫程式的平台，寫完之後可以進行編譯執行的環境。</p>
-<p>下載位置：<a href="https://visualstudio.microsoft.com/zh-hant/vs/" target="_blank" rel="noopener">Visual Studio</a>，Windows 系統請選擇 Windows 版本，Mac 系統請選擇 Mac 版本。</p>
+<p>下載位置：<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxzdHVkaW8ubWljcm9zb2Z0LmNvbS96aC1oYW50L3ZzLw==">Visual Studio<i class="fa fa-external-link-alt"></i></span>，Windows 系統請選擇 Windows 版本，Mac 系統請選擇 Mac 版本。</p>
 <div class="danger">
 <p>請不要下載成 <strong>Visual Studio Code</strong>，那只是文字編輯器，可以在上面寫程式，但是不能進行編譯。</p>
 </div>
@@ -304,25 +304,25 @@
 <h3 id="freeCodeCamp-on-YouTube"><a class="header-anchor" href="#freeCodeCamp-on-YouTube"></a>freeCodeCamp on YouTube</h3>
 <div class="video-container"><iframe src="//www.youtube.com/embed/GhQdlIFylQ8" frameborder="0" allowfullscreen></iframe></div>
 <ul>
-<li><a href="/pw437Z0CRwqYl7nJbhtMhA">ch1 DrawingAShape</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=303s" target="_blank" rel="noopener">0:05:03</a>)</li>
-<li><a href="/EeOGqe_bR9CaHhHH-q75ZQ">ch2 Variables</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=1043s" target="_blank" rel="noopener">0:17:23</a>)</li>
-<li><a href="/Re1aUkTCSuGqfH5ywGbKAg">ch3 UserInput</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=3601s" target="_blank" rel="noopener">1:00:01</a>)</li>
-<li><a href="/7CXYuZVzRtWSIZuXLFz9Xg">ch4 Arrays</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=4875s" target="_blank" rel="noopener">1:21:15</a>)</li>
-<li><a href="/SpxzGAXMRzCc1CR03l6bmw">ch5 Methods</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=5389s" target="_blank" rel="noopener">1:29:49</a>)</li>
-<li><a href="/lkJERQxxQUKqngTB1T5jmA">ch6 guessingGame</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=9262s" target="_blank" rel="noopener">2:34:22</a>)</li>
-<li><a href="/rxP-XTgYQN28lG1_dRNvqw">ch7 Exponent</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=10725s" target="_blank" rel="noopener">2:58:45</a>)</li>
-<li><a href="/wjI0xxBaT9qUh6xkDO1P3w">ch8 2dArrays</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=11131s" target="_blank" rel="noopener">3:05:31</a>)</li>
-<li><a href="/ElDI2uvfQZuZHzbVMSiqIw">ch9 ExceptionHandle</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=11633s" target="_blank" rel="noopener">3:13:53</a>)</li>
-<li><a href="/oIHIp5i9Q92mDBr1dECBHg">ch10 ClassObject</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=12274s" target="_blank" rel="noopener">3:24:34</a>)</li>
-<li><a href="/YYJeJvKVQnynxceau5s2Zg">ch11 Constructors</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=13059s" target="_blank" rel="noopener">3:37:39</a>)</li>
-<li><a href="/o4bZFspkSLmgu5Qbc5Pmjw">ch12 GetterSetter</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=14100s" target="_blank" rel="noopener">3:54:60</a>)</li>
-<li><a href="/i0fMod5gTeW9kqe3S-phuw">ch13 StaticMethodAndClass</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=15285s" target="_blank" rel="noopener">4:14:45</a>)</li>
-<li><a href="/8zsCLZ6CQimOgoGrF-44ow">ch14 Inheritance</a> (<a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=15655s" target="_blank" rel="noopener">4:20:55</a>)</li>
+<li><a href="/pw437Z0CRwqYl7nJbhtMhA">ch1 DrawingAShape</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0zMDNz">0:05:03<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/EeOGqe_bR9CaHhHH-q75ZQ">ch2 Variables</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0xMDQzcw==">0:17:23<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/Re1aUkTCSuGqfH5ywGbKAg">ch3 UserInput</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0zNjAxcw==">1:00:01<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/7CXYuZVzRtWSIZuXLFz9Xg">ch4 Arrays</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD00ODc1cw==">1:21:15<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/SpxzGAXMRzCc1CR03l6bmw">ch5 Methods</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD01Mzg5cw==">1:29:49<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/lkJERQxxQUKqngTB1T5jmA">ch6 guessingGame</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD05MjYycw==">2:34:22<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/rxP-XTgYQN28lG1_dRNvqw">ch7 Exponent</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0xMDcyNXM=">2:58:45<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/wjI0xxBaT9qUh6xkDO1P3w">ch8 2dArrays</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0xMTEzMXM=">3:05:31<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/ElDI2uvfQZuZHzbVMSiqIw">ch9 ExceptionHandle</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0xMTYzM3M=">3:13:53<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/oIHIp5i9Q92mDBr1dECBHg">ch10 ClassObject</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0xMjI3NHM=">3:24:34<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/YYJeJvKVQnynxceau5s2Zg">ch11 Constructors</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0xMzA1OXM=">3:37:39<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/o4bZFspkSLmgu5Qbc5Pmjw">ch12 GetterSetter</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0xNDEwMHM=">3:54:60<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/i0fMod5gTeW9kqe3S-phuw">ch13 StaticMethodAndClass</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0xNTI4NXM=">4:14:45<i class="fa fa-external-link-alt"></i></span>)</li>
+<li><a href="/8zsCLZ6CQimOgoGrF-44ow">ch14 Inheritance</a> (<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HaFFkbElGeWxROCZhbXA7dD0xNTY1NXM=">4:20:55<i class="fa fa-external-link-alt"></i></span>)</li>
 </ul>
 <h3 id="小山的C-教學"><a class="header-anchor" href="#小山的C-教學"></a>小山的C#教學</h3>
 <div class="video-container"><iframe src="//www.youtube.com/embed/-KFOqH73XFk" frameborder="0" allowfullscreen></iframe></div>
 <p>小山老師的影片有時候滿好笑的，會讓大家覺得學程式也是有趣的一件事情。建議搭配小山的部落格，如下，文字版可以學到影片外的補充說明唷～<br>
-<a href="http://slmtsite.blogspot.com/2013/11/c.html" target="_blank" rel="noopener">SLMT’s Tutorial Blog</a></p>
+<span class="exturl" data-url="aHR0cDovL3NsbXRzaXRlLmJsb2dzcG90LmNvbS8yMDEzLzExL2MuaHRtbA==">SLMT’s Tutorial Blog<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -442,7 +442,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -468,7 +468,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+          <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="https://github.com/jenifers001d">GitHub</span>
         </li>
     </ul>
   </div>
@@ -498,7 +498,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Jenifer</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span>
   </div>
 
         

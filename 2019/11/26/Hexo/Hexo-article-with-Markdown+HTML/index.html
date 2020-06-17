@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="使用者以 Markdown 語法撰寫 Hexo 文章，但是遇到不支援或預期外的情境該怎麼辦？">
@@ -253,14 +253,14 @@
 <p></p>
 <p>這邊提供幾個選擇顏色的實用網站：</p>
 <ul>
-<li><a href="https://www.ifreesite.com/color/" target="_blank" rel="noopener">網頁色碼表及色碼轉換工具</a></li>
-<li><a href="https://color.adobe.com/zh/create" target="_blank" rel="noopener">Adobe Color</a>：可以幫你配出漂亮的五種色彩。</li>
-<li><a href="https://coolors.co/" target="_blank" rel="noopener">coolors</a>：預先配好的色彩主題。</li>
-<li><a href="https://javier.xyz/cohesive-colors/" target="_blank" rel="noopener">Cohesive Colors</a>：幫助協調配色。</li>
-<li><a href="https://htmlcolorcodes.com/resources/best-color-palette-generators/" target="_blank" rel="noopener">更多</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuaWZyZWVzaXRlLmNvbS9jb2xvci8=">網頁色碼表及色碼轉換工具<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jb2xvci5hZG9iZS5jb20vemgvY3JlYXRl">Adobe Color<i class="fa fa-external-link-alt"></i></span>：可以幫你配出漂亮的五種色彩。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jb29sb3JzLmNvLw==">coolors<i class="fa fa-external-link-alt"></i></span>：預先配好的色彩主題。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9qYXZpZXIueHl6L2NvaGVzaXZlLWNvbG9ycy8=">Cohesive Colors<i class="fa fa-external-link-alt"></i></span>：幫助協調配色。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9odG1sY29sb3Jjb2Rlcy5jb20vcmVzb3VyY2VzL2Jlc3QtY29sb3ItcGFsZXR0ZS1nZW5lcmF0b3JzLw==">更多<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <h2 id="移除超連結"><a class="header-anchor" href="#移除超連結"></a>移除超連結</h2>
-<p>想輸入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 文字段，又不想被編譯成超連結該怎麼辦？</p>
+<p>想輸入 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLw==">http://localhost:4000/<i class="fa fa-external-link-alt"></i></span> 文字段，又不想被編譯成超連結該怎麼辦？</p>
 <h3 id="方法一：行內程式碼"><a class="header-anchor" href="#方法一：行內程式碼"></a>方法一：行內程式碼</h3>
 <p>使用兩個 `(重音符 backquote) 包圍住網址。即會出現 <code>http://localhost:4000/</code>。</p>
 <h3 id="方法二：使用-HTML-和-JavaScript-語法"><a class="header-anchor" href="#方法二：使用-HTML-和-JavaScript-語法"></a>方法二：使用 HTML 和 JavaScript 語法</h3>
@@ -287,10 +287,10 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>http://localhost:4000/<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span>http://localhost:4000/<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span>&gt;</span>http://localhost:4000/<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>依序為：<br>
 <a href="#">http://localhost:4000/</a><br>
-<a href="javascript:void(0);" target="_blank" rel="noopener">http://localhost:4000/</a><br>
-<a href="javascript:;" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<span class="exturl" data-url="amF2YXNjcmlwdDp2b2lkKDApOw==">http://localhost:4000/<i class="fa fa-external-link-alt"></i></span><br>
+<span class="exturl" data-url="amF2YXNjcmlwdDo7">http://localhost:4000/<i class="fa fa-external-link-alt"></i></span></p>
 <p>參考網站：<br>
-<a href="https://segmentfault.com/q/1010000000339082" target="_blank" rel="noopener">&lt;a href=“javascript:void(0)”&gt; 这样写为什么不好?</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL3EvMTAxMDAwMDAwMDMzOTA4Mg==">&lt;a href=“javascript:void(0)”&gt; 这样写为什么不好?<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="文章中的-標籤符號"><a class="header-anchor" href="#文章中的-標籤符號"></a>文章中的 &lt;&gt; 標籤符號</h2>
 <p>如上面的「&lt;a href=“javascript:void(0)”&gt; 这样写为什么不好?」，可以藉由在 <code>&gt;</code> 符號前增加 <code>\</code> 反斜線達成。如：<code>&lt;a href=&quot;javascript:void(0)&quot;\&gt; 这样写为什么不好?</code></p>
 <p>否則只會出現「这样写为什么不好?」</p>
@@ -443,7 +443,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -469,7 +469,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+          <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="https://github.com/jenifers001d">GitHub</span>
         </li>
     </ul>
   </div>
@@ -499,7 +499,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Jenifer</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span>
   </div>
 
         

@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="也就是使用其他 .py 檔案中，預先定義好的變數和函式。使用模組的好處就是，別人寫過或自己定義過的變數和函式可以直接拿來使用。 Python 有一些內建好的模組，可以直接拿來使用，如：與作業系統相關的 os、與命令行相關的 sys、與數學相關的 math、random、statistics 等，可以參考 Python 標準函式庫概覽。也有其他人寫好的模組，可以從網路上下載來使用。也可以自己定義模組">
@@ -238,7 +238,7 @@
 <!--/google_adsense-->
         
 <p>也就是使用其他 <code>.py</code> 檔案中，預先定義好的變數和函式。使用<strong>模組的好處</strong>就是，別人寫過或自己定義過的變數和函式可以<span style="color: #ff0000;">直接拿來使用</span>。</p>
-<p>Python 有一些內建好的模組，可以直接拿來使用，如：與作業系統相關的 <code>os</code>、與命令行相關的 <code>sys</code>、與數學相關的 <code>math</code>、<code>random</code>、<code>statistics</code> 等，可以參考 <a href="https://docs.python.org/zh-tw/3/tutorial/stdlib.html" target="_blank" rel="noopener">Python 標準函式庫概覽</a>。也有其他人寫好的模組，可以從網路上下載來使用。也可以自己定義模組。</p>
+<p>Python 有一些內建好的模組，可以直接拿來使用，如：與作業系統相關的 <code>os</code>、與命令行相關的 <code>sys</code>、與數學相關的 <code>math</code>、<code>random</code>、<code>statistics</code> 等，可以參考 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvemgtdHcvMy90dXRvcmlhbC9zdGRsaWIuaHRtbA==">Python 標準函式庫概覽<i class="fa fa-external-link-alt"></i></span>。也有其他人寫好的模組，可以從網路上下載來使用。也可以自己定義模組。</p>
 
 <h2 id="模組的引入和使用"><a class="header-anchor" href="#模組的引入和使用"></a>模組的引入和使用</h2>
 <h3 id="「全部」的變數和函式"><a class="header-anchor" href="#「全部」的變數和函式"></a>「全部」的變數和函式</h3>
@@ -270,7 +270,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">print(os.getcwd()) <span class="comment"># Return the current working directory</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 輸出結果：</span></span><br><span class="line"><span class="comment"># /Users/zhengzhurong/Desktop/Python_beginning</span></span><br></pre></td></tr></table></figure>
 <p>也可以寫成如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> getcwd</span><br><span class="line">print(getcwd())</span><br></pre></td></tr></table></figure>
-<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/os.html#module-os" target="_blank" rel="noopener">Python 文件 os 模組</a></p>
+<p>更多請參考：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvemgtdHcvMy9saWJyYXJ5L29zLmh0bWwjbW9kdWxlLW9z">Python 文件 os 模組<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="與命令行相關的-sys-模組"><a class="header-anchor" href="#與命令行相關的-sys-模組"></a>與命令行相關的 <code>sys</code> 模組</h3>
 <ul>
 <li><a href="https://docs.python.org/zh-tw/3/library/sys.html#sys.prefix" target="_blank" rel="noopener"><code>prefix</code></a>：<strong>Python 安裝位置路徑的前綴</strong>。</li>
@@ -278,17 +278,17 @@
 <li><a href="https://docs.python.org/zh-tw/3/library/sys.html#sys.version" target="_blank" rel="noopener"><code>version</code></a>：<strong>Python 直譯器的版本號和其他訊息</strong>。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> prefix, path, version</span><br><span class="line"></span><br><span class="line">print(prefix)</span><br><span class="line">print(path)</span><br><span class="line">print(version)</span><br><span class="line"></span><br><span class="line"><span class="comment"># /Library/Frameworks/Python.framework/Versions/3.8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ['/Users/zhengzhurong/Desktop/Python_beginning', '/Library/Frameworks/</span></span><br><span class="line"><span class="comment"># Python.framework/Versions/3.8/lib/python38.zip', '/Library/Frameworks/</span></span><br><span class="line"><span class="comment"># Python.framework/Versions/3.8/lib/python3.8', '/Library/Frameworks/</span></span><br><span class="line"><span class="comment"># Python.framework/Versions/3.8/lib/python3.8/lib-dynload', '/Users/</span></span><br><span class="line"><span class="comment"># zhengzhurong/Library/Python/3.8/lib/python/site-packages', '/Library/</span></span><br><span class="line"><span class="comment"># Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages']</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.8.0 (v3.8.0:fa919fdf25, Oct 14 2019, 10:23:27) </span></span><br><span class="line"><span class="comment"># [Clang 6.0 (clang-600.0.57)]</span></span><br></pre></td></tr></table></figure>
-<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/sys.html#module-sys" target="_blank" rel="noopener">Python 文件 sys 模組</a></p>
+<p>更多請參考：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvemgtdHcvMy9saWJyYXJ5L3N5cy5odG1sI21vZHVsZS1zeXM=">Python 文件 sys 模組<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="與基本運算相關的-math-模組"><a class="header-anchor" href="#與基本運算相關的-math-模組"></a>與基本運算相關的 <code>math</code> 模組</h3>
 <ul>
 <li><code>fabs(a)</code>：取<strong>絕對值</strong>。</li>
 <li><code>log10(a)</code>：以 10 為底取<strong>對數</strong>。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> fabs, log10</span><br><span class="line"></span><br><span class="line">print(fabs(<span class="number">-5.5</span>))</span><br><span class="line">print(log10(<span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5.5</span></span><br><span class="line"><span class="comment"># 3.0</span></span><br></pre></td></tr></table></figure>
-<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/math.html#module-math" target="_blank" rel="noopener">Python 文件 math 模組</a></p>
+<p>更多請參考：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvemgtdHcvMy9saWJyYXJ5L21hdGguaHRtbCNtb2R1bGUtbWF0aA==">Python 文件 math 模組<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="與隨機選擇相關的-random-模組"><a class="header-anchor" href="#與隨機選擇相關的-random-模組"></a>與隨機選擇相關的 <code>random</code> 模組</h3>
 <ul>
-<li><code>choice(seq)</code>：從 sequence 資料中，<strong>隨機選取一個元素</strong>。<a href="https://docs.python.org/zh-tw/3/glossary.html#term-sequence" target="_blank" rel="noopener">sequence</a> 是可以疊代的資料類型，有<strong>字串</strong>、<strong>List</strong>、<strong>Tuple</strong> 等。</li>
+<li><code>choice(seq)</code>：從 sequence 資料中，<strong>隨機選取一個元素</strong>。<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvemgtdHcvMy9nbG9zc2FyeS5odG1sI3Rlcm0tc2VxdWVuY2U=">sequence<i class="fa fa-external-link-alt"></i></span> 是可以疊代的資料類型，有<strong>字串</strong>、<strong>List</strong>、<strong>Tuple</strong> 等。</li>
 <li><code>sample(seq, n)</code>：從 sequence 資料中，<strong>隨機選取 n 個元素</strong>。回傳 List 資料。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice, sample</span><br><span class="line"></span><br><span class="line">data = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">33</span>)</span><br><span class="line">print(choice(data))</span><br><span class="line">print(sample(data, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7</span></span><br><span class="line"><span class="comment"># [4, 2]</span></span><br></pre></td></tr></table></figure>
@@ -306,7 +306,7 @@
 <li><code>randrange(a, b[, step])</code>：<strong>隨機取得介在 a 和 b(不包含) 之間的整數 N</strong>。可以指定<strong>數字間隔</strong>。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint, randrange</span><br><span class="line"></span><br><span class="line">print(randint(<span class="number">1</span>, <span class="number">3</span>))</span><br><span class="line">print(randrange(<span class="number">1</span>, <span class="number">10</span>, <span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 7</span></span><br></pre></td></tr></table></figure>
-<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/random.html#module-random" target="_blank" rel="noopener">Python 文件 random 模組</a></p>
+<p>更多請參考：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvemgtdHcvMy9saWJyYXJ5L3JhbmRvbS5odG1sI21vZHVsZS1yYW5kb20=">Python 文件 random 模組<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="與統計相關的-statistics-模組"><a class="header-anchor" href="#與統計相關的-statistics-模組"></a>與統計相關的 <code>statistics</code> 模組</h3>
 <p>下列函式中，data 要是 sequence 或可疊代的資料。</p>
 <ul>
@@ -316,7 +316,7 @@
 <li><code>stdev(data)</code>：計算 data 的<strong>樣本標準差</strong>。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statistics <span class="keyword">import</span> mean, median, mode, stdev</span><br><span class="line"></span><br><span class="line">nums = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">13</span>, <span class="number">99</span>)</span><br><span class="line">print(mean(nums))</span><br><span class="line">print(median(nums))</span><br><span class="line">colors = [<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"blue"</span>, <span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"red"</span>, <span class="string">"red"</span>]</span><br><span class="line">print(mode(colors))</span><br><span class="line">print(stdev(nums))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 22.666666666666668</span></span><br><span class="line"><span class="comment"># 8.5</span></span><br><span class="line"><span class="comment"># red</span></span><br><span class="line"><span class="comment"># 37.59077901117063</span></span><br></pre></td></tr></table></figure>
-<p>更多請參考：<a href="https://docs.python.org/zh-tw/3/library/statistics.html#module-statistics" target="_blank" rel="noopener">Python 文件 statistics 模組</a></p>
+<p>更多請參考：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvemgtdHcvMy9saWJyYXJ5L3N0YXRpc3RpY3MuaHRtbCNtb2R1bGUtc3RhdGlzdGljcw==">Python 文件 statistics 模組<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="自定義模組"><a class="header-anchor" href="#自定義模組"></a>自定義模組</h2>
 <p>定義模組很簡單，就是直接<span style="color: #ff0000;">建立一個 <code>.py</code> 檔案，裡面放置自訂的<strong>變數</strong>或<strong>函式</strong></span>即可。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ../my_math.py</span></span><br><span class="line">grade = <span class="string">"A-"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">practice</span><span class="params">(thing=<span class="string">"arithmetic"</span>)</span>:</span></span><br><span class="line">    print(<span class="string">"Practice "</span>+thing)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">doExercises</span><span class="params">(topic=<span class="string">"Trigonometric functions"</span>)</span>:</span></span><br><span class="line">    print(<span class="string">"Do exercises on "</span>+topic)</span><br></pre></td></tr></table></figure>
@@ -344,9 +344,9 @@
 <p><code>pip</code> 是 Python 的<strong>模組 package</strong> 管理工具，提供了對模組 package 的<strong>查詢</strong>、<strong>下載</strong>、<strong>安裝</strong>和<strong>卸載</strong>的功能。</p>
 <p>如果你的 Python 是從官網上面下載，就包含了 <code>pip</code> 工具。如果尚未安裝 <code>pip</code> 工具，請參考下方。</p>
 <h3 id="安裝-pip"><a class="header-anchor" href="#安裝-pip"></a>安裝 pip</h3>
-<p>在 <a href="https://pypi.org/project/pip/" target="_blank" rel="noopener">pip 官網</a>中，可以看到<a href="https://pip.pypa.io/en/stable/installing/" target="_blank" rel="noopener">安裝的方法</a>。</p>
+<p>在 <span class="exturl" data-url="aHR0cHM6Ly9weXBpLm9yZy9wcm9qZWN0L3BpcC8=">pip 官網<i class="fa fa-external-link-alt"></i></span>中，可以看到<span class="exturl" data-url="aHR0cHM6Ly9waXAucHlwYS5pby9lbi9zdGFibGUvaW5zdGFsbGluZy8=">安裝的方法<i class="fa fa-external-link-alt"></i></span>。</p>
 <ol>
-<li>獲得安裝 pip 的檔案。可以使用終端機 <code>cd</code> 進入某個資料夾，用下方指令碼下載；或是去<a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="noopener">這裏</a>將整個頁面存在一個 <code>.py</code> 的檔案中。</li>
+<li>獲得安裝 pip 的檔案。可以使用終端機 <code>cd</code> 進入某個資料夾，用下方指令碼下載；或是去<span class="exturl" data-url="aHR0cHM6Ly9ib290c3RyYXAucHlwYS5pby9nZXQtcGlwLnB5">這裏<i class="fa fa-external-link-alt"></i></span>將整個頁面存在一個 <code>.py</code> 的檔案中。</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   <span class="comment"># 先下載安裝 pip 的檔案</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -364,7 +364,7 @@
 <p>有了 <code>pip</code> 工具後，使用它安裝他人建置的模組。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install 模組名</span><br></pre></td></tr></table></figure>
 <p>參考資料：<br>
-<a href="https://www.youtube.com/watch?v=Et0DjY2cGiE" target="_blank" rel="noopener">彭彭的課程：Python Module 模組的載入與使用</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1FdDBEalkyY0dpRQ==">彭彭的課程：Python Module 模組的載入與使用<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -482,7 +482,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -508,7 +508,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+          <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="https://github.com/jenifers001d">GitHub</span>
         </li>
     </ul>
   </div>
@@ -538,7 +538,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Jenifer</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span>
   </div>
 
         

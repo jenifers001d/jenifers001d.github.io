@@ -18,11 +18,11 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":true,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Git 是分散式的程式碼版本控制軟體，Git 本身關心檔案的整體性是否有改變，但多數的版本控制系統如 CVS 或 Subversion 系統則在乎檔案內容的差異。">
-<meta name="keywords" content="Git,GitHub">
+<meta name="keywords" content="GitHub,Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 入門 (一)：介紹和基本指令">
 <meta property="og:url" content="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1/index.html">
@@ -243,7 +243,7 @@
 
 <!--/google_adsense-->
         <h2 id="致謝"><a class="header-anchor" href="#致謝"></a>致謝</h2>
-<p>最初一開始是想要把<strong>高見龍</strong>先生的「<a href="https://gitbook.tw/" target="_blank" rel="noopener">為你自己學 Git</a>」讀完幫自己寫個筆記，還沒認真讀完前，就剛好搭上六角學院創辦人<strong>洧杰老師</strong>的【<a href="https://w3c.hexschool.com/git/cfdbd310" target="_blank" rel="noopener">Git 特訓班</a>】課程，才能在我無預期的時間內，快速認真地完成此筆記 (原本以為要半年後XD)。</p>
+<p>最初一開始是想要把<strong>高見龍</strong>先生的「<span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3Lw==">為你自己學 Git<i class="fa fa-external-link-alt"></i></span>」讀完幫自己寫個筆記，還沒認真讀完前，就剛好搭上六角學院創辦人<strong>洧杰老師</strong>的【<span class="exturl" data-url="aHR0cHM6Ly93M2MuaGV4c2Nob29sLmNvbS9naXQvY2ZkYmQzMTA=">Git 特訓班<i class="fa fa-external-link-alt"></i></span>】課程，才能在我無預期的時間內，快速認真地完成此筆記 (原本以為要半年後XD)。</p>
 <h2 id="Git-能吃嗎？"><a class="header-anchor" href="#Git-能吃嗎？"></a>Git 能吃嗎？</h2>
 
 <p>Git 是分散式的程式碼<strong>版本控制軟體</strong>，Git 本身關心檔案的整體性是否有改變，但多數的版本控制系統如 CVS 或 Subversion 系統則在乎檔案內容的差異。</p>
@@ -252,10 +252,10 @@
 <p>因此可以看出和前一份檔案的差異，如下圖。</p>
 <p><img src="https://i.imgur.com/m1EZFKz.jpg" alt></p>
 <h2 id="Git-軟體安裝和使用方法"><a class="header-anchor" href="#Git-軟體安裝和使用方法"></a>Git 軟體安裝和使用方法</h2>
-<p><a href="https://git-scm.com" target="_blank" rel="noopener">Git 軟體安裝</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbQ==">Git 軟體安裝<i class="fa fa-external-link-alt"></i></span></p>
 <ul>
 <li>指令</li>
-<li>GUI介面：<a href="https://www.sourcetreeapp.com" target="_blank" rel="noopener">SourceTree(較多人使用)</a>、<a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a></li>
+<li>GUI介面：<span class="exturl" data-url="aHR0cHM6Ly93d3cuc291cmNldHJlZWFwcC5jb20=">SourceTree(較多人使用)<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9kZXNrdG9wLmdpdGh1Yi5jb20v">GitHub Desktop<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <h2 id="終端機指令"><a class="header-anchor" href="#終端機指令"></a>終端機指令</h2>
 <p><img src="https://i.imgur.com/KxS6vhg.jpg" alt></p>
@@ -282,13 +282,13 @@
 <p>git push <remote name> &lt;遠端分支名稱&gt;：上傳本地端分支修改內容到，標籤名為 origin 的遠端數據庫的 master 分支。</remote></p>
 </blockquote>
 <div class="danger">
-<p>如果只輸入 <code>git commit</code>，會進入 <a href="https://zh.wikipedia.org/wiki/Vi" target="_blank" rel="noopener">vi</a>。<br>
+<p>如果只輸入 <code>git commit</code>，會進入 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvVmk=">vi<i class="fa fa-external-link-alt"></i></span>。<br>
 如果不在純文字編輯模式 (insert mode)，可以輸入 <code>i, I, o, O, a, A, r, R</code> 其中一個進入 insert mode。<br>
 按下 esc 退出鍵，「編輯模式」會更改為「一般指令模式」。<br>
 在一般指令模式輸入 <code>:</code> 跳到最底下一列， <code>wq</code> 存檔 (write) 並離開 (quit)。</p>
 </div>
 <p>參考資料：<br>
-<a href="http://linux.vbird.org/linux_basic/0310vi.php#vi" target="_blank" rel="noopener">鳥哥的 Linux 私房菜 - 9.2 vi 的使用</a></p>
+<span class="exturl" data-url="aHR0cDovL2xpbnV4LnZiaXJkLm9yZy9saW51eF9iYXNpYy8wMzEwdmkucGhwI3Zp">鳥哥的 Linux 私房菜 - 9.2 vi 的使用<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="常用環境設定"><a class="header-anchor" href="#常用環境設定"></a>常用環境設定</h2>
 <div class="warning">
 <p>指令碼前面的 <code>$</code> 不需要輸入<br>
@@ -300,8 +300,8 @@
 <p>設定 Git 指令縮寫：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.co checkout</span><br><span class="line">$ git config --global alias.br branch</span><br><span class="line">$ git config --global alias.st status</span><br><span class="line">$ git config --global alias.ci commit</span><br></pre></td></tr></table></figure>
 <p>參考資料：<br>
-<a href="https://hexschool.tw/n1C7O" target="_blank" rel="noopener">六角學院 -「Git &amp; GitHub 入門」線上講義</a><br>
-<a href="https://hexschool.tw/PDcLZ" target="_blank" rel="noopener">六角學院 -「Git 遠端  Repository 操作」線上講義</a></p>
+<span class="exturl" data-url="aHR0cHM6Ly9oZXhzY2hvb2wudHcvbjFDN08=">六角學院 -「Git &amp; GitHub 入門」線上講義<i class="fa fa-external-link-alt"></i></span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9oZXhzY2hvb2wudHcvUERjTFo=">六角學院 -「Git 遠端  Repository 操作」線上講義<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="Git-入門-系列文"><a class="header-anchor" href="#Git-入門-系列文"></a>Git 入門 系列文</h2>
 <p><a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1/">Git 入門 (一)：介紹和基本指令</a> ← 你在這～<br>
 <a href="https://jenifers001d.github.io/2019/12/12/Git/Git-intro-2/">Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原</a><br>
@@ -327,8 +327,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Git/" rel="tag"># Git</a>
               <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+              <a href="/tags/Git/" rel="tag"># Git</a>
           </div>
 
         
@@ -423,7 +423,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -449,7 +449,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/jenifers001d" title="https://github.com/jenifers001d" rel="noopener" target="_blank">GitHub</a>
+          <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="https://github.com/jenifers001d">GitHub</span>
         </li>
     </ul>
   </div>
@@ -479,7 +479,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Jenifer</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span>
   </div>
 
         
