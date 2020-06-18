@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/myfavicon180.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon16.ico">
+  <link rel="mask-icon" href="/images/myfavicon512.png" color="#222">
+  <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="我們一般寫出來的程式碼又稱做原始碼，屬於高階式 (類人類) 語言，這種語言電腦是看不懂的，電腦只懂 0 和 1，因此需要經過中間用來翻譯的程式，將原始碼翻譯成機器碼。翻譯程式可以依照不同類型稱為編譯器或直譯器。">
+<meta name="keywords" content="Intermediate Code,JavaScript,JavaScript 核心概念,Intermediate JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="六角學院 JS 核心筆記 (一)【執行環境與作用域】- JavaScript 是如何運行的">
+<meta property="og:url" content="https://jenifers001d.github.io/2020/06/19/JavaScript/hexschool-JS-core-1/index.html">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="我們一般寫出來的程式碼又稱做原始碼，屬於高階式 (類人類) 語言，這種語言電腦是看不懂的，電腦只懂 0 和 1，因此需要經過中間用來翻譯的程式，將原始碼翻譯成機器碼。翻譯程式可以依照不同類型稱為編譯器或直譯器。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-18T17:40:18.794Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="六角學院 JS 核心筆記 (一)【執行環境與作用域】- JavaScript 是如何運行的">
+<meta name="twitter:description" content="我們一般寫出來的程式碼又稱做原始碼，屬於高階式 (類人類) 語言，這種語言電腦是看不懂的，電腦只懂 0 和 1，因此需要經過中間用來翻譯的程式，將原始碼翻譯成機器碼。翻譯程式可以依照不同類型稱為編譯器或直譯器。">
+
+<link rel="canonical" href="https://jenifers001d.github.io/2020/06/19/JavaScript/hexschool-JS-core-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'default'
+  };
+</script>
+
+  <title>六角學院 JS 核心筆記 (一)【執行環境與作用域】- JavaScript 是如何運行的 | Jenifer.Code.World</title>
+  
+
+
+
+
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: 'ca-pub-6866375976707228',
+          enable_page_level_ads: true
+     });
+</script>
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jenifer.Code.World</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/06/19/JavaScript/hexschool-JS-core-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          六角學院 JS 核心筆記 (一)【執行環境與作用域】- JavaScript 是如何運行的
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-06-19 03:37:03 / Modified: 03:40:18" itemprop="dateCreated datePublished" datetime="2020-06-19T03:37:03+10:00">2020-06-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      <!--google_adsense-->
+<!--文章開始廣告-->
+
+  <div class="myAD">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+<!--/google_adsense-->
+        <h2 id="程式的運作"><a class="header-anchor" href="#程式的運作"></a>程式的運作</h2>
+
+<p>我們一般寫出來的程式碼又稱做<strong>原始碼</strong>，屬於高階式 (類人類) 語言，這種語言電腦是看不懂的，電腦只懂 0 和 1，因此需要經過中間用來<strong>翻譯的程式</strong>，將原始碼翻譯成<strong>機器碼</strong>。翻譯程式可以依照不同類型稱為<strong>編譯器</strong>或<strong>直譯器</strong>。</p>
+
+<p>依照不同的翻譯類型，有以下三種分類，JavaScript 屬於<span style="color: #ff0000">直譯式語言</span>：</p>
+<h3 id="編譯式語言：C、C"><a class="header-anchor" href="#編譯式語言：C、C"></a>編譯式語言：C、C++</h3>
+<ul>
+<li>運作：原始碼 → 預先編譯(除錯) → 機器碼 → 電腦執行</li>
+<li>說明：執行期間，原始碼已經全部被編譯完，因此運行速度 (runtime) 較快，效率佳。錯誤會在執行前出現。</li>
+</ul>
+<h3 id="直譯式語言：JavaScript、Python"><a class="header-anchor" href="#直譯式語言：JavaScript、Python"></a>直譯式語言：JavaScript、Python</h3>
+<ul>
+<li>運作：原始碼 → 直譯器 → 機器碼 → 電腦執行</li>
+<li>說明：執行期，動態將程式碼逐句直譯（interpret）為機器碼。錯誤會在環境中產生。</li>
+</ul>
+<h3 id="即時編譯技術：Java、LLVM、C"><a class="header-anchor" href="#即時編譯技術：Java、LLVM、C"></a>即時編譯技術：Java、LLVM、C#</h3>
+<ul>
+<li>說明：混合了編譯語言與直譯語言的優點，它像編譯語言一樣，先把程式原始碼編譯成位元組碼。到執行期時，再將位元組碼直譯，之後執行。</li>
+</ul>
+<h2 id="直譯器轉換過程"><a class="header-anchor" href="#直譯器轉換過程"></a>直譯器轉換過程</h2>
+<p>完整的步驟是：<br>
+<span style="color: #ff0000">解構成 token → 抽象語法樹 AST (Abstract Syntax Tree) → 機器碼</span></p>
+<p>直譯器在一句一句閱讀程式碼時，會將其解構成一個一個<strong>符號</strong> (token，也就是 word 或 phrase)，這個過程稱作 tokenization。再將符號和其左右兩邊的符號相對照，依照符號之間的關係或語法產生相對應的<strong>語法結構樹</strong>。最後依照結構樹轉換成<strong>機器碼</strong>。</p>
+<p>課程中提供一個解構網站 <span class="exturl" data-url="aHR0cHM6Ly9lc3ByaW1hLm9yZy9kZW1vL3BhcnNlLmh0bWw=">Esprima<i class="fa fa-external-link-alt"></i></span> 讓大家了解何謂 token 和 AST。</p>
+<h3 id="舉例"><a class="header-anchor" href="#舉例"></a>舉例</h3>
+<p>以下的例子，一個是<strong>宣告並且賦予初始值</strong>，一個是<strong>賦予變數值</strong>。但是 type 卻是完全不一樣的：VariableDeclaration、ExpressionStatement。</p>
+<h4 id="語法-Syntax"><a class="header-anchor" href="#語法-Syntax"></a>語法 Syntax</h4>
+<p><code>var answer = 6 * 7;</code> 的語法解說：</p>
+<ul>
+<li>VariableDeclaration：變數宣告
+<ul>
+<li>declarations：宣告
+<ul>
+<li>id - Identifier：識別符</li>
+<li>init：初始化，有運算符號 (operator <code>*</code>) ，和運算符號的左邊 (6) 和右邊 (7)。</li>
+</ul>
+</li>
+<li>kind：宣告種類 (var)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Syntax  (var answer = 6 * 7;)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;type&quot;: &quot;Program&quot;,</span><br><span class="line">    &quot;body&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;VariableDeclaration&quot;,</span><br><span class="line">            &quot;declarations&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;type&quot;: &quot;VariableDeclarator&quot;,</span><br><span class="line">                    &quot;id&quot;: &#123;</span><br><span class="line">                        &quot;type&quot;: &quot;Identifier&quot;,</span><br><span class="line">                        &quot;name&quot;: &quot;answer&quot;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;init&quot;: &#123;</span><br><span class="line">                        &quot;type&quot;: &quot;BinaryExpression&quot;,</span><br><span class="line">                        &quot;operator&quot;: &quot;*&quot;,</span><br><span class="line">                        &quot;left&quot;: &#123;</span><br><span class="line">                            &quot;type&quot;: &quot;Literal&quot;,</span><br><span class="line">                            &quot;value&quot;: 6,</span><br><span class="line">                            &quot;raw&quot;: &quot;6&quot;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        &quot;right&quot;: &#123;</span><br><span class="line">                            &quot;type&quot;: &quot;Literal&quot;,</span><br><span class="line">                            &quot;value&quot;: 7,</span><br><span class="line">                            &quot;raw&quot;: &quot;7&quot;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;kind&quot;: &quot;var&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;sourceType&quot;: &quot;script&quot;</span><br></pre></td></tr></table></figure>
+<p><code>answer = &quot;2&quot; * 7;</code> 的語法解說：</p>
+<ul>
+<li>ExpressionStatement：表達式敘述
+<ul>
+<li>expression：表達式
+<ul>
+<li>operator：運算符號 <code>=</code></li>
+<li>left：左邊，是 Identifier</li>
+<li>right：右邊，另一個表達式，一樣有 operator、left 和 right</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Syntax  (answer = &quot;2&quot; * 7;)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;type&quot;: &quot;Program&quot;,</span><br><span class="line">    &quot;body&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;ExpressionStatement&quot;,</span><br><span class="line">            &quot;expression&quot;: &#123;</span><br><span class="line">                &quot;type&quot;: &quot;AssignmentExpression&quot;,</span><br><span class="line">                &quot;operator&quot;: &quot;=&quot;,</span><br><span class="line">                &quot;left&quot;: &#123;</span><br><span class="line">                    &quot;type&quot;: &quot;Identifier&quot;,</span><br><span class="line">                    &quot;name&quot;: &quot;answer&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;right&quot;: &#123;</span><br><span class="line">                    &quot;type&quot;: &quot;BinaryExpression&quot;,</span><br><span class="line">                    &quot;operator&quot;: &quot;*&quot;,</span><br><span class="line">                    &quot;left&quot;: &#123;</span><br><span class="line">                        &quot;type&quot;: &quot;Literal&quot;,</span><br><span class="line">                        &quot;value&quot;: &quot;2&quot;,</span><br><span class="line">                        &quot;raw&quot;: &quot;\&quot;2\&quot;&quot;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;right&quot;: &#123;</span><br><span class="line">                        &quot;type&quot;: &quot;Literal&quot;,</span><br><span class="line">                        &quot;value&quot;: 7,</span><br><span class="line">                        &quot;raw&quot;: &quot;7&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;sourceType&quot;: &quot;script&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="符號-Tokens"><a class="header-anchor" href="#符號-Tokens"></a>符號 Tokens</h4>
+<ul>
+<li>Keyword：關鍵字</li>
+<li>Identifier：識別符</li>
+<li>Punctuator：數學符號、結束符號</li>
+<li>String / Numeric：型別</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Tokens  (var answer = 6 * 7;)</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Keyword&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;var&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Identifier&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;answer&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Punctuator&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;=&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Numeric&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;6&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Punctuator&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;*&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Numeric&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;7&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Punctuator&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Tokens  (answer = &quot;2&quot; * 7;)</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Identifier&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;answer&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Punctuator&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;=&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;String&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;\&quot;2\&quot;&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Punctuator&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;*&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Numeric&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;7&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;type&quot;: &quot;Punctuator&quot;,</span><br><span class="line">        &quot;value&quot;: &quot;;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>參考資料：<br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGV4c2Nob29sLmNvbS9jb3Vyc2VzL2pzLWNvcmUuaHRtbA==">六角學院：JavaScript 核心篇 - 邁向達人之路<i class="fa fa-external-link-alt"></i></span></p>
+
+    </div>
+
+    
+    
+    <!--google_adsense-->
+<!--文章結尾廣告-->
+
+  <div class="myAD">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+<!--/google_adsense-->
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Intermediate-Code/" rel="tag"># Intermediate Code</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/JavaScript-核心概念/" rel="tag"># JavaScript 核心概念</a>
+              <a href="/tags/Intermediate-JS/" rel="tag"># Intermediate JS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/18/Hexo/Hexo-modify-favicon/" rel="prev" title="克難修改 Hexo 圖標 (favicon)">
+      <i class="fa fa-chevron-left"></i> 克難修改 Hexo 圖標 (favicon)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#程式的運作"><span class="nav-number">1.</span> <span class="nav-text">程式的運作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#編譯式語言：C、C"><span class="nav-number">1.1.</span> <span class="nav-text">編譯式語言：C、C++</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直譯式語言：JavaScript、Python"><span class="nav-number">1.2.</span> <span class="nav-text">直譯式語言：JavaScript、Python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#即時編譯技術：Java、LLVM、C"><span class="nav-number">1.3.</span> <span class="nav-text">即時編譯技術：Java、LLVM、C#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直譯器轉換過程"><span class="nav-number">2.</span> <span class="nav-text">直譯器轉換過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#舉例"><span class="nav-number">2.1.</span> <span class="nav-text">舉例</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="https://github.com/jenifers001d">GitHub</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jenifer</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jenifers001d.github.io/2020/06/19/JavaScript/hexschool-JS-core-1/";
+    this.page.identifier = "2020/06/19/JavaScript/hexschool-JS-core-1/";
+    this.page.title = "六角學院 JS 核心筆記 (一)【執行環境與作用域】- JavaScript 是如何運行的";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://disqus-comments.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
