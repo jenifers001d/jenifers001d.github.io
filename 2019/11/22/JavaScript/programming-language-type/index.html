@@ -30,7 +30,7 @@
 <meta property="og:description" content="討論程式語言的型別時，通常「靜態、動態語言」和「強、弱型別」會放在一起討論。而「静態、動態作用域」則是屬於另一類型。 這邊放在一起說明，讓大家理解是不一樣的概念。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://blogs.agilefaqs.com/wp-content/uploads/2009/09/strongweakstaticdynamic_type.png">
-<meta property="og:updated_time" content="2019-11-24T08:42:42.334Z">
+<meta property="og:updated_time" content="2020-06-24T01:49:47.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="靜態語言 &#x2F; 動態語言、強型別 &#x2F; 弱型別、静態作用域 &#x2F; 動態作用域">
 <meta name="twitter:description" content="討論程式語言的型別時，通常「靜態、動態語言」和「強、弱型別」會放在一起討論。而「静態、動態作用域」則是屬於另一類型。 這邊放在一起說明，讓大家理解是不一樣的概念。">
@@ -206,7 +206,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-24 18:42:42" itemprop="dateModified" datetime="2019-11-24T18:42:42+10:00">2019-11-24</time>
+                <time title="Modified: 2020-06-24 11:49:47" itemprop="dateModified" datetime="2020-06-24T11:49:47+10:00">2020-06-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,7 +288,7 @@
 <span class="exturl" data-url="aHR0cHM6Ly9ibG9ncy5hZ2lsZWZhcXMuY29tLzIwMTEvMDcvMTEvZHluYW1pYy10eXBpbmctaXMtbm90LXdlYWstdHlwaW5nLw==">Dynamic Typing is NOT Weak Typing<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="静態作用域-動態作用域-Static-vs-Dynamic-Scoping"><a class="header-anchor" href="#静態作用域-動態作用域-Static-vs-Dynamic-Scoping"></a>静態作用域 / 動態作用域 (Static vs. Dynamic Scoping)</h2>
 <p>作用域的類別則是在探討<strong>有相同的變數名稱時，該變數需要參照哪一個值</strong>，也就是變數和值之間的聯繫 (binding)。</p>
-<p>靜態作用域又叫做詞法作用域 (lexical scoping)，採用詞法作用域的變數叫詞法變數。編譯器或直譯器在讀取詞法變數的值時，會檢查包住該變數的函式被定義時的文字環境。開發者可以從程式碼中直接觀察到變數的作用域；不需要考慮「該函式是否被其他函式呼叫？」、「該變數是否需要參照其他函式中的同名變數？」等這類和 call stack 有關的問題。</p>
+<p>靜態作用域又叫做詞法作用域 (lexical scoping)，採用詞法作用域的變數叫詞法變數。編譯器或直譯器在讀取詞法變數的值時，會檢查包住該變數的函式被定義時的文字環境。也就是<span style="color: #ff0000">函式寫好時，作用域就被定義好了</span>，開發者可以從程式碼中直接觀察到變數的作用域；不需要考慮「該函式是否被其他函式呼叫？」、「該變數是否需要參照其他函式中的同名變數？」等這類和 call stack 有關的問題。</p>
 <blockquote>
 <p>In this scoping a variable always refers to its top level environment. This is a property of the program text and unrelated to the run time call stack.<br>
 Static scoping also makes it much easier to make a modular code as programmer can figure out the scope just by looking at the code. In contrast, dynamic scope requires the programmer to anticipate all possible dynamic contexts.</p>
@@ -416,7 +416,7 @@ Static scoping also makes it much easier to make a modular code as programmer ca
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -24,14 +24,14 @@
   <meta name="description" content="語法作用域 (Lexical scope) 的類別則是在探討有相同的變數名稱時，該變數需要參照哪一個值，也就是變數和值之間的聯繫 (binding)。">
 <meta name="keywords" content="Intermediate Code,JavaScript,JavaScript 核心概念,Intermediate JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical scope)">
+<meta property="og:title" content="六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical Scope)">
 <meta property="og:url" content="https://jenifers001d.github.io/2020/06/20/JavaScript/hexschool-JS-core-3/index.html">
 <meta property="og:site_name" content="Jenifer.Code.World">
 <meta property="og:description" content="語法作用域 (Lexical scope) 的類別則是在探討有相同的變數名稱時，該變數需要參照哪一個值，也就是變數和值之間的聯繫 (binding)。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-20T09:00:33.003Z">
+<meta property="og:updated_time" content="2020-06-25T07:05:02.877Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical scope)">
+<meta name="twitter:title" content="六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical Scope)">
 <meta name="twitter:description" content="語法作用域 (Lexical scope) 的類別則是在探討有相同的變數名稱時，該變數需要參照哪一個值，也就是變數和值之間的聯繫 (binding)。">
 
 <link rel="canonical" href="https://jenifers001d.github.io/2020/06/20/JavaScript/hexschool-JS-core-3/">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical scope) | Jenifer.Code.World</title>
+  <title>六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical Scope) | Jenifer.Code.World</title>
   
 
 
@@ -187,7 +187,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical scope)
+          六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical Scope)
         </h1>
 
         <div class="post-meta">
@@ -196,10 +196,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-06-20 18:47:21 / Modified: 19:00:33" itemprop="dateCreated datePublished" datetime="2020-06-20T18:47:21+10:00">2020-06-20</time>
+              <time title="Created: 2020-06-20 18:47:21" itemprop="dateCreated datePublished" datetime="2020-06-20T18:47:21+10:00">2020-06-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-25 17:05:02" itemprop="dateModified" datetime="2020-06-25T17:05:02+10:00">2020-06-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -237,7 +243,7 @@
 <p>語法作用域 (Lexical scope) 的類別則是在探討<strong>有相同的變數名稱時，該變數需要參照哪一個值</strong>，也就是變數和值之間的聯繫 (binding)。</p>
 
 <h2 id="静態作用域-Static-Scoping"><a class="header-anchor" href="#静態作用域-Static-Scoping"></a>静態作用域 (Static Scoping)</h2>
-<p>靜態作用域又叫做詞法作用域 (lexical scoping)，採用詞法作用域的變數叫詞法變數。編譯器或直譯器在讀取詞法變數的值時，會檢查包住該變數的函式被定義時的文字環境。開發者可以從程式碼中直接觀察到變數的作用域；不需要考慮「該函式是否被其他函式呼叫？」、「該變數是否需要參照其他函式中的同名變數？」等這類和 call stack 有關的問題。</p>
+<p>靜態作用域又叫做詞法作用域 (lexical scoping)，採用詞法作用域的變數叫詞法變數。編譯器或直譯器在讀取詞法變數的值時，會檢查包住該變數的函式被定義時的文字環境。也就是<span style="color: #ff0000">函式寫好時，作用域就被定義好了</span>，開發者可以從程式碼中直接觀察到變數的作用域；不需要考慮「該函式是否被其他函式呼叫？」、「該變數是否需要參照其他函式中的同名變數？」等這類和 call stack 有關的問題。</p>
 <blockquote>
 <p>In this scoping a variable always refers to its top level environment. This is a property of the program text and unrelated to the run time call stack.<br>
 Static scoping also makes it much easier to make a modular code as programmer can figure out the scope just by looking at the code. In contrast, dynamic scope requires the programmer to anticipate all possible dynamic contexts.</p>
@@ -250,7 +256,7 @@ Static scoping also makes it much easier to make a modular code as programmer ca
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt; </span></span></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">10</span>; <span class="comment">// 全域變數 x</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> x; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">h</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"這是 h 中的：%d\n"</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">g</span><span class="params">()</span> </span>&#123; <span class="comment">// g 和 x = 10 定義在同一層</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"這是 g 中的：%d\n"</span>, x);    </span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">20</span>; <span class="comment">// 宣告另一個同名變數，覆蓋「全域變數 x」</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"這是第二次 g 中的：%d\n"</span>, x);</span><br><span class="line">    </span><br><span class="line">    h(x);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> f(); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"這是 f 回傳的：%d\n"</span>, g()); <span class="comment">// 呼叫函式</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 這是 g 中的：10</span></span><br><span class="line"><span class="comment">// 這是第二次 g 中的：20</span></span><br><span class="line"><span class="comment">// 這是 h 中的：20</span></span><br><span class="line"><span class="comment">// 這是 f 回傳的：10</span></span><br></pre></td></tr></table></figure>
 <h3 id="以-JS-為例"><a class="header-anchor" href="#以-JS-為例"></a>以 JS 為例</h3>
-<p>執行第 11 行 <code>fn2()</code> 時，內部會執行 <code>fn1()</code>，因為並沒有傳值 (value) 進入 <code>fn1()</code>，而且 <code>fn1()</code> 內部也沒有宣告 value，因此當需要印出變數的內容時，第 4 行的 value 會<strong>直接向定義 <code>fn1()</code> 的上層環境或上層函式 (第 1 行) 查找</strong>。</p>
+<p>執行第 11 行 <code>fn2()</code> 時，內部會執行 <code>fn1()</code>，因為並沒有傳值 (value) 進入 <code>fn1()</code>，而且 <code>fn1()</code> 內部也沒有宣告 value，因此當需要印出變數的內容時，第 4 行的 value 會<strong>直接向定義 <code>fn1()</code> 的上層環境或上層函式查找</strong>，於是找到第 1 行 <code>var value = 10</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value); <span class="comment">// 輸出 10 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="number">20</span>;</span><br><span class="line">    fn1();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn2(); <span class="comment">// 呼叫函式</span></span><br></pre></td></tr></table></figure>
 <h2 id="動態作用域-Dynamic-Scoping"><a class="header-anchor" href="#動態作用域-Dynamic-Scoping"></a>動態作用域 (Dynamic Scoping)</h2>
 <p><strong>而動態作用域的語言則是當<span style="color: #ff0000">函式執行時</span>，參照被呼叫時<span style="color: #ff0000">最近</span>的變數，因此需要去考慮 call stack。</strong> 例如以下的 pseudo code，因為呼叫 <code>Fn1()</code> 時，離第 8 行最近的是第 7 行 <code>int value = 20</code>。</p>
@@ -378,7 +384,7 @@ Static scoping also makes it much easier to make a modular code as programmer ca
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -487,7 +493,7 @@ Static scoping also makes it much easier to make a modular code as programmer ca
   var disqus_config = function() {
     this.page.url = "https://jenifers001d.github.io/2020/06/20/JavaScript/hexschool-JS-core-3/";
     this.page.identifier = "2020/06/20/JavaScript/hexschool-JS-core-3/";
-    this.page.title = "六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical scope)";
+    this.page.title = "六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical Scope)";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
