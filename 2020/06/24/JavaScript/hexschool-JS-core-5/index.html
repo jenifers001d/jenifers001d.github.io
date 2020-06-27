@@ -30,7 +30,7 @@
 <meta property="og:description" content="當函式的本身沒有宣告該變數時，函式就會一層一層向外層 / 上層來做尋找，而這一連串就是範圍鍊。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/2yyTWDn.jpg">
-<meta property="og:updated_time" content="2020-06-25T10:51:46.129Z">
+<meta property="og:updated_time" content="2020-06-27T15:33:02.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="六角學院 JS 核心筆記 (五)【執行環境與作用域】- 範圍鍊 (Scope Chain)">
 <meta name="twitter:description" content="當函式的本身沒有宣告該變數時，函式就會一層一層向外層 / 上層來做尋找，而這一連串就是範圍鍊。">
@@ -206,7 +206,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-25 20:51:46" itemprop="dateModified" datetime="2020-06-25T20:51:46+10:00">2020-06-25</time>
+                <time title="Modified: 2020-06-28 01:33:02" itemprop="dateModified" datetime="2020-06-28T01:33:02+10:00">2020-06-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,7 +262,7 @@
 <p>人可以直接用眼睛觀察，但是程式不行。因此，程式在編譯時期會確定好<strong>語法作用域 (Lexical scope) 的範圍</strong>，並且產生一個叫做<strong>詞彙環境 (Lexical Environment)</strong> 的數據結構。</p>
 <ol>
 <li>編譯時期：會先存放好<strong>變數</strong>或是<strong>函式</strong>的<span style="color: #ff0000">名稱 (identifier) 和初始內容、變量 (variables or functions)</span>。內容可能是一般的值或是 reference 指向函式物件或陣列物件。</li>
-<li>執行期間：會依據<span style="color: #ff0000">是否重新指派</span>變數或函式的內容，來進行<span style="color: #ff0000">更新</span>。</li>
+<li>執行期間：會將初始數據複製一份，然後依據<span style="color: #ff0000">是否重新指派</span>變數或函式的內容，來進行<span style="color: #ff0000">更新</span>。</li>
 </ol>
 <blockquote>
 <p>According to ECMAScript specification 262 (8.1):</p>
@@ -324,7 +324,10 @@
     <a href="/2020/06/23/JavaScript/hexschool-JS-core-4/" rel="prev" title="六角學院 JS 核心筆記 (四)【執行環境與作用域】- 執行環境與執行堆疊">
       <i class="fa fa-chevron-left"></i> 六角學院 JS 核心筆記 (四)【執行環境與作用域】- 執行環境與執行堆疊
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/28/JavaScript/hexschool-JS-core-6/" rel="next" title="六角學院 JS 核心筆記 (六)【執行環境與作用域】- 提升 (Hoisting)">
+      六角學院 JS 核心筆記 (六)【執行環境與作用域】- 提升 (Hoisting) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -404,7 +407,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -417,7 +420,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
