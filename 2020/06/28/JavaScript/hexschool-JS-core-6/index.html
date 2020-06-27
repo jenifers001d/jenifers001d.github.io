@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Jenifer.Code.World">
 <meta property="og:description" content="提升 (Hoisting) 在 JavaScript 中，對於變數和函式的宣告和運行順序是很重要的觀念。但是在 ECMAScript 中其實沒有這個專有名詞，「提升」只是一個大家的共識、共同的說法，它的相關概念是寫在 Execution Contexts 中。其實我剛學 JavaScript 時，覺得它真的很奇怪，為什麼不要像其他程式一樣，好好在最前面宣告完就沒事了呢？(摔">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-27T15:59:21.873Z">
+<meta property="og:updated_time" content="2020-06-27T16:14:13.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="六角學院 JS 核心筆記 (六)【執行環境與作用域】- 提升 (Hoisting)">
 <meta name="twitter:description" content="提升 (Hoisting) 在 JavaScript 中，對於變數和函式的宣告和運行順序是很重要的觀念。但是在 ECMAScript 中其實沒有這個專有名詞，「提升」只是一個大家的共識、共同的說法，它的相關概念是寫在 Execution Contexts 中。其實我剛學 JavaScript 時，覺得它真的很奇怪，為什麼不要像其他程式一樣，好好在最前面宣告完就沒事了呢？(摔">
@@ -198,7 +198,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-06-28 01:33:13 / Modified: 01:59:21" itemprop="dateCreated datePublished" datetime="2020-06-28T01:33:13+10:00">2020-06-28</time>
+              <time title="Created: 2020-06-28 01:33:13 / Modified: 02:14:13" itemprop="dateCreated datePublished" datetime="2020-06-28T01:33:13+10:00">2020-06-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,7 +274,7 @@
 <p>可以拆解成：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 創造 / 編譯階段</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"寫在後面"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn1; <span class="comment">//因為前面有出現過 fn1 變數，因此不賦予 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 執行階段</span></span><br><span class="line">fn1(); <span class="comment">// 輸出結果：寫在後面</span></span><br><span class="line">fn1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello Jenifer"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>呼叫 <code>fn1()</code> 時，函式物件還沒有被新的內容覆蓋，因此輸出 <code>寫在後面</code>。</p>
-<p>如果想要了解基本的 Hoisting 觀念，到這裡就可以了。如果想理解背後運作的機制，可以前往：<a href="https://jenifers001d.github.io/2020/06/23/JavaScript/Hoisting-Scope-EC-LE/">深入了解：編譯時期的 Hoisting 和 Execution Context</a></p>
+<p>如果想要了解基本的 Hoisting 觀念，到這裡就可以了。如果想理解背後運作的機制，可以前往：<a href="https://jenifers001d.github.io/2020/06/28/JavaScript/Hoisting-Scope-EC-LE/">深入了解：Hoisting 和「執行環境、詞彙環境」的關係</a></p>
 <p>參考資料：<br>
 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaGV4c2Nob29sLmNvbS9jb3Vyc2VzL2pzLWNvcmUuaHRtbA==">六角學院：JavaScript 核心篇 - 邁向達人之路<i class="fa fa-external-link-alt"></i></span></p>
 
