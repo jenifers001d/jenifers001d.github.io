@@ -21,19 +21,20 @@
     var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
-<meta name="keywords" content="前端, 後端, 全端, 網頁, Front-End, Back-End, Full-Stack, JavaScript, HTML, CSS, 架設網站, IT, AI">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jenifer.Code.World">
-<meta property="og:url" content="https://jenifers001d.github.io/categories/MVC/index.html">
+  <meta name="description" content="前言 not defined 和 undefined 是 JavaScript 中很基礎卻也很重要的觀念。 not defined 當程式中該變數從來沒有被宣告過時，就會出現 Uncaught ReferenceError: 變數名稱 is not defined 錯誤。也就是當程式在執行階段進行 RHS 查找時，JavaScript 引擎在全部的詞彙環境 (Lexical Environment">
+<meta name="keywords" content="Intermediate Code,JavaScript,JavaScript 核心概念,Intermediate JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="六角學院 JS 核心筆記 (七)【執行環境與作用域】- Not Defined VS Undefined">
+<meta property="og:url" content="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-7/index.html">
 <meta property="og:site_name" content="Jenifer.Code.World">
-<meta property="og:description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+<meta property="og:description" content="前言 not defined 和 undefined 是 JavaScript 中很基礎卻也很重要的觀念。 not defined 當程式中該變數從來沒有被宣告過時，就會出現 Uncaught ReferenceError: 變數名稱 is not defined 錯誤。也就是當程式在執行階段進行 RHS 查找時，JavaScript 引擎在全部的詞彙環境 (Lexical Environment">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-28T10:58:33.803Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jenifer.Code.World">
-<meta name="twitter:description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+<meta name="twitter:title" content="六角學院 JS 核心筆記 (七)【執行環境與作用域】- Not Defined VS Undefined">
+<meta name="twitter:description" content="前言 not defined 和 undefined 是 JavaScript 中很基礎卻也很重要的觀念。 not defined 當程式中該變數從來沒有被宣告過時，就會出現 Uncaught ReferenceError: 變數名稱 is not defined 錯誤。也就是當程式在執行階段進行 RHS 查找時，JavaScript 引擎在全部的詞彙環境 (Lexical Environment">
 
-<link rel="canonical" href="https://jenifers001d.github.io/categories/MVC/">
+<link rel="canonical" href="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-7/">
 
 
 <script id="page-configurations">
@@ -41,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'default'
   };
 </script>
 
-  <title>Category: MVC | Jenifer.Code.World</title>
+  <title>六角學院 JS 核心筆記 (七)【執行環境與作用域】- Not Defined VS Undefined | Jenifer.Code.World</title>
   
 
 
@@ -166,97 +167,143 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">MVC
-          <small>Category</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-7/">
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          六角學院 JS 核心筆記 (七)【執行環境與作用域】- Not Defined VS Undefined
+        </h1>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-20T19:02:12+10:00"
-              content="2020-02-20">
-          02-20
-        </time>
-      </div>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/02/20/MVC/learning-ASP.NET-MVC-3/" itemprop="url">
-            <span itemprop="name">掉進 ASP.NET MVC 馬里亞納海溝的第三天：Controller 傳資料給 View</span>
-          </a>
-      </div>
+              <time title="Created: 2020-06-28 20:57:18 / Modified: 20:58:33" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:18+10:00">2020-06-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
 
-    </header>
-  </article>
+          
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+        </div>
+      </header>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-19T21:40:08+10:00"
-              content="2020-02-19">
-          02-19
-        </time>
-      </div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/02/19/MVC/learning-ASP.NET-MVC-2/" itemprop="url">
-            <span itemprop="name">掉進 ASP.NET MVC 馬里亞納海溝的第二天：URL 特性 + Controller 和 View 的關係</span>
-          </a>
-      </div>
+      <!--google_adsense-->
+<!--文章開始廣告-->
 
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-18T00:02:05+10:00"
-              content="2020-02-18">
-          02-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/02/18/MVC/learning-ASP.NET-MVC-1/" itemprop="url">
-            <span itemprop="name">掉進 ASP.NET MVC 馬里亞納海溝的第一天：Hello World~</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
+  <div class="myAD">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
-  
-  
-  
 
+<!--/google_adsense-->
+        <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+<p><code>not defined</code> 和 <code>undefined</code> 是 JavaScript 中很基礎卻也很重要的觀念。</p>
+<h2 id="not-defined"><a class="header-anchor" href="#not-defined"></a>not defined</h2>
+<p>當程式中該變數從來沒有被宣告過時，就會出現 <code>Uncaught ReferenceError: 變數名稱 is not defined</code> 錯誤。也就是當程式在執行階段進行 RHS 查找時，JavaScript 引擎在全部的<strong>詞彙環境 (Lexical Environment)</strong> 中都找不到該變數。</p>
+<h2 id="undefined"><a class="header-anchor" href="#undefined"></a>undefined</h2>
+<p>無論是當我自己宣告變數，但是<strong>還沒有賦予值時</strong>；或是程式將變數提升，讓程式進入執行階段前，就預先完成宣告，但是<strong>沒有賦予值時</strong>。<span style="color: #ff0000">程式都會自動賦予變數一個 <code>undefined</code> 的值。</span></p>
+<p><span style="color: #ff0000"><strong>注意</strong></span>：</p>
+<ol>
+<li>千萬不要自己賦予變數 <code>undefined</code>，因為我們無法得知這個 <code>undefined</code> 是程式自動賦予的，還是我們後來賦予的。<span style="color: #ff0000">如果想要賦予變數一個空值，應該要使用 <code>null</code>。</span></li>
+<li>也不要把它拿來當變數名稱使用。因為你會不知道出現的是變數名稱還是變數的值。</li>
+</ol>
+<p>寫程式時，千萬不要造成自己的麻煩。</p>
+<p>參考資料：<br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGV4c2Nob29sLmNvbS9jb3Vyc2VzL2pzLWNvcmUuaHRtbA==">六角學院：JavaScript 核心篇 - 邁向達人之路<i class="fa fa-external-link-alt"></i></span></p>
+
+    </div>
+
+    
+    
+    <!--google_adsense-->
+<!--文章結尾廣告-->
+
+  <div class="myAD">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6866375976707228" data-ad-slot="1016873827" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+<!--/google_adsense-->
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Intermediate-Code/" rel="tag"># Intermediate Code</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/JavaScript-核心概念/" rel="tag"># JavaScript 核心概念</a>
+              <a href="/tags/Intermediate-JS/" rel="tag"># Intermediate JS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/28/JavaScript/Hoisting-Scope-EC-LE/" rel="prev" title="深入了解：Hoisting 和「執行環境、詞彙環境」的關係">
+      <i class="fa fa-chevron-left"></i> 深入了解：Hoisting 和「執行環境、詞彙環境」的關係
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/28/JavaScript/hexschool-JS-core-8/" rel="next" title="六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放">
+      六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -303,6 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#not-defined"><span class="nav-number">2.</span> <span class="nav-text">not defined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">undefined</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -421,6 +469,26 @@
 
   
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-7/";
+    this.page.identifier = "2020/06/28/JavaScript/hexschool-JS-core-7/";
+    this.page.title = "六角學院 JS 核心筆記 (七)【執行環境與作用域】- Not Defined VS Undefined";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://disqus-comments.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
 
 </body>
 </html>

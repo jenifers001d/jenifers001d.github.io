@@ -21,22 +21,22 @@
     var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="設計一個實體商品或服務的簡易版本電商網站。主要注重於使用者可以瀏覽網站，了解商品的詳細訊息，並且選擇想要購買的產品，這個簡易版本的電商網站不支持使用者身份驗證 (登入或註冊) 或付款。">
-<meta name="keywords" content="Flask,Python,SQLite,網頁架設,Intermediate Code,Intermediate Python,Jinja2">
+  <meta name="description" content="前言 記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了回收機制 (Garbage Collection)，能讓軟體工程師的負擔稍微少了一點。 原理 當一個已經不再被使用的變數，也就是一個不再被使用的記憶體配置空間，需要被清除，並且將該記憶體空間釋放出來，重新回到可以被配置新變數的隊伍中。 但是要如何定義「一個記憶體配置空間不再被使用」呢？ 最一開始是簡化成「沒有其">
+<meta name="keywords" content="Intermediate Code,JavaScript,JavaScript 核心概念,Intermediate JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flask + SQLite 網頁快速開發 (二) - 網站設計">
-<meta property="og:url" content="https://jenifers001d.github.io/2020/06/18/Flask/Flask+SQLite-2/index.html">
+<meta property="og:title" content="六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放">
+<meta property="og:url" content="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-8/index.html">
 <meta property="og:site_name" content="Jenifer.Code.World">
-<meta property="og:description" content="設計一個實體商品或服務的簡易版本電商網站。主要注重於使用者可以瀏覽網站，了解商品的詳細訊息，並且選擇想要購買的產品，這個簡易版本的電商網站不支持使用者身份驗證 (登入或註冊) 或付款。">
+<meta property="og:description" content="前言 記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了回收機制 (Garbage Collection)，能讓軟體工程師的負擔稍微少了一點。 原理 當一個已經不再被使用的變數，也就是一個不再被使用的記憶體配置空間，需要被清除，並且將該記憶體空間釋放出來，重新回到可以被配置新變數的隊伍中。 但是要如何定義「一個記憶體配置空間不再被使用」呢？ 最一開始是簡化成「沒有其">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/jYmaann.jpg">
-<meta property="og:updated_time" content="2020-06-17T14:43:08.397Z">
+<meta property="og:image" content="https://i.imgur.com/emQk5gm.jpg">
+<meta property="og:updated_time" content="2020-06-28T10:59:46.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flask + SQLite 網頁快速開發 (二) - 網站設計">
-<meta name="twitter:description" content="設計一個實體商品或服務的簡易版本電商網站。主要注重於使用者可以瀏覽網站，了解商品的詳細訊息，並且選擇想要購買的產品，這個簡易版本的電商網站不支持使用者身份驗證 (登入或註冊) 或付款。">
-<meta name="twitter:image" content="https://i.imgur.com/jYmaann.jpg">
+<meta name="twitter:title" content="六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放">
+<meta name="twitter:description" content="前言 記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了回收機制 (Garbage Collection)，能讓軟體工程師的負擔稍微少了一點。 原理 當一個已經不再被使用的變數，也就是一個不再被使用的記憶體配置空間，需要被清除，並且將該記憶體空間釋放出來，重新回到可以被配置新變數的隊伍中。 但是要如何定義「一個記憶體配置空間不再被使用」呢？ 最一開始是簡化成「沒有其">
+<meta name="twitter:image" content="https://i.imgur.com/emQk5gm.jpg">
 
-<link rel="canonical" href="https://jenifers001d.github.io/2020/06/18/Flask/Flask+SQLite-2/">
+<link rel="canonical" href="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-8/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>Flask + SQLite 網頁快速開發 (二) - 網站設計 | Jenifer.Code.World</title>
+  <title>六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放 | Jenifer.Code.World</title>
   
 
 
@@ -176,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/06/18/Flask/Flask+SQLite-2/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -189,7 +189,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Flask + SQLite 網頁快速開發 (二) - 網站設計
+          六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放
         </h1>
 
         <div class="post-meta">
@@ -200,7 +200,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-06-18 00:41:44 / Modified: 00:43:08" itemprop="dateCreated datePublished" datetime="2020-06-18T00:41:44+10:00">2020-06-18</time>
+              <time title="Created: 2020-06-28 20:57:29 / Modified: 20:59:46" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:29+10:00">2020-06-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,7 +208,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
                 </span>
             </span>
 
@@ -234,118 +234,24 @@
   </div>
 
 <!--/google_adsense-->
-        <div class="info">
-<p>The series is my own notes derived from QUT IFN557 unit, Rapid Web Development.</p>
-</div>
-<h2 id="目標"><a class="header-anchor" href="#目標"></a>目標</h2>
-
-<p>設計一個實體商品或服務的簡易版本電商網站。主要注重於使用者可以瀏覽網站，了解商品的詳細訊息，並且選擇想要購買的產品，這個簡易版本的電商網站不支持使用者身份驗證 (登入或註冊) 或付款。</p>
-
-<h2 id="架站情境"><a class="header-anchor" href="#架站情境"></a>架站情境</h2>
-<p>Jenifer 是一個城市郊區傢俱店的老闆。由於該地區居民和旅客稀少，店裡業績不是很好。她想要有一個電商網站，能夠讓更多遙遠地區的客戶知道這間傢俱店的存在、並且宣傳自己的傢俱商品。</p>
-<h2 id="使用者故事-User-Story"><a class="header-anchor" href="#使用者故事-User-Story"></a>使用者故事 User Story</h2>
-<p>網站產生的過程中，有很多不同的參與人，對於產品會有不一樣的期待，因此設計網站的過程中，必須考慮產品的各種可能和限制。</p>
-<p>之後會依照訂定好的使用者故事，規劃<strong>資料結構</strong>和<strong>資料庫關聯性</strong>。</p>
-<h3 id="架構"><a class="header-anchor" href="#架構"></a>架構</h3>
-<h4 id="Story-故事"><a class="header-anchor" href="#Story-故事"></a>Story 故事</h4>
-<p>As a <code>&lt;role&gt;</code>, I want <code>&lt;goal&gt;</code>, so that <code>&lt;reason/benefit&gt;</code>.</p>
-<p>作為某個<span style="color: #ff0000">角色</span> (角色主要是<strong>使用者</strong>，也就是未來瀏覽該網站的人，但是也可以是<strong>網站擁有者</strong>、<strong>開發人員</strong>。)，我希望網站有怎麼樣的<span style="color: #ff0000">功能或目標</span>，如此一來，才能達成某個<span style="color: #ff0000">目的</span>或有怎麼樣的<span style="color: #ff0000">好處</span>。</p>
-<h4 id="Acceptance-Criteria-達成標準"><a class="header-anchor" href="#Acceptance-Criteria-達成標準"></a>Acceptance Criteria 達成標準</h4>
-<p>完成了<span style="color: #ff0000">哪些項目或功能</span>算是<strong>符合</strong>這個使用者故事。</p>
-<h3 id="舉例"><a class="header-anchor" href="#舉例"></a>舉例</h3>
-<p>這邊簡單舉兩個例子：</p>
-<h4 id="例子一"><a class="header-anchor" href="#例子一"></a>例子一</h4>
-<p>Story：<br>
-作為一個使用者，我想要看到所有的房間類型，因為我想要為我特定的房間選擇適合的傢俱。例如：為我的臥室添購一張現代風格的床。或是為我的餐廳添購一張漂亮的桌子。</p>
-<p>Acceptance Criteria：</p>
-<ol>
-<li>一眼就能看到所有房間類型，而且使用者可以馬上了解店家提供的傢俱可能放在哪個房型裡。</li>
-<li>漂亮的跟房型相關的照片，裡面有一些相關的傢俱。</li>
-</ol>
-<h4 id="例子二"><a class="header-anchor" href="#例子二"></a>例子二</h4>
-<p>Story：<br>
-作為一個使用者，我想要創造一個感興趣的傢俱清單 (購物車清單)，如此一來我可以全部購買。</p>
-<p>Acceptance Criteria:</p>
-<ol>
-<li>可以添加傢俱到清單中，也可以將清單中的傢俱刪除。</li>
-<li>清單中可以顯示傢俱的價格。</li>
-<li>顯示總金額。</li>
-</ol>
-<h2 id="UML-類別圖"><a class="header-anchor" href="#UML-類別圖"></a>UML - 類別圖</h2>
-<h3 id="UML"><a class="header-anchor" href="#UML"></a>UML</h3>
-<p><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUJCJTlGJUU0JUI4JTgwJUU1JUJCJUJBJUU2JUE4JUExJUU4JUFGJUFEJUU4JUE4JTgw">UML (Unified Modeling Language)<i class="fa fa-external-link-alt"></i></span> 是<strong>統一塑模語言</strong>，對軟體系統產生物件視覺化、具體說明、構建和編寫的圖像語言。這邊用到的是 UML 中的<strong>類別圖</strong>。</p>
-<h3 id="類別圖"><a class="header-anchor" href="#類別圖"></a>類別圖</h3>
-<p><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JUExJTlFJUU1JTg4JUE1JUU1JTlDJTk2">類別圖<i class="fa fa-external-link-alt"></i></span>是用來做物件的資料結構塑模用的，主要用來描述系統中<span style="color: #ff0000">類別的屬性、函式</span>和<span style="color: #ff0000">類別之間的關係</span>。關於類別圖這邊不多贅述，只會簡單介紹我的類別圖，如果要詳細了解，可以參考：<br>
-<span class="exturl" data-url="aHR0cHM6Ly9zcGljeWJveWQuYmxvZ3Nwb3QuY29tLzIwMTgvMDcvdW1sY2xhc3MtZGlhZ3JhbS1pbnRyb2R1Y3Rpb24uaHRtbA==">【UML】Class Diagram 類別圖 (上)：Introduction 簡介<i class="fa fa-external-link-alt"></i></span><br>
-<span class="exturl" data-url="aHR0cHM6Ly9zcGljeWJveWQuYmxvZ3Nwb3QuY29tLzIwMTgvMDcvdW1sY2xhc3MtZGlhZ3JhbS1yZWxhdGlvbnNoaXBzLmh0bWw=">【UML】Class Diagram 類別圖 (下)：Relationships 關係<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="我的類別圖設計"><a class="header-anchor" href="#我的類別圖設計"></a>我的類別圖設計</h3>
-<p>在沒有列出來的使用者故事中：</p>
-<ol>
-<li>
-<p>我希望不同的<strong>房間類型 (Room)</strong> 底下包含不同的<strong>傢俱類別 (Category)</strong>。例如：臥室會有床的類別。此外依照上述的使用者故事，我需要感興趣的<strong>傢俱清單 (購物車清單 Order)</strong>。當然我還需要<strong>傢俱 (Furniture)</strong>。因此我需要四個 class：<code>Order</code>、<code>Furniture</code>、<code>Category</code> 和 <code>Room</code>。<br>
-<img src="https://i.imgur.com/jYmaann.jpg" alt></p>
-</li>
-<li>
-<p>我希望使用者點選 Room 時可以顯示它所<span style="color: #ff0000">擁有</span>的<strong>傢俱類別 (Category)</strong> 或<strong>傢俱 (Furniture)</strong>。</p>
-<ul>
-<li>
-<p>Room 和 Category、Furniture 兩個類以 ◆ 相連。◆ 可以想成，如果沒有了子成員，父成員就沒有存在的意義。(另一個很類似的 ◇ 是：沒有了子成員，父成員也可以獨立存在。)</p>
-</li>
-<li>
-<p>線上方的數字表示，類別之間依存的關係。例如：Room 和 Category 之間的關係就是，一個房型<span style="color: #ff0000">至少要有一種或可以有多個 (1…*)</span> Category。但是一個 Category 只能屬於<span style="color: #ff0000">一個 (1)</span> 房型。</p>
-<table>
-<thead>
-<tr>
-<th>符號</th>
-<th>意義</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0…1</td>
-<td>零或一個</td>
-</tr>
-<tr>
-<td>1</td>
-<td>一個</td>
-</tr>
-<tr>
-<td>0…*</td>
-<td>零或多個</td>
-</tr>
-<tr>
-<td>1…*</td>
-<td>一或多個</td>
-</tr>
-<tr>
-<td>*</td>
-<td>多個</td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-</li>
-<li>
-<p>使用者點選 Category 時可以顯示它所<span style="color: #ff0000">擁有</span>的<strong>傢俱 (Furniture)</strong>。</p>
-<ul>
-<li>Category 和 Furniture 以 ◆ 相連。</li>
-<li>Category 中可以暫時沒有該所屬傢俱，因此一個 Category 可以有<span style="color: #ff0000">零或多個 (0…*)</span> Furniture。一個 Furniture 只能屬於<span style="color: #ff0000">一個 (1)</span> Category。</li>
-</ul>
-</li>
-<li>
-<p>Order 和 Furniture 之間的關係是多對多，也就是：</p>
-<ul>
-<li>一個 Order 可以有<span style="color: #ff0000">零或多個 (0…*)</span> Furniture。(使用者的願望清單中可能沒有東西，或是有多個商品。)</li>
-<li>一個 Furniture 可以有<span style="color: #ff0000">零或多個 (0…*)</span> Order。(一件傢俱可以沒有被包含在任何願望清單中，或是被包含在很多願望清單中。)</li>
-</ul>
-</li>
-</ol>
-<h2 id="靜態-View-視圖-HTML-CSS"><a class="header-anchor" href="#靜態-View-視圖-HTML-CSS"></a>靜態 View 視圖 (HTML + CSS)</h2>
-<p>依照我的使用者故事設計出來的簡易網站頁面如下：<br>
-<a href="https://jenifers001d.github.io/SuperFurniture-static-version/">Super Furniture</a></p>
-<p>詳細的檔案內容：<br>
-<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZC9TdXBlckZ1cm5pdHVyZS1zdGF0aWMtdmVyc2lvbg==">SuperFurniture-static-version<i class="fa fa-external-link-alt"></i></span></p>
+        <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+<p>記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了<strong>回收機制 (Garbage Collection)</strong>，能讓軟體工程師的負擔稍微少了一點。</p>
+<h2 id="原理"><a class="header-anchor" href="#原理"></a>原理</h2>
+<p>當一個已經不再被使用的<strong>變數</strong>，也就是一個不再被使用的<strong>記憶體配置空間</strong>，需要被清除，並且將該記憶體空間釋放出來，重新回到可以被配置新變數的隊伍中。</p>
+<p>但是要如何定義「一個記憶體配置空間不再被使用」呢？</p>
+<p>最一開始是簡化成「沒有其他任何物件參考 / 指向它」，因為沒有其他物件參考它，就表示無法取用它。但是這邊有一個例外：循環參考。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">  <span class="keyword">var</span> o2 = &#123;&#125;;</span><br><span class="line">  o.a = o2; <span class="comment">// o 參考 o2</span></span><br><span class="line">  o2.a = o; <span class="comment">// o2 參考 o</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">'azerty'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+<p>當我其他的程式碼不會運用到 <code>o</code> 或 <code>o2</code> 時，它們其實應該被清除，但是因為互相參考，因此不符合「沒有其他任何物件參考 / 指向它」這個定義。</p>
+<p>後來這個定義被修正成<span style="color: #ff0000">「這個物件不會被尋訪到、不可到達」</span>，一個物件不會被尋訪到，表示無法取用它，即使是循環參考，如果它們都無法被取用，則代表它們應該被清除且釋放記憶體空間。</p>
+<h2 id="回收機制"><a class="header-anchor" href="#回收機制"></a>回收機制</h2>
+<p>大部分的高階語言都有<strong>垃圾回收器 (Garbage Collector)</strong> 的機制，它就像是垃圾車一樣，會自動追蹤記憶體分配的使用情況，「盡力」去釋放那些不再使用的記憶體空間。</p>
+<h2 id="檢驗記憶體使用空間"><a class="header-anchor" href="#檢驗記憶體使用空間"></a>檢驗記憶體使用空間</h2>
+<p>Chrome 的開發者工具中，有一欄 <strong>Memory</strong>，點擊 <code>Take heap snapshot</code> 會顯示記憶體的使用和分佈，但是這個監測數據是有一點點延遲的狀態。</p>
+<p><img src="https://i.imgur.com/emQk5gm.jpg" alt></p>
+<p><span style="color: #ff0000"><strong>注意：Chrome console 中的行為也會需要記憶體。</strong></span>如果一個變數的詞法作用域是在 local scope 中，當函式執行完畢從 stack 中清除時，照理來說該變數佔用的記憶體空間也要被清除。但是如果我有用 <code>console.log(變數);</code> 該變數佔用的記憶體空間會仍然存在。</p>
+<p>參考資料：<br>
+<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtVFcvZG9jcy9XZWIvSmF2YVNjcmlwdC9NZW1vcnlfTWFuYWdlbWVudA==">記憶體管理<i class="fa fa-external-link-alt"></i></span><br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGV4c2Nob29sLmNvbS9jb3Vyc2VzL2pzLWNvcmUuaHRtbA==">六角學院：JavaScript 核心篇 - 邁向達人之路<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -366,13 +272,10 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Flask/" rel="tag"># Flask</a>
-              <a href="/tags/Python/" rel="tag"># Python</a>
-              <a href="/tags/SQLite/" rel="tag"># SQLite</a>
-              <a href="/tags/網頁架設/" rel="tag"># 網頁架設</a>
               <a href="/tags/Intermediate-Code/" rel="tag"># Intermediate Code</a>
-              <a href="/tags/Intermediate-Python/" rel="tag"># Intermediate Python</a>
-              <a href="/tags/Jinja2/" rel="tag"># Jinja2</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/JavaScript-核心概念/" rel="tag"># JavaScript 核心概念</a>
+              <a href="/tags/Intermediate-JS/" rel="tag"># Intermediate JS</a>
           </div>
 
         
@@ -381,13 +284,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/14/Flask/Flask+SQLite-1/" rel="prev" title="Flask + SQLite 網頁快速開發 (一) - Flask 簡介 + 工作流程">
-      <i class="fa fa-chevron-left"></i> Flask + SQLite 網頁快速開發 (一) - Flask 簡介 + 工作流程
+    <a href="/2020/06/28/JavaScript/hexschool-JS-core-7/" rel="prev" title="六角學院 JS 核心筆記 (七)【執行環境與作用域】- Not Defined VS Undefined">
+      <i class="fa fa-chevron-left"></i> 六角學院 JS 核心筆記 (七)【執行環境與作用域】- Not Defined VS Undefined
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/06/18/Hexo/Hexo-modify-favicon/" rel="next" title="克難修改 Hexo 圖標 (favicon)">
-      克難修改 Hexo 圖標 (favicon) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -453,7 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目標"><span class="nav-number">1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架站情境"><span class="nav-number">2.</span> <span class="nav-text">架站情境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用者故事-User-Story"><span class="nav-number">3.</span> <span class="nav-text">使用者故事 User Story</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#架構"><span class="nav-number">3.1.</span> <span class="nav-text">架構</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#舉例"><span class="nav-number">3.2.</span> <span class="nav-text">舉例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML-類別圖"><span class="nav-number">4.</span> <span class="nav-text">UML - 類別圖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UML"><span class="nav-number">4.1.</span> <span class="nav-text">UML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#類別圖"><span class="nav-number">4.2.</span> <span class="nav-text">類別圖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我的類別圖設計"><span class="nav-number">4.3.</span> <span class="nav-text">我的類別圖設計</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#靜態-View-視圖-HTML-CSS"><span class="nav-number">5.</span> <span class="nav-text">靜態 View 視圖 (HTML + CSS)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回收機制"><span class="nav-number">3.</span> <span class="nav-text">回收機制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檢驗記憶體使用空間"><span class="nav-number">4.</span> <span class="nav-text">檢驗記憶體使用空間</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -574,9 +474,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jenifers001d.github.io/2020/06/18/Flask/Flask+SQLite-2/";
-    this.page.identifier = "2020/06/18/Flask/Flask+SQLite-2/";
-    this.page.title = "Flask + SQLite 網頁快速開發 (二) - 網站設計";
+    this.page.url = "https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-8/";
+    this.page.identifier = "2020/06/28/JavaScript/hexschool-JS-core-8/";
+    this.page.title = "六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
