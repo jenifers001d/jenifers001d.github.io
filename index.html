@@ -195,10 +195,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-06-28 20:57:29 / Modified: 20:59:46" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:29+10:00">2020-06-28</time>
+              <time title="Created: 2020-06-28 20:57:29" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:29+10:00">2020-06-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-29 19:02:37" itemprop="dateModified" datetime="2020-06-29T19:02:37+10:00">2020-06-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -219,26 +225,16 @@
     
     <div class="post-body" itemprop="articleBody">
 
-                
-          <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
-<p>記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了<strong>回收機制 (Garbage Collection)</strong>，能讓軟體工程師的負擔稍微少了一點。</p>
-<h2 id="原理"><a class="header-anchor" href="#原理"></a>原理</h2>
-<p>當一個已經不再被使用的<strong>變數</strong>，也就是一個不再被使用的<strong>記憶體配置空間</strong>，需要被清除，並且將該記憶體空間釋放出來，重新回到可以被配置新變數的隊伍中。</p>
-<p>但是要如何定義「一個記憶體配置空間不再被使用」呢？</p>
-<p>最一開始是簡化成「沒有其他任何物件參考 / 指向它」，因為沒有其他物件參考它，就表示無法取用它。但是這邊有一個例外：循環參考。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">  <span class="keyword">var</span> o2 = &#123;&#125;;</span><br><span class="line">  o.a = o2; <span class="comment">// o 參考 o2</span></span><br><span class="line">  o2.a = o; <span class="comment">// o2 參考 o</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">'azerty'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
-<p>當我其他的程式碼不會運用到 <code>o</code> 或 <code>o2</code> 時，它們其實應該被清除，但是因為互相參考，因此不符合「沒有其他任何物件參考 / 指向它」這個定義。</p>
-<p>後來這個定義被修正成<span style="color: #ff0000">「這個物件不會被尋訪到、不可到達」</span>，一個物件不會被尋訪到，表示無法取用它，即使是循環參考，如果它們都無法被取用，則代表它們應該被清除且釋放記憶體空間。</p>
-<h2 id="回收機制"><a class="header-anchor" href="#回收機制"></a>回收機制</h2>
-<p>大部分的高階語言都有<strong>垃圾回收器 (Garbage Collector)</strong> 的機制，它就像是垃圾車一樣，會自動追蹤記憶體分配的使用情況，「盡力」去釋放那些不再使用的記憶體空間。</p>
-<h2 id="檢驗記憶體使用空間"><a class="header-anchor" href="#檢驗記憶體使用空間"></a>檢驗記憶體使用空間</h2>
-<p>Chrome 的開發者工具中，有一欄 <strong>Memory</strong>，點擊 <code>Take heap snapshot</code> 會顯示記憶體的使用和分佈，但是這個監測數據是有一點點延遲的狀態。</p>
-<p><img src="https://i.imgur.com/emQk5gm.jpg" alt></p>
-<p><span style="color: #ff0000"><strong>注意：Chrome console 中的行為也會需要記憶體。</strong></span>如果一個變數的詞法作用域是在 local scope 中，當函式執行完畢從 stack 中清除時，照理來說該變數佔用的記憶體空間也要被清除。但是如果我有用 <code>console.log(變數);</code> 該變數佔用的記憶體空間會仍然存在。</p>
-<p>參考資料：<br>
-<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtVFcvZG9jcy9XZWIvSmF2YVNjcmlwdC9NZW1vcnlfTWFuYWdlbWVudA==">記憶體管理<i class="fa fa-external-link-alt"></i></span><br>
-<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGV4c2Nob29sLmNvbS9jb3Vyc2VzL2pzLWNvcmUuaHRtbA==">六角學院：JavaScript 核心篇 - 邁向達人之路<i class="fa fa-external-link-alt"></i></span></p>
-
+      
+          <p>記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了<strong>回收機制 (Garbage Collection)</strong>，能讓軟體工程師的負擔稍微少了一點。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/28/JavaScript/hexschool-JS-core-8/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -280,10 +276,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-06-28 20:57:18 / Modified: 20:58:33" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:18+10:00">2020-06-28</time>
+              <time title="Created: 2020-06-28 20:57:18" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:18+10:00">2020-06-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-29 19:02:30" itemprop="dateModified" datetime="2020-06-29T19:02:30+10:00">2020-06-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -304,22 +306,16 @@
     
     <div class="post-body" itemprop="articleBody">
 
-                
-          <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
-<p><code>not defined</code> 和 <code>undefined</code> 是 JavaScript 中很基礎卻也很重要的觀念。</p>
-<h2 id="not-defined"><a class="header-anchor" href="#not-defined"></a>not defined</h2>
-<p>當程式中該變數從來沒有被宣告過時，就會出現 <code>Uncaught ReferenceError: 變數名稱 is not defined</code> 錯誤。也就是當程式在執行階段進行 RHS 查找時，JavaScript 引擎在全部的<strong>詞彙環境 (Lexical Environment)</strong> 中都找不到該變數。</p>
-<h2 id="undefined"><a class="header-anchor" href="#undefined"></a>undefined</h2>
-<p>無論是當我自己宣告變數，但是<strong>還沒有賦予值時</strong>；或是程式將變數提升，讓程式進入執行階段前，就預先完成宣告，但是<strong>沒有賦予值時</strong>。<span style="color: #ff0000">程式都會自動賦予變數一個 <code>undefined</code> 的值。</span></p>
-<p><span style="color: #ff0000"><strong>注意</strong></span>：</p>
-<ol>
-<li>千萬不要自己賦予變數 <code>undefined</code>，因為我們無法得知這個 <code>undefined</code> 是程式自動賦予的，還是我們後來賦予的。<span style="color: #ff0000">如果想要賦予變數一個空值，應該要使用 <code>null</code>。</span></li>
-<li>也不要把它拿來當變數名稱使用。因為你會不知道出現的是變數名稱還是變數的值。</li>
-</ol>
-<p>寫程式時，千萬不要造成自己的麻煩。</p>
-<p>參考資料：<br>
-<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGV4c2Nob29sLmNvbS9jb3Vyc2VzL2pzLWNvcmUuaHRtbA==">六角學院：JavaScript 核心篇 - 邁向達人之路<i class="fa fa-external-link-alt"></i></span></p>
-
+      
+          <p><code>not defined</code> 和 <code>undefined</code> 是 JavaScript 中很基礎卻也很重要的觀念。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/28/JavaScript/hexschool-JS-core-7/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -436,10 +432,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-06-28 01:33:13 / Modified: 02:14:13" itemprop="dateCreated datePublished" datetime="2020-06-28T01:33:13+10:00">2020-06-28</time>
+              <time title="Created: 2020-06-28 01:33:13" itemprop="dateCreated datePublished" datetime="2020-06-28T01:33:13+10:00">2020-06-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-29 19:20:30" itemprop="dateModified" datetime="2020-06-29T19:20:30+10:00">2020-06-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -519,7 +521,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-28 01:33:02" itemprop="dateModified" datetime="2020-06-28T01:33:02+10:00">2020-06-28</time>
+                <time title="Modified: 2020-06-29 19:14:45" itemprop="dateModified" datetime="2020-06-29T19:14:45+10:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -763,7 +765,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-25 19:28:42" itemprop="dateModified" datetime="2020-06-25T19:28:42+10:00">2020-06-25</time>
+                <time title="Modified: 2020-06-29 19:05:13" itemprop="dateModified" datetime="2020-06-29T19:05:13+10:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">

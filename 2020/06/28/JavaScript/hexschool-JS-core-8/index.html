@@ -21,19 +21,19 @@
     var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言 記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了回收機制 (Garbage Collection)，能讓軟體工程師的負擔稍微少了一點。 原理 當一個已經不再被使用的變數，也就是一個不再被使用的記憶體配置空間，需要被清除，並且將該記憶體空間釋放出來，重新回到可以被配置新變數的隊伍中。 但是要如何定義「一個記憶體配置空間不再被使用」呢？ 最一開始是簡化成「沒有其">
+  <meta name="description" content="記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了回收機制 (Garbage Collection)，能讓軟體工程師的負擔稍微少了一點。">
 <meta name="keywords" content="Intermediate Code,JavaScript,JavaScript 核心概念,Intermediate JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放">
 <meta property="og:url" content="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-8/index.html">
 <meta property="og:site_name" content="Jenifer.Code.World">
-<meta property="og:description" content="前言 記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了回收機制 (Garbage Collection)，能讓軟體工程師的負擔稍微少了一點。 原理 當一個已經不再被使用的變數，也就是一個不再被使用的記憶體配置空間，需要被清除，並且將該記憶體空間釋放出來，重新回到可以被配置新變數的隊伍中。 但是要如何定義「一個記憶體配置空間不再被使用」呢？ 最一開始是簡化成「沒有其">
+<meta property="og:description" content="記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了回收機制 (Garbage Collection)，能讓軟體工程師的負擔稍微少了一點。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/emQk5gm.jpg">
-<meta property="og:updated_time" content="2020-06-28T10:59:46.240Z">
+<meta property="og:updated_time" content="2020-06-29T09:02:37.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放">
-<meta name="twitter:description" content="前言 記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了回收機制 (Garbage Collection)，能讓軟體工程師的負擔稍微少了一點。 原理 當一個已經不再被使用的變數，也就是一個不再被使用的記憶體配置空間，需要被清除，並且將該記憶體空間釋放出來，重新回到可以被配置新變數的隊伍中。 但是要如何定義「一個記憶體配置空間不再被使用」呢？ 最一開始是簡化成「沒有其">
+<meta name="twitter:description" content="記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了回收機制 (Garbage Collection)，能讓軟體工程師的負擔稍微少了一點。">
 <meta name="twitter:image" content="https://i.imgur.com/emQk5gm.jpg">
 
 <link rel="canonical" href="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-8/">
@@ -198,10 +198,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-06-28 20:57:29 / Modified: 20:59:46" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:29+10:00">2020-06-28</time>
+              <time title="Created: 2020-06-28 20:57:29" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:29+10:00">2020-06-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-29 19:02:37" itemprop="dateModified" datetime="2020-06-29T19:02:37+10:00">2020-06-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -235,7 +241,9 @@
 
 <!--/google_adsense-->
         <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+
 <p>記憶體的管理，在早期是軟體工程師一個很重要很困難的課題。現代大部分高階語言中多虧了<strong>回收機制 (Garbage Collection)</strong>，能讓軟體工程師的負擔稍微少了一點。</p>
+
 <h2 id="原理"><a class="header-anchor" href="#原理"></a>原理</h2>
 <p>當一個已經不再被使用的<strong>變數</strong>，也就是一個不再被使用的<strong>記憶體配置空間</strong>，需要被清除，並且將該記憶體空間釋放出來，重新回到可以被配置新變數的隊伍中。</p>
 <p>但是要如何定義「一個記憶體配置空間不再被使用」呢？</p>

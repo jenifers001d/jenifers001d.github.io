@@ -21,18 +21,18 @@
     var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言 not defined 和 undefined 是 JavaScript 中很基礎卻也很重要的觀念。 not defined 當程式中該變數從來沒有被宣告過時，就會出現 Uncaught ReferenceError: 變數名稱 is not defined 錯誤。也就是當程式在執行階段進行 RHS 查找時，JavaScript 引擎在全部的詞彙環境 (Lexical Environment">
+  <meta name="description" content="not defined 和 undefined 是 JavaScript 中很基礎卻也很重要的觀念。">
 <meta name="keywords" content="Intermediate Code,JavaScript,JavaScript 核心概念,Intermediate JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="六角學院 JS 核心筆記 (七)【執行環境與作用域】- Not Defined VS Undefined">
 <meta property="og:url" content="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-7/index.html">
 <meta property="og:site_name" content="Jenifer.Code.World">
-<meta property="og:description" content="前言 not defined 和 undefined 是 JavaScript 中很基礎卻也很重要的觀念。 not defined 當程式中該變數從來沒有被宣告過時，就會出現 Uncaught ReferenceError: 變數名稱 is not defined 錯誤。也就是當程式在執行階段進行 RHS 查找時，JavaScript 引擎在全部的詞彙環境 (Lexical Environment">
+<meta property="og:description" content="not defined 和 undefined 是 JavaScript 中很基礎卻也很重要的觀念。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-28T10:58:33.803Z">
+<meta property="og:updated_time" content="2020-06-29T09:02:30.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="六角學院 JS 核心筆記 (七)【執行環境與作用域】- Not Defined VS Undefined">
-<meta name="twitter:description" content="前言 not defined 和 undefined 是 JavaScript 中很基礎卻也很重要的觀念。 not defined 當程式中該變數從來沒有被宣告過時，就會出現 Uncaught ReferenceError: 變數名稱 is not defined 錯誤。也就是當程式在執行階段進行 RHS 查找時，JavaScript 引擎在全部的詞彙環境 (Lexical Environment">
+<meta name="twitter:description" content="not defined 和 undefined 是 JavaScript 中很基礎卻也很重要的觀念。">
 
 <link rel="canonical" href="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-7/">
 
@@ -196,10 +196,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-06-28 20:57:18 / Modified: 20:58:33" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:18+10:00">2020-06-28</time>
+              <time title="Created: 2020-06-28 20:57:18" itemprop="dateCreated datePublished" datetime="2020-06-28T20:57:18+10:00">2020-06-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-29 19:02:30" itemprop="dateModified" datetime="2020-06-29T19:02:30+10:00">2020-06-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -233,7 +239,9 @@
 
 <!--/google_adsense-->
         <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+
 <p><code>not defined</code> 和 <code>undefined</code> 是 JavaScript 中很基礎卻也很重要的觀念。</p>
+
 <h2 id="not-defined"><a class="header-anchor" href="#not-defined"></a>not defined</h2>
 <p>當程式中該變數從來沒有被宣告過時，就會出現 <code>Uncaught ReferenceError: 變數名稱 is not defined</code> 錯誤。也就是當程式在執行階段進行 RHS 查找時，JavaScript 引擎在全部的<strong>詞彙環境 (Lexical Environment)</strong> 中都找不到該變數。</p>
 <h2 id="undefined"><a class="header-anchor" href="#undefined"></a>undefined</h2>
