@@ -30,7 +30,7 @@
 <meta property="og:description" content="核心就是封裝在積體電路 (IC) 中的處理器。而多核心就是多核處理器 (Multi-core processor)，是物理上實體存在的。例如：2 核心就是有 2 個獨立實體處理器，可以分別獨立地執行程式或執行緒 (thread) 指令，利用平行計算的能力加快程式的執行速度。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/sHYTkkx.jpg">
-<meta property="og:updated_time" content="2020-08-04T03:46:14.807Z">
+<meta property="og:updated_time" content="2020-09-13T14:14:35.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="電腦的核心 (Core) 和執行緒 (Tread)">
 <meta name="twitter:description" content="核心就是封裝在積體電路 (IC) 中的處理器。而多核心就是多核處理器 (Multi-core processor)，是物理上實體存在的。例如：2 核心就是有 2 個獨立實體處理器，可以分別獨立地執行程式或執行緒 (thread) 指令，利用平行計算的能力加快程式的執行速度。">
@@ -198,10 +198,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-08-04 13:41:43 / Modified: 13:46:14" itemprop="dateCreated datePublished" datetime="2020-08-04T13:41:43+10:00">2020-08-04</time>
+              <time title="Created: 2020-08-04 13:41:43" itemprop="dateCreated datePublished" datetime="2020-08-04T13:41:43+10:00">2020-08-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-14 00:14:35" itemprop="dateModified" datetime="2020-09-14T00:14:35+10:00">2020-09-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -254,7 +260,8 @@
 <h3 id="軟體上"><a class="header-anchor" href="#軟體上"></a>軟體上</h3>
 <p>一般<span style="color: #ff0000">一個執行中的軟體或應用程式，可以是一個或多個<strong>程序</strong>；一個程序裡面會有一個或多個<strong>執行緒</strong></span>，等待被執行。例如：開啟 Chrome 瀏覽器就是產生多個程序，而每個程序中，會需要許多執行緒來完成工作。</p>
 <p>即便處理器只能執行一個執行緒，作業系統也可以通過快速的在不同執行緒之間進行切換，由於時間間隔很小，來給使用者造成一種多個執行緒同時執行的假象。這樣的程式執行機制被稱為軟體多執行緒。</p>
-<p>而「程序」會有唯一的 ID 作為識別，又叫做 Process ID (PID)。A 程序和 B 程序之間的資料儲存空間<span style="color: #ff0000">無法共享</span>。每個程序都可用<strong>同步 (循序)</strong> 或<strong>非同步 (平行)</strong> 的方式獨立執行。而「執行緒」之間的資料儲存空間是<span style="color: #ff0000">可以共享</span>的。它們也可以被<strong>依照順序</strong>或<strong>平行</strong>執行。例如：JavaScript 是一個<strong>同步的單執行緒語言</strong>，但是它會用額外的方式處理非同步事件。</p>
+<p>而「程序」會有唯一的 ID 作為識別，又叫做 Process ID (PID)。A 程序和 B 程序之間的資料儲存空間<span style="color: #ff0000">無法共享</span>。每個程序都可用<strong>同步 (循序)</strong> 或<strong>非同步 (平行)</strong> 的方式獨立執行。</p>
+<p>而位在同一個程序下的「執行緒」之間，有<span style="color: #ff0000">可以共享</span>的資料儲存空間，也可以有<span style="color: #ff0000">私有</span>的資源。執行緒有自己的 call stack，裡面的 stack 可以被<strong>依照順序</strong>或<strong>平行</strong>執行。例如：JavaScript 是一個<strong>同步的單執行緒語言</strong>，但是它會用額外的方式處理非同步事件。</p>
 <p>參考資料：<br>
 <span class="exturl" data-url="aHR0cHM6Ly9jaGVuaGguZ2l0Ym9va3MuaW8vcGFyYWxsZWxfcHJvY2Vzc2luZy9wcm9jZXNzLmh0bWw=">程序、行程(process)<i class="fa fa-external-link-alt"></i></span></p>
 
@@ -373,7 +380,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
