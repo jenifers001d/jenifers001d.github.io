@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Jenifer.Code.World">
 <meta property="og:description" content="Statement 陳述式：主要在陳述一些命令，做一些事情，但是不回傳結果。 Expression 表達式：主要透過符號做一些運算，然後回傳結果。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-12-04T06:33:22.456Z">
+<meta property="og:updated_time" content="2020-12-04T06:40:08.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="六角學院 JS 核心筆記 (十)【運算子、型別與文法】- 陳述式與表達式">
 <meta name="twitter:description" content="Statement 陳述式：主要在陳述一些命令，做一些事情，但是不回傳結果。 Expression 表達式：主要透過符號做一些運算，然後回傳結果。">
@@ -198,7 +198,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-12-04 16:32:29 / Modified: 16:33:22" itemprop="dateCreated datePublished" datetime="2020-12-04T16:32:29+10:00">2020-12-04</time>
+              <time title="Created: 2020-12-04 16:32:29 / Modified: 16:40:08" itemprop="dateCreated datePublished" datetime="2020-12-04T16:32:29+10:00">2020-12-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,6 +296,8 @@
 <h3 id="函式表達式"><a class="header-anchor" href="#函式表達式"></a>函式表達式</h3>
 <p>這種創造出來的函式，又稱為匿名函式。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> square = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="補充說明"><a class="header-anchor" href="#補充說明"></a>補充說明</h2>
+<p><span style="color: #ff0000"><strong>函式陳述式 (Statement)</strong></span> 比函式表達式 (Expression)、非函式宣告有更高的 <strong>Hoisting 優先權</strong>。忘記的人可以去看<a href="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-6/">六角學院 JS 核心筆記 (六)【執行環境與作用域】- 提升 (Hoisting)</a></p>
 <p>參考資料：<br>
 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtVFcvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvU3RhdGVtZW50cw==">MDN - 陳述式與宣告<i class="fa fa-external-link-alt"></i></span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtVFcvZG9jcy9XZWIvSmF2YVNjcmlwdC9HdWlkZS9FeHByZXNzaW9uc19hbmRfT3BlcmF0b3Jz">MDN - 運算式與運算子<i class="fa fa-external-link-alt"></i></span><br>
@@ -336,7 +338,10 @@
     <a href="/2020/09/14/JavaScript/hexschool-JS-core-9/" rel="prev" title="六角學院 JS 核心筆記 (九)【執行環境與作用域】- 執行緒與同步、非同步">
       <i class="fa fa-chevron-left"></i> 六角學院 JS 核心筆記 (九)【執行環境與作用域】- 執行緒與同步、非同步
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/04/JavaScript/hexschool-JS-core-11/" rel="next" title="六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號">
+      六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -402,7 +407,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Statement-陳述式的種類"><span class="nav-number">2.</span> <span class="nav-text">Statement 陳述式的種類</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函式陳述式"><span class="nav-number">2.1.</span> <span class="nav-text">函式陳述式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Expression-表達式的種類"><span class="nav-number">3.</span> <span class="nav-text">Expression 表達式的種類</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函式表達式"><span class="nav-number">3.1.</span> <span class="nav-text">函式表達式</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Statement-陳述式的種類"><span class="nav-number">2.</span> <span class="nav-text">Statement 陳述式的種類</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函式陳述式"><span class="nav-number">2.1.</span> <span class="nav-text">函式陳述式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Expression-表達式的種類"><span class="nav-number">3.</span> <span class="nav-text">Expression 表達式的種類</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函式表達式"><span class="nav-number">3.1.</span> <span class="nav-text">函式表達式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#補充說明"><span class="nav-number">4.</span> <span class="nav-text">補充說明</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -416,7 +421,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -21,25 +21,20 @@
     var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="配置文件常以 YAML 語法撰寫，YAML (Yet Another Markup Language) 是一個可讀性高，被設計用來表達資料序列化的格式。它跟 JSON 格式非常的相近。">
-<meta name="keywords" content="網頁架設,Hexo,靜態網頁">
+  <meta name="description" content="ASI 即 Automatic Semicolon Insertion，當程式碼沒有加上分號時，依照 ASI 的規則，自動插入分號。它會帶來一些好處，但是也會造成一些問題。">
+<meta name="keywords" content="Intermediate Code,JavaScript,JavaScript 核心概念,Intermediate JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="設定 Hexo 基本配置">
-<meta property="og:url" content="https://jenifers001d.github.io/2019/11/25/Hexo/Hexo-basic-config/index.html">
+<meta property="og:title" content="六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號">
+<meta property="og:url" content="https://jenifers001d.github.io/2020/12/04/JavaScript/hexschool-JS-core-11/index.html">
 <meta property="og:site_name" content="Jenifer.Code.World">
-<meta property="og:description" content="配置文件常以 YAML 語法撰寫，YAML (Yet Another Markup Language) 是一個可讀性高，被設計用來表達資料序列化的格式。它跟 JSON 格式非常的相近。">
+<meta property="og:description" content="ASI 即 Automatic Semicolon Insertion，當程式碼沒有加上分號時，依照 ASI 的規則，自動插入分號。它會帶來一些好處，但是也會造成一些問題。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/7tZheLJ.jpg">
-<meta property="og:image" content="https://i.imgur.com/hm93pYY.jpg">
-<meta property="og:image" content="https://i.imgur.com/wxvrZQf.jpg">
-<meta property="og:image" content="https://i.imgur.com/vSi2bgm.jpg">
-<meta property="og:updated_time" content="2019-11-26T09:13:41.037Z">
+<meta property="og:updated_time" content="2020-12-04T08:36:00.459Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="設定 Hexo 基本配置">
-<meta name="twitter:description" content="配置文件常以 YAML 語法撰寫，YAML (Yet Another Markup Language) 是一個可讀性高，被設計用來表達資料序列化的格式。它跟 JSON 格式非常的相近。">
-<meta name="twitter:image" content="https://i.imgur.com/7tZheLJ.jpg">
+<meta name="twitter:title" content="六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號">
+<meta name="twitter:description" content="ASI 即 Automatic Semicolon Insertion，當程式碼沒有加上分號時，依照 ASI 的規則，自動插入分號。它會帶來一些好處，但是也會造成一些問題。">
 
-<link rel="canonical" href="https://jenifers001d.github.io/2019/11/25/Hexo/Hexo-basic-config/">
+<link rel="canonical" href="https://jenifers001d.github.io/2020/12/04/JavaScript/hexschool-JS-core-11/">
 
 
 <script id="page-configurations">
@@ -52,7 +47,7 @@
   };
 </script>
 
-  <title>設定 Hexo 基本配置 | Jenifer.Code.World</title>
+  <title>六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號 | Jenifer.Code.World</title>
   
 
 
@@ -179,7 +174,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2019/11/25/Hexo/Hexo-basic-config/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/12/04/JavaScript/hexschool-JS-core-11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,7 +187,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          設定 Hexo 基本配置
+          六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號
         </h1>
 
         <div class="post-meta">
@@ -201,23 +196,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-25 16:40:48" itemprop="dateCreated datePublished" datetime="2019-11-25T16:40:48+10:00">2019-11-25</time>
+              <time title="Created: 2020-12-04 18:35:22 / Modified: 18:36:00" itemprop="dateCreated datePublished" datetime="2020-12-04T18:35:22+10:00">2020-12-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-26 19:13:41" itemprop="dateModified" datetime="2019-11-26T19:13:41+10:00">2019-11-26</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
                 </span>
             </span>
 
@@ -244,34 +233,48 @@
 
 <!--/google_adsense-->
         
-<p>配置文件常以 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvWUFNTA==">YAML<i class="fa fa-external-link-alt"></i></span> 語法撰寫，YAML (Yet Another Markup Language) 是一個可讀性高，被設計用來表達資料序列化的格式。它跟 JSON 格式非常的相近。</p>
+<p>ASI 即 Automatic Semicolon Insertion，當程式碼沒有加上分號時，<strong>依照 ASI 的規則，自動插入分號</strong>。它會帶來一些好處，但是也會造成一些問題。</p>
 
-<p>有兩大資料格式：</p>
-<ul>
-<li>key: value 對 (map)。<strong><span style="color: #ff0000">注意：冒號為半形+空白字元+value。</span></strong></li>
-<li>短槓+空白字元，表示陣列 (list)。</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 家庭成員</span></span><br><span class="line"><span class="attr">father:</span></span><br><span class="line"><span class="attr">   name:</span> <span class="string">John</span></span><br><span class="line"><span class="attr">   age:</span> <span class="number">40</span></span><br><span class="line"><span class="attr">daughter:</span></span><br><span class="line"><span class="attr">   name:</span> <span class="string">Jenifer</span></span><br><span class="line"><span class="attr">   age:</span> <span class="number">10</span></span><br><span class="line"><span class="comment"># 購物清單</span></span><br><span class="line"><span class="attr">shoppingList:</span></span><br><span class="line"><span class="bullet"> -</span> <span class="string">milk</span></span><br><span class="line"><span class="bullet"> -</span> <span class="string">pudding</span></span><br><span class="line"><span class="bullet"> -</span> <span class="string">eggs</span></span><br></pre></td></tr></table></figure>
-<p>特點：</p>
-<ul>
-<li>使用縮進表示層級，同層級要對齊。</li>
-<li>不可以用 tab，只能用空白鍵。</li>
-</ul>
-<h2 id="配置"><a class="header-anchor" href="#配置"></a>配置</h2>
-<h3 id="關於網站"><a class="header-anchor" href="#關於網站"></a>關於網站</h3>
-<p>打開 <code>_config.yml</code> 檔案，可以看到使用 Hexo 架設網站的基本配置，如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">網站標題</span> <span class="string">//通常是會出現在「網頁頁籤」上的名稱</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">網站副標題</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">網站描述</span> <span class="string">//關於網站的描述</span> </span><br><span class="line"><span class="attr">keywords:</span> <span class="string">網站的關鍵詞</span> <span class="string">//以逗號分隔「搜尋關鍵字」，有</span></span><br><span class="line"><span class="string">利於</span> <span class="string">SEO</span> </span><br><span class="line"><span class="attr">author:</span> <span class="string">作者名字</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">網站使用的語言</span>  <span class="string">//zh-TW(繁中)</span> <span class="string">或</span> <span class="string">en(英文)</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">網站時區，Hexo</span> <span class="string">預設使用您電腦的時區</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/7tZheLJ.jpg" alt><br>
-<img src="https://i.imgur.com/hm93pYY.jpg" alt></p>
-<h3 id="關於網址"><a class="header-anchor" href="#關於網址"></a>關於網址</h3>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">網站的網址</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">網站的根目錄</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">文章連結的格式</span> <span class="string">//預設是</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
-<p>如果你 <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3#%E5%BB%BA%E7%AB%8B-GitHub-%E5%84%B2%E5%AD%98%E5%BA%AB">GitHub 儲存庫建立</a>的位置是<strong>用戶名</strong>的話，<code>url: https://username.github.io/</code>，如下：</p>
-<p><img src="https://i.imgur.com/wxvrZQf.jpg" alt></p>
-<p>如果你 GitHub 儲存庫建立的位置是<strong>專案名</strong>的話，<code>url: https://username.github.io/{專案名稱}</code>，根目錄位置也要修改成 <code>root: /{專案名稱}/</code>，如下：</p>
-<p><img src="https://i.imgur.com/vSi2bgm.jpg" alt></p>
-<p>文章的網址也可以依照你的設定，修改成你想要的形式。例如：我想要在<strong>文章發布日期</strong>和<strong>文章檔案名稱</strong>中間加入我的文章分類，就可以增加 <span style="color: #ff0000"><code>:category</code></span>，改成 <code>permalink: :year/:month/:day/:category/:title/</code>。</p>
-<h3 id="關於部署"><a class="header-anchor" href="#關於部署"></a>關於部署</h3>
-<p>請前往 <strong>Hexo＋GitHub 網誌和部落格架設（三）</strong> 的 <a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3#%E8%A8%AD%E5%AE%9A%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AE">設定部署配置</a>。</p>
+<h2 id="舉例"><a class="header-anchor" href="#舉例"></a>舉例</h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">    <span class="string">"I am Jenifer."</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(test()); <span class="comment">// 輸出結果：undefined</span></span><br></pre></td></tr></table></figure>
+<p>原本是預期輸出結果為 <code>I am Jenifer.</code>，但是卻變成 <code>undefined</code>，為什麼？？？</p>
+<p>因為 ASI 的緣故，自動在 <code>return</code> 的後面加上分號，變成如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    <span class="string">"I am Jenifer."</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(test()); <span class="comment">// 輸出結果：undefined</span></span><br></pre></td></tr></table></figure>
+<p>沒有真的回傳字串，當然不會出現如我們預期的結果。</p>
+<h2 id="規則"><a class="header-anchor" href="#規則"></a>規則</h2>
+<p>根據 JavaScript: The Definitive Guide, 6th Edition, David Flanagan, O’Reilly, 2011 提到如下：</p>
+<blockquote>
+<p>JavaScript does not treat every line break as a semicolon: it usually treats line breaks as semicolons only if it can’t parse the code without the semicolons.</p>
+<p>JavaScript 不會將每個換行都視為分號：只有當，兩行或多行之間沒有分號，卻也無法從語法上去解析程式碼時，它才會將換行視為分號。</p>
+</blockquote>
+<p>例如下方第一、二行之間，就是符合上述情況。但是二、三、四行之間，雖然沒有分號，但是<strong>可以</strong>從語法上去解析程式碼，因此不會將換行視為分號，他們可以被解析成 <code>a = 3;</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line">a</span><br><span class="line">=</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>但是上述規則有兩個例外。</p>
+<h3 id="例外一"><a class="header-anchor" href="#例外一"></a>例外一</h3>
+<p><span style="color: #ff0000"><code>return</code>、<code>break</code> 和 <code>continue</code> 語句，遇到換行，就會被插入分號。</span>不會跟下面一行的語句一起解析。</p>
+<p>像是我們上面提到的 <code>return</code> 例子。<code>return</code> 和下一行的 <code>&quot;I am Jenifer.&quot;</code> 中間沒有分號，而且可以從語法上去解析程式碼，應該要被解析成 <code>return &quot;I am Jenifer.&quot;;</code>，但是卻沒有！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span></span><br><span class="line"><span class="string">"I am Jenifer."</span></span><br></pre></td></tr></table></figure>
+<h3 id="例外二"><a class="header-anchor" href="#例外二"></a>例外二</h3>
+<p><span style="color: #ff0000"><code>++</code> 和 <code>−−</code> 運算子不會被加在句子尾端。</span></p>
+<p>下方的例子中，<code>x</code> 和下一行的 <code>++</code> 中間沒有分號，而且可以從語法上去解析程式碼，應該要被解析成 <code>x++;</code>，但是卻沒有！因為 <code>++</code> 運算子不會被加在句尾，因此下方只會被解析成 <code>x; ++y;</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x </span><br><span class="line">++ </span><br><span class="line">y</span><br></pre></td></tr></table></figure>
+<h3 id="「不會」加入分號的地方"><a class="header-anchor" href="#「不會」加入分號的地方"></a>「不會」加入分號的地方</h3>
+<ol>
+<li>下一行是 <code>(</code>、<code>[</code>、<code>/</code> 開始 (容易出錯的地方)</li>
+<li>下一行以 <code>+</code>、<code>-</code>、<code>*</code>、<code>%</code> 作開始 (會影響執行結果)</li>
+<li>下一行以 <code>,</code>、<code>.</code> 作開始 (需注意執行結果)</li>
+</ol>
+<p>上述三個需要注意的地方，仔細想想都是很合理的，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test</span><br><span class="line">()</span><br></pre></td></tr></table></figure>
+<p>如果 <code>test</code> 是函式名稱，應該要被解析成 <code>test();</code>；但是如果它不是函示，就會報錯 <code>Uncaught TypeError: test is not a function</code>。</p>
+<p>還有一個例子是<span style="color: #ff0000"><strong>立即函式</strong></span>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"Jenifer"</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello"</span>);</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<p>第一、二行之間沒有分號，<code>(</code> 可以從語法上去解析成要呼叫函式，但是 <code>&quot;Jenifer&quot;</code> 不是函式，因此會出錯。</p>
+<p>總而言之，就是乖乖在正確的地方加分號就好了阿～(攤手</p>
+<p>更完整的規則內容，請參考 <span class="exturl" data-url="aHR0cDovL3d3dy5lY21hLWludGVybmF0aW9uYWwub3JnL2VjbWEtMjYyLzcuMC9pbmRleC5odG1sI3NlYy1ydWxlcy1vZi1hdXRvbWF0aWMtc2VtaWNvbG9uLWluc2VydGlvbg==">11.9.1Rules of Automatic Semicolon Insertion<i class="fa fa-external-link-alt"></i></span></p>
+<p>參考資料：<br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGV4c2Nob29sLmNvbS9jb3Vyc2VzL2pzLWNvcmUuaHRtbA==">六角學院：JavaScript 核心篇 - 邁向達人之路<i class="fa fa-external-link-alt"></i></span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjg0NjI4My93aGF0LWFyZS10aGUtcnVsZXMtZm9yLWphdmFzY3JpcHRzLWF1dG9tYXRpYy1zZW1pY29sb24taW5zZXJ0aW9uLWFzaQ==">What are the rules for JavaScript’s automatic semicolon insertion (ASI)?<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -292,9 +295,10 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/網頁架設/" rel="tag"># 網頁架設</a>
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-              <a href="/tags/靜態網頁/" rel="tag"># 靜態網頁</a>
+              <a href="/tags/Intermediate-Code/" rel="tag"># Intermediate Code</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/JavaScript-核心概念/" rel="tag"># JavaScript 核心概念</a>
+              <a href="/tags/Intermediate-JS/" rel="tag"># Intermediate JS</a>
           </div>
 
         
@@ -303,13 +307,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/24/Hexo/Hexo+GitHub-4/" rel="prev" title="Hexo＋GitHub 網誌和部落格架設（四）">
-      <i class="fa fa-chevron-left"></i> Hexo＋GitHub 網誌和部落格架設（四）
+    <a href="/2020/12/04/JavaScript/hexschool-JS-core-10/" rel="prev" title="六角學院 JS 核心筆記 (十)【運算子、型別與文法】- 陳述式與表達式">
+      <i class="fa fa-chevron-left"></i> 六角學院 JS 核心筆記 (十)【運算子、型別與文法】- 陳述式與表達式
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/11/25/Hexo/clone-Hexo-theme/" rel="next" title="Hexo 網站主題選一選！">
-      Hexo 網站主題選一選！ <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -375,7 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#關於網站"><span class="nav-number">1.1.</span> <span class="nav-text">關於網站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#關於網址"><span class="nav-number">1.2.</span> <span class="nav-text">關於網址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#關於部署"><span class="nav-number">1.3.</span> <span class="nav-text">關於部署</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#舉例"><span class="nav-number">1.</span> <span class="nav-text">舉例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#規則"><span class="nav-number">2.</span> <span class="nav-text">規則</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例外一"><span class="nav-number">2.1.</span> <span class="nav-text">例外一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例外二"><span class="nav-number">2.2.</span> <span class="nav-text">例外二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#「不會」加入分號的地方"><span class="nav-number">2.3.</span> <span class="nav-text">「不會」加入分號的地方</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -496,9 +497,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jenifers001d.github.io/2019/11/25/Hexo/Hexo-basic-config/";
-    this.page.identifier = "2019/11/25/Hexo/Hexo-basic-config/";
-    this.page.title = "設定 Hexo 基本配置";
+    this.page.url = "https://jenifers001d.github.io/2020/12/04/JavaScript/hexschool-JS-core-11/";
+    this.page.identifier = "2020/12/04/JavaScript/hexschool-JS-core-11/";
+    this.page.title = "六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
