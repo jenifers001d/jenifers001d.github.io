@@ -21,27 +21,20 @@
     var CONFIG = {"hostname":"jenifers001d.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在 GitHub 建立完儲存庫之後，將 Hexo 文章和內容 (靜態檔案) 部署到 GitHub。">
-<meta name="keywords" content="網頁架設,GitHub,Hexo,靜態網頁">
+  <meta name="description" content="JavaScript 是動態型別、弱型別的語言。 所謂的動態語言，就是在執行的時候，變數才會依照賦予值的型別，來決定變數的型別。因此變數的型別是可以不斷改變的。 而弱型別則是，偏向容忍隱性的型別轉換，但是怎麼轉換是它自己決定。 詳情可以參考之前寫過的這篇：靜態語言 / 動態語言、強型別 / 弱型別、静態作用域 / 動態作用域。以下僅重點提到一些需要注意的觀念。">
+<meta name="keywords" content="Intermediate Code,JavaScript,JavaScript 核心概念,Intermediate JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo＋GitHub 網誌和部落格架設（四）">
-<meta property="og:url" content="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4/index.html">
+<meta property="og:title" content="六角學院 JS 核心筆記 (十二)【運算子、型別與文法】- 動態型別和弱型別">
+<meta property="og:url" content="https://jenifers001d.github.io/2020/12/05/JavaScript/hexschool-JS-core-12/index.html">
 <meta property="og:site_name" content="Jenifer.Code.World">
-<meta property="og:description" content="在 GitHub 建立完儲存庫之後，將 Hexo 文章和內容 (靜態檔案) 部署到 GitHub。">
+<meta property="og:description" content="JavaScript 是動態型別、弱型別的語言。 所謂的動態語言，就是在執行的時候，變數才會依照賦予值的型別，來決定變數的型別。因此變數的型別是可以不斷改變的。 而弱型別則是，偏向容忍隱性的型別轉換，但是怎麼轉換是它自己決定。 詳情可以參考之前寫過的這篇：靜態語言 / 動態語言、強型別 / 弱型別、静態作用域 / 動態作用域。以下僅重點提到一些需要注意的觀念。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/IbYZ8bU.jpg">
-<meta property="og:image" content="https://i.imgur.com/d7jo9ME.jpg">
-<meta property="og:image" content="https://i.imgur.com/GQMHyxJ.jpg">
-<meta property="og:image" content="https://i.imgur.com/iyhbwpA.jpg">
-<meta property="og:image" content="https://i.imgur.com/W36o3Nx.jpg">
-<meta property="og:image" content="https://i.imgur.com/3quRpFJ.jpg">
-<meta property="og:updated_time" content="2019-12-02T15:26:33.295Z">
+<meta property="og:updated_time" content="2020-12-05T08:07:16.945Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo＋GitHub 網誌和部落格架設（四）">
-<meta name="twitter:description" content="在 GitHub 建立完儲存庫之後，將 Hexo 文章和內容 (靜態檔案) 部署到 GitHub。">
-<meta name="twitter:image" content="https://i.imgur.com/IbYZ8bU.jpg">
+<meta name="twitter:title" content="六角學院 JS 核心筆記 (十二)【運算子、型別與文法】- 動態型別和弱型別">
+<meta name="twitter:description" content="JavaScript 是動態型別、弱型別的語言。 所謂的動態語言，就是在執行的時候，變數才會依照賦予值的型別，來決定變數的型別。因此變數的型別是可以不斷改變的。 而弱型別則是，偏向容忍隱性的型別轉換，但是怎麼轉換是它自己決定。 詳情可以參考之前寫過的這篇：靜態語言 / 動態語言、強型別 / 弱型別、静態作用域 / 動態作用域。以下僅重點提到一些需要注意的觀念。">
 
-<link rel="canonical" href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4/">
+<link rel="canonical" href="https://jenifers001d.github.io/2020/12/05/JavaScript/hexschool-JS-core-12/">
 
 
 <script id="page-configurations">
@@ -54,7 +47,7 @@
   };
 </script>
 
-  <title>Hexo＋GitHub 網誌和部落格架設（四） | Jenifer.Code.World</title>
+  <title>六角學院 JS 核心筆記 (十二)【運算子、型別與文法】- 動態型別和弱型別 | Jenifer.Code.World</title>
   
 
 
@@ -181,7 +174,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/12/05/JavaScript/hexschool-JS-core-12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -194,7 +187,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo＋GitHub 網誌和部落格架設（四）
+          六角學院 JS 核心筆記 (十二)【運算子、型別與文法】- 動態型別和弱型別
         </h1>
 
         <div class="post-meta">
@@ -203,28 +196,21 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-24 19:23:29" itemprop="dateCreated datePublished" datetime="2019-11-24T19:23:29+10:00">2019-11-24</time>
+              <time title="Created: 2020-12-05 18:06:38 / Modified: 18:07:16" itemprop="dateCreated datePublished" datetime="2020-12-05T18:06:38+10:00">2020-12-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-03 01:26:33" itemprop="dateModified" datetime="2019-12-03T01:26:33+10:00">2019-12-03</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">在 GitHub 建立完儲存庫之後，將 Hexo 文章和內容 (靜態檔案) 部署到 GitHub。</div>
 
         </div>
       </header>
@@ -247,52 +233,28 @@
 
 <!--/google_adsense-->
         
-<p>最後一步 - 部署到 GitHub！<br>
-<img src="https://i.imgur.com/IbYZ8bU.jpg" alt></p>
-<h2 id="block-部署到-GitHub"><a class="header-anchor" href="#block-部署到-GitHub"></a><br>
-部署到 GitHub</h2>
-<p>終於來到最後一步了，歐耶～</p>
-<p>在 <code>_config.yml</code> 中設定好部署 (# Deployment) 相關的配置後，輸入下面其中一行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>指令說明：<br>
-deploy：部署你的網站。<br>
-d：deploy的縮寫。</p>
-</blockquote>
-<h3 id="用戶名-選擇專案名請跳過"><a class="header-anchor" href="#用戶名-選擇專案名請跳過"></a>用戶名 (選擇專案名請跳過)</h3>
-<p>public 資料夾裡面的東西被推到 master 分支啦～</p>
-<p><img src="https://i.imgur.com/d7jo9ME.jpg" alt></p>
-<p>在同一個頁面的 Settings 裡面，找到 <strong>GitHub Pages</strong>，裡面有網址的部分，按下去就是你的網頁啦！<br>
-<img src="https://i.imgur.com/GQMHyxJ.jpg" alt></p>
-<h3 id="專案名-選擇用戶名請跳過"><a class="header-anchor" href="#專案名-選擇用戶名請跳過"></a>專案名 (選擇用戶名請跳過)</h3>
-<p>可以看到 public 資料夾裡面的東西被推到 gh-pages 分支中啦～</p>
-<p><img src="https://i.imgur.com/iyhbwpA.jpg" alt></p>
-<p>在同一個頁面的 Settings 裡面，找到 <strong>GitHub Pages</strong>，裡面有網址的部分，按下去就是你的網頁啦！(gh-pages branch下拉式選單不用動)<br>
-<img src="https://i.imgur.com/W36o3Nx.jpg" alt></p>
-<div class="danger">
-<p>可是按進去看會發現樣式跑掉了，原因是因為 css 樣式的路徑，當初預設是絕對路徑，這邊因為我們不是用 Hexo 建議的<strong>用戶名儲存庫</strong>，所以要將路徑改成<strong>相對路徑</strong>。</p>
-</div>
-<p>打開 <code>_config.yml</code> 設定配置，將 # Writing 中的相對路徑從 false 改成 true。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">relative_link:  true</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/3quRpFJ.jpg" alt></p>
-<p>改完儲存後，再輸入一次指令碼</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>等待一下，重整就能看到正確的顯示方式了！</p>
-<h2 id="寫在部署之後"><a class="header-anchor" href="#寫在部署之後"></a>寫在部署之後</h2>
-<p>為了方便起見，之後每次 new 完新的文章，可以輸入下面其中一行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d</span><br><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>指令說明：<br>
-g -d：產生靜態檔後佈署<br>
-d -g：佈署前產生靜態檔</p>
-</blockquote>
-<p>有更新檔案時，可以輸入下面指令碼來清除快取檔案 (db.json) 和已產生的靜態檔案 (public)。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-<h2 id="Hexo＋GitHub-網誌和部落格架設-系列文"><a class="header-anchor" href="#Hexo＋GitHub-網誌和部落格架設-系列文"></a>Hexo＋GitHub 網誌和部落格架設 系列文</h2>
-<p><a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-1">Hexo＋GitHub 網誌和部落格架設（一）- Hexo 是什麼？</a><br>
-<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2">Hexo＋GitHub 網誌和部落格架設（二）- 安裝 Hexo</a><br>
-<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3">Hexo＋GitHub 網誌和部落格架設（三）- 建立 GitHub 儲存庫</a><br>
-<a href="https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4">Hexo＋GitHub 網誌和部落格架設（四）- 部署到 GitHub</a> ← 你在這～</p>
+<p><span style="color: #ff0000">JavaScript 是動態型別、弱型別的語言。</span></p>
+<p>所謂的動態語言，就是在執行的時候，變數才會依照<span style="color: #ff0000"><strong>賦予值的型別</strong></span>，來決定<strong>變數的型別</strong>。因此變數的型別是可以不斷改變的。</p>
+<p>而弱型別則是，偏向<span style="color: #ff0000"><strong>容忍隱性的型別轉換，但是怎麼轉換是它自己決定</strong></span>。</p>
+<p>詳情可以參考之前寫過的這篇：<a href="https://jenifers001d.github.io/2019/11/22/JavaScript/programming-language-type/">靜態語言 / 動態語言、強型別 / 弱型別、静態作用域 / 動態作用域</a>。以下僅重點提到一些需要注意的觀念。</p>
+
+<h2 id="動態型別"><a class="header-anchor" href="#動態型別"></a>動態型別</h2>
+<p>JavaScript  的運行可以分為兩個階段：<strong>創造 / 編譯階段、執行階段</strong>。</p>
+<p>舉個例子來說明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);</span><br><span class="line">num = <span class="string">"Hello"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);</span><br></pre></td></tr></table></figure>
+<p>上面的程式碼依照提升 (Hoisting) 概念可以看成是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 創造 / 編譯階段</span></span><br><span class="line"><span class="keyword">var</span> num;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 執行階段</span></span><br><span class="line">num = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num); <span class="comment">// 輸出結果：number</span></span><br><span class="line">num = <span class="string">"Hello"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num); <span class="comment">// 輸出結果：string</span></span><br></pre></td></tr></table></figure>
+<p>創造階段的時候，先在記憶體中準備一個空間給 <code>num</code> 變數。</p>
+<p>直到第五行，因為 <code>10</code> 本身是一個數字型別 <code>number</code> (可以自己用 <code>console.log(typeof 10);</code> 檢查看看，結果會出現 <code>number</code>)，因此當 <code>10</code> 被賦予到變數 <code>num</code> 時，<code>num</code> 就會是數字型別。</p>
+<p>到了第七行，因為 <code>&quot;Hello&quot;</code> 本身是一個字串型別 <code>string</code> (<code>console.log(typeof &quot;Hello&quot;);</code>，結果會出現 <code>string</code>)，因此當 <code>&quot;Hello&quot;</code> 被賦予到變數 <code>num</code> 時，<code>num</code> 就會是字串型別。</p>
+<p><span style="color: #ff0000">變數依照賦予值的型別，來決定變數的型別。</span></p>
+<h2 id="弱型別"><a class="header-anchor" href="#弱型別"></a>弱型別</h2>
+<p><span style="color: #ff0000">弱型別容忍隱性的型別轉換，但是怎麼轉換是它自己決定</span>。如下的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">a = a + <span class="string">"1"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a, <span class="keyword">typeof</span> a); <span class="comment">// 11 string</span></span><br><span class="line">a = a * <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a, <span class="keyword">typeof</span> a); <span class="comment">// 33 "number"</span></span><br></pre></td></tr></table></figure>
+<p>JavaScript 在第二行時，將數字型別的 <code>a</code> 隱性轉換為字串型別，並且和 <code>&quot;1&quot;</code> 合併，第三行時 <code>a</code> 顯示為字串 <code>11</code>，但是第四行遇到運算子 <code>*</code>，<code>a</code> 又被隱性轉換回數字型別，並且乘上 <code>3</code>，因此第五行 <code>a</code> 顯示為數字 <code>33</code>。</p>
+<p>弱型別還允許不同型別之間的比對，因為它們可以被隱性型別轉換。<code>==</code> 比對兩者的<strong>值</strong>、<code>===</code> 比對兩者的<strong>型別和值</strong>。</p>
+<p>參考資料：<br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGV4c2Nob29sLmNvbS9jb3Vyc2VzL2pzLWNvcmUuaHRtbA==">六角學院：JavaScript 核心篇 - 邁向達人之路<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -313,10 +275,10 @@ d -g：佈署前產生靜態檔</p>
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/網頁架設/" rel="tag"># 網頁架設</a>
-              <a href="/tags/GitHub/" rel="tag"># GitHub</a>
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-              <a href="/tags/靜態網頁/" rel="tag"># 靜態網頁</a>
+              <a href="/tags/Intermediate-Code/" rel="tag"># Intermediate Code</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/JavaScript-核心概念/" rel="tag"># JavaScript 核心概念</a>
+              <a href="/tags/Intermediate-JS/" rel="tag"># Intermediate JS</a>
           </div>
 
         
@@ -325,13 +287,10 @@ d -g：佈署前產生靜態檔</p>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/24/Hexo/Hexo+GitHub-3/" rel="prev" title="Hexo＋GitHub 網誌和部落格架設（三）">
-      <i class="fa fa-chevron-left"></i> Hexo＋GitHub 網誌和部落格架設（三）
+    <a href="/2020/12/04/JavaScript/hexschool-JS-core-11/" rel="prev" title="六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號">
+      <i class="fa fa-chevron-left"></i> 六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/11/25/Hexo/Hexo-basic-config/" rel="next" title="設定 Hexo 基本配置">
-      設定 Hexo 基本配置 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -397,8 +356,7 @@ d -g：佈署前產生靜態檔</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#block-部署到-GitHub"><span class="nav-number">1.</span> <span class="nav-text">
-部署到 GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用戶名-選擇專案名請跳過"><span class="nav-number">1.1.</span> <span class="nav-text">用戶名 (選擇專案名請跳過)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#專案名-選擇用戶名請跳過"><span class="nav-number">1.2.</span> <span class="nav-text">專案名 (選擇用戶名請跳過)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寫在部署之後"><span class="nav-number">2.</span> <span class="nav-text">寫在部署之後</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo＋GitHub-網誌和部落格架設-系列文"><span class="nav-number">3.</span> <span class="nav-text">Hexo＋GitHub 網誌和部落格架設 系列文</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#動態型別"><span class="nav-number">1.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弱型別"><span class="nav-number">2.</span> <span class="nav-text">弱型別</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -519,9 +477,9 @@ d -g：佈署前產生靜態檔</p>
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4/";
-    this.page.identifier = "2019/11/24/Hexo/Hexo+GitHub-4/";
-    this.page.title = "Hexo＋GitHub 網誌和部落格架設（四）";
+    this.page.url = "https://jenifers001d.github.io/2020/12/05/JavaScript/hexschool-JS-core-12/";
+    this.page.identifier = "2020/12/05/JavaScript/hexschool-JS-core-12/";
+    this.page.title = "六角學院 JS 核心筆記 (十二)【運算子、型別與文法】- 動態型別和弱型別";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
