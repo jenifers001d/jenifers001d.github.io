@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/myfavicon180.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon16.ico">
+  <link rel="mask-icon" href="/images/myfavicon512.png" color="#222">
+  <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.11.1","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="多人協作時，不可能都在 master分支 上更動程式碼，通常會另外開分支來做測試或開發，藉此不影響正式主機分支。 branch 非常不佔空間。它們只是一個指向某個 commit 的 reference，就這麼簡單。使用 branch 其實就是在說：「我想要包含這一次的 commit 以及它的所有 parent 的 commit。」">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone)">
+<meta property="og:url" content="https://jenifers001d.github.io/2019/12/13/Git/Git-intro-3/">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="多人協作時，不可能都在 master分支 上更動程式碼，通常會另外開分支來做測試或開發，藉此不影響正式主機分支。 branch 非常不佔空間。它們只是一個指向某個 commit 的 reference，就這麼簡單。使用 branch 其實就是在說：「我想要包含這一次的 commit 以及它的所有 parent 的 commit。」">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/7GsLPE8.jpg">
+<meta property="og:image" content="https://i.imgur.com/yBl31ef.jpg">
+<meta property="og:image" content="https://i.imgur.com/X0sOb5u.jpg">
+<meta property="og:image" content="https://i.imgur.com/7Kjiadi.jpg">
+<meta property="og:image" content="https://i.imgur.com/4ARkdRN.jpg">
+<meta property="og:image" content="https://i.imgur.com/MGld4qk.jpg">
+<meta property="og:image" content="https://i.imgur.com/mAvPhIZ.jpg">
+<meta property="og:image" content="https://i.imgur.com/GmVf9py.jpg">
+<meta property="og:image" content="https://i.imgur.com/LV3kvkU.jpg">
+<meta property="og:image" content="https://i.imgur.com/KahxAkH.jpg">
+<meta property="article:published_time" content="2019-12-13T06:53:24.332Z">
+<meta property="article:modified_time" content="2022-05-08T05:41:34.243Z">
+<meta property="article:author" content="Jenifer">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="GitHub">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/7GsLPE8.jpg">
+
+
+<link rel="canonical" href="https://jenifers001d.github.io/2019/12/13/Git/Git-intro-3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2019/12/13/Git/Git-intro-3/","path":"2019/12/13/Git/Git-intro-3/","title":"Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone) | Jenifer.Code.World</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jenifer.Code.World</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E7%94%A8%E5%88%86%E6%94%AF%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">為什麼要用分支？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%9Abranch%E3%80%81checkout%E3%80%81reset"><span class="nav-number">2.</span> <span class="nav-text">分支常用指令：branch、checkout、reset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#checkout-%E8%88%87-reset-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">3.</span> <span class="nav-text">checkout 與 reset 的差異</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#checkout-HEAD"><span class="nav-number">3.1.</span> <span class="nav-text">checkout HEAD^</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reset-HEAD-hard"><span class="nav-number">3.2.</span> <span class="nav-text">reset HEAD^ --hard</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reset-HEAD-mixed"><span class="nav-number">3.3.</span> <span class="nav-text">reset HEAD^ (- -mixed)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reset-HEAD-soft"><span class="nav-number">3.4.</span> <span class="nav-text">reset HEAD^ --soft</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF%E3%80%81%E5%BF%AB%E8%BD%89%E6%A9%9F%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">合併分支、快轉機制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%82%84%E5%8E%9F%E5%88%B0%E5%8D%B1%E9%9A%AA%E5%8B%95%E4%BD%9C%E5%89%8D%E7%9A%84%E7%8B%80%E6%85%8B"><span class="nav-number">5.</span> <span class="nav-text">還原到危險動作前的狀態</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB-clone"><span class="nav-number">6.</span> <span class="nav-text">下載遠端儲存庫 (clone)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%85%A5%E9%96%80-%E7%B3%BB%E5%88%97%E6%96%87-v3"><span class="nav-number">7.</span> <span class="nav-text">Git 入門 系列文</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title">
+      
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly82OG1hcHMuY29tL3R3" title="https:&#x2F;&#x2F;68maps.com&#x2F;tw">探險臺灣</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly82OG1hcHMuY29tL2Vu" title="https:&#x2F;&#x2F;68maps.com&#x2F;en">Explore Taiwan</span>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="GitHub" aria-label="GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2019/12/13/Git/Git-intro-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone) | Jenifer.Code.World">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2019-12-13 16:53:24" itemprop="dateCreated datePublished" datetime="2019-12-13T16:53:24+10:00">2019-12-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-05-08 15:41:34" itemprop="dateModified" datetime="2022-05-08T15:41:34+10:00">2022-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="為什麼要用分支？"><a class="header-anchor" href="#為什麼要用分支？"></a>為什麼要用分支？</h2>
+
+<p>多人協作時，不可能都在 <strong>master分支</strong> 上更動程式碼，通常會另外開分支來做測試或開發，藉此不影響正式主機分支。</p>
+<p>branch 非常不佔空間。它們只是一個指向某個 commit 的 reference，就這麼簡單。使用 branch 其實就是在說：「我想要包含這一次的 commit 以及它的所有 parent 的 commit。」</p>
+
+<h2 id="分支常用指令：branch、checkout、reset"><a class="header-anchor" href="#分支常用指令：branch、checkout、reset"></a>分支常用指令：branch、checkout、reset</h2>
+<p>開發情境：我有一個正式主機 master 分支，有一個開發分支 develop。</p>
+<ul>
+<li>新增分支：<code>git branch 分支名稱</code></li>
+<li>查看有哪些分支：<code>git branch</code></li>
+<li>切換分支 (將 HEAD 指向分支)：<code>git checkout 分支名稱</code></li>
+<li>回頭觀看版本內容 (將 HEAD 指向 commit 版本)：<code>git checkout commit編號</code></li>
+<li>返回最新的版本：<code>git checkout master(分支名稱)</code></li>
+<li>還原上個版本：<code>git reset HEAD^</code></li>
+<li>將特定 commit 貼上新分支：<code>git branch 新分支名稱 commit編號</code></li>
+<li>將特定 commit 貼上舊分支 (移動分支標籤)：<code>git branch -f 舊分支名稱 commit編號</code></li>
+</ul>
+<h2 id="checkout-與-reset-的差異"><a class="header-anchor" href="#checkout-與-reset-的差異"></a>checkout 與 reset 的差異</h2>
+<div class="danger">
+<p><code>git checkout</code> 將 HEAD 移動到特定位置，但是不對檔案做更動。也不移動分支標籤。</p>
+<p><code>git reset</code> 將 HEAD 移動到特定位置，但是依照 <code>--soft</code> <code>--mixed</code> <code>--hard</code> 指令，對檔案做更動：退回索引區、退回工作區、檔案都放棄。如果 HEAD 和分支黏在一起的時候，分支標籤會跟著 HEAD 一起移動。</p>
+</div>
+<h3 id="checkout-HEAD"><a class="header-anchor" href="#checkout-HEAD"></a>checkout HEAD^</h3>
+<p>如下圖 HEAD 原本在 815b5bc(new branch) 這個 commit，當我下了 <code>git checkout HEAD^</code>，HEAD 會移動到 4e77317(add h1)，並出現如下文字：</p>
+<div class="success">
+<p>Previous HEAD position was 815b5bc new branch<br>
+HEAD is now at 4e77317 add h1</p>
+</div>
+<p><img src="https://i.imgur.com/7GsLPE8.jpg" alt=""><br>
+<img src="https://i.imgur.com/yBl31ef.jpg" alt=""></p>
+<h3 id="reset-HEAD-hard"><a class="header-anchor" href="#reset-HEAD-hard"></a>reset HEAD^ --hard</h3>
+<p>如果 HEAD 原本在 815b5bc(new branch) 這個 commit，當我下了 <code>git reset HEAD^ --hard</code>，HEAD 會移動到 4e77317(add h1)，並出現如下文字：</p>
+<div class="success">
+<p>HEAD is now at 4e77317 add h1</p>
+</div>
+<p>圖雖然看起來一樣，但是 git 背後做的動作並不一樣。因為 reset 是危險動作，git 會把 HEAD 的狀態存放在 <span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3L2NoYXB0ZXJzL2JyYW5jaC9ob3ctZ2l0LWtub3ctd2hhdC1jdXJyZW50LWJyYW5jaC1pcy5odG1s">ORIG_HEAD<i class="fa fa-external-link-alt"></i></span> 的檔案夾，讓你隨時可以跳回危險動作之前的狀態。<br>
+<img src="https://i.imgur.com/X0sOb5u.jpg" alt=""></p>
+<h3 id="reset-HEAD-mixed"><a class="header-anchor" href="#reset-HEAD-mixed"></a>reset HEAD^ (- -mixed)</h3>
+<p>如果 HEAD 原本在 815b5bc(new branch) 這個 commit，當我下了 <code>git reset HEAD^</code>，HEAD 會移動到 4e77317(add h1)，並出現如下文字：</p>
+<div class="success">
+<p>Unstaged changes after reset:<br>
+M	index.html</p>
+</div>
+<p>圖中可以看到多了一個 uncommitted changes 的線，它是 815b5bc(new branch) 的<strong>工作區 (Working area)</strong> 版本。</p>
+<blockquote>
+<p>modified index.html, index2.html and index3.html 還沒加入索引區。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/7Kjiadi.jpg" alt=""><br>
+<img src="https://i.imgur.com/4ARkdRN.jpg" alt=""></p>
+<h3 id="reset-HEAD-soft"><a class="header-anchor" href="#reset-HEAD-soft"></a>reset HEAD^ --soft</h3>
+<p>如果 HEAD 原本在 815b5bc(new branch) 這個 commit，當我下了 <code>git reset HEAD^ --soft</code>，HEAD 會移動到 4e77317(add h1)，沒有出現文字說明。</p>
+<p>圖中可以看到多了一個 uncommitted changes 的線，它是 815b5bc(new branch) 的<strong>索引區 (Staging area)</strong> 版本。</p>
+<p><img src="https://i.imgur.com/MGld4qk.jpg" alt=""><br>
+<img src="https://i.imgur.com/mAvPhIZ.jpg" alt=""></p>
+<h2 id="合併分支、快轉機制"><a class="header-anchor" href="#合併分支、快轉機制"></a>合併分支、快轉機制</h2>
+<p>通常會以舊的 commit 為基底 <code>(git checkout 分支名稱)</code>，去合併新的編輯過的 commit。(merge 新branch 到 master)</p>
+<p>先輸入 <code>git checkout master</code>，再輸入 <code>git merge dev</code>。<br>
+<img src="https://i.imgur.com/GmVf9py.jpg" alt=""></p>
+<ul>
+<li>合併分支 (快轉)：<code>git merge 分支名稱</code></li>
+<li>取消快轉：<code>git merge 分支名稱 --no-ff</code></li>
+<li>觀看線圖：<code>git log --oneline --graph</code></li>
+<li>還原合併前狀態：<code>git reset ORIG_HEAD --hard</code></li>
+<li>刪除已經合併的分支：<code>git branch -d 分支名稱</code></li>
+<li>強制刪除未合併的分支：<code>git branch -D 分支名稱</code></li>
+</ul>
+<h2 id="還原到危險動作前的狀態"><a class="header-anchor" href="#還原到危險動作前的狀態"></a>還原到危險動作前的狀態</h2>
+<p>當你在做一些比較「危險」的操作 (例如像：<strong>merge、rebase 或 reset</strong> 之類的)，Git 就會把 HEAD 的狀態存放在 ORIG_HEAD 的檔案夾，讓你隨時可以跳回危險動作之前的狀態。</p>
+<ul>
+<li>還原 reset 前狀態：<code>git reset ORIG_HEAD --hard</code>、<code>git reset commit編號 --hard</code></li>
+</ul>
+<p>雖然 git reflog 指令也可以查到相關資訊，但 reflog 的資料比較雜一點，這個 ORIG_HEAD 會更方便的讓你找到最近的一次危險動作之前的 SHA-1 值。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3L2NoYXB0ZXJzL2JyYW5jaC9ob3ctZ2l0LWtub3ctd2hhdC1jdXJyZW50LWJyYW5jaC1pcy5odG1s">ORIG_HEAD 是什麼東西？<i class="fa fa-external-link-alt"></i></span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3L2NoYXB0ZXJzL3VzaW5nLWdpdC9yZXN0b3JlLWhhcmQtcmVzZXQtY29tbWl0Lmh0bWw=">【狀況題】不小心使用 hard 模式 Reset 了某個 Commit，救得回來嗎？<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="下載遠端儲存庫-clone"><a class="header-anchor" href="#下載遠端儲存庫-clone"></a>下載遠端儲存庫 (clone)</h2>
+<ul>
+<li>下載遠端儲存庫： <code>git clone 儲存庫網址</code></li>
+</ul>
+<div class="danger">
+<p>clone 和 gitHub 上的 Download ZIP 是完全不同的東西，一開始不知道的時候，踩了一個大坑。</p>
+<p>clone 會將<strong>檔案和遠端的儲存庫</strong>一並取下來。而 Download ZIP 只會將<strong>檔案</strong>取下來。</p>
+<p>所以這時你想要 push 上遠端的儲存庫時，必須先在本地端初始化一個儲存庫，然後執行 commit，然而你的本地端儲存庫和遠端儲存庫裡面的 commit 歷史不同，因此會造成衝突，無法 push 上去。</p>
+</div>
+<p><img src="https://i.imgur.com/LV3kvkU.jpg" alt=""><br>
+<img src="https://i.imgur.com/KahxAkH.jpg" alt=""></p>
+<p>參考資料：<br>
+<span class="exturl" data-url="aHR0cHM6Ly9oZXhzY2hvb2wudHcvcUNQYnc=">六角學院 -「Git 分支 (branch)」線上講義<i class="fa fa-external-link-alt"></i></span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9oZXhzY2hvb2wudHcvdjlieHo=">六角學院 -「Git 分支中階教學」線上講義<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="Git-入門-系列文-v3"><a class="header-anchor" href="#Git-入門-系列文-v3"></a>Git 入門 系列文</h2>
+<p><a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1/">Git 入門 (一)：介紹和基本指令</a><br>
+<a href="https://jenifers001d.github.io/2019/12/12/Git/Git-intro-2/">Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原</a><br>
+<a href="https://jenifers001d.github.io/2019/12/13/Git/Git-intro-3/">Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone)</a> ← 你在這～<br>
+<a href="https://jenifers001d.github.io/2019/12/18/Git/Git-intro-4/">Git 入門 (四)：取得遠端新檔案並合併 (fetch + merge = pull)、衝突 (conflict)</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Git/" rel="tag"># Git</a>
+              <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/12/12/Git/Git-intro-2/" rel="prev" title="Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原">
+                  <i class="fa fa-chevron-left"></i> Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/12/14/Python/learning-Python-day10/" rel="next" title="Python 自學第十天：寫在 Class 類別之前的物件導向 (OOP) 概念">
+                  Python 自學第十天：寫在 Class 類別之前的物件導向 (OOP) 概念 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jenifer</span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"disqus-comments","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
