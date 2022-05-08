@@ -596,35 +596,14 @@
 
   
   <url>
-    <loc>https://jenifers001d.github.io/tags/Python/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/Intermediate-Code/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/Intermediate-Python/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/Discord-Bot/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jenifers001d.github.io/tags/Flask/</loc>
+    <lastmod>2022-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/Python/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -645,7 +624,28 @@
   </url>
   
   <url>
+    <loc>https://jenifers001d.github.io/tags/Intermediate-Code/</loc>
+    <lastmod>2022-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/Intermediate-Python/</loc>
+    <lastmod>2022-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/tags/Jinja2/</loc>
+    <lastmod>2022-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/Discord-Bot/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -941,14 +941,14 @@
 
   
   <url>
-    <loc>https://jenifers001d.github.io/categories/Python/</loc>
+    <loc>https://jenifers001d.github.io/categories/Flask/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/categories/Flask/</loc>
+    <loc>https://jenifers001d.github.io/categories/Python/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
