@@ -2726,7 +2726,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #06180f;
+  background: #f9ffbd;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2842,4 +2842,7 @@ hr {
 /****************** footer ******************/
 footer .footer-inner {
   text-align: center;
+}
+footer .google-adsense-border {
+  border: 2px var(--text-color) ridge;
 }
