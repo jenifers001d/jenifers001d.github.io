@@ -16,10 +16,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.11.1","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.13.1","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="討論程式語言的型別時，通常「靜態、動態語言」和「強、弱型別」會放在一起討論。而「静態、動態作用域」則是屬於另一類型。 這邊放在一起說明，讓大家理解是不一樣的概念。">
 <meta property="og:type" content="article">
@@ -47,6 +47,7 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>靜態語言 / 動態語言、強型別 / 弱型別、静態作用域 / 動態作用域 | Jenifer.Code.World</title>
   
+
 
 
 
@@ -121,7 +122,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v17"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9C%E6%85%8B%E8%AA%9E%E8%A8%80-%E5%8B%95%E6%85%8B%E8%AA%9E%E8%A8%80-Static-vs-Dynamic-Typing"><span class="nav-number">2.</span> <span class="nav-text">靜態語言 &#x2F; 動態語言 (Static vs. Dynamic Typing)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%B7%E5%9E%8B%E5%88%A5-%E5%BC%B1%E5%9E%8B%E5%88%A5-Strong-vs-Weak-Typing"><span class="nav-number">3.</span> <span class="nav-text">強型別 &#x2F; 弱型別 (Strong vs. Weak Typing)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%85%8B%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%8B%95%E6%85%8B%E4%BD%9C%E7%94%A8%E5%9F%9F-Static-vs-Dynamic-Scoping"><span class="nav-number">4.</span> <span class="nav-text">静態作用域 &#x2F; 動態作用域 (Static vs. Dynamic Scoping)</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v18"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9C%E6%85%8B%E8%AA%9E%E8%A8%80-%E5%8B%95%E6%85%8B%E8%AA%9E%E8%A8%80-Static-vs-Dynamic-Typing"><span class="nav-number">2.</span> <span class="nav-text">靜態語言 &#x2F; 動態語言 (Static vs. Dynamic Typing)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%B7%E5%9E%8B%E5%88%A5-%E5%BC%B1%E5%9E%8B%E5%88%A5-Strong-vs-Weak-Typing"><span class="nav-number">3.</span> <span class="nav-text">強型別 &#x2F; 弱型別 (Strong vs. Weak Typing)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%85%8B%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%8B%95%E6%85%8B%E4%BD%9C%E7%94%A8%E5%9F%9F-Static-vs-Dynamic-Scoping"><span class="nav-number">4.</span> <span class="nav-text">静態作用域 &#x2F; 動態作用域 (Static vs. Dynamic Scoping)</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -257,7 +258,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="前言-v17"><a class="header-anchor" href="#前言-v17"></a>前言</h2>
+        <h2 id="前言-v18"><a class="header-anchor" href="#前言-v18"></a>前言</h2>
 
 <p>討論程式語言的型別時，通常「靜態、動態語言」和「強、弱型別」會放在一起討論。而「静態、動態作用域」則是屬於另一類型。</p>
 <p>這邊放在一起說明，讓大家理解是不一樣的概念。</p>
@@ -328,6 +329,15 @@ Static scoping also makes it much easier to make a modular code as programmer ca
     
 
     <footer class="post-footer">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: 'ca-pub-6866375976707228',
+          enable_page_level_ads: true
+     });
+</script>
+
+
           <div class="post-tags">
               <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
               <a href="/tags/Csharp-C/" rel="tag"># Csharp(C#)</a>
