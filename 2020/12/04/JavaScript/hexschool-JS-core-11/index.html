@@ -122,7 +122,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%88%89%E4%BE%8B-v2"><span class="nav-number">1.</span> <span class="nav-text">舉例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%8F%E5%89%87"><span class="nav-number">2.</span> <span class="nav-text">規則</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%A4%96%E4%B8%80"><span class="nav-number">2.1.</span> <span class="nav-text">例外一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%A4%96%E4%BA%8C"><span class="nav-number">2.2.</span> <span class="nav-text">例外二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%8C%E4%B8%8D%E6%9C%83%E3%80%8D%E5%8A%A0%E5%85%A5%E5%88%86%E8%99%9F%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-number">2.3.</span> <span class="nav-text">「不會」加入分號的地方</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%88%89%E4%BE%8B-v3"><span class="nav-number">1.</span> <span class="nav-text">舉例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%8F%E5%89%87"><span class="nav-number">2.</span> <span class="nav-text">規則</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%A4%96%E4%B8%80"><span class="nav-number">2.1.</span> <span class="nav-text">例外一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%A4%96%E4%BA%8C"><span class="nav-number">2.2.</span> <span class="nav-text">例外二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%8C%E4%B8%8D%E6%9C%83%E3%80%8D%E5%8A%A0%E5%85%A5%E5%88%86%E8%99%9F%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-number">2.3.</span> <span class="nav-text">「不會」加入分號的地方</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -135,7 +135,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -255,7 +255,7 @@
         
 <p>ASI 即 Automatic Semicolon Insertion，當程式碼沒有加上分號時，<strong>依照 ASI 的規則，自動插入分號</strong>。它會帶來一些好處，但是也會造成一些問題。</p>
 
-<h2 id="舉例-v2"><a class="header-anchor" href="#舉例-v2"></a>舉例</h2>
+<h2 id="舉例-v3"><a class="header-anchor" href="#舉例-v3"></a>舉例</h2>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">    <span class="string">&quot;I am Jenifer.&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">test</span>()); <span class="comment">// 輸出結果：undefined</span></span><br></pre></td></tr></table></figure>
 <p>原本是預期輸出結果為 <code>I am Jenifer.</code>，但是卻變成 <code>undefined</code>，為什麼？？？</p>
 <p>因為 ASI 的緣故，自動在 <code>return</code> 的後面加上分號，變成如下：</p>
