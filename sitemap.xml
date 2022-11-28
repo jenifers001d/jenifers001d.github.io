@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jenifers001d.github.io/2020/08/04/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/what-is-core-and-thread/</loc>
+    
+    <lastmod>2022-11-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/2022/11/28/SQL/OUTER-APPLY-and-LEFT-JOIN/</loc>
     
     <lastmod>2022-11-28</lastmod>
@@ -32,15 +41,6 @@
     <loc>https://jenifers001d.github.io/2022/11/07/SQL/SQL-skills/</loc>
     
     <lastmod>2022-11-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/2020/08/04/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/what-is-core-and-thread/</loc>
-    
-    <lastmod>2022-11-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
