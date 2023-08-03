@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://i.imgur.com/ykFFdnA.jpg">
 <meta property="og:image" content="https://i.imgur.com/QvwhLwi.jpg">
 <meta property="article:published_time" content="2020-02-17T10:21:53.358Z">
-<meta property="article:modified_time" content="2020-06-22T08:23:04.938Z">
+<meta property="article:modified_time" content="2023-08-03T04:13:46.875Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content=".Net Framework">
 <meta property="article:tag" content="Csharp(C#)">
@@ -132,7 +132,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v17"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%9F%B7%E8%A1%8C%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">程式的執行方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B7%A8%E8%AD%AF%E6%99%82-Compile-time%EF%BC%9AC-code-%E4%B8%AD%E9%96%93%E8%AA%9E%E8%A8%80-IL"><span class="nav-number">3.1.</span> <span class="nav-text">編譯時 Compile time：C# code &gt;&gt; 中間語言 IL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E6%99%82-Run-time%EF%BC%9A%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8-CLR-%E8%BC%89%E5%85%A5%E9%A1%9E%E5%88%A5%E5%BA%AB-CLR-%E5%B0%87-IL-%E7%BF%BB%E8%AD%AF%E6%88%90-Native-code-%E5%AD%98%E5%9C%A8%E7%B7%A9%E8%A1%9D%E5%8D%80"><span class="nav-number">3.2.</span> <span class="nav-text">執行時 Run time：虛擬機器 CLR 載入類別庫 &gt;&gt; CLR 將 IL 翻譯成 Native code &gt;&gt; 存在緩衝區</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%87%89%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">應用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E5%90%88%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83-IDE"><span class="nav-number">5.</span> <span class="nav-text">整合開發環境 IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%B0%88%E6%A1%88-v2"><span class="nav-number">6.</span> <span class="nav-text">如何建立一個專案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89%E5%A5%BDIDE%EF%BC%8C%E9%96%8B%E5%A7%8B%E6%96%B0%E5%B0%88%E6%A1%88"><span class="nav-number">6.1.</span> <span class="nav-text">下載好IDE，開始新專案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows"><span class="nav-number">6.1.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac"><span class="nav-number">6.1.2.</span> <span class="nav-text">Mac</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%81%B8%E6%93%87%E9%96%8B%E7%99%BC%E6%A8%A1%E5%BC%8F%E8%A6%96%E7%AA%97%E4%B8%AD"><span class="nav-number">6.2.</span> <span class="nav-text">在選擇開發模式視窗中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-v2"><span class="nav-number">6.2.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-v2"><span class="nav-number">6.2.2.</span> <span class="nav-text">Mac</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B%E6%92%B0%E5%AF%AB%E7%A8%8B%E5%BC%8F%E7%A2%BC%E4%B9%8B%E5%89%8D"><span class="nav-number">7.</span> <span class="nav-text">開始撰寫程式碼之前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%B8%E7%BF%92%E8%B3%87%E6%96%99"><span class="nav-number">8.</span> <span class="nav-text">學習資料</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#freeCodeCamp-on-YouTube"><span class="nav-number">8.1.</span> <span class="nav-text">freeCodeCamp on YouTube</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E5%B1%B1%E7%9A%84C-%E6%95%99%E5%AD%B8"><span class="nav-number">8.2.</span> <span class="nav-text">小山的C#教學</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v2"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%9F%B7%E8%A1%8C%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">程式的執行方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B7%A8%E8%AD%AF%E6%99%82-Compile-time%EF%BC%9AC-code-%E4%B8%AD%E9%96%93%E8%AA%9E%E8%A8%80-IL"><span class="nav-number">3.1.</span> <span class="nav-text">編譯時 Compile time：C# code &gt;&gt; 中間語言 IL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E6%99%82-Run-time%EF%BC%9A%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8-CLR-%E8%BC%89%E5%85%A5%E9%A1%9E%E5%88%A5%E5%BA%AB-CLR-%E5%B0%87-IL-%E7%BF%BB%E8%AD%AF%E6%88%90-Native-code-%E5%AD%98%E5%9C%A8%E7%B7%A9%E8%A1%9D%E5%8D%80"><span class="nav-number">3.2.</span> <span class="nav-text">執行時 Run time：虛擬機器 CLR 載入類別庫 &gt;&gt; CLR 將 IL 翻譯成 Native code &gt;&gt; 存在緩衝區</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%87%89%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">應用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E5%90%88%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83-IDE"><span class="nav-number">5.</span> <span class="nav-text">整合開發環境 IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%B0%88%E6%A1%88"><span class="nav-number">6.</span> <span class="nav-text">如何建立一個專案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89%E5%A5%BDIDE%EF%BC%8C%E9%96%8B%E5%A7%8B%E6%96%B0%E5%B0%88%E6%A1%88"><span class="nav-number">6.1.</span> <span class="nav-text">下載好IDE，開始新專案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows"><span class="nav-number">6.1.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac"><span class="nav-number">6.1.2.</span> <span class="nav-text">Mac</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%81%B8%E6%93%87%E9%96%8B%E7%99%BC%E6%A8%A1%E5%BC%8F%E8%A6%96%E7%AA%97%E4%B8%AD"><span class="nav-number">6.2.</span> <span class="nav-text">在選擇開發模式視窗中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-v2"><span class="nav-number">6.2.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-v2"><span class="nav-number">6.2.2.</span> <span class="nav-text">Mac</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B%E6%92%B0%E5%AF%AB%E7%A8%8B%E5%BC%8F%E7%A2%BC%E4%B9%8B%E5%89%8D"><span class="nav-number">7.</span> <span class="nav-text">開始撰寫程式碼之前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%B8%E7%BF%92%E8%B3%87%E6%96%99"><span class="nav-number">8.</span> <span class="nav-text">學習資料</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#freeCodeCamp-on-YouTube"><span class="nav-number">8.1.</span> <span class="nav-text">freeCodeCamp on YouTube</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E5%B1%B1%E7%9A%84C-%E6%95%99%E5%AD%B8"><span class="nav-number">8.2.</span> <span class="nav-text">小山的C#教學</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -145,13 +145,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -246,7 +246,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2020-06-22 18:23:04" itemprop="dateModified" datetime="2020-06-22T18:23:04+10:00">2020-06-22</time>
+      <time title="修改時間：2023-08-03 14:13:46" itemprop="dateModified" datetime="2023-08-03T14:13:46+10:00">2023-08-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -284,7 +284,7 @@
         </div>        
       </div>
 <!--/google_adsense-->
-        <h2 id="前言-v17"><a class="header-anchor" href="#前言-v17"></a>前言</h2>
+        <h2 id="前言-v2"><a class="header-anchor" href="#前言-v2"></a>前言</h2>
 
 <p>這篇主要是紀錄<strong>初學者</strong>會學習到的基本語法、程式內容和一些我自己的理解(有誤再請糾正)。</p>
 <p>當初，我在自學 C# 的時候，就是從以下 <strong>freeCodeCamp</strong> 和<strong>小山的C#教學</strong>在 YouTube 上提供的影片學習的。</p>
@@ -292,7 +292,7 @@
 
 <h2 id="背景"><a class="header-anchor" href="#背景"></a>背景</h2>
 <p>C# 是微軟推出的一種基於 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvLk5FVCVFNiVBMSU4NiVFNiU5RSVCNg==">.NET Framework<i class="fa fa-external-link-alt"></i></span>(.NET框架) 的進階程式語言，有 <code>物件導向(Object Oriented Programming)</code> 的特性。</p>
-<p>C# 以 <code>.NET Framework類別庫</code> (一堆預先寫好的工具，可以直接拿來使用，不稱 <code>函式庫</code> 是因為 C# 是完全物件導向的語言) 作為基礎，擁有類似 Visual Basic 的快速開發能力。微軟在 2000 年發布了這種語言，希望向 Java 靠攏，也因此語法與其類似。C#的發音為「C sharp」，藉助這樣的命名，表示 C# 在一些語言特性方面對 C++ 的提升的意思。</p>
+<p>C# 以 <code>.NET Framework 類別庫</code> (<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTlGJUJBJUU3JUExJTgwJUU3JUIxJUJCJUU1JUJBJTkz">一堆預先寫好的工具<i class="fa fa-external-link-alt"></i></span>，可以直接拿來使用，不稱 <code>函式庫</code> 是因為 C# 是完全物件導向的語言) 作為基礎，擁有類似 Visual Basic 的快速開發能力。微軟在 2000 年發布了這種語言，希望向 Java 靠攏，也因此語法與其類似。C#的發音為「C sharp」，藉助這樣的命名，表示 C# 在一些語言特性方面對 C++ 的提升的意思。</p>
 <p>註：物件導向、<code>Object Oriented Programming(OO/OOP)</code>，簡單的概念是每個物體 (object) 都有其類別 (class)，期望可以對應到現實世界中的事物。例如：來福的類別是西施犬，發財的類別是台灣土狗，而西施犬和台灣土狗的類別都是狗。</p>
 <h2 id="程式的執行方法"><a class="header-anchor" href="#程式的執行方法"></a>程式的執行方法</h2>
 <h3 id="編譯時-Compile-time：C-code-中間語言-IL"><a class="header-anchor" href="#編譯時-Compile-time：C-code-中間語言-IL"></a>編譯時 Compile time：C# code &gt;&gt; 中間語言 IL</h3>
@@ -319,7 +319,7 @@
 <div class="danger">
 <p>請不要下載成 <strong>Visual Studio Code</strong>，那只是文字編輯器，可以在上面寫程式，但是不能進行編譯。</p>
 </div>
-<h2 id="如何建立一個專案-v2"><a class="header-anchor" href="#如何建立一個專案-v2"></a>如何建立一個專案</h2>
+<h2 id="如何建立一個專案"><a class="header-anchor" href="#如何建立一個專案"></a>如何建立一個專案</h2>
 <h3 id="下載好IDE，開始新專案"><a class="header-anchor" href="#下載好IDE，開始新專案"></a>下載好IDE，開始新專案</h3>
 <h4 id="Windows"><a class="header-anchor" href="#Windows"></a>Windows</h4>
 <p>請選擇 <strong>「檔案」File</strong> &gt;&gt; <strong>「新增」New</strong> &gt;&gt; <strong>「專案」Project</strong></p>
