@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jenifers001d.github.io/2020/02/20/MVC/learning-ASP.NET-MVC-3/</loc>
+    
+    <lastmod>2023-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/2020/02/19/MVC/learning-ASP.NET-MVC-2/</loc>
+    
+    <lastmod>2023-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/</loc>
+    
+    <lastmod>2023-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/2023/08/03/Net-Framework/basic-ADO.NET/</loc>
     
     <lastmod>2023-08-03</lastmod>
@@ -383,33 +410,6 @@
     <loc>https://jenifers001d.github.io/2020/06/18/Hexo/Hexo-modify-favicon/</loc>
     
     <lastmod>2020-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/2020/02/19/MVC/learning-ASP.NET-MVC-2/</loc>
-    
-    <lastmod>2020-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/2020/02/20/MVC/learning-ASP.NET-MVC-3/</loc>
-    
-    <lastmod>2020-02-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/</loc>
-    
-    <lastmod>2020-02-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -858,13 +858,6 @@
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Net-Framework/</loc>
-    <lastmod>2023-08-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/C/</loc>
     <lastmod>2023-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
