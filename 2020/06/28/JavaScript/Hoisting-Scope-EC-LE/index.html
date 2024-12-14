@@ -29,7 +29,7 @@
 <meta property="og:description" content="Hoisting 基本概念就是：將非函式和函式宣告的動作，抽象地提升到程式碼最前面的動作，讓程式進入執行階段前，就預先完成宣告。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-06-27T15:36:33.779Z">
-<meta property="article:modified_time" content="2020-09-13T05:47:14.896Z">
+<meta property="article:modified_time" content="2024-12-14T12:15:05.376Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Advanced Code">
@@ -121,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%8D%87-Hoisting-%E3%80%81%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83-EC-%E3%80%81%E8%A9%9E%E5%BD%99%E7%92%B0%E5%A2%83-LE"><span class="nav-number">2.</span> <span class="nav-text">提升 (Hoisting)、執行環境 (EC)、詞彙環境 (LE)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%AA%E6%98%8E"><span class="nav-number">2.1.</span> <span class="nav-text">說明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8B%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">運行原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%88%89%E4%BE%8B%E4%B8%80"><span class="nav-number">2.3.</span> <span class="nav-text">舉例一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B7%A8%E8%AD%AF%E6%99%82%E6%9C%9F"><span class="nav-number">2.3.1.</span> <span class="nav-text">編譯時期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E6%99%82%E6%9C%9F"><span class="nav-number">2.3.2.</span> <span class="nav-text">執行時期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%88%89%E4%BE%8B%E4%BA%8C"><span class="nav-number">2.4.</span> <span class="nav-text">舉例二</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B7%A8%E8%AD%AF%E6%99%82%E6%9C%9F-v2"><span class="nav-number">2.4.1.</span> <span class="nav-text">編譯時期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E6%99%82%E6%9C%9F-v2"><span class="nav-number">2.4.2.</span> <span class="nav-text">執行時期</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v7"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hoisting-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">Hoisting 是什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%8D%87-Hoisting-%E3%80%81%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83-EC-%E3%80%81%E8%A9%9E%E5%BD%99%E7%92%B0%E5%A2%83-LE"><span class="nav-number">3.</span> <span class="nav-text">提升 (Hoisting)、執行環境 (EC)、詞彙環境 (LE)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%AA%E6%98%8E"><span class="nav-number">3.1.</span> <span class="nav-text">說明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8B%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">運行原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%88%89%E4%BE%8B%E4%B8%80"><span class="nav-number">3.3.</span> <span class="nav-text">舉例一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B7%A8%E8%AD%AF%E6%99%82%E6%9C%9F"><span class="nav-number">3.3.1.</span> <span class="nav-text">編譯時期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E6%99%82%E6%9C%9F"><span class="nav-number">3.3.2.</span> <span class="nav-text">執行時期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%88%89%E4%BE%8B%E4%BA%8C"><span class="nav-number">3.4.</span> <span class="nav-text">舉例二</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B7%A8%E8%AD%AF%E6%99%82%E6%9C%9F-v2"><span class="nav-number">3.4.1.</span> <span class="nav-text">編譯時期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E6%99%82%E6%9C%9F-v2"><span class="nav-number">3.4.2.</span> <span class="nav-text">執行時期</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -235,7 +235,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2020-09-13 15:47:14" itemprop="dateModified" datetime="2020-09-13T15:47:14+10:00">2020-09-13</time>
+      <time title="修改時間：2024-12-14 22:15:05" itemprop="dateModified" datetime="2024-12-14T22:15:05+10:00">2024-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,8 +273,9 @@
         </div>        
       </div>
 <!--/google_adsense-->
-        <p>如果只是想了解或還沒了解基本 Hoisting 概念，請前往：<a href="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-6/">六角學院 JS 核心筆記 (六)【執行環境與作用域】- 提升 (Hoisting)</a></p>
-<h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+        <h2 id="前言-v7"><a class="header-anchor" href="#前言-v7"></a>前言</h2>
+<p>如果只是想了解或還沒了解基本 Hoisting 概念，請前往：<a href="https://jenifers001d.github.io/2020/06/28/JavaScript/hexschool-JS-core-6/">六角學院 JS 核心筆記 (六)【執行環境與作用域】- 提升 (Hoisting)</a></p>
+<h2 id="Hoisting-是什麼？"><a class="header-anchor" href="#Hoisting-是什麼？"></a>Hoisting 是什麼？</h2>
 
 <p>Hoisting 基本概念就是：將非函式和函式宣告的動作，抽象地提升到程式碼最前面的動作，讓程式進入執行階段前，就預先完成宣告。</p>
 

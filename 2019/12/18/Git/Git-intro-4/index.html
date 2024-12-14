@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://i.imgur.com/kZFhFUz.jpg">
 <meta property="og:image" content="https://i.imgur.com/3GF42SO.jpg">
 <meta property="article:published_time" content="2019-12-18T12:24:58.878Z">
-<meta property="article:modified_time" content="2022-05-08T05:41:28.930Z">
+<meta property="article:modified_time" content="2024-12-14T12:12:50.809Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="GitHub">
@@ -131,7 +131,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%96%E5%BE%97%E9%81%A0%E7%AB%AF%E6%96%B0%E6%AA%94%E6%A1%88%E4%B8%A6%E5%90%88%E4%BD%B5-fetch-merge-pull-fetch"><span class="nav-number">1.</span> <span class="nav-text">取得遠端新檔案並合併 (fetch + merge &#x3D; pull) (fetch)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E5%9B%9E%E9%81%A0%E7%AB%AF%E6%AA%94%E6%A1%88%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">取回遠端檔案指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-%E7%9A%84-Pull-Request"><span class="nav-number">2.</span> <span class="nav-text">GitHub 的 Pull Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E8%A1%9D%E7%AA%81"><span class="nav-number">3.</span> <span class="nav-text">檔案衝突</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E8%88%87%E6%9C%AC%E5%9C%B0%E4%B9%8B%E9%96%93%E7%9A%84-conflict"><span class="nav-number">3.1.</span> <span class="nav-text">本地與本地之間的 conflict</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F"><span class="nav-number">3.1.1.</span> <span class="nav-text">步驟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E8%88%87%E9%81%A0%E7%AB%AF%E4%B9%8B%E9%96%93%E7%9A%84-conflict"><span class="nav-number">3.2.</span> <span class="nav-text">本地與遠端之間的 conflict</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F-v2"><span class="nav-number">3.2.1.</span> <span class="nav-text">步驟</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%85%A5%E9%96%80-%E7%B3%BB%E5%88%97%E6%96%87-v4"><span class="nav-number">4.</span> <span class="nav-text">Git 入門 系列文</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v4"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%96%E5%BE%97%E9%81%A0%E7%AB%AF%E6%96%B0%E6%AA%94%E6%A1%88%E4%B8%A6%E5%90%88%E4%BD%B5-fetch-merge-pull-fetch"><span class="nav-number">2.</span> <span class="nav-text">取得遠端新檔案並合併 (fetch + merge &#x3D; pull) (fetch)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E5%9B%9E%E9%81%A0%E7%AB%AF%E6%AA%94%E6%A1%88%E6%8C%87%E4%BB%A4"><span class="nav-number">2.1.</span> <span class="nav-text">取回遠端檔案指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-%E7%9A%84-Pull-Request"><span class="nav-number">3.</span> <span class="nav-text">GitHub 的 Pull Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E8%A1%9D%E7%AA%81"><span class="nav-number">4.</span> <span class="nav-text">檔案衝突</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E8%88%87%E6%9C%AC%E5%9C%B0%E4%B9%8B%E9%96%93%E7%9A%84-conflict"><span class="nav-number">4.1.</span> <span class="nav-text">本地與本地之間的 conflict</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F"><span class="nav-number">4.1.1.</span> <span class="nav-text">步驟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E8%88%87%E9%81%A0%E7%AB%AF%E4%B9%8B%E9%96%93%E7%9A%84-conflict"><span class="nav-number">4.2.</span> <span class="nav-text">本地與遠端之間的 conflict</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F-v2"><span class="nav-number">4.2.1.</span> <span class="nav-text">步驟</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%85%A5%E9%96%80-%E7%B3%BB%E5%88%97%E6%96%87-v2"><span class="nav-number">5.</span> <span class="nav-text">Git 入門 系列文</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -245,7 +245,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-05-08 15:41:28" itemprop="dateModified" datetime="2022-05-08T15:41:28+10:00">2022-05-08</time>
+      <time title="修改時間：2024-12-14 22:12:50" itemprop="dateModified" datetime="2024-12-14T22:12:50+10:00">2024-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,7 +283,8 @@
         </div>        
       </div>
 <!--/google_adsense-->
-        
+        <h2 id="前言-v4"><a class="header-anchor" href="#前言-v4"></a>前言</h2>
+
 <p>這一篇提到，多人協作時，在自己開始更新本地端分支前，最好先取得遠端分支的更新版本，即可能避免<strong>更新到同一行檔案之衝突</strong>的發生。若是自己更新完了本地端該分支的現有版本，正要推上遠端分支時，發現檔案衝突，該如何解決？</p>
 
 <h2 id="取得遠端新檔案並合併-fetch-merge-pull-fetch"><a class="header-anchor" href="#取得遠端新檔案並合併-fetch-merge-pull-fetch"></a>取得遠端新檔案並合併 (fetch + merge = pull) (fetch)</h2>
@@ -364,7 +365,7 @@ Automatic merge failed; fix conflicts and then commit the result.</p>
 </ol>
 <p>參考資料：<br>
 <span class="exturl" data-url="aHR0cHM6Ly9oZXhzY2hvb2wudHcvdjlieHo=">六角學院 -「Git 分支中階教學」線上講義<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="Git-入門-系列文-v4"><a class="header-anchor" href="#Git-入門-系列文-v4"></a>Git 入門 系列文</h2>
+<h2 id="Git-入門-系列文-v2"><a class="header-anchor" href="#Git-入門-系列文-v2"></a>Git 入門 系列文</h2>
 <p><a href="https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1/">Git 入門 (一)：介紹和基本指令</a><br>
 <a href="https://jenifers001d.github.io/2019/12/12/Git/Git-intro-2/">Git 入門 (二)：遠端操作 (使用 GitHub 的伺服器)、檔案狀態與還原</a><br>
 <a href="https://jenifers001d.github.io/2019/12/13/Git/Git-intro-3/">Git 入門 (三)：分支 (branch)、下載遠端儲存庫 (clone)</a><br>

@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://i.imgur.com/N0DalzX.jpg">
 <meta property="og:image" content="https://i.imgur.com/zqPRJNI.jpg">
 <meta property="article:published_time" content="2019-12-12T13:04:41.365Z">
-<meta property="article:modified_time" content="2022-05-08T05:42:32.568Z">
+<meta property="article:modified_time" content="2024-12-14T12:12:31.397Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="GitHub">
@@ -129,7 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8GitHub-%E9%81%A0%E7%AB%AF%E4%BC%BA%E6%9C%8D%E5%99%A8-%E4%B8%AD%E6%96%B0%E9%96%8B%E4%B8%80%E5%80%8B%E5%84%B2%E5%AD%98%E5%BA%AB-repository-%E5%BE%8C%E2%80%A6"><span class="nav-number">1.</span> <span class="nav-text">在GitHub(遠端伺服器)中新開一個儲存庫(repository)後…</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-repository-on-command-line"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new repository on command line</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Push-an-existing-repository-from-the-command-line"><span class="nav-number">1.2.</span> <span class="nav-text">Push an existing repository from the command line</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%B3%E8%A6%81%E5%88%87%E6%8F%9B%E5%88%B0%E4%B8%8D%E5%90%8C-git-%E7%89%88%E6%9C%AC%E4%B8%8B%EF%BC%8C%E6%9F%A5%E7%9C%8B%E6%AA%94%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B"><span class="nav-number">2.</span> <span class="nav-text">想要切換到不同 git 版本下，查看檔案的狀態</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E7%8B%80%E6%85%8B"><span class="nav-number">3.</span> <span class="nav-text">檔案狀態</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E9%82%84%E5%8E%9F%E6%8A%80%E5%B7%A7"><span class="nav-number">4.</span> <span class="nav-text">檔案還原技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Modified-Deleted-Unmodified-Working-directory"><span class="nav-number">4.1.</span> <span class="nav-text">Modified &#x2F; Deleted &#x3D;&gt; Unmodified (Working directory)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Index-Staging-area-Working-directory"><span class="nav-number">4.2.</span> <span class="nav-text">Index &#x2F; Staging area &#x3D;&gt; Working directory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%82%84%E5%8E%9F%EF%BC%9Areset"><span class="nav-number">4.3.</span> <span class="nav-text">版本還原：reset</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%85%A5%E9%96%80-%E7%B3%BB%E5%88%97%E6%96%87"><span class="nav-number">5.</span> <span class="nav-text">Git 入門 系列文</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v3"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8GitHub-%E9%81%A0%E7%AB%AF%E4%BC%BA%E6%9C%8D%E5%99%A8-%E4%B8%AD%E6%96%B0%E9%96%8B%E4%B8%80%E5%80%8B%E5%84%B2%E5%AD%98%E5%BA%AB-repository-%E5%BE%8C%E2%80%A6"><span class="nav-number">2.</span> <span class="nav-text">在GitHub(遠端伺服器)中新開一個儲存庫(repository)後…</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-repository-on-command-line"><span class="nav-number">2.1.</span> <span class="nav-text">Create a new repository on command line</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Push-an-existing-repository-from-the-command-line"><span class="nav-number">2.2.</span> <span class="nav-text">Push an existing repository from the command line</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%B3%E8%A6%81%E5%88%87%E6%8F%9B%E5%88%B0%E4%B8%8D%E5%90%8C-git-%E7%89%88%E6%9C%AC%E4%B8%8B%EF%BC%8C%E6%9F%A5%E7%9C%8B%E6%AA%94%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B"><span class="nav-number">3.</span> <span class="nav-text">想要切換到不同 git 版本下，查看檔案的狀態</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E7%8B%80%E6%85%8B"><span class="nav-number">4.</span> <span class="nav-text">檔案狀態</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E9%82%84%E5%8E%9F%E6%8A%80%E5%B7%A7"><span class="nav-number">5.</span> <span class="nav-text">檔案還原技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Modified-Deleted-Unmodified-Working-directory"><span class="nav-number">5.1.</span> <span class="nav-text">Modified &#x2F; Deleted &#x3D;&gt; Unmodified (Working directory)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Index-Staging-area-Working-directory"><span class="nav-number">5.2.</span> <span class="nav-text">Index &#x2F; Staging area &#x3D;&gt; Working directory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%82%84%E5%8E%9F%EF%BC%9Areset"><span class="nav-number">5.3.</span> <span class="nav-text">版本還原：reset</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%85%A5%E9%96%80-%E7%B3%BB%E5%88%97%E6%96%87"><span class="nav-number">6.</span> <span class="nav-text">Git 入門 系列文</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,7 +243,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-05-08 15:42:32" itemprop="dateModified" datetime="2022-05-08T15:42:32+10:00">2022-05-08</time>
+      <time title="修改時間：2024-12-14 22:12:31" itemprop="dateModified" datetime="2024-12-14T22:12:31+10:00">2024-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -281,7 +281,8 @@
         </div>        
       </div>
 <!--/google_adsense-->
-        
+        <h2 id="前言-v3"><a class="header-anchor" href="#前言-v3"></a>前言</h2>
+
 <p>所謂的遠端操作，就是將本地端(電腦)<strong>版本控制狀態的資料</strong>傳送到遠端伺服器上，我們要使用的是最有名的 GitHub，它是最大的 Git (版本控制系统軟體) 服務提供商 (Git Server)。</p>
 
 <p>使用 GitHub 的好處有如下幾點：</p>

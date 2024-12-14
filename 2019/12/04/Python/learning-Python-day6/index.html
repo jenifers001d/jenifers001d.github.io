@@ -29,7 +29,7 @@
 <meta property="og:description" content="函式存在的目的在於減少撰寫重覆的程式碼，當需要多次使用它的功能時，重複呼叫即可。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2019-12-04T12:42:00.340Z">
-<meta property="article:modified_time" content="2019-12-09T01:50:53.909Z">
+<meta property="article:modified_time" content="2024-12-14T12:16:12.627Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Elementary Code">
@@ -121,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.</span> <span class="nav-text">函式定義</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%92%E6%9C%89%E5%8F%83%E6%95%B8%E3%80%81%E6%B2%92%E6%9C%89%E5%9B%9E%E5%82%B3%E5%80%BC"><span class="nav-number">1.1.</span> <span class="nav-text">沒有參數、沒有回傳值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%8F%83%E6%95%B8%E3%80%81%E6%B2%92%E6%9C%89%E5%9B%9E%E5%82%B3%E5%80%BC"><span class="nav-number">1.2.</span> <span class="nav-text">有參數、沒有回傳值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%9B%9E%E5%82%B3%E5%80%BC"><span class="nav-number">1.3.</span> <span class="nav-text">有回傳值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BC%E5%8F%AB%E5%87%BD%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">呼叫函式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E6%95%B8"><span class="nav-number">3.</span> <span class="nav-text">參數</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A0%90%E8%A8%AD%E5%8F%83%E6%95%B8%E5%80%BC"><span class="nav-number">3.1.</span> <span class="nav-text">預設參數值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%9C%E9%8D%B5%E5%AD%97%E5%8F%83%E6%95%B8"><span class="nav-number">3.2.</span> <span class="nav-text">關鍵字參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E5%80%8B%E6%95%B8%E7%9A%84%E5%8F%83%E6%95%B8"><span class="nav-number">3.3.</span> <span class="nav-text">任意個數的參數</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v21"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E5%AE%9A%E7%BE%A9"><span class="nav-number">2.</span> <span class="nav-text">函式定義</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%92%E6%9C%89%E5%8F%83%E6%95%B8%E3%80%81%E6%B2%92%E6%9C%89%E5%9B%9E%E5%82%B3%E5%80%BC"><span class="nav-number">2.1.</span> <span class="nav-text">沒有參數、沒有回傳值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%8F%83%E6%95%B8%E3%80%81%E6%B2%92%E6%9C%89%E5%9B%9E%E5%82%B3%E5%80%BC"><span class="nav-number">2.2.</span> <span class="nav-text">有參數、沒有回傳值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%9B%9E%E5%82%B3%E5%80%BC"><span class="nav-number">2.3.</span> <span class="nav-text">有回傳值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BC%E5%8F%AB%E5%87%BD%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">呼叫函式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E6%95%B8"><span class="nav-number">4.</span> <span class="nav-text">參數</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A0%90%E8%A8%AD%E5%8F%83%E6%95%B8%E5%80%BC"><span class="nav-number">4.1.</span> <span class="nav-text">預設參數值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%9C%E9%8D%B5%E5%AD%97%E5%8F%83%E6%95%B8"><span class="nav-number">4.2.</span> <span class="nav-text">關鍵字參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E5%80%8B%E6%95%B8%E7%9A%84%E5%8F%83%E6%95%B8"><span class="nav-number">4.3.</span> <span class="nav-text">任意個數的參數</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -235,7 +235,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2019-12-09 11:50:53" itemprop="dateModified" datetime="2019-12-09T11:50:53+10:00">2019-12-09</time>
+      <time title="修改時間：2024-12-14 22:16:12" itemprop="dateModified" datetime="2024-12-14T22:16:12+10:00">2024-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,7 +273,8 @@
         </div>        
       </div>
 <!--/google_adsense-->
-        
+        <h2 id="前言-v21"><a class="header-anchor" href="#前言-v21"></a>前言</h2>
+
 <p>函式存在的<strong>目的</strong>在於<span style="color: #ff0000;">減少撰寫重覆的程式碼</span>，當需要多次使用它的功能時，<span style="color: #ff0000;">重複呼叫</span>即可。</p>
 
 <h2 id="函式定義"><a class="header-anchor" href="#函式定義"></a>函式定義</h2>

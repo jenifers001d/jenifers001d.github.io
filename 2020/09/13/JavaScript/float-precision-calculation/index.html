@@ -29,7 +29,7 @@
 <meta property="og:description" content="電腦科學中小數點如果採用 IEEE754 二進制浮點運算都有同樣的狀況，會出現精度丟失的問題。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-09-13T10:23:12.124Z">
-<meta property="article:modified_time" content="2022-05-08T05:42:45.627Z">
+<meta property="article:modified_time" content="2024-12-14T12:11:21.818Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content="Intermediate Code">
 <meta property="article:tag" content="JavaScript">
@@ -123,7 +123,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E9%80%B2%E4%BD%8D%E6%B5%AE%E9%BB%9E%E6%95%B8-%E2%86%92-IEEE-754-%E5%96%AE%E7%B2%BE%E5%BA%A6-32-bits"><span class="nav-number">1.</span> <span class="nav-text">十進位浮點數 → IEEE 754 單精度 (32 bits)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%B8%80%EF%BC%9A0-625"><span class="nav-number">1.1.</span> <span class="nav-text">例一：0.625</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%BA%8C%EF%BC%9A0-1"><span class="nav-number">1.2.</span> <span class="nav-text">例二：0.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%B8%89%EF%BC%9A0-2"><span class="nav-number">1.3.</span> <span class="nav-text">例三：0.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-1-0-2-0-3"><span class="nav-number">2.</span> <span class="nav-text">0.1 + 0.2 !&#x3D;&#x3D; 0.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E8%AA%A4%E5%B7%AE%E7%9A%84%E6%B5%AE%E9%BB%9E%E6%95%B8%E8%A8%88%E7%AE%97%EF%BC%8C%E6%9C%83%E4%B8%8D%E6%9C%83%E8%88%87%E9%A0%90%E6%9C%9F%E7%B5%90%E6%9E%9C%E4%B8%8D%E4%B8%80%E6%A8%A3%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">有誤差的浮點數計算，會不會與預期結果不一樣？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B2%92%E6%9C%89%E8%AA%A4%E5%B7%AE%E7%9A%84%E6%B5%AE%E9%BB%9E%E6%95%B8"><span class="nav-number">4.</span> <span class="nav-text">沒有誤差的浮點數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E9%BB%9E%E6%95%B8%E7%B2%BE%E7%A2%BA%E8%A8%88%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">浮點數精確計算</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v12"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E9%80%B2%E4%BD%8D%E6%B5%AE%E9%BB%9E%E6%95%B8-%E2%86%92-IEEE-754-%E5%96%AE%E7%B2%BE%E5%BA%A6-32-bits"><span class="nav-number">2.</span> <span class="nav-text">十進位浮點數 → IEEE 754 單精度 (32 bits)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%B8%80%EF%BC%9A0-625"><span class="nav-number">2.1.</span> <span class="nav-text">例一：0.625</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%BA%8C%EF%BC%9A0-1"><span class="nav-number">2.2.</span> <span class="nav-text">例二：0.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%B8%89%EF%BC%9A0-2"><span class="nav-number">2.3.</span> <span class="nav-text">例三：0.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-1-0-2-0-3"><span class="nav-number">3.</span> <span class="nav-text">0.1 + 0.2 !&#x3D;&#x3D; 0.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E8%AA%A4%E5%B7%AE%E7%9A%84%E6%B5%AE%E9%BB%9E%E6%95%B8%E8%A8%88%E7%AE%97%EF%BC%8C%E6%9C%83%E4%B8%8D%E6%9C%83%E8%88%87%E9%A0%90%E6%9C%9F%E7%B5%90%E6%9E%9C%E4%B8%8D%E4%B8%80%E6%A8%A3%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">有誤差的浮點數計算，會不會與預期結果不一樣？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B2%92%E6%9C%89%E8%AA%A4%E5%B7%AE%E7%9A%84%E6%B5%AE%E9%BB%9E%E6%95%B8"><span class="nav-number">5.</span> <span class="nav-text">沒有誤差的浮點數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E9%BB%9E%E6%95%B8%E7%B2%BE%E7%A2%BA%E8%A8%88%E7%AE%97"><span class="nav-number">6.</span> <span class="nav-text">浮點數精確計算</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -237,7 +237,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-05-08 15:42:45" itemprop="dateModified" datetime="2022-05-08T15:42:45+10:00">2022-05-08</time>
+      <time title="修改時間：2024-12-14 22:11:21" itemprop="dateModified" datetime="2024-12-14T22:11:21+10:00">2024-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -275,7 +275,8 @@
         </div>        
       </div>
 <!--/google_adsense-->
-        
+        <h2 id="前言-v12"><a class="header-anchor" href="#前言-v12"></a>前言</h2>
+
 <p>電腦科學中小數點如果採用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaC1zY2htaWR0Lm5ldC9GbG9hdENvbnZlcnRlci9JRUVFNzU0Lmh0bWw=">IEEE754 二進制浮點運算<i class="fa fa-external-link-alt"></i></span>都有同樣的狀況，會出現精度丟失的問題。</p>
 
 <h2 id="十進位浮點數-→-IEEE-754-單精度-32-bits"><a class="header-anchor" href="#十進位浮點數-→-IEEE-754-單精度-32-bits"></a>十進位浮點數 → IEEE 754 單精度 (32 bits)</h2>
