@@ -21,18 +21,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.13.1","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Console 一般又稱主控台、控制台，是僅以文字顯示訊息和結果的介面，像是一種特殊的終端機、命令提示字元。在 C# 中是 System 命名空間 底下的一個 class (類別)。">
+    <meta name="description" content="Console 一般又稱主控台、控制台，是僅以文字顯示訊息和結果的介面，像是一種特殊的終端機、命令提示字元。在 C# 中是 System 命名空間 底下的一個 Class (類別)。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch1 Console 類別的輸入和輸出方法">
 <meta property="og:url" content="https://jenifers001d.github.io/2024/12/14/Csharp-C/learning-Csharp-console-app-L1-ch1/">
 <meta property="og:site_name" content="Jenifer.Code.World">
-<meta property="og:description" content="Console 一般又稱主控台、控制台，是僅以文字顯示訊息和結果的介面，像是一種特殊的終端機、命令提示字元。在 C# 中是 System 命名空間 底下的一個 class (類別)。">
+<meta property="og:description" content="Console 一般又稱主控台、控制台，是僅以文字顯示訊息和結果的介面，像是一種特殊的終端機、命令提示字元。在 C# 中是 System 命名空間 底下的一個 Class (類別)。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/VGCKCgp.jpg">
 <meta property="og:image" content="https://i.imgur.com/0wLBY9N.jpg">
 <meta property="og:image" content="https://i.imgur.com/GG1tSN8.jpg">
 <meta property="article:published_time" content="2024-12-14T10:29:45.782Z">
-<meta property="article:modified_time" content="2024-12-14T10:32:41.646Z">
+<meta property="article:modified_time" content="2024-12-14T12:32:42.196Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content=".Net Framework">
 <meta property="article:tag" content="Csharp(C#)">
@@ -235,7 +235,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2024-12-14 20:29:45 / 修改時間：20:32:41" itemprop="dateCreated datePublished" datetime="2024-12-14T20:29:45+10:00">2024-12-14</time>
+      <time title="創建時間：2024-12-14 20:29:45 / 修改時間：22:32:42" itemprop="dateCreated datePublished" datetime="2024-12-14T20:29:45+10:00">2024-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -275,7 +275,7 @@
 <!--/google_adsense-->
         <h2 id="介紹"><a class="header-anchor" href="#介紹"></a>介紹</h2>
 
-<p><code>Console</code> 一般又稱<strong>主控台</strong>、<strong>控制台</strong>，是僅以文字顯示訊息和結果的介面，像是一種特殊的<strong>終端機</strong>、<strong>命令提示字元</strong>。在 C# 中是 <code>System 命名空間</code> 底下的一個 class (類別)。</p>
+<p><code>Console</code> 一般又稱<strong>主控台</strong>、<strong>控制台</strong>，是僅以文字顯示訊息和結果的介面，像是一種特殊的<strong>終端機</strong>、<strong>命令提示字元</strong>。在 C# 中是 <code>System 命名空間</code> 底下的一個 Class (類別)。</p>
 
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">DrawingAShape</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">DrawingAShape</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;   /|&quot;</span>);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;  / |&quot;</span>);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot; /  |&quot;</span>);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;/___|&quot;</span>);</span><br><span class="line"></span><br><span class="line">            Console.ReadLine(); <span class="comment">//寫這行也可以暫停</span></span><br><span class="line">            <span class="comment">//不用一定要寫 ReadKey()</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="WriteLine、Write-方法"><a class="header-anchor" href="#WriteLine、Write-方法"></a>WriteLine、Write 方法</h2>

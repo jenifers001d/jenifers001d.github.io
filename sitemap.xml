@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jenifers001d.github.io/2023/03/22/PTE/PTE-preparations-and-summary/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/2020/06/28/JavaScript/Hoisting-Scope-EC-LE/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/2020/06/18/Flask/Flask+SQLite-2/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/2024/12/14/Csharp-C/learning-Csharp-console-app-L1-ch1/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/2019/12/09/SEO/SEO1-Website-is-Not-Showing-in-Google-Search/</loc>
     
     <lastmod>2024-12-14</lastmod>
@@ -120,15 +165,6 @@
   
   <url>
     <loc>https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/</loc>
-    
-    <lastmod>2024-12-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/2020/06/28/JavaScript/Hoisting-Scope-EC-LE/</loc>
     
     <lastmod>2024-12-14</lastmod>
     
@@ -263,15 +299,6 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-4/</loc>
-    
-    <lastmod>2024-12-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-2/</loc>
     
     <lastmod>2024-12-14</lastmod>
@@ -282,15 +309,6 @@
   
   <url>
     <loc>https://jenifers001d.github.io/2019/11/24/Hexo/Hexo+GitHub-3/</loc>
-    
-    <lastmod>2024-12-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/2024/12/14/Csharp-C/learning-Csharp-console-app-L1-ch1/</loc>
     
     <lastmod>2024-12-14</lastmod>
     
@@ -389,15 +407,6 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/2023/03/22/PTE/PTE-preparations-and-summary/</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jenifers001d.github.io/2022/12/08/SQL/types-of-SQL-statements/</loc>
     
     <lastmod>2022-12-08</lastmod>
@@ -428,15 +437,6 @@
     <loc>https://jenifers001d.github.io/2022/05/15/ReactJS/ReactJS-Tutorial-note/</loc>
     
     <lastmod>2022-05-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/2020/06/18/Flask/Flask+SQLite-2/</loc>
-    
-    <lastmod>2022-05-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
