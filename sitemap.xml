@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jenifers001d.github.io/2020/09/14/JavaScript/hexschool-JS-core-9/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/2020/02/17/Csharp-C/learning-Csharp-console-app-L1/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/2019/11/23/API/what-is-API/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/2023/03/22/PTE/PTE-preparations-and-summary/</loc>
     
     <lastmod>2024-12-14</lastmod>
@@ -164,15 +200,6 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/</loc>
-    
-    <lastmod>2024-12-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jenifers001d.github.io/2020/12/05/JavaScript/hexschool-JS-core-12/</loc>
     
     <lastmod>2024-12-14</lastmod>
@@ -317,15 +344,6 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/2020/02/17/Csharp-C/learning-Csharp-console-app-L1/</loc>
-    
-    <lastmod>2024-12-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jenifers001d.github.io/2020/02/17/Csharp-C/learning-Csharp-console-app-L1-ch0/</loc>
     
     <lastmod>2024-12-14</lastmod>
@@ -336,15 +354,6 @@
   
   <url>
     <loc>https://jenifers001d.github.io/2019/11/23/Csharp-C/value-pointer-ref/</loc>
-    
-    <lastmod>2024-12-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/2020/09/14/JavaScript/hexschool-JS-core-9/</loc>
     
     <lastmod>2024-12-14</lastmod>
     
@@ -668,15 +677,6 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/2019/11/23/API/what-is-API/</loc>
-    
-    <lastmod>2019-11-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jenifers001d.github.io/tags/</loc>
     
     <lastmod>2019-11-24</lastmod>
@@ -730,6 +730,20 @@
   </url>
   
   <url>
+    <loc>https://jenifers001d.github.io/tags/Git/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/GitHub/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/tags/Flask/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -752,20 +766,6 @@
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Jinja2/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/Git/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/GitHub/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -821,6 +821,20 @@
   </url>
   
   <url>
+    <loc>https://jenifers001d.github.io/tags/PTE/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/English/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/tags/ReactJS/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -856,6 +870,41 @@
   </url>
   
   <url>
+    <loc>https://jenifers001d.github.io/tags/Net-Framework/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/Csharp-C/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/ASP-NET/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/LINQ/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/Intermediate-Csharp-C/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/tags/JavaScript-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -871,34 +920,6 @@
   
   <url>
     <loc>https://jenifers001d.github.io/tags/MVC/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/ASP-NET/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/Net-Framework/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/Intermediate-Csharp-C/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/Csharp-C/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1051,27 +1072,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://jenifers001d.github.io/tags/PTE/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/English/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/LINQ/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -1089,14 +1089,14 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/categories/Flask/</loc>
+    <loc>https://jenifers001d.github.io/categories/Git/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/categories/Git/</loc>
+    <loc>https://jenifers001d.github.io/categories/Flask/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1117,6 +1117,13 @@
   </url>
   
   <url>
+    <loc>https://jenifers001d.github.io/categories/PTE/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/categories/ReactJS/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1125,6 +1132,13 @@
   
   <url>
     <loc>https://jenifers001d.github.io/categories/SEO/</loc>
+    <lastmod>2024-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/categories/Net-Framework/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1153,20 +1167,6 @@
   
   <url>
     <loc>https://jenifers001d.github.io/categories/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/categories/PTE/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/categories/Net-Framework/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
