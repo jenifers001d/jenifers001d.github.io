@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -166,6 +166,154 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/15/Csharp-C/learning-Csharp-console-app-L1-ch2-variables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jenifer.Code.World">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/15/Csharp-C/learning-Csharp-console-app-L1-ch2-variables/" class="post-title-link" itemprop="url">不學 JAVA 換學 C# 之覺得心累 - L1：ch1 Console 類別的輸入和輸出方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2024-12-15 00:43:22 / 修改時間：00:44:45" itemprop="dateCreated datePublished" datetime="2024-12-15T00:43:22+10:00">2024-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Csharp-C/" itemprop="url" rel="index"><span itemprop="name">Csharp(C#)</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+<p>在 C# 程式語言中，變數是用於儲存資料的命名儲存單元。變數使程式能夠動態地操作資料，而不需在寫程式時知道資料的具體值。理解變數的宣告、賦值和使用是學習 C# 的基礎之一。</p>
+<h2 id="變數"><a class="header-anchor" href="#變數"></a>變數</h2>
+<p>C# 是<span style="color: #ff0000;">靜態語言</span>，這表示變數的資料類型在編譯時就必須確定，使用前一定要<span style="color: #ff0000;">先宣告</span><strong>資料型態</strong>。宣告變數時，就會依照資料型態分配一塊，相應大小的記憶體。</p>
+<p>如果沒有給值，就沒有初始化。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> id = <span class="string">&quot;a12345&quot;</span>; <span class="comment">// string 為字串型態</span></span><br><span class="line"><span class="built_in">int</span> num = <span class="number">123</span>; <span class="comment">// int 為整數型態</span></span><br></pre></td></tr></table></figure>
+<h2 id="命名慣例"><a class="header-anchor" href="#命名慣例"></a>命名慣例</h2>
+<p>用 camelCase (首字母小寫)，必須以字母或底線開頭，後續可以包含字母、數字和底線。變數名區分大小寫，而且不能是 C# 的關鍵字 (<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL2VuLXVzL2RvdG5ldC9jc2hhcnAvbGFuZ3VhZ2UtcmVmZXJlbmNlL2tleXdvcmRzLw==">Reserved identifiers and Contextual keywords<i class="fa fa-external-link-alt"></i></span>)。</p>
+<h2 id="資料型態"><a class="header-anchor" href="#資料型態"></a>資料型態</h2>
+<p>主要分為：</p>
+<ul>
+<li>值類型 (Value types)：包括<strong>簡單類型</strong> (int、double、char、bool 等)、<strong>結構 (Struct)</strong> 和<strong>列舉 (Enum)</strong>。<span style="color: #ff0000;">變數的值，直接儲存在記憶體中。</span></li>
+<li>參考類型 (Reference types)：物件 (Object)。例如：字串和陣列。<span style="color: #ff0000;">參考類型是儲存物件實體的記憶體位址，該記憶體儲存物件實體</span>。</li>
+</ul>
+<h3 id="值類型-Value-types"><a class="header-anchor" href="#值類型-Value-types"></a>值類型 (Value types)</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 整數</span></span><br><span class="line"><span class="built_in">int</span> age = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// (雙精度) 浮點數</span></span><br><span class="line"><span class="built_in">double</span> salary = <span class="number">5000.50</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// (單精度) 浮點數，初始化　float　的值，記得在數字後方加　f or F</span></span><br><span class="line"><span class="built_in">float</span> amount = <span class="number">3.5F</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化 decimal 的值，記得在數字後方加 m or M</span></span><br><span class="line"><span class="built_in">decimal</span> deposit = <span class="number">10013.23</span>M</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字元 (單引號)</span></span><br><span class="line"><span class="built_in">char</span> initial = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 布林</span></span><br><span class="line"><span class="built_in">bool</span> isEmployed = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="簡單類型的資料範圍"><a class="header-anchor" href="#簡單類型的資料範圍"></a>簡單類型的資料範圍</h4>
+<p><img src="https://hackmd.io/_uploads/ryO5N4nHR.jpg" alt="Built-in data types supportted by C#"></p>
+<h3 id="參考類型-Reference-types"><a class="header-anchor" href="#參考類型-Reference-types"></a>參考類型 (Reference types)</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字串 (雙引號)，使用＠就可以不管跳脫字元</span></span><br><span class="line"><span class="built_in">string</span> name = <span class="string">&quot;John Doe&quot;</span>;</span><br><span class="line"><span class="built_in">string</span> string2a = <span class="string">&quot;The path is C:\\PublicDocuments\\Report1.doc&quot;</span>;</span><br><span class="line"><span class="built_in">string</span> string2b = <span class="string">@&quot;The path is C:\PublicDocuments\Report1.doc&quot;</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 整數類型的陣列</span></span><br><span class="line"><span class="built_in">int</span>[] luckyNums = &#123; <span class="number">12</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="跳脫字元"><a class="header-anchor" href="#跳脫字元"></a>跳脫字元</h4>
+<p><strong>跳脫字元</strong>表示<strong>跳脫原本該字元的意思、作用和功能</strong>。</p>
+<p>原本 <code>&quot;</code> 在程式中是用來當作<span style="color: #ff0000;">字串的開頭或結尾</span>。如果加上反斜線  <code>\&quot;</code> 後， <code>&quot;</code> 就會被當作單純的符號，出現在字串中。<span style="color: #ff0000;">注意：<code>\</code> 不會出現在字串中。</span></p>
+<h4 id="常用跳脫字元"><a class="header-anchor" href="#常用跳脫字元"></a>常用跳脫字元</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">樣式</th>
+<th style="text-align:center">含義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\’</td>
+<td style="text-align:center">單引號字元</td>
+</tr>
+<tr>
+<td style="text-align:center">\&quot;</td>
+<td style="text-align:center">雙引號字元</td>
+</tr>
+<tr>
+<td style="text-align:center">\\</td>
+<td style="text-align:center">反斜線</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:center">換行符號(Enter)</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:center">跳格符號(Tab)</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:center">游標移至行首、回車符號</td>
+</tr>
+</tbody>
+</table>
+<h2 id="變數的初始化"><a class="header-anchor" href="#變數的初始化"></a>變數的初始化</h2>
+<p>如果沒有給值，就沒有初始化。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> id = <span class="string">&quot;a12345&quot;</span>; <span class="comment">// string 為字串型態，初始化</span></span><br><span class="line"><span class="built_in">int</span> num = <span class="number">123</span>; <span class="comment">// int 為整數型態，初始化</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> id2; <span class="comment">// string 為字串型態，沒有初始化</span></span><br><span class="line"><span class="built_in">int</span> num2; <span class="comment">// int 為整數型態，沒有初始化</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> id3 = <span class="literal">null</span>; <span class="comment">// 如果想初始化 string 又不想先賦值，設 null</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://hackmd.io/_uploads/HJjMrN3B0.png" alt="Declare and Assign"></p>
+<h2 id="例子"><a class="header-anchor" href="#例子"></a>例子</h2>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Variables</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Variables</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> name = <span class="string">&quot;Jhon&quot;</span>;</span><br><span class="line">            <span class="built_in">int</span> age = <span class="number">40</span>;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;There was a men named &quot;</span> + name);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;He was &quot;</span> + age + <span class="string">&quot; years old.\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;The types of variables are: &quot;</span>);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;string, char&quot;</span>);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;int, float, double, decimal&quot;</span>);</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;bool&quot;</span>);</span><br><span class="line"></span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="命名慣例-v2"><a class="header-anchor" href="#命名慣例-v2"></a>命名慣例</h2>
+<ul>
+<li>類 class、方法 method、命名空間 namespace、屬性 property：用 PascalCase (首字母大寫)</li>
+<li>變數 variable、物件 object：用 camelCase (首字母小寫)必須以字母或底線開頭，後續可以包含字母、數字和底線。變數名區分大小寫，並且不能是C#的關鍵字。</li>
+<li>常數 Constant：每個字母都大寫。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -957,97 +1105,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/11/07/SQL/SQL-skills/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2022/05/15/ReactJS/ReactJS-Tutorial-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jenifer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jenifer.Code.World">
-      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jenifer.Code.World">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/15/ReactJS/ReactJS-Tutorial-note/" class="post-title-link" itemprop="url">ReactJS 教學系列影片筆記</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-      
-
-      <time title="創建時間：2022-05-15 14:39:22 / 修改時間：15:15:23" itemprop="dateCreated datePublished" datetime="2022-05-15T14:39:22+10:00">2022-05-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ReactJS/" itemprop="url" rel="index"><span itemprop="name">ReactJS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本篇是參考 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1RRmFGSWNHaFBvTSZsaXN0PVBMQzN5OC1yRkh2d2dnM3ZhWUpnSEduTW9kQjU0cnhPazM=">ReactJS Tutorial<i class="fa fa-external-link-alt"></i></span> 的重點摘錄學習筆記。內容著重於 React 16.8 以前沒有 Hooks 時，以 Class Component 為主的教學。</p>
-<p>閱讀前具備知識：</p>
-<ul>
-<li>基礎網頁前端 (HTML、CSS、JS) 知識</li>
-<li>基礎 ReactJS 知識</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/05/15/ReactJS/ReactJS-Tutorial-note/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
