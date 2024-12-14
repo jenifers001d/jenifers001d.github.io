@@ -20,17 +20,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言 在 C# 程式語言中，變數是用於儲存資料的命名儲存單元。變數使程式能夠動態地操作資料，而不需在寫程式時知道資料的具體值。理解變數的宣告、賦值和使用是學習 C# 的基礎之一。 變數 C# 是靜態語言，這表示變數的資料類型在編譯時就必須確定，使用前一定要先宣告資料型態。宣告變數時，就會依照資料型態分配一塊，相應大小的記憶體。 如果沒有給值，就沒有初始化。 12string id &#x3D; &quot;">
+    <meta name="description" content="在 C# 程式語言中，變數是用於儲存資料的命名儲存單元。變數使程式能夠動態地操作資料，而不需在寫程式時知道資料的具體值。理解變數的宣告、賦值和使用是學習 C# 的基礎之一。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch1 Console 類別的輸入和輸出方法">
+<meta property="og:title" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch2 變數">
 <meta property="og:url" content="https://jenifers001d.github.io/2024/12/15/Csharp-C/learning-Csharp-console-app-L1-ch2-variables/">
 <meta property="og:site_name" content="Jenifer.Code.World">
-<meta property="og:description" content="前言 在 C# 程式語言中，變數是用於儲存資料的命名儲存單元。變數使程式能夠動態地操作資料，而不需在寫程式時知道資料的具體值。理解變數的宣告、賦值和使用是學習 C# 的基礎之一。 變數 C# 是靜態語言，這表示變數的資料類型在編譯時就必須確定，使用前一定要先宣告資料型態。宣告變數時，就會依照資料型態分配一塊，相應大小的記憶體。 如果沒有給值，就沒有初始化。 12string id &#x3D; &quot;">
+<meta property="og:description" content="在 C# 程式語言中，變數是用於儲存資料的命名儲存單元。變數使程式能夠動態地操作資料，而不需在寫程式時知道資料的具體值。理解變數的宣告、賦值和使用是學習 C# 的基礎之一。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://hackmd.io/_uploads/ryO5N4nHR.jpg">
 <meta property="og:image" content="https://hackmd.io/_uploads/HJjMrN3B0.png">
 <meta property="article:published_time" content="2024-12-14T14:43:22.953Z">
-<meta property="article:modified_time" content="2024-12-14T14:44:45.760Z">
+<meta property="article:modified_time" content="2024-12-14T14:49:48.983Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content=".Net Framework">
 <meta property="article:tag" content="Csharp(C#)">
@@ -44,10 +44,10 @@
 <link rel="canonical" href="https://jenifers001d.github.io/2024/12/15/Csharp-C/learning-Csharp-console-app-L1-ch2-variables/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2024/12/15/Csharp-C/learning-Csharp-console-app-L1-ch2-variables/","path":"2024/12/15/Csharp-C/learning-Csharp-console-app-L1-ch2-variables/","title":"不學 JAVA 換學 C# 之覺得心累 - L1：ch1 Console 類別的輸入和輸出方法"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2024/12/15/Csharp-C/learning-Csharp-console-app-L1-ch2-variables/","path":"2024/12/15/Csharp-C/learning-Csharp-console-app-L1-ch2-variables/","title":"不學 JAVA 換學 C# 之覺得心累 - L1：ch2 變數"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>不學 JAVA 換學 C# 之覺得心累 - L1：ch1 Console 類別的輸入和輸出方法 | Jenifer.Code.World</title>
+<title>不學 JAVA 換學 C# 之覺得心累 - L1：ch2 變數 | Jenifer.Code.World</title>
   
 
 
@@ -199,12 +199,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch1 Console 類別的輸入和輸出方法 | Jenifer.Code.World">
+      <meta itemprop="name" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch2 變數 | Jenifer.Code.World">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          不學 JAVA 換學 C# 之覺得心累 - L1：ch1 Console 類別的輸入和輸出方法
+          不學 JAVA 換學 C# 之覺得心累 - L1：ch2 變數
         </h1>
 
         <div class="post-meta-container">
@@ -216,7 +216,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2024-12-15 00:43:22 / 修改時間：00:44:45" itemprop="dateCreated datePublished" datetime="2024-12-15T00:43:22+10:00">2024-12-15</time>
+      <time title="創建時間：2024-12-15 00:43:22 / 修改時間：00:49:48" itemprop="dateCreated datePublished" datetime="2024-12-15T00:43:22+10:00">2024-12-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,7 +238,9 @@
     
     
     <div class="post-body" itemprop="articleBody"><h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+
 <p>在 C# 程式語言中，變數是用於儲存資料的命名儲存單元。變數使程式能夠動態地操作資料，而不需在寫程式時知道資料的具體值。理解變數的宣告、賦值和使用是學習 C# 的基礎之一。</p>
+
 <h2 id="變數"><a class="header-anchor" href="#變數"></a>變數</h2>
 <p>C# 是<span style="color: #ff0000;">靜態語言</span>，這表示變數的資料類型在編譯時就必須確定，使用前一定要<span style="color: #ff0000;">先宣告</span><strong>資料型態</strong>。宣告變數時，就會依照資料型態分配一塊，相應大小的記憶體。</p>
 <p>如果沒有給值，就沒有初始化。</p>
