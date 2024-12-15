@@ -1364,7 +1364,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ffdfff;
+  background: #0fff67;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1794,7 +1794,6 @@ pre code {
 }
 .back-to-top span {
   margin-right: 8px;
-  display: none;
 }
 .back-to-top .fa {
   text-align: center;
@@ -2739,16 +2738,19 @@ header.header {
 /****************** header ******************/
 /**/
 /***************** sidebar *****************/
-.sidebar-inner .google-adsense-border {
-  height: 200px;
-  overflow-y: auto;
+/* invasively update /node_modules/hexo-theme-next/layout/_macro/sidebar.njk */
+/* move {{- next_inject('sidebar') }} to the bottom of aside */
+aside.sidebar {
+  overflow-x: hidden;
+}
+.sidebar .sidebar-google-adsense {
+  display: flex;
+  justify-content: center;
 }
 /****************** main ******************/
-.post-body > .google-adsense-margin {
-  margin-bottom: 40px;
-}
-.post-body .google-adsense-border {
+.post-body .google-adsense-instance {
   border: 2px var(--text-color) ridge;
+  margin-bottom: 40px;
 }
 .posts-expand .post-title {
   font-size: 1.25em;
@@ -2757,10 +2759,6 @@ header.header {
   .post-body {
     font-size: 1em;
   }
-}
-.posts-expand .myAD {
-  margin-top: 25px;
-  margin-bottom: 25px;
 }
 .posts-expand p a {
   color: #337ab7;
@@ -2837,6 +2835,6 @@ header.header {
 footer .footer-inner {
   text-align: center;
 }
-footer .google-adsense-border {
+footer .google-adsense-instance {
   border: 2px var(--text-color) ridge;
 }
