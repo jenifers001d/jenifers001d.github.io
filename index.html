@@ -166,7 +166,7 @@
             <ins class="adsbygoogle"
                 style="display:block"
                 data-ad-client="ca-pub-6866375976707228"
-                data-ad-slot="8859920421"
+                data-ad-slot="1016873827"
                 data-ad-format="auto"
                 data-full-width-responsive="true"></ins>
             <script>
@@ -220,7 +220,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2024-12-16 20:36:15 / 修改時間：20:38:54" itemprop="dateCreated datePublished" datetime="2024-12-16T20:36:15+10:00">2024-12-16</time>
+      <time title="創建時間：2024-12-16 20:36:15 / 修改時間：20:49:47" itemprop="dateCreated datePublished" datetime="2024-12-16T20:36:15+10:00">2024-12-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -242,27 +242,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="格式語法"><a class="header-anchor" href="#格式語法"></a>格式語法</h2>
-<p><code>&#123;index[,alignment][:formatString]&#125;</code></p>
-<h2 id="索引元件-Index-Component"><a class="header-anchor" href="#索引元件-Index-Component"></a>索引元件 Index Component</h2>
-<p>下面的例子呼叫 <code>WriteLine(String, Object)</code>、<code>WriteLine(String, Object, Object)</code> 和 <code>WriteLine(String, Object, Object, Object)</code> 來顯示字串。其實也就是 <code>WriteLine(String, Object[])</code>。</p>
-<p>WriteLine 第一個參數是格式字串，字串的參數指定符 <code>0</code>、<code>1</code> 或 <code>2</code> 被包在花括號 <code>&#123;&#125;</code> 內，形成 <code>&#123;index&#125;</code>，它指的是後方 <code>Object[]</code> 參數陣列的索引號。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> name = <span class="string">&quot;Jenifer&quot;</span>;</span><br><span class="line"><span class="built_in">int</span> age = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">string</span> color = <span class="string">&quot;yellow&quot;</span>;</span><br><span class="line"></span><br><span class="line">Console.WriteLine(<span class="string">&quot;My name is &#123;0&#125;&quot;</span>, name);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;My name is &#123;0&#125;. I am &#123;1&#125; years old.&quot;</span>, name, age);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;My name is &#123;0&#125;. I am &#123;1&#125; years old. I love &#123;2&#125; color&quot;</span>, name, age, color);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以這樣玩</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;My name is &#123;2&#125;. I am &#123;0&#125; years old. I love &#123;1&#125; color&quot;</span>, age, color, name);</span><br></pre></td></tr></table></figure>
-<h2 id="對齊元件-Alignment-Component"><a class="header-anchor" href="#對齊元件-Alignment-Component"></a>對齊元件 Alignment Component</h2>
-<p>帶正負號的整數 (Signed Integer)，它用來表示<strong>欄位寬度</strong>。如果 alignment 的值小於字串的長度，alignment 會被忽略，改使用字串的長度當做欄位寬度。如果 <span style="color: #ff0000">alignment 為正數，會靠右對齊</span>；如果 <span style="color: #ff0000">alignment 為負數，則會靠左對齊</span>。如果填補有必要，則會使用空白字元 (White Space)。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">&quot;-----------------------------&quot;</span>);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Name       | Age   |    Color&quot;</span>);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;-----------------------------&quot;</span>);</span><br><span class="line">Console.WriteLine(String.Format(<span class="string">&quot;&#123;0,-10&#125; | &#123;1,-5&#125; | &#123;2,8&#125;&quot;</span>, <span class="string">&quot;Jenifer&quot;</span>, <span class="number">3</span>, <span class="string">&quot;yellow&quot;</span>));</span><br><span class="line">Console.WriteLine(String.Format(<span class="string">&quot;&#123;0,-10&#125; | &#123;1,-5&#125; | &#123;2,8&#125;&quot;</span>, <span class="string">&quot;Marry&quot;</span>, <span class="number">10</span>, <span class="string">&quot;red&quot;</span>));</span><br><span class="line">Console.WriteLine(String.Format(<span class="string">&quot;&#123;0,-10&#125; | &#123;1,-5&#125; | &#123;2,8&#125;&quot;</span>, <span class="string">&quot;Kevin&quot;</span>, <span class="number">15</span>, <span class="string">&quot;black&quot;</span>));</span><br><span class="line">Console.WriteLine(<span class="string">&quot;-----------------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 輸出：</span></span><br><span class="line"><span class="comment">// -----------------------------</span></span><br><span class="line"><span class="comment">// Name       | Age   |    Color</span></span><br><span class="line"><span class="comment">// -----------------------------</span></span><br><span class="line"><span class="comment">// Jenifer    | 3     |   yellow</span></span><br><span class="line"><span class="comment">// Marry      | 10    |      red</span></span><br><span class="line"><span class="comment">// Kevin      | 15    |    black</span></span><br><span class="line"><span class="comment">// -----------------------------</span></span><br></pre></td></tr></table></figure>
-<h2 id="格式字串元件-Format-String-Component"><a class="header-anchor" href="#格式字串元件-Format-String-Component"></a>格式字串元件 Format String Component</h2>
-<p>有<strong>標準數值格式字串(Standard Numeric Format Strings)</strong>、自訂或其他等。</p>
-<p>標準數值格式字串用來格式化一般數字類型，採用 <code>[format specifier][precision specifier]</code> 格式。</p>
-<ul>
-<li>格式規範 format specifier：單一字母字元，指定數字格式的類型，例如貨幣 (c 或 C：貨幣值) 或百分比 (p 或 P：乘以 100 並加上百分比符號來顯示的數字。)。</li>
-<li>精確度規範 precision specifier：是一個整數，會影響所產生字串的位數。</li>
-</ul>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">double</span> number = <span class="number">123.456</span>;</span><br><span class="line"></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Currency: &#123;0:C&#125;&quot;</span>, number);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Currency: &#123;0:C3&#125;&quot;</span>, number);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 輸出：</span></span><br><span class="line"><span class="comment">// Currency: $123.46</span></span><br><span class="line"><span class="comment">// Currency: $123.456</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">double</span> number2 = <span class="number">-0.39671</span>;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Percent: &#123;0:P&#125;&quot;</span>, number2);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Percent: &#123;0:P1&#125;&quot;</span>, number2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 輸出：</span></span><br><span class="line"><span class="comment">// Percent: -39.67 %</span></span><br><span class="line"><span class="comment">// Percent: -39.7 %</span></span><br></pre></td></tr></table></figure>
-<p>參考資料：<br>
-<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL2VuLXVzL2RvdG5ldC9zdGFuZGFyZC9iYXNlLXR5cGVzL2NvbXBvc2l0ZS1mb3JtYXR0aW5n">Composite formatting<i class="fa fa-external-link-alt"></i></span><br>
-<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9zdGFuZGFyZC9iYXNlLXR5cGVzL3N0YW5kYXJkLW51bWVyaWMtZm9ybWF0LXN0cmluZ3M/dmlldz1uZXRmcmFtZXdvcmstNC43LjI=">標準數值格式字串<i class="fa fa-external-link-alt"></i></span></p>
-
+          <p><code>&#123;index[,alignment][:formatString]&#125;</code></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/12/16/Csharp-C/learning-Csharp-console-app-L1-ch3-formatting/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
