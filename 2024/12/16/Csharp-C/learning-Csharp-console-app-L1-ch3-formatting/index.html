@@ -20,30 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="核心就是封裝在積體電路 (IC) 中的處理器。而多核心就是多核處理器 (Multi-core processor)，是物理上實體存在的。例如：2 核心就是有 2 個獨立實體處理器，可以分別獨立地執行程式或執行緒 (thread) 指令，利用平行計算的能力加快程式的執行速度。">
+    <meta name="description" content="格式語法 &#123;index[,alignment][:formatString]&#125; 索引元件 Index Component 下面的例子呼叫 WriteLine(String, Object)、WriteLine(String, Object, Object) 和 WriteLine(String, Object, Object, Object) 來顯示字串。其實也就是 Write">
 <meta property="og:type" content="article">
-<meta property="og:title" content="電腦的核心 (Core) 和執行緒 (Thread)">
-<meta property="og:url" content="https://jenifers001d.github.io/2020/08/04/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/what-is-core-and-thread/">
+<meta property="og:title" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch3 格式化輸出">
+<meta property="og:url" content="https://jenifers001d.github.io/2024/12/16/Csharp-C/learning-Csharp-console-app-L1-ch3-formatting/">
 <meta property="og:site_name" content="Jenifer.Code.World">
-<meta property="og:description" content="核心就是封裝在積體電路 (IC) 中的處理器。而多核心就是多核處理器 (Multi-core processor)，是物理上實體存在的。例如：2 核心就是有 2 個獨立實體處理器，可以分別獨立地執行程式或執行緒 (thread) 指令，利用平行計算的能力加快程式的執行速度。">
+<meta property="og:description" content="格式語法 &#123;index[,alignment][:formatString]&#125; 索引元件 Index Component 下面的例子呼叫 WriteLine(String, Object)、WriteLine(String, Object, Object) 和 WriteLine(String, Object, Object, Object) 來顯示字串。其實也就是 Write">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/sHYTkkx.jpg">
-<meta property="article:published_time" content="2020-08-04T03:41:43.919Z">
-<meta property="article:modified_time" content="2022-11-28T13:24:03.324Z">
+<meta property="article:published_time" content="2024-12-16T10:36:15.382Z">
+<meta property="article:modified_time" content="2024-12-16T10:38:54.420Z">
 <meta property="article:author" content="Jenifer">
-<meta property="article:tag" content="網頁架設">
-<meta property="article:tag" content="電腦知識">
+<meta property="article:tag" content=".Net Framework">
+<meta property="article:tag" content="Csharp(C#)">
+<meta property="article:tag" content="Console">
+<meta property="article:tag" content="Elementary Code">
+<meta property="article:tag" content="Elementary Csharp(C#)">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/sHYTkkx.jpg">
 
 
-<link rel="canonical" href="https://jenifers001d.github.io/2020/08/04/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/what-is-core-and-thread/">
+<link rel="canonical" href="https://jenifers001d.github.io/2024/12/16/Csharp-C/learning-Csharp-console-app-L1-ch3-formatting/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2020/08/04/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/what-is-core-and-thread/","path":"2020/08/04/電腦知識/what-is-core-and-thread/","title":"電腦的核心 (Core) 和執行緒 (Thread)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2024/12/16/Csharp-C/learning-Csharp-console-app-L1-ch3-formatting/","path":"2024/12/16/Csharp-C/learning-Csharp-console-app-L1-ch3-formatting/","title":"不學 JAVA 換學 C# 之覺得心累 - L1：ch3 格式化輸出"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>電腦的核心 (Core) 和執行緒 (Thread) | Jenifer.Code.World</title>
+<title>不學 JAVA 換學 C# 之覺得心累 - L1：ch3 格式化輸出 | Jenifer.Code.World</title>
   
 
 
@@ -116,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83-Core-%E3%80%81%E5%A4%9A%E6%A0%B8%E5%BF%83-Multi-Core"><span class="nav-number">1.</span> <span class="nav-text">核心 (Core)、多核心 (Multi-Core)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E7%B7%92-Thread-%E3%80%81%E5%A4%9A%E5%9F%B7%E8%A1%8C%E7%B7%92-Multithreading"><span class="nav-number">2.</span> <span class="nav-text">執行緒 (Thread)、多執行緒 (Multithreading)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E9%AB%94%E4%B8%8A"><span class="nav-number">2.1.</span> <span class="nav-text">硬體上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BB%9F%E9%AB%94%E4%B8%8A"><span class="nav-number">2.2.</span> <span class="nav-text">軟體上</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E8%AA%9E%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">格式語法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%85%83%E4%BB%B6-Index-Component"><span class="nav-number">2.</span> <span class="nav-text">索引元件 Index Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8D%E9%BD%8A%E5%85%83%E4%BB%B6-Alignment-Component"><span class="nav-number">3.</span> <span class="nav-text">對齊元件 Alignment Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%AD%97%E4%B8%B2%E5%85%83%E4%BB%B6-Format-String-Component"><span class="nav-number">4.</span> <span class="nav-text">格式字串元件 Format String Component</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -197,7 +198,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/08/04/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/what-is-core-and-thread/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/Csharp-C/learning-Csharp-console-app-L1-ch3-formatting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -210,12 +211,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="電腦的核心 (Core) 和執行緒 (Thread) | Jenifer.Code.World">
+      <meta itemprop="name" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch3 格式化輸出 | Jenifer.Code.World">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          電腦的核心 (Core) 和執行緒 (Thread)
+          不學 JAVA 換學 C# 之覺得心累 - L1：ch3 格式化輸出
         </h1>
 
         <div class="post-meta-container">
@@ -225,15 +226,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
+      
 
-      <time title="創建時間：2020-08-04 13:41:43" itemprop="dateCreated datePublished" datetime="2020-08-04T13:41:43+10:00">2020-08-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2022-11-28 23:24:03" itemprop="dateModified" datetime="2022-11-28T23:24:03+10:00">2022-11-28</time>
+      <time title="創建時間：2024-12-16 20:36:15 / 修改時間：20:38:54" itemprop="dateCreated datePublished" datetime="2024-12-16T20:36:15+10:00">2024-12-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -241,7 +236,7 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/" itemprop="url" rel="index"><span itemprop="name">電腦知識</span></a>
+          <a href="/categories/Csharp-C/" itemprop="url" rel="index"><span itemprop="name">Csharp(C#)</span></a>
         </span>
     </span>
 
@@ -270,30 +265,26 @@
             </script>
         </div>        
       </div>
-<!--/google_adsense--><h2 id="核心-Core-、多核心-Multi-Core"><a class="header-anchor" href="#核心-Core-、多核心-Multi-Core"></a>核心 (Core)、多核心 (Multi-Core)</h2>
-
-<p><strong>核心</strong>就是封裝在積體電路 (IC) 中的<strong>處理器</strong>。而多核心就是多核處理器 (Multi-core processor)，是物理上實體存在的。例如：2 核心就是有 2 個獨立實體處理器，可以分別獨立地執行程式或執行緒 (thread) 指令，利用平行計算的能力加快程式的執行速度。</p>
-
+<!--/google_adsense--><h2 id="格式語法"><a class="header-anchor" href="#格式語法"></a>格式語法</h2>
+<p><code>&#123;index[,alignment][:formatString]&#125;</code></p>
+<h2 id="索引元件-Index-Component"><a class="header-anchor" href="#索引元件-Index-Component"></a>索引元件 Index Component</h2>
+<p>下面的例子呼叫 <code>WriteLine(String, Object)</code>、<code>WriteLine(String, Object, Object)</code> 和 <code>WriteLine(String, Object, Object, Object)</code> 來顯示字串。其實也就是 <code>WriteLine(String, Object[])</code>。</p>
+<p>WriteLine 第一個參數是格式字串，字串的參數指定符 <code>0</code>、<code>1</code> 或 <code>2</code> 被包在花括號 <code>&#123;&#125;</code> 內，形成 <code>&#123;index&#125;</code>，它指的是後方 <code>Object[]</code> 參數陣列的索引號。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> name = <span class="string">&quot;Jenifer&quot;</span>;</span><br><span class="line"><span class="built_in">int</span> age = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">string</span> color = <span class="string">&quot;yellow&quot;</span>;</span><br><span class="line"></span><br><span class="line">Console.WriteLine(<span class="string">&quot;My name is &#123;0&#125;&quot;</span>, name);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;My name is &#123;0&#125;. I am &#123;1&#125; years old.&quot;</span>, name, age);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;My name is &#123;0&#125;. I am &#123;1&#125; years old. I love &#123;2&#125; color&quot;</span>, name, age, color);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以這樣玩</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;My name is &#123;2&#125;. I am &#123;0&#125; years old. I love &#123;1&#125; color&quot;</span>, age, color, name);</span><br></pre></td></tr></table></figure>
+<h2 id="對齊元件-Alignment-Component"><a class="header-anchor" href="#對齊元件-Alignment-Component"></a>對齊元件 Alignment Component</h2>
+<p>帶正負號的整數 (Signed Integer)，它用來表示<strong>欄位寬度</strong>。如果 alignment 的值小於字串的長度，alignment 會被忽略，改使用字串的長度當做欄位寬度。如果 <span style="color: #ff0000">alignment 為正數，會靠右對齊</span>；如果 <span style="color: #ff0000">alignment 為負數，則會靠左對齊</span>。如果填補有必要，則會使用空白字元 (White Space)。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">&quot;-----------------------------&quot;</span>);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Name       | Age   |    Color&quot;</span>);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;-----------------------------&quot;</span>);</span><br><span class="line">Console.WriteLine(String.Format(<span class="string">&quot;&#123;0,-10&#125; | &#123;1,-5&#125; | &#123;2,8&#125;&quot;</span>, <span class="string">&quot;Jenifer&quot;</span>, <span class="number">3</span>, <span class="string">&quot;yellow&quot;</span>));</span><br><span class="line">Console.WriteLine(String.Format(<span class="string">&quot;&#123;0,-10&#125; | &#123;1,-5&#125; | &#123;2,8&#125;&quot;</span>, <span class="string">&quot;Marry&quot;</span>, <span class="number">10</span>, <span class="string">&quot;red&quot;</span>));</span><br><span class="line">Console.WriteLine(String.Format(<span class="string">&quot;&#123;0,-10&#125; | &#123;1,-5&#125; | &#123;2,8&#125;&quot;</span>, <span class="string">&quot;Kevin&quot;</span>, <span class="number">15</span>, <span class="string">&quot;black&quot;</span>));</span><br><span class="line">Console.WriteLine(<span class="string">&quot;-----------------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 輸出：</span></span><br><span class="line"><span class="comment">// -----------------------------</span></span><br><span class="line"><span class="comment">// Name       | Age   |    Color</span></span><br><span class="line"><span class="comment">// -----------------------------</span></span><br><span class="line"><span class="comment">// Jenifer    | 3     |   yellow</span></span><br><span class="line"><span class="comment">// Marry      | 10    |      red</span></span><br><span class="line"><span class="comment">// Kevin      | 15    |    black</span></span><br><span class="line"><span class="comment">// -----------------------------</span></span><br></pre></td></tr></table></figure>
+<h2 id="格式字串元件-Format-String-Component"><a class="header-anchor" href="#格式字串元件-Format-String-Component"></a>格式字串元件 Format String Component</h2>
+<p>有<strong>標準數值格式字串(Standard Numeric Format Strings)</strong>、自訂或其他等。</p>
+<p>標準數值格式字串用來格式化一般數字類型，採用 <code>[format specifier][precision specifier]</code> 格式。</p>
+<ul>
+<li>格式規範 format specifier：單一字母字元，指定數字格式的類型，例如貨幣 (c 或 C：貨幣值) 或百分比 (p 或 P：乘以 100 並加上百分比符號來顯示的數字。)。</li>
+<li>精確度規範 precision specifier：是一個整數，會影響所產生字串的位數。</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">double</span> number = <span class="number">123.456</span>;</span><br><span class="line"></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Currency: &#123;0:C&#125;&quot;</span>, number);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Currency: &#123;0:C3&#125;&quot;</span>, number);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 輸出：</span></span><br><span class="line"><span class="comment">// Currency: $123.46</span></span><br><span class="line"><span class="comment">// Currency: $123.456</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">double</span> number2 = <span class="number">-0.39671</span>;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Percent: &#123;0:P&#125;&quot;</span>, number2);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Percent: &#123;0:P1&#125;&quot;</span>, number2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 輸出：</span></span><br><span class="line"><span class="comment">// Percent: -39.67 %</span></span><br><span class="line"><span class="comment">// Percent: -39.7 %</span></span><br></pre></td></tr></table></figure>
 <p>參考資料：<br>
-<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUE0JTlBJUU2JUEwJUI4JUU1JUJGJTgzJUU4JTk5JTk1JUU3JTkwJTg2JUU1JTk5JUE4">多核心處理器<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="執行緒-Thread-、多執行緒-Multithreading"><a class="header-anchor" href="#執行緒-Thread-、多執行緒-Multithreading"></a>執行緒 (Thread)、多執行緒 (Multithreading)</h2>
-<p><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUJBJUJGJUU3JUE4JThC">執行緒 (thread)<i class="fa fa-external-link-alt"></i></span> 是作業系統能夠<span style="color: #ff0000"><strong>進行運算排程</strong></span>的<strong>最小單位</strong>。<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUE0JTlBJUU3JUJBJUJGJUU3JUE4JThC">多執行緒 (multithreading)<i class="fa fa-external-link-alt"></i></span>，是指從<strong>硬體</strong>或者<strong>軟體</strong>上實現多個執行緒<span style="color: #ff0000"><strong>並行執行</strong></span>的技術。</p>
-<h3 id="硬體上"><a class="header-anchor" href="#硬體上"></a>硬體上</h3>
-<p>「一般消費者」買電腦時看到的<strong>執行緒數量 (# of Threads)</strong> 其實是指：同一時間電腦能執行的執行緒數量。</p>
-<p>由於 intel 研發的一種叫做<strong>超執行緒 (HT, Hyper-Threading)</strong> 的技術，在 CPU 內部僅複製必要的資源，讓兩個執行緒可以在一單位時間內同時執行，就好像真的有實體雙核心，能進行雙執行緒運作。</p>
-<p>像是下圖中很明顯的就是：i7-10710U 有 6 核心 12 執行緒處理器、i7-1065G7 有 4 核心 8 執行緒處理器，都是有 HT 技術。i7-9700T 則是 8 核心 8 執行緒處理器，沒有 HT 技術。</p>
-<p><img src="https://i.imgur.com/sHYTkkx.jpg" alt=""></p>
-<p>通常超執行緒技術必須配合「有對多執行緒進行優化的軟體或程式」，才能真正利用到 HT 的資源。</p>
-<p>參考資料：<br>
-<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUI2JTg1JUU1JTlGJUI3JUU4JUExJThDJUU3JUI3JTky">超執行緒<i class="fa fa-external-link-alt"></i></span><br>
-<span class="exturl" data-url="aHR0cHM6Ly93d3cuaW50ZWwuY29tL2NvbnRlbnQvd3d3L3VzL2VuL3Byb2R1Y3RzL3Byb2Nlc3NvcnMvY29yZS9pNy1wcm9jZXNzb3JzLmh0bWw=">Intel® Core™ i7 Processors<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="軟體上"><a class="header-anchor" href="#軟體上"></a>軟體上</h3>
-<p>一般<span style="color: #ff0000">一個執行中的軟體或應用程式，可以是一個或多個<strong>程序</strong>；一個程序裡面會有一個或多個<strong>執行緒</strong></span>，等待被執行。例如：開啟 Chrome 瀏覽器就是產生多個程序，而每個程序中，會需要許多執行緒來完成工作。</p>
-<p>即便處理器只能執行一個執行緒，作業系統也可以通過快速的在不同執行緒之間進行切換，由於時間間隔很小，來給使用者造成一種多個執行緒同時執行的假象。這樣的程式執行機制被稱為軟體多執行緒。</p>
-<p>而「程序」會有唯一的 ID 作為識別，又叫做 Process ID (PID)。A 程序和 B 程序之間的資料儲存空間<span style="color: #ff0000">無法共享</span>。每個程序都可用<strong>同步 (循序)</strong> 或<strong>非同步 (平行)</strong> 的方式獨立執行。</p>
-<p>而位在同一個程序下的「執行緒」之間，有<span style="color: #ff0000">可以共享</span>的資料儲存空間，也可以有<span style="color: #ff0000">私有</span>的資源。執行緒有自己的 call stack，裡面的 stack 可以被<strong>依照順序</strong>或<strong>平行</strong>執行。例如：JavaScript 是一個<strong>同步的單執行緒語言</strong>，但是它會用額外的方式處理非同步事件。</p>
-<p>參考資料：<br>
-<span class="exturl" data-url="aHR0cHM6Ly9jaGVuaGguZ2l0Ym9va3MuaW8vcGFyYWxsZWxfcHJvY2Vzc2luZy9wcm9jZXNzLmh0bWw=">程序、行程(process)<i class="fa fa-external-link-alt"></i></span></p>
+<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL2VuLXVzL2RvdG5ldC9zdGFuZGFyZC9iYXNlLXR5cGVzL2NvbXBvc2l0ZS1mb3JtYXR0aW5n">Composite formatting<i class="fa fa-external-link-alt"></i></span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2RvdG5ldC9zdGFuZGFyZC9iYXNlLXR5cGVzL3N0YW5kYXJkLW51bWVyaWMtZm9ybWF0LXN0cmluZ3M/dmlldz1uZXRmcmFtZXdvcmstNC43LjI=">標準數值格式字串<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -319,22 +310,22 @@
       </div>
 <!--/google_adsense-->
           <div class="post-tags">
-              <a href="/tags/%E7%B6%B2%E9%A0%81%E6%9E%B6%E8%A8%AD/" rel="tag"># 網頁架設</a>
-              <a href="/tags/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/" rel="tag"># 電腦知識</a>
+              <a href="/tags/Net-Framework/" rel="tag"># .Net Framework</a>
+              <a href="/tags/Csharp-C/" rel="tag"># Csharp(C#)</a>
+              <a href="/tags/Console/" rel="tag"># Console</a>
+              <a href="/tags/Elementary-Code/" rel="tag"># Elementary Code</a>
+              <a href="/tags/Elementary-Csharp-C/" rel="tag"># Elementary Csharp(C#)</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/06/28/JavaScript/hexschool-JS-core-8/" rel="prev" title="六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放">
-                  <i class="fa fa-angle-left"></i> 六角學院 JS 核心筆記 (八)【執行環境與作用域】- 記憶體存放與釋放
+                <a href="/2024/12/15/Csharp-C/learning-Csharp-console-app-L1-ch2-variables/" rel="prev" title="不學 JAVA 換學 C# 之覺得心累 - L1：ch2 變數">
+                  <i class="fa fa-angle-left"></i> 不學 JAVA 換學 C# 之覺得心累 - L1：ch2 變數
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/13/JavaScript/float-precision-calculation/" rel="next" title="JavaScript / 程式語言中，0.1 + 0.2 != 0.3">
-                  JavaScript / 程式語言中，0.1 + 0.2 != 0.3 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
