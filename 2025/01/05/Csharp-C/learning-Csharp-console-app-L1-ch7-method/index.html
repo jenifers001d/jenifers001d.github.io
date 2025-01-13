@@ -28,7 +28,7 @@
 <meta property="og:description" content="方法 (Method) 是一組封裝的程式碼，用於執行特定的任務或邏輯。C# 中的方法具有靈活性和可重用性，使得程式更易於管理和維護。 特點：  可以有任意數量的參數與回傳值。 內部的實作對外部是隱藏的，僅提供接口給使用者呼叫。 可以重複使用，避免程式碼冗長與重複。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-01-05T05:19:05.786Z">
-<meta property="article:modified_time" content="2025-01-12T02:46:58.116Z">
+<meta property="article:modified_time" content="2025-01-13T06:52:31.034Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content=".Net Framework">
 <meta property="article:tag" content="Csharp(C#)">
@@ -130,7 +130,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -234,7 +234,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2025-01-12 12:46:58" itemprop="dateModified" datetime="2025-01-12T12:46:58+10:00">2025-01-12</time>
+      <time title="修改時間：2025-01-13 16:52:31" itemprop="dateModified" datetime="2025-01-13T16:52:31+10:00">2025-01-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -284,17 +284,17 @@
 <h2 id="基本結構"><a class="header-anchor" href="#基本結構"></a>基本結構</h2>
 <p>每個方法都包含以下幾個部分：</p>
 <ol>
-<li><strong>存取修飾詞（Accessibility Modifier）</strong>：決定方法的存取範圍，例：<code>public</code> 或 <code>private</code>。</li>
-<li><strong>靜態修飾詞（Static Modifier）</strong>：標記方法是靜態方法，或是需要實例化物件才能使用。</li>
-<li><strong>回傳型態（Return Type）</strong>：指定方法的回傳值類型。如果不需要回傳值，使用 <code>void</code>。如果需要有回傳值，除了指定回傳型態，方法內還需要用 <code>return</code> 回傳數值，且數值的型態必須跟定義的回傳型態一致。</li>
-<li><strong>方法名稱（Method Name）</strong>：方法的名稱。</li>
-<li><strong>參數列表（Parameter List）</strong>：接收外部傳入的參數，參數間用逗號分隔。參數型態必須明確列出，例如 <code>int</code>、<code>string</code>，以確保方法簽章的清晰性和正確性。</li>
-<li><strong>方法體（Body）</strong>：封裝的程式碼邏輯區塊。</li>
+<li><strong>存取修飾詞 (Accessibility Modifier)</strong>：決定方法的存取範圍，例：<code>public</code> 或 <code>private</code>。</li>
+<li><strong>靜態修飾詞 (Static Modifier)</strong>：標記方法是靜態方法，或是需要實例化物件才能使用。</li>
+<li><strong>回傳型態 (Return Type)</strong>：指定方法的回傳值類型。如果不需要回傳值，使用 <code>void</code>。如果需要有回傳值，除了指定回傳型態，方法內還需要用 <code>return</code> 回傳數值，且數值的型態必須跟定義的回傳型態一致。</li>
+<li><strong>方法名稱 (Method Name)</strong>：方法的名稱。</li>
+<li><strong>參數列表 (Parameter List)</strong>：接收外部傳入的參數，參數間用逗號分隔。參數型態必須明確列出，例如 <code>int</code>、<code>string</code>，以確保方法簽章的清晰性和正確性。</li>
+<li><strong>方法體 (Body)</strong>：封裝的程式碼邏輯區塊。</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存取修飾詞：public, 回傳型態：int, 方法名稱：Add, 參數列表：(int x, int y)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">int</span> <span class="title">Add</span>(<span class="params"><span class="built_in">int</span> x, <span class="built_in">int</span> y</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 方法體 - 開始</span></span><br><span class="line">    <span class="built_in">int</span> total = x + y;</span><br><span class="line">    <span class="keyword">return</span> total; <span class="comment">// 回傳值的型態，必須跟 line 2 定義的回傳型態一致</span></span><br><span class="line">    <span class="comment">// 方法體 - 結束</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="簽章-Signature"><a class="header-anchor" href="#簽章-Signature"></a>簽章 (Signature)</h3>
-<p>通常指<span style="color: #ff0000">方法的名稱、參數的型態與順序，以及回傳值的型態</span>。</p>
-<p>它可以視為方法的唯一標識，用來區分不同的方法。例如，具有相同名稱但參數型態不同的方法會被視為不同的方法，這被稱為<strong>多載 (Overloading)</strong>。</p>
+<p>通常指<span style="color: #ff0000">方法的名稱、參數的型態、個數與順序，以及回傳值的型態</span>。</p>
+<p>它可以視為方法的唯一標識，用來區分不同的方法。例如，具有相同名稱但參數型態、個數與順序不同的方法會被視為不同的方法，這被稱為<strong>多載 (Overloading)</strong>。</p>
 <h2 id="使用、呼叫方法"><a class="header-anchor" href="#使用、呼叫方法"></a>使用、呼叫方法</h2>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">方法名稱(傳入的參數列表);</span><br></pre></td></tr></table></figure>
 <p>呼叫時</p>
@@ -343,7 +343,7 @@
 <p>適合需要將處理結果回傳給呼叫者的情況。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">int</span> <span class="title">Multiply</span>(<span class="params"><span class="built_in">int</span> x, <span class="built_in">int</span> y</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="陣列作為參數"><a class="header-anchor" href="#陣列作為參數"></a>陣列作為參數</h3>
-<p>在 C# 中，陣列作為參數傳遞時，是以<span style="color: #ff0000"><strong>複製記憶體位址</strong></span>的方式傳遞，但是因為實際參數 (Arguments)和形式參數 (Parameters) 的值一樣，都是同一個記憶體位址，都指向同一個變數，這表示方法中<span style="color: #ff0000">對陣列內容的修改會影響到原始陣列，但重新指派陣列不會影響原始陣列，因為儲存的記憶體位址不一樣了</span>。</p>
+<p>在 C# 中，陣列作為參數傳遞時，是以<span style="color: #ff0000"><strong>複製記憶體位址</strong></span>的方式傳遞，但是因為實際參數 (Arguments) 和形式參數 (Parameters) 的值一樣，都是同一個記憶體位址，都指向同一個變數，這表示方法中<span style="color: #ff0000">對陣列內容的修改會影響到原始陣列，但重新指派陣列不會影響原始陣列，因為儲存的記憶體位址不一樣了</span>。</p>
 <div class="info">
 <p>C# 中沒有 Call/Pass by Address 這種說法，但是實際上 C# 的「陣列作為參數傳遞」就是 Call/Pass by Address，以下方的例子來說，是 copy 實際參數 <code>arr</code> 的位址給形式參數 <code>numbers</code>，而不是 Call/Pass by Reference 取別名。請參考：<a href="https://jenifers001d.github.io/2019/11/23/Csharp-C/value-pointer-ref/">值 (value)、指標 (pointer/address)、參考 (reference)</a>。取別名的話，重新指派陣列會影響原始陣列。</p>
 </div>
@@ -425,6 +425,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/01/13/Csharp-C/learning-Csharp-console-app-L1-ch8-advanced-method/" rel="next" title="不學 JAVA 換學 C# 之覺得心累 - L1：ch8 方法的進階概念">
+                  不學 JAVA 換學 C# 之覺得心累 - L1：ch8 方法的進階概念 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
