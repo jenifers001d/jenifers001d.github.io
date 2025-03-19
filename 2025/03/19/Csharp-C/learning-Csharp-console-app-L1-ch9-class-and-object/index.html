@@ -28,7 +28,7 @@
 <meta property="og:description" content="類別 (Class) 與物件 (Object) 是 C# 的基礎核心，基於物件導向程式設計 (OOP，Object Oriented Programming) 的特性，讓開發者能建立可重複使用且維護性高的程式碼。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-03-19T11:47:02.230Z">
-<meta property="article:modified_time" content="2025-03-19T11:48:57.553Z">
+<meta property="article:modified_time" content="2025-03-19T11:56:31.584Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content=".Net Framework">
 <meta property="article:tag" content="Csharp(C#)">
@@ -228,7 +228,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2025-03-19 21:47:02 / 修改時間：21:48:57" itemprop="dateCreated datePublished" datetime="2025-03-19T21:47:02+10:00">2025-03-19</time>
+      <time title="創建時間：2025-03-19 21:47:02 / 修改時間：21:56:31" itemprop="dateCreated datePublished" datetime="2025-03-19T21:47:02+10:00">2025-03-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -274,6 +274,9 @@
 <p>Class 類別是<span style="color: #ff0000">設計藍圖</span>、<span style="color: #ff0000">模具</span>或<span style="color: #ff0000">產品規格</span>，它主要用來定義一個產品的<strong>特徵</strong> (欄位 Field、屬性 Property) 和<strong>功能</strong> (方法 Method)。</p>
 <h3 id="Object-物件、Instance-實例"><a class="header-anchor" href="#Object-物件、Instance-實例"></a>Object 物件、Instance 實例</h3>
 <p>利用產品規格產生出來的<span style="color: #ff0000">實品</span>，每個實品可能有<strong>特徵或功能上的不同</strong>，但都是類別具體化後的表現。</p>
+<div class="info">
+<p>簡單來說，Class 就是產品規格、Object 就是製作出來的實品。</p>
+</div>
 <h2 id="建立類別與物件"><a class="header-anchor" href="#建立類別與物件"></a>建立類別與物件</h2>
 <h3 id="建立-Class"><a class="header-anchor" href="#建立-Class"></a>建立 Class</h3>
 <p>類別包含<strong>欄位 Field、屬性 Property、建構式 Constructor 與方法 Method</strong>，定義了物件的狀態與行為，可使用不同的存取修飾詞控制存取範圍。</p>
@@ -286,9 +289,6 @@
 <h3 id="建立-Object"><a class="header-anchor" href="#建立-Object"></a>建立 Object</h3>
 <p>是類別的實例 (Instance)，是類別具體化後的表現。<strong>使用 <code>new</code> 關鍵字，搭配呼叫建構式實例化 (Instantiation) 物件</strong>：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Dog lucky = <span class="keyword">new</span> Dog(<span class="string">&quot;哈士奇&quot;</span>, <span class="string">&quot;中型犬&quot;</span>, <span class="string">&quot;黑白&quot;</span>);</span><br><span class="line">lucky.Bark();  <span class="comment">// 輸出：汪！汪！汪！</span></span><br></pre></td></tr></table></figure>
-<div class="info">
-<p>簡單來說，Class 就是產品規格、Object 就是製作出來的實品。</p>
-</div>
 <p>一旦 Object 被建立了，系統才會分配<span style="color: #ff0000"><strong>記憶體空間</strong></span>給 Object，用來儲存它的<strong>變動過的特徵</strong>以及<strong>執行功能後產生的一些結果</strong>。</p>
 <h3 id="建構式-Constructor"><a class="header-anchor" href="#建構式-Constructor"></a>建構式 (Constructor)</h3>
 <p>是一種特殊的函式，當你<strong>建立物件的時候，它會自動執行</strong>，用來<span style="color: #ff0000">初始化物件的屬性或執行一些設定，沒有回傳型態</span>。</p>
