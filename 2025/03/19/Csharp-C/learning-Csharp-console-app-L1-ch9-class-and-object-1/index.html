@@ -22,13 +22,13 @@
 
     <meta name="description" content="類別 (Class) 與物件 (Object) 是 C# 的基礎核心，基於物件導向程式設計 (OOP，Object Oriented Programming) 的特性，讓開發者能建立可重複使用且維護性高的程式碼。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件">
-<meta property="og:url" content="https://jenifers001d.github.io/2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object/">
+<meta property="og:title" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件 (一)">
+<meta property="og:url" content="https://jenifers001d.github.io/2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object-1/">
 <meta property="og:site_name" content="Jenifer.Code.World">
 <meta property="og:description" content="類別 (Class) 與物件 (Object) 是 C# 的基礎核心，基於物件導向程式設計 (OOP，Object Oriented Programming) 的特性，讓開發者能建立可重複使用且維護性高的程式碼。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-03-19T11:47:02.230Z">
-<meta property="article:modified_time" content="2025-03-19T11:56:31.584Z">
+<meta property="article:modified_time" content="2025-04-05T06:40:20.156Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content=".Net Framework">
 <meta property="article:tag" content="Csharp(C#)">
@@ -38,13 +38,13 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://jenifers001d.github.io/2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object/">
+<link rel="canonical" href="https://jenifers001d.github.io/2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object-1/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object/","path":"2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object/","title":"不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object-1/","path":"2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object-1/","title":"不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件 (一)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件 | Jenifer.Code.World</title>
+<title>不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件 (一) | Jenifer.Code.World</title>
   
 
 
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91"><span class="nav-number">2.</span> <span class="nav-text">物件導向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-%E9%A1%9E%E5%88%A5"><span class="nav-number">2.1.</span> <span class="nav-text">Class 類別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-%E7%89%A9%E4%BB%B6%E3%80%81Instance-%E5%AF%A6%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">Object 物件、Instance 實例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">建立類別與物件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-Class"><span class="nav-number">3.1.</span> <span class="nav-text">建立 Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-Object"><span class="nav-number">3.2.</span> <span class="nav-text">建立 Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E6%A7%8B%E5%BC%8F-Constructor"><span class="nav-number">3.3.</span> <span class="nav-text">建構式 (Constructor)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A0%90%E8%A8%AD%E5%BB%BA%E6%A7%8B%E5%BC%8F-Default-Constructor"><span class="nav-number">3.3.1.</span> <span class="nav-text">預設建構式 (Default Constructor)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A4%87%E5%AF%AB%E9%A0%90%E8%A8%AD%E5%BB%BA%E6%A7%8B%E5%BC%8F"><span class="nav-number">3.3.2.</span> <span class="nav-text">複寫預設建構式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E5%BB%BA%E6%A7%8B%E5%BC%8F"><span class="nav-number">3.3.3.</span> <span class="nav-text">自訂建構式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E4%B8%94%E5%94%AF%E4%B8%80%E7%9A%84-C-%E7%9A%84%E9%A1%9E%E5%88%A5"><span class="nav-number">4.</span> <span class="nav-text">特殊且唯一的 C# 的類別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E8%A3%9D%E8%88%87%E5%AD%98%E5%8F%96%E4%BF%AE%E9%A3%BE%E8%A9%9E"><span class="nav-number">5.</span> <span class="nav-text">封裝與存取修飾詞</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91"><span class="nav-number">2.</span> <span class="nav-text">物件導向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-%E9%A1%9E%E5%88%A5"><span class="nav-number">2.1.</span> <span class="nav-text">Class 類別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-%E7%89%A9%E4%BB%B6%E3%80%81Instance-%E5%AF%A6%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">Object 物件、Instance 實例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E9%A1%9E%E5%88%A5%E8%88%87%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">建立類別與物件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-Class"><span class="nav-number">3.1.</span> <span class="nav-text">建立 Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-Object"><span class="nav-number">3.2.</span> <span class="nav-text">建立 Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E6%A7%8B%E5%BC%8F-Constructor"><span class="nav-number">3.3.</span> <span class="nav-text">建構式 (Constructor)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A0%90%E8%A8%AD%E5%BB%BA%E6%A7%8B%E5%BC%8F-Default-Constructor"><span class="nav-number">3.3.1.</span> <span class="nav-text">預設建構式 (Default Constructor)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A4%87%E5%AF%AB%E9%A0%90%E8%A8%AD%E5%BB%BA%E6%A7%8B%E5%BC%8F"><span class="nav-number">3.3.2.</span> <span class="nav-text">複寫預設建構式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E5%BB%BA%E6%A7%8B%E5%BC%8F"><span class="nav-number">3.3.3.</span> <span class="nav-text">自訂建構式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E4%B8%94%E5%94%AF%E4%B8%80%E7%9A%84-C-%E7%9A%84%E9%A1%9E%E5%88%A5"><span class="nav-number">4.</span> <span class="nav-text">特殊且唯一的 C# 的類別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">5.</span> <span class="nav-text">this</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%80%E5%88%86%E6%AC%84%E4%BD%8D%E5%92%8C%E5%8F%83%E6%95%B8"><span class="nav-number">5.1.</span> <span class="nav-text">區分欄位和參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E6%A7%8B%E5%BC%8F%E5%8E%BB%E5%91%BC%E5%8F%AB%E5%9C%A8%E5%90%8C%E4%B8%80%E5%80%8B-Class-%E4%B8%AD%E7%9A%84%E5%8F%A6%E4%B8%80%E5%80%8B%E5%BB%BA%E6%A7%8B%E5%BC%8F"><span class="nav-number">5.2.</span> <span class="nav-text">建構式去呼叫在同一個 Class 中的另一個建構式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9C%E6%85%8B%E4%BF%AE%E9%A3%BE%E8%A9%9E-static"><span class="nav-number">6.</span> <span class="nav-text">靜態修飾詞 static</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%9D%9C%E6%85%8B%E6%AC%84%E4%BD%8D"><span class="nav-number">6.1.</span> <span class="nav-text">非靜態欄位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9C%E6%85%8B%E6%AC%84%E4%BD%8D"><span class="nav-number">6.2.</span> <span class="nav-text">靜態欄位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">6.2.1.</span> <span class="nav-text">特性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%84%E4%BD%8D%E7%9A%84%E5%B8%B8%E6%95%B8-const-%E5%92%8C-readonly"><span class="nav-number">7.</span> <span class="nav-text">欄位的常數 const 和 readonly</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#const"><span class="nav-number">7.1.</span> <span class="nav-text">const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#readonly"><span class="nav-number">7.2.</span> <span class="nav-text">readonly</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -198,7 +198,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -211,12 +211,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件 | Jenifer.Code.World">
+      <meta itemprop="name" content="不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件 (一) | Jenifer.Code.World">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件
+          不學 JAVA 換學 C# 之覺得心累 - L1：ch9 類別和物件 (一)
         </h1>
 
         <div class="post-meta-container">
@@ -226,9 +226,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2025-03-19 21:47:02 / 修改時間：21:56:31" itemprop="dateCreated datePublished" datetime="2025-03-19T21:47:02+10:00">2025-03-19</time>
+      <time title="創建時間：2025-03-19 21:47:02" itemprop="dateCreated datePublished" datetime="2025-03-19T21:47:02+10:00">2025-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-05 16:40:20" itemprop="dateModified" datetime="2025-04-05T16:40:20+10:00">2025-04-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -306,28 +312,88 @@
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Dog</span>(<span class="params"><span class="built_in">string</span> breed, <span class="built_in">string</span> size</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">this</span>.breed = breed;</span><br><span class="line">    <span class="keyword">this</span>.size = size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog lucky = <span class="keyword">new</span> Dog(<span class="string">&quot;紅貴賓&quot;</span>, <span class="string">&quot;小型犬&quot;</span>); <span class="comment">// 必須用自訂的建構式建立物件</span></span><br><span class="line"><span class="comment">// Dog coby = new Dog(); // 這行會報錯，因為預設建構式已經消失</span></span><br></pre></td></tr></table></figure>
 <h2 id="特殊且唯一的-C-的類別"><a class="header-anchor" href="#特殊且唯一的-C-的類別"></a>特殊且唯一的 C# 的類別</h2>
 <p>僅包含 <code>Main()</code> 方法的類別，是應用程式的進入點，請參考<a href="https://jenifers001d.github.io/2020/02/17/Csharp-C/learning-Csharp-console-app-L1-ch0/">不學 JAVA 換學 C# 之覺得心累 - L1：ch0 程式架構</a>。</p>
-<h2 id="封裝與存取修飾詞"><a class="header-anchor" href="#封裝與存取修飾詞"></a>封裝與存取修飾詞</h2>
-<p>C# 提供多種存取修飾詞來控制類別成員的<span style="color: #ff0000">可見性</span>和<span style="color: #ff0000">存取範圍</span>。這是用來保護一些，不想或不用對外暴露的資料和演算法邏輯。</p>
-<ul>
-<li><code>public</code>：在程式的<span style="color: #ff0000">任何地方</span>被存取。</li>
-<li><code>private</code>：只能在<span style="color: #ff0000">同一個類別內</span>存取。</li>
-<li><code>protected</code>：只能在<span style="color: #ff0000">同一個類別內或其子類別內</span>存取。</li>
-<li><code>internal</code>：只能在<span style="color: #ff0000">同一個組件 (assembly) 內</span>存取。</li>
-</ul>
-<p>通常實作上，我們會不希望欄位 (Field) 可以被直接修改，原因是：</p>
+<h2 id="this"><a class="header-anchor" href="#this"></a><code>this</code></h2>
+<p>代表目前這個類別的<span style="color: #ff0000">物件本身</span>，可以用來：</p>
 <ol>
-<li>封裝性 (Encapsulation)：保護資料，不讓外部直接修改<br>
-當欄位是 <code>public</code>，任何外部的程式碼都能直接修改它的值，這可能會導致錯誤或不安全的資料操作。</li>
-<li>控制存取權限 (Read-Only / Write-Only 權限)<br>
-有些時候，我們希望欄位只能被讀取，不能被修改，或只能被內部設定，不能被外部改變。</li>
-<li>可以額外執行邏輯 (如：記錄變更日誌、計算等)</li>
-<li>易於維護，未來可以修改實作方式</li>
+<li>存取目前物件的欄位或方法</li>
+<li>區分欄位和參數同名的情況 (如果不會混淆也可以不用寫出 <code>this</code>)</li>
+<li>建構式去呼叫在同一個 Class 中的另一個建構式 (constructor chaining)</li>
 </ol>
-<p>早期，我們會希望透過 <code>GetXXX</code> or <code>SetXXX</code> 方法來取得或修改資料，範例：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 類別</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Dog</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 欄位 Field</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">string</span> color;  <span class="comment">// 僅類別內部可以使用</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">GetColor</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> color;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetColor</span>(<span class="params"><span class="built_in">string</span> color</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 程式進入點</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Dog lucky = <span class="keyword">new</span> Dog();</span><br><span class="line">        lucky.SetColor(<span class="string">&quot;white&quot;</span>);</span><br><span class="line">        <span class="built_in">string</span> colorOfLucky = lucky.GetColor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是如果有很多欄位，而且大部分都沒有額外的邏輯，就會變成寫很多類似的程式碼，這樣很沒有效率，中期就演變出<span style="color: #ff0000">屬性 Property</span>，和欄位 Field 一樣名稱，差別僅<span style="color: #ff0000">開頭大小寫不同</span>，然後可以這樣寫：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 類別</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Dog</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 欄位 Field (開頭小寫)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">string</span> color;  <span class="comment">// 僅類別內部可以使用</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 屬性 Property (開頭大寫)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Color <span class="comment">//記得後面不用()，因為不是建構式，也不是 Method</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> color; &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123; <span class="keyword">this</span>.color = <span class="keyword">value</span>; &#125; <span class="comment">// 如果需要額外的邏輯，寫在 set 的 &#123;&#125; 內</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 程式進入點</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Dog lucky = <span class="keyword">new</span> Dog();</span><br><span class="line">        lucky.Color = <span class="string">&quot;black&quot;</span>; <span class="comment">// 透過屬性設定值</span></span><br><span class="line">        <span class="built_in">string</span> colorOfLucky = lucky.Color; <span class="comment">// 透過屬性取得值</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是要寫的東西還是有點多，所以現在主要是使用<span style="color: #ff0000">自動實作屬性 (Automatically Implemented Properties)</span>。</p>
+<h3 id="區分欄位和參數"><a class="header-anchor" href="#區分欄位和參數"></a>區分欄位和參數</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Dog</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> breed;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span>(<span class="params"><span class="built_in">string</span> breed, <span class="built_in">string</span> size</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 因為欄位和參數名稱相同，怕會混淆，用 this 指出是物件的 breed 和 size</span></span><br><span class="line">        <span class="comment">//  物件欄位   參數</span></span><br><span class="line">        <span class="keyword">this</span>.breed = breed;</span><br><span class="line">        <span class="keyword">this</span>.size = size;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="建構式去呼叫在同一個-Class-中的另一個建構式"><a class="header-anchor" href="#建構式去呼叫在同一個-Class-中的另一個建構式"></a>建構式去呼叫在同一個 Class 中的另一個建構式</h3>
+<p>使用 <code>this</code> 來重複使用建構式的邏輯：line 6 的 <code>this(&quot;哈士奇&quot;, &quot;中型犬&quot;)</code> 和 line 8 的 <code>this(breed, &quot;大小未知&quot;)</code> 去呼叫 line 10 的建構式。</p>
+<p><span style="color: #ff0000">建構式中的任何參數，</span>都可以作為<span style="color: #ff0000"><code>this</code> 的參數</span>來使用或運算：line 8 <code>public Dog(string breed)</code> 的參數 <code>breed</code> 作為傳入 <code>this</code> 的參數 <code>this(breed, &quot;大小未知&quot;)</code>。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Dog</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> breed;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span>() : <span class="title">this</span>(<span class="params"><span class="string">&quot;哈士奇&quot;</span>, <span class="string">&quot;中型犬&quot;</span></span>)</span></span><br><span class="line">    &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span>(<span class="params"><span class="built_in">string</span> breed</span>) : <span class="title">this</span>(<span class="params">breed, <span class="string">&quot;大小未知&quot;</span></span>)</span></span><br><span class="line">    &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span>(<span class="params"><span class="built_in">string</span> breed, <span class="built_in">string</span> size</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.breed = breed;</span><br><span class="line">        <span class="keyword">this</span>.size = size;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="靜態修飾詞-static"><a class="header-anchor" href="#靜態修飾詞-static"></a>靜態修飾詞 <code>static</code></h2>
+<p>如果欄位<span style="color: #ff0000">跟各別物件實例沒有關係，就用靜態欄位</span>，否則用非靜態欄位。</p>
+<h3 id="非靜態欄位"><a class="header-anchor" href="#非靜態欄位"></a>非靜態欄位</h3>
+<p>非靜態欄位<span style="color: #ff0000">屬於物件</span>，必須透過實例化物件來呼叫，且不同物件的非靜態欄位互不影響。使用<strong>物件名稱</strong>呼叫。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">物件名稱.欄位名;</span><br></pre></td></tr></table></figure>
+<p>以下方例子來說，不同的實例化物件 <code>Person</code> 有不同的名字。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> name;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person person1 = <span class="keyword">new</span> Person(<span class="string">&quot;Jenifer&quot;</span>);</span><br><span class="line">Person person2 = <span class="keyword">new</span> Person(<span class="string">&quot;Mary&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用物件名稱呼叫 name</span></span><br><span class="line">Console.WriteLine(person1.name); <span class="comment">// Jenifer</span></span><br><span class="line">Console.WriteLine(person2.name); <span class="comment">// Mary</span></span><br></pre></td></tr></table></figure>
+<h3 id="靜態欄位"><a class="header-anchor" href="#靜態欄位"></a>靜態欄位</h3>
+<p>靜態欄位<span style="color: #ff0000">屬於類別</span>本身，不需實例化物件即可呼叫。適合用於不依賴於物件狀態的欄位。使用<strong>類別名稱</strong>呼叫。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">類別名稱.欄位名;</span><br></pre></td></tr></table></figure>
+<h4 id="特性"><a class="header-anchor" href="#特性"></a>特性</h4>
+<ul>
+<li>所有物件共用同一份欄位值。</li>
+<li>建立物件前就可以使用。</li>
+</ul>
+<p>以下方例子來說，<code>PI</code> 不會依賴於不同的 <code>Example</code> 物件實例，直接用 <code>Example</code> 類別名呼叫 <code>PI</code>。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Example</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">double</span> PI = <span class="number">3.1415</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Console.WriteLine(Example.PI); <span class="comment">// 3.1415</span></span><br><span class="line"></span><br><span class="line">Example example1 = <span class="keyword">new</span> Example ();</span><br><span class="line">Example example2 = <span class="keyword">new</span> Example ();</span><br></pre></td></tr></table></figure>
+<p>也去看看<a href="https://jenifers001d.github.io/2025/01/05/Csharp-C/learning-Csharp-console-app-L1-ch7-method/#%E9%9D%9C%E6%85%8B%E4%BF%AE%E9%A3%BE%E8%A9%9E">非靜態方法和靜態方法</a>吧！</p>
+<h2 id="欄位的常數-const-和-readonly"><a class="header-anchor" href="#欄位的常數-const-和-readonly"></a>欄位的常數 <code>const</code> 和 <code>readonly</code></h2>
+<h3 id="const"><a class="header-anchor" href="#const"></a><code>const</code></h3>
+<p>是<strong>編譯階段常數 (compile-time constant)</strong>，又稱為<strong>靜態常數</strong>，也就是在<span style="color: #ff0000">程式編譯</span>的當下，這個值就已經是確定的、固定好的，並且直接寫進程式碼裡 (在 .exe 或 .dll 裡)，因此<span style="color: #ff0000">必須在宣告時就初始化</span>，這個值<span style="color: #ff0000">不能在程式執行時才被指派</span>。又因為直接寫進程式碼裡，因此沒有占用記憶體，效能較快，使用時也是直接<span style="color: #ff0000">引用其值</span>。</p>
+<p>只有<span style="color: #ff0000">數值、布林、字串</span>可以被指定為 <code>const</code> 常數。物件的參考類型也可以被指定為 <code>const</code> 常數，但是只能指定為 <code>null</code> (但這好像沒什麼意義 …)。</p>
+<p><span style="color: #ff0000">命名規則是全部使用大寫，並且以下底線 <code>_</code> 隔開</span>，方便辨識。全部大寫可以輕易地與一般變數做出區別。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">double</span> PI = <span class="number">3.1415</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">const</span> boolean CAN_SMOKE = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> APP_OWNER = <span class="string">&quot;Jenifer&quot;</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">const</span> Employee QUITTED_EMPLOYEE = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p><span style="color: #ff0000">類別中的 <code>const</code> 永遠有 <code>static</code> 的特性，但是加 <code>static</code> 會報錯</span> (不能這樣寫： <code>static const</code>)。</p>
+<h3 id="readonly"><a class="header-anchor" href="#readonly"></a><code>readonly</code></h3>
+<p>是<strong>執行階段常數 (run-time constant)</strong>，又稱為<strong>動態常數</strong>，在<span style="color: #ff0000">執行時</span>才獲得實際的數值，可以<span style="color: #ff0000">在宣告時或建構式中初始化，而且在建構式中可以重複指派，不能宣告在方法裡做為區域變數</span>。使用時是像一般變數一樣，<span style="color: #ff0000">引用記憶體位置的值</span>。其實就是<strong>唯獨</strong>的變數啦！</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Example</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">readonly</span> <span class="built_in">int</span> num = <span class="number">3</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Example</span> ()</span> </span><br><span class="line">    &#123;</span><br><span class="line">        num = <span class="number">5</span>;</span><br><span class="line">        num = <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th><code>const</code></th>
+<th><code>readonly</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>類別</td>
+<td>編譯階段常數，直接引用其值</td>
+<td>執行階段常數，或唯獨變數，引用記憶體位置的值</td>
+</tr>
+<tr>
+<td>宣告時機</td>
+<td>必須在宣告時就初始化</td>
+<td>可以在宣告時或建構式中初始化</td>
+</tr>
+<tr>
+<td>變更時機</td>
+<td>無法更改</td>
+<td>在建構式中可以重複指派</td>
+</tr>
+<tr>
+<td>每個物件有屬於自己的常數</td>
+<td>不行，所有物件共用同一個 <code>const</code> 常數 (像是 static 變數)</td>
+<td>可以，每個物件可以在建構時，依據呼叫不同的建構式設定不同值</td>
+</tr>
+<tr>
+<td>使用場景</td>
+<td>固定值 (例如：PI)</td>
+<td>需在執行期間決定，但不希望被更改的值（例如：DbContext)</td>
+</tr>
+<tr>
+<td>是否為 static</td>
+<td>永遠隱含 <code>static</code> 的特性</td>
+<td>不是 <code>static</code>，除非明確宣告 <code>static readonly</code></td>
+</tr>
+</tbody>
+</table>
 
     </div>
 
