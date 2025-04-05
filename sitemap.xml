@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jenifers001d.github.io/2025/04/05/Csharp-C/learning-Csharp-console-app-L1-ch10-class-and-object-2/</loc>
+    
+    <lastmod>2025-04-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/2025/03/19/Csharp-C/learning-Csharp-console-app-L1-ch9-class-and-object-1/</loc>
     
     <lastmod>2025-04-05</lastmod>
@@ -11,16 +20,16 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/2025/01/13/Csharp-C/learning-Csharp-console-app-L1-ch8-advanced-method/</loc>
+    <loc>https://jenifers001d.github.io/2025/01/05/Csharp-C/learning-Csharp-console-app-L1-ch7-method/</loc>
     
-    <lastmod>2025-01-13</lastmod>
+    <lastmod>2025-04-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/2025/01/05/Csharp-C/learning-Csharp-console-app-L1-ch7-method/</loc>
+    <loc>https://jenifers001d.github.io/2025/01/13/Csharp-C/learning-Csharp-console-app-L1-ch8-advanced-method/</loc>
     
     <lastmod>2025-01-13</lastmod>
     
