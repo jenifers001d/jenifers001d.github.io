@@ -790,14 +790,28 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/tags/Flask/</loc>
+    <loc>https://jenifers001d.github.io/tags/Python/</loc>
     <lastmod>2025-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/tags/Python/</loc>
+    <loc>https://jenifers001d.github.io/tags/Intermediate-Python/</loc>
+    <lastmod>2025-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/Discord-Bot/</loc>
+    <lastmod>2025-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/Flask/</loc>
     <lastmod>2025-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -818,21 +832,7 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/tags/Intermediate-Python/</loc>
-    <lastmod>2025-04-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jenifers001d.github.io/tags/Jinja2/</loc>
-    <lastmod>2025-04-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/Discord-Bot/</loc>
     <lastmod>2025-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -916,6 +916,20 @@
   </url>
   
   <url>
+    <loc>https://jenifers001d.github.io/tags/ReactJS/</loc>
+    <lastmod>2025-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/tags/Elementary-ReactJS/</loc>
+    <lastmod>2025-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/tags/SEO/</loc>
     <lastmod>2025-04-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -931,20 +945,6 @@
   
   <url>
     <loc>https://jenifers001d.github.io/tags/%E7%B6%B2%E7%AB%99%E5%9C%B0%E5%9C%96/</loc>
-    <lastmod>2025-04-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/ReactJS/</loc>
-    <lastmod>2025-04-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/tags/Elementary-ReactJS/</loc>
     <lastmod>2025-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1163,14 +1163,14 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/categories/Flask/</loc>
+    <loc>https://jenifers001d.github.io/categories/Python/</loc>
     <lastmod>2025-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/categories/Python/</loc>
+    <loc>https://jenifers001d.github.io/categories/Flask/</loc>
     <lastmod>2025-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1205,14 +1205,14 @@
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/categories/SEO/</loc>
+    <loc>https://jenifers001d.github.io/categories/ReactJS/</loc>
     <lastmod>2025-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jenifers001d.github.io/categories/ReactJS/</loc>
+    <loc>https://jenifers001d.github.io/categories/SEO/</loc>
     <lastmod>2025-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
