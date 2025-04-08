@@ -190,7 +190,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/JavaScript/hexschool-JS-core-11/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/06/23/JavaScript/hexschool-JS-core-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -208,7 +208,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/JavaScript/hexschool-JS-core-11/" class="post-title-link" itemprop="url">六角學院 JS 核心筆記 (十一)【運算子、型別與文法】- ASI 自動插入分號</a>
+          <a href="/2020/06/23/JavaScript/hexschool-JS-core-4/" class="post-title-link" itemprop="url">六角學院 JS 核心筆記 (四)【執行環境與作用域】- 執行環境 (Execution Context) 與 執行堆疊 (Execution Stack)</a>
         </h2>
 
         <div class="post-meta-container">
@@ -219,7 +219,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
+      <time title="創建時間：2020-06-23 17:20:30" itemprop="dateCreated datePublished" datetime="2020-06-23T17:20:30+10:00">2020-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 22:50:11" itemprop="dateModified" datetime="2025-04-08T22:50:11+10:00">2025-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -241,10 +248,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>ASI 即 Automatic Semicolon Insertion，當程式碼沒有加上分號時，<strong>依照 ASI 的規則，自動插入分號</strong>。它會帶來一些好處，但是也會造成一些問題。</p>
+          <p>函式執行時，內部變數的作用域有個執行限制範圍，這個範圍就是在<strong>執行環境</strong>內。</p>
+<p>而<strong>執行堆疊</strong>是建立在執行環境基礎上的「函式呼叫和執行的順序」。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/12/16/JavaScript/hexschool-JS-core-11/#more" rel="contents">
+              <a class="btn" href="/2020/06/23/JavaScript/hexschool-JS-core-4/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -275,7 +283,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/JavaScript/hexschool-JS-core-10/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/05/01/JavaScript/hexschool-JS-core-13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -293,7 +301,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/JavaScript/hexschool-JS-core-10/" class="post-title-link" itemprop="url">六角學院 JS 核心筆記 (十)【運算子、型別與文法】- 陳述式與表達式</a>
+          <a href="/2020/05/01/JavaScript/hexschool-JS-core-13/" class="post-title-link" itemprop="url">六角學院 JS 核心筆記 (十三)【運算子、型別與文法】- 原始型別及物件型別</a>
         </h2>
 
         <div class="post-meta-container">
@@ -304,7 +312,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
+      <time title="創建時間：2020-05-01 00:58:03" itemprop="dateCreated datePublished" datetime="2020-05-01T00:58:03+10:00">2020-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 23:15:44" itemprop="dateModified" datetime="2025-04-08T23:15:44+10:00">2025-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -326,11 +341,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>Statement 陳述式</strong>：主要在陳述一些命令，<span style="color: #ff0000">做一些事情</span>，但是<span style="color: #ff0000">不回傳</span>結果。<br>
-<strong>Expression 表達式</strong>：主要透過符號做一些運算，然後<span style="color: #ff0000">回傳結果</span>。</p>
+          <p>JavaScript 的型別主要分兩大類別，分別是原始型別 (Primitive type) 及參考型別 (Reference type)。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/12/16/JavaScript/hexschool-JS-core-10/#more" rel="contents">
+              <a class="btn" href="/2020/05/01/JavaScript/hexschool-JS-core-13/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -361,7 +375,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/JavaScript/hexschool-JS-core-1/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/03/24/JavaScript/hexschool-JS-core-12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -379,7 +393,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/JavaScript/hexschool-JS-core-1/" class="post-title-link" itemprop="url">六角學院 JS 核心筆記 (一)【執行環境與作用域】- JavaScript 是如何運行的</a>
+          <a href="/2020/03/24/JavaScript/hexschool-JS-core-12/" class="post-title-link" itemprop="url">六角學院 JS 核心筆記 (十二)【運算子、型別與文法】- 動態型別和弱型別</a>
         </h2>
 
         <div class="post-meta-container">
@@ -390,7 +404,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
+      <time title="創建時間：2020-03-24 02:13:50" itemprop="dateCreated datePublished" datetime="2020-03-24T02:13:50+10:00">2020-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 23:14:40" itemprop="dateModified" datetime="2025-04-08T23:14:40+10:00">2025-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -412,10 +433,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我們一般寫出來的程式碼又稱做<strong>原始碼</strong>，屬於高階式 (類人類) 語言，這種語言電腦是看不懂的，電腦只懂 0 和 1，因此需要經過中間用來<strong>翻譯的程式</strong>，將原始碼翻譯成<strong>機器碼</strong>。翻譯程式可以依照不同類型稱為<strong>編譯器</strong>或<strong>直譯器</strong>。</p>
+          <p><span style="color: #ff0000">JavaScript 是動態型別、弱型別的語言。</span></p>
+<p>所謂的動態語言，就是在執行的時候，變數才會依照<span style="color: #ff0000"><strong>賦予值的型別</strong></span>，來決定<strong>變數的型別</strong>。因此變數的型別是可以不斷改變的。</p>
+<p>而弱型別則是，偏向<span style="color: #ff0000"><strong>容忍隱性的型別轉換，但是怎麼轉換是它自己決定</strong></span>。</p>
+<p>詳情可以參考之前寫過的這篇：<a href="https://jenifers001d.github.io/2019/11/22/JavaScript/programming-language-type/">靜態語言 / 動態語言、強型別 / 弱型別、静態作用域 / 動態作用域</a>。以下僅重點提到一些需要注意的觀念。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/12/16/JavaScript/hexschool-JS-core-1/#more" rel="contents">
+              <a class="btn" href="/2020/03/24/JavaScript/hexschool-JS-core-12/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -446,7 +470,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/JavaScript/float-precision-calculation/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/02/20/MVC/learning-ASP.NET-MVC-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -464,7 +488,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/JavaScript/float-precision-calculation/" class="post-title-link" itemprop="url">JavaScript / 程式語言中，0.1 + 0.2 != 0.3</a>
+          <a href="/2020/02/20/MVC/learning-ASP.NET-MVC-3/" class="post-title-link" itemprop="url">掉進 ASP.NET MVC 馬里亞納海溝的第三天：Controller 傳資料給 View</a>
         </h2>
 
         <div class="post-meta-container">
@@ -475,7 +499,106 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
+      <time title="創建時間：2020-02-20 23:32:19" itemprop="dateCreated datePublished" datetime="2020-02-20T23:32:19+10:00">2020-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 22:48:49" itemprop="dateModified" datetime="2025-04-08T22:48:49+10:00">2025-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MVC/" itemprop="url" rel="index"><span itemprop="name">MVC</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Controller 傳資料給 View 有四種方法：<strong>ViewBag、ViewData、TempData、ViewModel</strong>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/20/MVC/learning-ASP.NET-MVC-3/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/02/20/JavaScript/hexschool-JS-core-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jenifer.Code.World">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/20/JavaScript/hexschool-JS-core-3/" class="post-title-link" itemprop="url">六角學院 JS 核心筆記 (三)【執行環境與作用域】- 語法作用域 (Lexical Scope)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-02-20 19:29:38" itemprop="dateCreated datePublished" datetime="2020-02-20T19:29:38+10:00">2020-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 22:50:57" itemprop="dateModified" datetime="2025-04-08T22:50:57+10:00">2025-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -497,10 +620,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>電腦科學中小數點如果採用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaC1zY2htaWR0Lm5ldC9GbG9hdENvbnZlcnRlci9JRUVFNzU0Lmh0bWw=">IEEE754 二進制浮點運算<i class="fa fa-external-link-alt"></i></span>都有同樣的狀況，會出現精度丟失的問題。</p>
+          <p>語法作用域 (Lexical scope) 的類別則是在探討<strong>有相同的變數名稱時，該變數需要參照哪一個值</strong>，也就是變數和值之間的聯繫 (binding)。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/12/16/JavaScript/float-precision-calculation/#more" rel="contents">
+              <a class="btn" href="/2020/02/20/JavaScript/hexschool-JS-core-3/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -531,7 +654,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/Hexo/create-tag-category-page/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/02/20/JavaScript/hexschool-JS-core-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -549,7 +672,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/Hexo/create-tag-category-page/" class="post-title-link" itemprop="url">遺失的「分類」、「標籤」首頁頁面？</a>
+          <a href="/2020/02/20/JavaScript/hexschool-JS-core-2/" class="post-title-link" itemprop="url">六角學院 JS 核心筆記 (二)【執行環境與作用域】- 執行的錯誤情境 LHS、RHS</a>
         </h2>
 
         <div class="post-meta-container">
@@ -560,7 +683,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
+      <time title="創建時間：2020-02-20 13:18:18" itemprop="dateCreated datePublished" datetime="2020-02-20T13:18:18+10:00">2020-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 22:50:45" itemprop="dateModified" datetime="2025-04-08T22:50:45+10:00">2025-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -568,7 +698,7 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
         </span>
     </span>
 
@@ -582,10 +712,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我不確定是不是所有的主題，「分類」和「標籤」頁面預設都不存在。我是使用 BMW 主題，它的<strong>分類</strong>和<strong>標籤</strong>頁面必須手動生成。因此這邊紀錄一下。</p>
+          <p>在直譯的過程中，<strong>JavaScript 引擎、編譯器和範疇</strong>會互相溝通以完成工作。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/12/16/Hexo/create-tag-category-page/#more" rel="contents">
+              <a class="btn" href="/2020/02/20/JavaScript/hexschool-JS-core-2/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -616,7 +746,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/SQL/create-demo-tables/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/02/19/MVC/learning-ASP.NET-MVC-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -634,7 +764,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/SQL/create-demo-tables/" class="post-title-link" itemprop="url">Create Demo Tables</a>
+          <a href="/2020/02/19/MVC/learning-ASP.NET-MVC-2/" class="post-title-link" itemprop="url">掉進 ASP.NET MVC 馬里亞納海溝的第二天：URL 特性 + Controller 和 View 的關係</a>
         </h2>
 
         <div class="post-meta-container">
@@ -645,7 +775,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
+      <time title="創建時間：2020-02-19 23:18:23" itemprop="dateCreated datePublished" datetime="2020-02-19T23:18:23+10:00">2020-02-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 22:46:47" itemprop="dateModified" datetime="2025-04-08T22:46:47+10:00">2025-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -653,7 +790,7 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
+          <a href="/categories/MVC/" itemprop="url" rel="index"><span itemprop="name">MVC</span></a>
         </span>
     </span>
 
@@ -667,10 +804,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Create demo tables.</p>
+          <p>MVC 的結構如下圖：<br>
+<img src="https://i.imgur.com/zbxrPLU.jpg" alt=""></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/12/16/SQL/create-demo-tables/#more" rel="contents">
+              <a class="btn" href="/2020/02/19/MVC/learning-ASP.NET-MVC-2/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -701,7 +839,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/Hexo/clone-Hexo-theme/">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/02/18/MVC/learning-ASP.NET-MVC-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -719,7 +857,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/Hexo/clone-Hexo-theme/" class="post-title-link" itemprop="url">Hexo 網站主題選一選！</a>
+          <a href="/2020/02/18/MVC/learning-ASP.NET-MVC-1/" class="post-title-link" itemprop="url">掉進 ASP.NET MVC 馬里亞納海溝的第一天：Hello World~</a>
         </h2>
 
         <div class="post-meta-container">
@@ -730,7 +868,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
+      <time title="創建時間：2020-02-18 19:22:09" itemprop="dateCreated datePublished" datetime="2020-02-18T19:22:09+10:00">2020-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 22:48:26" itemprop="dateModified" datetime="2025-04-08T22:48:26+10:00">2025-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -738,7 +883,7 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+          <a href="/categories/MVC/" itemprop="url" rel="index"><span itemprop="name">MVC</span></a>
         </span>
     </span>
 
@@ -752,271 +897,201 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Hexo 有許多協作開發者，他們將自己的主題樣式放置在<span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3RoZW1lcy8=">官網<i class="fa fa-external-link-alt"></i></span>上，到目前為止，已經有 277 個主題可供使用者下載。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/12/16/Hexo/clone-Hexo-theme/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/SQL/SQL-skills/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jenifer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jenifer.Code.World">
-      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jenifer.Code.World">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/SQL/SQL-skills/" class="post-title-link" itemprop="url">SQL skills (MS SQL Server)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>The following notes are pain points that I encountered when I was doing my job. Listed all of them to remember them and also hope I can help someone who also comes across this issue.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/12/16/SQL/SQL-skills/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/SEO/SEO1-Website-is-Not-Showing-in-Google-Search/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jenifer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jenifer.Code.World">
-      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jenifer.Code.World">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/SEO/SEO1-Website-is-Not-Showing-in-Google-Search/" class="post-title-link" itemprop="url">SEO 優化 (一)：為什麼搜尋 (Google) 不到我的 Hexo 部落格？</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SEO/" itemprop="url" rel="index"><span itemprop="name">SEO</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>因為即使一個新的網站被創建，搜尋引擎也不會馬上辨識到該網站，要等搜尋引擎<strong>自動</strong>辨識到網站，不知道幾年過去了…，所以，我們必須實行一些動作，使搜尋引擎<strong>確實收錄</strong>新建立的網站。</p>
-<p>也就是讓<span style="color: #ff0000">搜尋引擎的索引</span>，有新建立網站中<span style="color: #ff0000">網頁的內容及網址</span>等資料，讓搜尋引擎能更容易地搜尋到我們的網站，這個動作算是 SEO 的其中一種。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/12/16/SEO/SEO1-Website-is-Not-Showing-in-Google-Search/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2024/12/16/ReactJS/ReactJS-Tutorial-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jenifer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jenifer.Code.World">
-      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jenifer.Code.World">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/16/ReactJS/ReactJS-Tutorial-note/" class="post-title-link" itemprop="url">ReactJS 教學系列影片筆記</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2024-12-16 20:25:25" itemprop="dateCreated datePublished" datetime="2024-12-16T20:25:25+10:00">2024-12-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ReactJS/" itemprop="url" rel="index"><span itemprop="name">ReactJS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本篇是參考 <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1RRmFGSWNHaFBvTSZsaXN0PVBMQzN5OC1yRkh2d2dnM3ZhWUpnSEduTW9kQjU0cnhPazM=">ReactJS Tutorial<i class="fa fa-external-link-alt"></i></span> 的重點摘錄學習筆記。內容著重於 React 16.8 以前沒有 Hooks 時，以 Class Component 為主的教學。</p>
-<p>閱讀前具備知識：</p>
+          <p>學習前具備知識：</p>
 <ul>
-<li>基礎網頁前端 (HTML、CSS、JS) 知識</li>
-<li>基礎 ReactJS 知識</li>
+<li>基礎 C#</li>
+<li>基礎網頁前端 (HTML、CSS、JS) 和後端知識</li>
+<li>.Net 的世界</li>
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/12/16/ReactJS/ReactJS-Tutorial-note/#more" rel="contents">
+              <a class="btn" href="/2020/02/18/MVC/learning-ASP.NET-MVC-1/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/02/17/Csharp-C/learning-Csharp-console-app-L1-ch0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jenifer.Code.World">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/17/Csharp-C/learning-Csharp-console-app-L1-ch0/" class="post-title-link" itemprop="url">不學 JAVA 換學 C# 之覺得心累 - L1：ch0 程式架構</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-02-17 21:58:13" itemprop="dateCreated datePublished" datetime="2020-02-17T21:58:13+10:00">2020-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 22:55:13" itemprop="dateModified" datetime="2025-04-08T22:55:13+10:00">2025-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Csharp-C/" itemprop="url" rel="index"><span itemprop="name">Csharp(C#)</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>了解程式的架構非常重要，程式碼並不是隨意組合而成，它有其規定的語法和核心結構，了解基礎的架構有助於理解該程式碼運行的步驟和規則，能讓學習者更全面地理解程式碼、並能更快速地上手。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/17/Csharp-C/learning-Csharp-console-app-L1-ch0/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2020/02/17/Csharp-C/learning-Csharp-console-app-L1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jenifer.Code.World">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/17/Csharp-C/learning-Csharp-console-app-L1/" class="post-title-link" itemprop="url">不學 JAVA 換學 C# 之覺得心累 - Level 1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-02-17 01:41:25" itemprop="dateCreated datePublished" datetime="2020-02-17T01:41:25+10:00">2020-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-08 22:47:38" itemprop="dateModified" datetime="2025-04-08T22:47:38+10:00">2025-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Csharp-C/" itemprop="url" rel="index"><span itemprop="name">Csharp(C#)</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>這篇主要是紀錄<strong>初學者</strong>會學習到的基本語法、程式內容和一些我自己的理解(有誤再請糾正)。</p>
+<p>當初，我在自學 C# 的時候，就是從以下 <strong>freeCodeCamp</strong> 和<strong>小山的C#教學</strong>在 YouTube 上提供的影片學習的。</p>
+<p>主要內容關於 <code>變數</code>、<code>判斷式</code>、<code>迴圈</code>、<code>一維陣列</code>、<code>多維陣列</code>、<code>物件導向基礎</code>、<code>Class (建構子、this、getter/setter)</code>、<code>實質型別 (Value Type)</code>、<code>參考型別 (Reference Type)</code>、<code>封裝</code>、<code>繼承</code>、<code>Class (override、Base)</code>、<code>Abstract Class &amp; Method</code>、<code>File/Stream</code>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/17/Csharp-C/learning-Csharp-console-app-L1/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
