@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/myfavicon180.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon16.ico">
+  <link rel="mask-icon" href="/images/myfavicon512.png" color="#222">
+  <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300italic,400,400italic,700,700italic%7CNoto+Sans+TC:300,300italic,400,400italic,700,700italic%7CSegoe+UI:300,300italic,400,400italic,700,700italic%7CHelvetica+Neue:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7CLato:300,300italic,400,400italic,700,700italic%7Csans-serif:300,300italic,400,400italic,700,700italic%7Cconsolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言 在物件導向程式設計中，繼承 (Inheritance) 是一個非常核心的概念。透過繼承，我們可以讓一個類別 (稱作子類別或衍生類別 Derived Class) 從另一個類別 (稱作父類別或基底類別 Base Class) 延伸 (inherit) 出去，擁有基底類別的可繼承的欄位、屬性與方法，並且又可以有自己獨特的欄位、屬性與方法。這可以提高程式的重複使用性，也讓系統架構更有彈性與可擴充性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不學 JAVA 換學 C# 之覺得心累 - L1：L1：ch13 繼承">
+<meta property="og:url" content="https://jenifers001d.github.io/2025/04/13/Csharp-C/learning-Csharp-console-app-L1-ch13-inheritance/">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="前言 在物件導向程式設計中，繼承 (Inheritance) 是一個非常核心的概念。透過繼承，我們可以讓一個類別 (稱作子類別或衍生類別 Derived Class) 從另一個類別 (稱作父類別或基底類別 Base Class) 延伸 (inherit) 出去，擁有基底類別的可繼承的欄位、屬性與方法，並且又可以有自己獨特的欄位、屬性與方法。這可以提高程式的重複使用性，也讓系統架構更有彈性與可擴充性">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://hackmd.io/_uploads/HJjZPvXCkl.png">
+<meta property="article:published_time" content="2025-04-13T11:28:47.450Z">
+<meta property="article:modified_time" content="2025-04-13T11:35:29.615Z">
+<meta property="article:author" content="Jenifer">
+<meta property="article:tag" content=".Net Framework">
+<meta property="article:tag" content="Csharp(C#)">
+<meta property="article:tag" content=".Net Core">
+<meta property="article:tag" content="Console">
+<meta property="article:tag" content="Elementary Code">
+<meta property="article:tag" content="Elementary Csharp(C#)">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hackmd.io/_uploads/HJjZPvXCkl.png">
+
+
+<link rel="canonical" href="https://jenifers001d.github.io/2025/04/13/Csharp-C/learning-Csharp-console-app-L1-ch13-inheritance/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2025/04/13/Csharp-C/learning-Csharp-console-app-L1-ch13-inheritance/","path":"2025/04/13/Csharp-C/learning-Csharp-console-app-L1-ch13-inheritance/","title":"不學 JAVA 換學 C# 之覺得心累 - L1：L1：ch13 繼承"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>不學 JAVA 換學 C# 之覺得心累 - L1：L1：ch13 繼承 | Jenifer.Code.World</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jenifer.Code.World</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-privacy"><a href="/privacy/" rel="section"><i class="fa fa-lock fa-fw"></i>privacy</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">語法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B9%BC%E6%89%BF%E9%9A%8E%E5%B1%A4"><span class="nav-number">2.1.</span> <span class="nav-text">繼承階層</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E5%BA%95%E9%A1%9E%E5%88%A5%E8%A2%AB%E4%B8%8D%E5%90%8C%E7%9A%84%E8%A1%8D%E7%94%9F%E9%A1%9E%E5%88%A5%E7%B9%BC%E6%89%BF"><span class="nav-number">2.2.</span> <span class="nav-text">基底類別被不同的衍生類別繼承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Protected-%E6%AC%84%E4%BD%8D%E8%88%87%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">Protected 欄位與方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%9C%E9%8D%B5%E5%AD%97-base"><span class="nav-number">4.</span> <span class="nav-text">關鍵字 base</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8-virtual-override-%E8%A6%86%E5%AF%AB%E5%9F%BA%E5%BA%95%E9%A1%9E%E5%88%A5%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">利用 virtual + override 覆寫基底類別的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E9%A1%9E%E5%88%A5-Abstract-Class-%E8%88%87%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95-Abstract-Method"><span class="nav-number">6.</span> <span class="nav-text">抽象類別 (Abstract Class) 與抽象方法 (Abstract Method)</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          連結
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <span class="exturl" data-url="aHR0cHM6Ly9ob3BvdXQuY29tLnR3Lw==" title="https:&#x2F;&#x2F;hopout.com.tw&#x2F;">Explore Taiwan</span>
+            </li>
+        </ul>
+      </div>
+    </div><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="sidebar-google-adsense">
+        <div class="adsense-title">
+          <i class="fab fa-google"></i> AdSense
+        </div>
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="1016873827"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense-->
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2025/04/13/Csharp-C/learning-Csharp-console-app-L1-ch13-inheritance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="不學 JAVA 換學 C# 之覺得心累 - L1：L1：ch13 繼承 | Jenifer.Code.World">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          不學 JAVA 換學 C# 之覺得心累 - L1：L1：ch13 繼承
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2025-04-13 21:28:47 / 修改時間：21:35:29" itemprop="dateCreated datePublished" datetime="2025-04-13T21:28:47+10:00">2025-04-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Csharp-C/" itemprop="url" rel="index"><span itemprop="name">Csharp(C#)</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="postheader-google-adsense">
+        <i class="fab fa-google"></i> AdSense
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="1016873827"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense--><h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+<p>在物件導向程式設計中，<strong>繼承 (Inheritance)</strong> 是一個非常核心的概念。透過繼承，我們可以讓一個類別 (稱作<span style="color: #ff0000"><strong>子類別</strong></span>或<span style="color: #ff0000"><strong>衍生類別 Derived Class</strong></span>) 從另一個類別 (稱作<span style="color: #ff0000"><strong>父類別</strong></span>或<span style="color: #ff0000"><strong>基底類別 Base Class</strong></span>) 延伸 (inherit) 出去，<span style="color: #ff0000">擁有基底類別的可繼承的欄位、屬性與方法，並且又可以有自己獨特的欄位、屬性與方法</span>。這可以提高程式的重複使用性，也讓系統架構更有彈性與可擴充性。</p>
+<h2 id="語法"><a class="header-anchor" href="#語法"></a>語法</h2>
+<p>使用 <code>:</code> 繼承。僅支援<span style="color: #ff0000"><strong>單一繼承</strong>，也就是只能繼承一個類別</span>。但是可以有<span style="color: #ff0000"><strong>繼承階層</strong></span>，例如：<code>C</code> 繼承自 <code>B</code>，而 <code>B</code> 繼承自 <code>A</code>，因此 <code>C</code> 可以使用 <code>A</code> 的欄位與方法。也可以<span style="color: #ff0000">基底類別被<strong>不同</strong>的衍生類別繼承</span>，例如：<code>C</code> 和 <code>B</code> 都繼承自 <code>A</code>。</p>
+<h3 id="繼承階層"><a class="header-anchor" href="#繼承階層"></a>繼承階層</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> 基底類別</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> 衍生類別1 : 基底類別</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> 衍生類別2 : 衍生類別1</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>範例：</p>
+<ul>
+<li><code>HarryPotter1</code> 類別透過 <code>: Movie</code> 繼承 <code>Movie</code> 類別。</li>
+<li><code>HarryPotter1</code> 可以使用 <code>Movie</code> 中的 <code>Play()</code> 方法。</li>
+<li><code>HarryPotter2</code> 繼承 <code>HarryPotter1</code> 類別。</li>
+<li><code>HarryPotter2</code> 可以使用 <code>Movie</code> 中的 <code>Play()</code> 方法和 <code>HarryPotter1</code> 中的 <code>CastBasicSpell()</code> 方法。</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Play</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;播放電影...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">HarryPotter1</span> : <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CastBasicSpell</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;施展基本魔法...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">HarryPotter2</span> : <span class="title">HarryPotter1</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CastTransfigurationSpell</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;施展變形咒...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="基底類別被不同的衍生類別繼承"><a class="header-anchor" href="#基底類別被不同的衍生類別繼承"></a>基底類別被不同的衍生類別繼承</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> 基底類別</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> 衍生類別1 : 基底類別</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> 衍生類別2 : 基底類別</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>範例：</p>
+<ul>
+<li><code>HarryPotter</code> 可以使用 <code>Movie</code> 中的 <code>Play()</code> 方法，和自己的 <code>CastBasicSpell()</code> 方法。</li>
+<li><code>SpiderMan</code> 可以使用 <code>Movie</code> 中的 <code>Play()</code> 方法，和自己的 <code>ShootWebs()</code> 方法。</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Play</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;播放電影...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">HarryPotter</span> : <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CastBasicSpell</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;施展基本魔法...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">SpiderMan</span> : <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ShootWebs</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;射出蜘蛛網...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Protected-欄位與方法"><a class="header-anchor" href="#Protected-欄位與方法"></a>Protected 欄位與方法</h2>
+<p>之前有提過<a href="https://jenifers001d.github.io/2025/04/05/Csharp-C/learning-Csharp-console-app-L1-ch10-class-and-object-2/#%E5%B0%81%E8%A3%9D%E8%88%87%E5%AD%98%E5%8F%96%E4%BF%AE%E9%A3%BE%E8%A9%9E">封裝與存取修飾詞</a>，而修飾詞 <code>protected</code> 表示<span style="color: #ff0000">只有同一個類別內或其衍生類別可以存取</span>，資料在基底類別與衍生類別之間共享。<code>protected</code> 介於 <code>private</code> 和 <code>public</code> 之間，提升封裝性又保留靈活性。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="built_in">string</span> _title;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">string</span> _privateNote;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Movie</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>._title = <span class="string">&quot;電影名稱&quot;</span>;</span><br><span class="line">        <span class="keyword">this</span>._privateNote = <span class="string">&quot;這是基底類別&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">HarryPotter</span> : <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HarryPotter</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 因為 title 是 protected，所以可以在 HarryPotter 衍生類別裡面取得</span></span><br><span class="line">        <span class="keyword">this</span>._title = <span class="string">&quot;哈利波特&quot;</span>;</span><br><span class="line">        <span class="comment">// 不能這樣寫，因為 _privateNote 是 private，不能在衍生類別裡面取得</span></span><br><span class="line">        <span class="comment">// this._privateNote = &quot;這是衍生類別&quot;;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DisplayTitle</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 因為 title 是 protected，所以可以在 HarryPotter 衍生類別裡面取得</span></span><br><span class="line">        Console.WriteLine(<span class="string">$&quot;Title: <span class="subst">&#123;_title&#125;</span>&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://hackmd.io/_uploads/HJjZPvXCkl.png" alt="image"></p>
+<h2 id="關鍵字-base"><a class="header-anchor" href="#關鍵字-base"></a>關鍵字 <code>base</code></h2>
+<p><span style="color: #ff0000"><code>base</code> 表示<strong>基底類別本身</strong>，用來呼叫<strong>基底類別 (base class) 中的建構子、欄位、屬性或方法</strong>。</span></p>
+<p>如果基底類別的建構式有參數 (像是：line 5 - line 8)，則衍生類別需要明確標示建構式的繼承，例：line 18。</p>
+<p>在衍生類別中想要呼叫基底類別的方法，例：line 24。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="built_in">string</span> _title;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Movie</span>(<span class="params"><span class="built_in">string</span> title</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>._title = title;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ShowInfo</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;電影資訊&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">HarryPotter</span> : <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HarryPotter</span>(<span class="params"><span class="built_in">string</span> title</span>) : <span class="title">base</span>(<span class="params">title</span>) <span class="comment">// 呼叫基底類別建構子</span></span></span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ShowMagic</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">base</span>.ShowInfo(); <span class="comment">// 呼叫基底類別方法</span></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;霍格華茲魔法學校&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 程式進入點</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        HarryPotter m = <span class="keyword">new</span> HarryPotter(<span class="string">&quot;哈利波特1&quot;</span>);</span><br><span class="line">        m.ShowMagic();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 顯示結果：</span></span><br><span class="line"><span class="comment">// 電影資訊</span></span><br><span class="line"><span class="comment">// 霍格華茲魔法學校</span></span><br></pre></td></tr></table></figure>
+<p>如果基底類別的建構式沒有參數 (像是：line 5 - line 8)，則衍生類別不需要明確標示建構式的繼承，例：line 13 - line 16。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="built_in">string</span> _title;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Movie</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>._title = <span class="string">&quot;電影名稱&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">HarryPotter</span> : <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HarryPotter</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>._title = <span class="string">&quot;哈利波特&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 上面 line 13 - line 16 等同如下</span></span><br><span class="line">    <span class="comment">// public HarryPotter() : base()</span></span><br><span class="line">    <span class="comment">// &#123;</span></span><br><span class="line">    <span class="comment">//     this._title = &quot;哈利波特&quot;;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="利用-virtual-override-覆寫基底類別的方法"><a class="header-anchor" href="#利用-virtual-override-覆寫基底類別的方法"></a>利用 <code>virtual</code> + <code>override</code> 覆寫基底類別的方法</h2>
+<p>若基底類別的方法使用 <code>virtual</code> 修飾詞，衍生類別就可以用 <code>override</code> 進行覆寫、修改邏輯，而<span style="color: #ff0000">不同的衍生類別就可以有自己客製化的邏輯</span>。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="built_in">string</span> _title;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Movie</span>(<span class="params"><span class="built_in">string</span> title</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>._title = title;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 使用 virtual 加在回傳型態前，表示此 method 可以被任何衍生類別覆寫 override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">ShowGenre</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;_title&#125;</span> 是一般電影類別&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">HarryPotter</span> : <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HarryPotter</span>(<span class="params"><span class="built_in">string</span> title</span>) : <span class="title">base</span>(<span class="params">title</span>) <span class="comment">// 呼叫基底類別建構子</span></span></span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 使用 override 加在回傳型態前，表示此 method 覆寫基底類別的 method</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">ShowGenre</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;_title&#125;</span> 是奇幻冒險&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 程式進入點</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        HarryPotter m = <span class="keyword">new</span> HarryPotter(<span class="string">&quot;哈利波特1&quot;</span>);</span><br><span class="line">        m.ShowGenre();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 顯示結果：</span></span><br><span class="line"><span class="comment">// 哈利波特1 是奇幻冒險</span></span><br></pre></td></tr></table></figure>
+<h2 id="抽象類別-Abstract-Class-與抽象方法-Abstract-Method"><a class="header-anchor" href="#抽象類別-Abstract-Class-與抽象方法-Abstract-Method"></a>抽象類別 (Abstract Class) 與抽象方法 (Abstract Method)</h2>
+<p><span style="color: #ff0000">當基底類別提供<strong>設計架構</strong>而不提供實作時，可以使用 <code>abstract</code> 類別與方法。目的：強迫衍生類別一定要定義該方法的內容。</span></p>
+<ul>
+<li><code>abstract class</code> 無法被實體化，只能被繼承。</li>
+<li><code>abstract method</code> 沒有定義內容，一定要放在 <code>abstract class</code> 中，且必須在子類別中用 <code>override</code> 覆寫並實作內容。</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Movie</span> <span class="comment">// 抽象類別</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">PlayTheme</span>()</span>; <span class="comment">// 抽象方法，沒有實作內容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">HarryPotter</span> : <span class="title">Movie</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">PlayTheme</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Playing Hedwig&#x27;s Theme...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="postfooter-google-adsense">
+        <i class="fab fa-google"></i> AdSense
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="8859920421"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense-->
+          <div class="post-tags">
+              <a href="/tags/Net-Framework/" rel="tag"># .Net Framework</a>
+              <a href="/tags/Csharp-C/" rel="tag"># Csharp(C#)</a>
+              <a href="/tags/Net-Core/" rel="tag"># .Net Core</a>
+              <a href="/tags/Console/" rel="tag"># Console</a>
+              <a href="/tags/Elementary-Code/" rel="tag"># Elementary Code</a>
+              <a href="/tags/Elementary-Csharp-C/" rel="tag"># Elementary Csharp(C#)</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/08/Csharp-C/learning-Csharp-console-app-L1-ch12-file-and-stream/" rel="prev" title="不學 JAVA 換學 C# 之覺得心累 - L1：ch12 檔案與資料流">
+                  <i class="fa fa-angle-left"></i> 不學 JAVA 換學 C# 之覺得心累 - L1：ch12 檔案與資料流
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jenifer</span>
+  </div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="在 GitHub 上關注我" aria-label="在 GitHub 上關注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"disqus-comments","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
