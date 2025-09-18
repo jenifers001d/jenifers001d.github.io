@@ -28,7 +28,7 @@
 <meta property="og:description" content="LINQ，全名 Language Integrated Query，表示和語言整合，具有查詢能力的技術。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2023-08-18T15:32:11.000Z">
-<meta property="article:modified_time" content="2025-04-08T12:40:29.818Z">
+<meta property="article:modified_time" content="2025-09-18T11:31:56.508Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content="Intermediate Code">
 <meta property="article:tag" content=".Net Framework">
@@ -130,7 +130,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -234,7 +234,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2025-04-08 22:40:29" itemprop="dateModified" datetime="2025-04-08T22:40:29+10:00">2025-04-08</time>
+      <time title="修改時間：2025-09-18 21:31:56" itemprop="dateModified" datetime="2025-09-18T21:31:56+10:00">2025-09-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,7 +290,7 @@
 <li><span style="color: #ff0000">有實作 <code>IEnumerable</code> 或 <code>IEnumerable&lt;T&gt;</code> 或 <code>IQueryable</code> 或 <code>IQueryable&lt;T&gt;</code> 的 Class，才能被 LINQ 查詢。</span>
 <ul>
 <li>泛型集合 (Generic collections) e.g. <code>List&lt;T&gt;</code>, <code>Dictionary&lt;TKey,TValue&gt;</code> 實作 <code>IEnumerable</code> 和 <code>IEnumerable&lt;T&gt;</code>。</li>
-<li>Entity Framework api 實作 <code>IEnumerable</code> 和 <code>IQueryable&lt;T&gt;</code>。</li>
+<li>LINQ to SQL 和 Entity Framework api 實作 <code>IEnumerable</code> 和 <code>IQueryable&lt;T&gt;</code>。</li>
 </ul>
 </li>
 </ul>
@@ -316,7 +316,8 @@
 <h2 id="LINQ-to-SQL"><a class="header-anchor" href="#LINQ-to-SQL"></a>LINQ to SQL</h2>
 <p>LINQ to SQL 是一種擁有<strong>物件關聯對映 (Object Relational Mapping，簡稱ORM，或O/RM，或O/R mapping)</strong> 的程式設計技術。Object 就是物件導向程式設計 Object-oriented programming 的「物件」。Relational 就是關聯式資料庫 Relational Database 的「關聯」。故而，是一種<span style="color: #ff0000">能將物件和資料庫相對映的技術</span>。</p>
 <p>能夠形成「<strong>物件<a href="https://jenifers001d.github.io/2023/08/19/Net-Framework/basic-LINQ/#Model-%E6%A8%A1%E5%9E%8B">模型</a></strong>」和「資料庫」相互對映。透過 LINQ to SQL 的物件模型，LINQ Query 查詢語句會轉換成 SQL Query 查詢語句，再與 SQL Server 溝通。SQL Server 回傳的資料也會透過物件模型，轉換成程式理解的物件。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> studentsWithA = <span class="keyword">from</span> s <span class="keyword">in</span> students</span><br><span class="line">                    <span class="keyword">where</span> s.grage = <span class="string">&quot;A&quot;</span></span><br><span class="line">                    <span class="keyword">select</span> <span class="keyword">new</span> &#123; s.id, s.firstName, s.lastName, s.grade &#125;;</span><br></pre></td></tr></table></figure>
+<p>是一個比較早期的微軟 ORM 技術，它專門為 SQL Server 設計，對於新的專案，通常會建議優先使用 Entity Framework。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Data.Linq;</span><br><span class="line"></span><br><span class="line">MyDataContext db = <span class="keyword">new</span> MyDataContext(); <span class="comment">// 資料上下文物件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> studentsWithA = <span class="keyword">from</span> s <span class="keyword">in</span> db.Students</span><br><span class="line">                    <span class="keyword">where</span> s.grage = <span class="string">&quot;A&quot;</span></span><br><span class="line">                    <span class="keyword">select</span> <span class="keyword">new</span> &#123; s.id, s.firstName, s.lastName, s.grade &#125;;</span><br></pre></td></tr></table></figure>
 <p><span style="color: #ff0000">也可以對有實作 <code>IQueryable&lt;T&gt;</code> 的物件做查詢。</span></p>
 <h2 id="Query-Expression-Syntax-查詢語法"><a class="header-anchor" href="#Query-Expression-Syntax-查詢語法"></a>Query Expression Syntax 查詢語法</h2>
 <p>以 <code>from</code> 語句開頭，以 <code>select</code> 或 <code>group ... by</code> 語句結尾的查詢語法 (跟 SQL 查詢語法很像)，就稱為 <span style="color: #ff0000">Query Expression Syntax 查詢語法</span>，或是 Query Syntax。</p>
@@ -423,8 +424,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/08/17/Net-Framework/basic-ADO.NET/" rel="prev" title="認識基礎 ADO.NET">
-                  <i class="fa fa-angle-left"></i> 認識基礎 ADO.NET
+                <a href="/2023/08/18/Net-Framework/ORM-Object-Relational-Mapping/" rel="prev" title="ORM (Object-Relational Mapping) 物件關聯對映">
+                  <i class="fa fa-angle-left"></i> ORM (Object-Relational Mapping) 物件關聯對映
                 </a>
             </div>
             <div class="post-nav-item">
