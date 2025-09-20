@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jenifers001d.github.io/2025/09/16/Csharp-C/real-world-Csharp-IOptions-IConfigureOptions/</loc>
+    
+    <lastmod>2025-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/2023/08/18/Net-Framework/ORM-Object-Relational-Mapping/</loc>
     
     <lastmod>2025-09-18</lastmod>
@@ -14,15 +23,6 @@
     <loc>https://jenifers001d.github.io/2023/08/19/Net-Framework/basic-LINQ/</loc>
     
     <lastmod>2025-09-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jenifers001d.github.io/2025/09/16/Csharp-C/real-world-Csharp-IOptions-IConfigureOptions/</loc>
-    
-    <lastmod>2025-09-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -850,7 +850,7 @@
 
   <url>
     <loc>https://jenifers001d.github.io/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -858,399 +858,399 @@
   
   <url>
     <loc>https://jenifers001d.github.io/tags/SQL/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Intermediate-Code/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Python/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Intermediate-Python/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Discord-Bot/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Flask/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/SQLite/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/%E7%B6%B2%E9%A0%81%E6%9E%B6%E8%A8%AD/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Jinja2/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Git/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/GitHub/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Hexo/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Markdown/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/JavaScript/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Advanced-Code/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Advanced-JS/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Intermediate-JS/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/PTE/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/English/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/ReactJS/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Elementary-ReactJS/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/SEO/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Sitemap/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/%E7%B6%B2%E7%AB%99%E5%9C%B0%E5%9C%96/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Net-Framework/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/LINQ/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Csharp-C/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Intermediate-Csharp-C/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/ASP-NET/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/JavaScript-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/MVC/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Net-Core/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Console/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Elementary-Code/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Elementary-Csharp-C/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Elementary-Python/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91-OOP/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/JSON/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Open-Data/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Web-Crawler-Spider/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Python-String-Format/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/%E5%AD%97%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96-String-Format/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/File-I-O/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Text/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/CSV/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/call-by-value/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/call-by-pointer/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/call-by-reference/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/pointer/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/reference/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/C/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/C/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/API/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Real-world-coding/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/tags/Advanced-Csharp-C/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -1259,98 +1259,98 @@
   
   <url>
     <loc>https://jenifers001d.github.io/categories/SQL/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/Python/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/Flask/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/Git/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/Hexo/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/JavaScript/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/PTE/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/ReactJS/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/SEO/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/Net-Framework/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/MVC/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/Csharp-C/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/API/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jenifers001d.github.io/categories/%E9%9B%BB%E8%85%A6%E7%9F%A5%E8%AD%98/</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
