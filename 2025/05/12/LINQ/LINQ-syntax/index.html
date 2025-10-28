@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/myfavicon180.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon16.ico">
+  <link rel="mask-icon" href="/images/myfavicon512.png" color="#222">
+  <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300italic,400,400italic,700,700italic%7CNoto+Sans+TC:300,300italic,400,400italic,700,700italic%7CSegoe+UI:300,300italic,400,400italic,700,700italic%7CHelvetica+Neue:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7CLato:300,300italic,400,400italic,700,700italic%7Csans-serif:300,300italic,400,400italic,700,700italic%7Cconsolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="使用 Customers 和 Orders 兩個表，逐步了解幾個 LINQ 的實際語法應用，包含：Join (連接)、Grouping (分組)、Ordering (排序) 和 Aggregates (聚合)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LINQ 語法應用">
+<meta property="og:url" content="https://jenifers001d.github.io/2025/05/12/LINQ/LINQ-syntax/">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="使用 Customers 和 Orders 兩個表，逐步了解幾個 LINQ 的實際語法應用，包含：Join (連接)、Grouping (分組)、Ordering (排序) 和 Aggregates (聚合)。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-05-12T13:09:23.000Z">
+<meta property="article:modified_time" content="2025-10-28T10:56:35.022Z">
+<meta property="article:author" content="Jenifer">
+<meta property="article:tag" content="Intermediate Code">
+<meta property="article:tag" content=".Net Framework">
+<meta property="article:tag" content="LINQ">
+<meta property="article:tag" content="Csharp(C#)">
+<meta property="article:tag" content=".Net Core">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jenifers001d.github.io/2025/05/12/LINQ/LINQ-syntax/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2025/05/12/LINQ/LINQ-syntax/","path":"2025/05/12/LINQ/LINQ-syntax/","title":"LINQ 語法應用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LINQ 語法應用 | Jenifer.Code.World</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jenifer.Code.World</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-privacy"><a href="/privacy/" rel="section"><i class="fa fa-lock fa-fw"></i>privacy</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E7%AF%84%E8%B3%87%E6%96%99%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">示範資料表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Customers-%E5%AE%A2%E6%88%B6-%E8%A1%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">Customers (客戶) 表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Orders-%E8%A8%82%E5%96%AE-%E8%A1%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">Orders (訂單) 表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%85%A7%E9%83%A8%E9%80%A3%E6%8E%A5-Inner-Join"><span class="nav-number">2.</span> <span class="nav-text">1. 內部連接 (Inner Join)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LINQ-%E6%9F%A5%E8%A9%A2%E8%AA%9E%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">LINQ 查詢語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%A9%A2%E7%B5%90%E6%9E%9C"><span class="nav-number">2.2.</span> <span class="nav-text">查詢結果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%B7%A6%E9%80%A3%E6%8E%A5-Left-Join"><span class="nav-number">3.</span> <span class="nav-text">2. 左連接 (Left Join)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LINQ-%E6%9F%A5%E8%A9%A2%E8%AA%9E%E6%B3%95-v2"><span class="nav-number">3.1.</span> <span class="nav-text">LINQ 查詢語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%A9%A2%E7%B5%90%E6%9E%9C-v2"><span class="nav-number">3.2.</span> <span class="nav-text">查詢結果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%88%86%E7%B5%84-Grouping"><span class="nav-number">4.</span> <span class="nav-text">3. 分組 (Grouping)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9D%E5%96%AE%E4%B8%80%E5%B1%AC%E6%80%A7%E5%88%86%E7%B5%84-Group-by-Single-Property"><span class="nav-number">4.1.</span> <span class="nav-text">依單一屬性分組 (Group by Single Property)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LINQ-%E6%9F%A5%E8%A9%A2%E8%AA%9E%E6%B3%95-v3"><span class="nav-number">4.1.1.</span> <span class="nav-text">LINQ 查詢語法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%A9%A2%E7%B5%90%E6%9E%9C-v3"><span class="nav-number">4.1.2.</span> <span class="nav-text">查詢結果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9D%E5%A4%9A%E5%80%8B%E5%B1%AC%E6%80%A7%E5%88%86%E7%B5%84-Group-by-Multiple-Properties"><span class="nav-number">4.2.</span> <span class="nav-text">依多個屬性分組 (Group by Multiple Properties)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LINQ-%E6%9F%A5%E8%A9%A2%E8%AA%9E%E6%B3%95-v4"><span class="nav-number">4.2.1.</span> <span class="nav-text">LINQ 查詢語法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%A9%A2%E7%B5%90%E6%9E%9C-v4"><span class="nav-number">4.2.2.</span> <span class="nav-text">查詢結果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%88%86%E7%B5%84%E5%BE%8C%E6%8E%92%E5%BA%8F-Ordering-Groups"><span class="nav-number">5.</span> <span class="nav-text">4. 分組後排序 (Ordering Groups)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LINQ-%E6%9F%A5%E8%A9%A2%E8%AA%9E%E6%B3%95-v5"><span class="nav-number">5.1.</span> <span class="nav-text">LINQ 查詢語法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%A2%9D%E4%BB%B6%E5%BC%8F%E8%81%9A%E5%90%88%E9%81%8B%E7%AE%97-Conditional-Aggregates"><span class="nav-number">6.</span> <span class="nav-text">5. 條件式聚合運算 (Conditional Aggregates)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E4%B8%80"><span class="nav-number">6.1.</span> <span class="nav-text">範例一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LINQ-%E6%9F%A5%E8%A9%A2%E8%AA%9E%E6%B3%95-v6"><span class="nav-number">6.1.1.</span> <span class="nav-text">LINQ 查詢語法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%A9%A2%E7%B5%90%E6%9E%9C-v5"><span class="nav-number">6.1.2.</span> <span class="nav-text">查詢結果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E4%BA%8C"><span class="nav-number">6.2.</span> <span class="nav-text">範例二</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LINQ-%E6%9F%A5%E8%A9%A2%E8%AA%9E%E6%B3%95-v7"><span class="nav-number">6.2.1.</span> <span class="nav-text">LINQ 查詢語法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%A9%A2%E7%B5%90%E6%9E%9C-v6"><span class="nav-number">6.2.2.</span> <span class="nav-text">查詢結果</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          連結
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <span class="exturl" data-url="aHR0cHM6Ly9ob3BvdXQuY29tLnR3Lw==" title="https:&#x2F;&#x2F;hopout.com.tw&#x2F;">Explore Taiwan</span>
+            </li>
+        </ul>
+      </div>
+    </div><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="sidebar-google-adsense">
+        <div class="adsense-title">
+          <i class="fab fa-google"></i> AdSense
+        </div>
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="1016873827"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense-->
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2025/05/12/LINQ/LINQ-syntax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LINQ 語法應用 | Jenifer.Code.World">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LINQ 語法應用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-05-12 23:09:23" itemprop="dateCreated datePublished" datetime="2025-05-12T23:09:23+10:00">2025-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-10-28 20:56:35" itemprop="dateModified" datetime="2025-10-28T20:56:35+10:00">2025-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LINQ/" itemprop="url" rel="index"><span itemprop="name">LINQ</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="postheader-google-adsense">
+        <i class="fab fa-google"></i> AdSense
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="1016873827"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense--><h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+
+<p>使用 <code>Customers</code> 和 <code>Orders</code> 兩個表，逐步了解幾個 LINQ 的實際語法應用，包含：Join (連接)、Grouping (分組)、Ordering (排序) 和 Aggregates (聚合)。</p>
+
+<h3 id="示範資料表"><a class="header-anchor" href="#示範資料表"></a>示範資料表</h3>
+<h4 id="Customers-客戶-表"><a class="header-anchor" href="#Customers-客戶-表"></a><code>Customers</code> (客戶) 表</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Id</th>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Country</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Allen</td>
+<td style="text-align:center">Taiwan</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Betty</td>
+<td style="text-align:center">USA</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Carol</td>
+<td style="text-align:center">Taiwan</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">David</td>
+<td style="text-align:center">UK</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Orders-訂單-表"><a class="header-anchor" href="#Orders-訂單-表"></a><code>Orders</code> (訂單) 表</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Id</th>
+<th style="text-align:center">CustomerId</th>
+<th style="text-align:center">Country</th>
+<th style="text-align:center">ProductName</th>
+<th style="text-align:center">OrderDate</th>
+<th style="text-align:center">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">101</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Taiwan</td>
+<td style="text-align:center">Laptop</td>
+<td style="text-align:center">2024/01/15</td>
+<td style="text-align:center">30000</td>
+</tr>
+<tr>
+<td style="text-align:center">102</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Taiwan</td>
+<td style="text-align:center">Mouse</td>
+<td style="text-align:center">2024/09/16</td>
+<td style="text-align:center">1200</td>
+</tr>
+<tr>
+<td style="text-align:center">103</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">USA</td>
+<td style="text-align:center">Keyboard</td>
+<td style="text-align:center">2024/01/20</td>
+<td style="text-align:center">2500</td>
+</tr>
+<tr>
+<td style="text-align:center">104</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Taiwan</td>
+<td style="text-align:center">Laptop</td>
+<td style="text-align:center">2024/09/25</td>
+<td style="text-align:center">30000</td>
+</tr>
+<tr>
+<td style="text-align:center">105</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Taiwan</td>
+<td style="text-align:center">Monitor</td>
+<td style="text-align:center">2024/10/26</td>
+<td style="text-align:center">8000</td>
+</tr>
+<tr>
+<td style="text-align:center">106</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">USA</td>
+<td style="text-align:center">Speaker</td>
+<td style="text-align:center">2024/02/01</td>
+<td style="text-align:center">3500</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-內部連接-Inner-Join"><a class="header-anchor" href="#1-內部連接-Inner-Join"></a>1. 內部連接 (Inner Join)</h2>
+<p>在 LINQ 中，<code>join</code> 關鍵字用來執行內部連接，<code>join</code> 只會回傳<span style="color: #ff0000">兩個集合中都有符合條件</span>的資料。在這個例子中，只會選取在 <code>Customers</code> 和 <code>Orders</code> 表中都能找到對應 <code>CustomerId</code> 的資料。</p>
+<h3 id="LINQ-查詢語法"><a class="header-anchor" href="#LINQ-查詢語法"></a>LINQ 查詢語法</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> innerJoinResult = <span class="keyword">from</span> c <span class="keyword">in</span> customers</span><br><span class="line">                      <span class="keyword">join</span> o <span class="keyword">in</span> orders</span><br><span class="line">                          <span class="keyword">on</span> c.Id <span class="keyword">equals</span> o.CustomerId</span><br><span class="line">                      <span class="keyword">select</span> <span class="keyword">new</span></span><br><span class="line">                      &#123;</span><br><span class="line">                          CustomerName = c.Name, <span class="comment">// 可以指定屬姓名</span></span><br><span class="line">                          o.ProductName, <span class="comment">// 也可以不指定屬姓名</span></span><br><span class="line">                          o.Amount</span><br><span class="line">                      &#125;;</span><br></pre></td></tr></table></figure>
+<p>這段程式碼等同於以下的 SQL 語法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.Name, o.ProductName, o.Amount</span><br><span class="line"><span class="keyword">FROM</span> Customers c</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> Orders o <span class="keyword">ON</span> c.Id <span class="operator">=</span> o.CustomerId;</span><br></pre></td></tr></table></figure>
+<h3 id="查詢結果"><a class="header-anchor" href="#查詢結果"></a>查詢結果</h3>
+<p><code>David</code> (Id=4) 和 <code>Speaker</code> (CustomerId=5) 的資料都不會出現在結果中，因為 <code>David</code> 沒有下單，而 <code>Speaker</code> 的 <code>CustomerId</code> 在 <code>Customers</code> 表中找不到對應資料。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CustomerName</th>
+<th style="text-align:center">ProductName</th>
+<th style="text-align:center">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Allen</td>
+<td style="text-align:center">Laptop</td>
+<td style="text-align:center">30000</td>
+</tr>
+<tr>
+<td style="text-align:center">Allen</td>
+<td style="text-align:center">Mouse</td>
+<td style="text-align:center">1200</td>
+</tr>
+<tr>
+<td style="text-align:center">Betty</td>
+<td style="text-align:center">Keyboard</td>
+<td style="text-align:center">2500</td>
+</tr>
+<tr>
+<td style="text-align:center">Carol</td>
+<td style="text-align:center">Laptop</td>
+<td style="text-align:center">30000</td>
+</tr>
+<tr>
+<td style="text-align:center">Carol</td>
+<td style="text-align:center">Monitor</td>
+<td style="text-align:center">8000</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-左連接-Left-Join"><a class="header-anchor" href="#2-左連接-Left-Join"></a>2. 左連接 (Left Join)</h2>
+<p>左連接會<span style="color: #ff0000">回傳左邊集合 (<code>Customers</code>) 的所有資料，即使在右邊集合 (<code>Orders</code>) 中沒有找到符合的項目。如果沒有匹配的資料，右邊的欄位會顯示為 <code>null</code>。</span></p>
+<p>LINQ 沒有直接的關鍵字來做左連接，但你可以透過 <code>into</code> + <code>DefaultIfEmpty()</code> 來模擬這個行為。如果右邊集合找不到相符的元素，則使用 <code>DefaultIfEmpty()</code> 產生一個空集合。</p>
+<h3 id="LINQ-查詢語法-v2"><a class="header-anchor" href="#LINQ-查詢語法-v2"></a>LINQ 查詢語法</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> leftJoinResult = <span class="keyword">from</span> c <span class="keyword">in</span> customers</span><br><span class="line">                     <span class="keyword">join</span> o <span class="keyword">in</span> orders</span><br><span class="line">                         <span class="keyword">on</span> c.Id <span class="keyword">equals</span> order.CustomerId <span class="keyword">into</span> customerOrders</span><br><span class="line">                     <span class="keyword">from</span> order <span class="keyword">in</span> customerOrders.DefaultIfEmpty()</span><br><span class="line">                     <span class="keyword">select</span> <span class="keyword">new</span></span><br><span class="line">                     &#123;</span><br><span class="line">                         CustomerName = c.Name,</span><br><span class="line">                         ProductName = order?.ProductName, <span class="comment">// 如果沒有匹配，ProductName 會是 null</span></span><br><span class="line">                         Amount = order?.Amount ?? <span class="number">0</span> <span class="comment">// 如果沒有匹配，Amount 會是 0</span></span><br><span class="line">                     &#125;;</span><br></pre></td></tr></table></figure>
+<p>在 <code>from order in customerOrders.DefaultIfEmpty()</code> 這個步驟中，如果 <code>customerOrders</code> 這個分組裡有資料，就會取出實際的 <code>order</code> 物件，如果沒有資料，<code>DefaultIfEmpty()</code> 會回傳一個包含 <code>null</code> 的集合，確保 <code>order</code> 在沒有匹配訂單時會是 <code>null</code>，而不會產生錯誤。</p>
+<h3 id="查詢結果-v2"><a class="header-anchor" href="#查詢結果-v2"></a>查詢結果</h3>
+<p><code>David</code> 的資料被保留下來了，且他的 <code>ProductName</code> 和 <code>Amount</code> 都是空值 (因為沒有下單)。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CustomerName</th>
+<th style="text-align:center">ProductName</th>
+<th style="text-align:center">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Allen</td>
+<td style="text-align:center">Laptop</td>
+<td style="text-align:center">30000</td>
+</tr>
+<tr>
+<td style="text-align:center">Allen</td>
+<td style="text-align:center">Mouse</td>
+<td style="text-align:center">1200</td>
+</tr>
+<tr>
+<td style="text-align:center">Betty</td>
+<td style="text-align:center">Keyboard</td>
+<td style="text-align:center">2500</td>
+</tr>
+<tr>
+<td style="text-align:center">Carol</td>
+<td style="text-align:center">Laptop</td>
+<td style="text-align:center">30000</td>
+</tr>
+<tr>
+<td style="text-align:center">Carol</td>
+<td style="text-align:center">Monitor</td>
+<td style="text-align:center">8000</td>
+</tr>
+<tr>
+<td style="text-align:center">David</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-分組-Grouping"><a class="header-anchor" href="#3-分組-Grouping"></a>3. 分組 (Grouping)</h2>
+<p>接下來我們來看看如何對 <code>Orders</code> 表進行分組，並對分組後的資料進行聚合運算。</p>
+<h3 id="依單一屬性分組-Group-by-Single-Property"><a class="header-anchor" href="#依單一屬性分組-Group-by-Single-Property"></a>依單一屬性分組 (Group by Single Property)</h3>
+<p>我們想計算每個客戶總共下了多少訂單金額。</p>
+<h4 id="LINQ-查詢語法-v3"><a class="header-anchor" href="#LINQ-查詢語法-v3"></a>LINQ 查詢語法</h4>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> groupedByCustomer = <span class="keyword">from</span> order <span class="keyword">in</span> orders</span><br><span class="line">                        <span class="keyword">group</span> order <span class="keyword">by</span> order.CustomerId <span class="keyword">into</span> g</span><br><span class="line">                        <span class="keyword">select</span> <span class="keyword">new</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            CustomerId = g.Key,</span><br><span class="line">                            TotalAmount = g.Sum(o =&gt; o.Amount),</span><br><span class="line">                            OrderCount = g.Count()</span><br><span class="line">                        &#125;;</span><br></pre></td></tr></table></figure>
+<p>這段程式碼等同於以下的 SQL 語法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CustomerId, <span class="built_in">SUM</span>(Amount) <span class="keyword">AS</span> TotalAmount, <span class="built_in">Count</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> CustomerId;</span><br></pre></td></tr></table></figure>
+<h4 id="查詢結果-v3"><a class="header-anchor" href="#查詢結果-v3"></a>查詢結果</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CustomerId</th>
+<th style="text-align:center">TotalAmount</th>
+<th style="text-align:center">OrderCount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">31200</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2500</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">38000</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3500</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="依多個屬性分組-Group-by-Multiple-Properties"><a class="header-anchor" href="#依多個屬性分組-Group-by-Multiple-Properties"></a>依多個屬性分組 (Group by Multiple Properties)</h3>
+<p>假設我們想計算每個<strong>國家</strong>中，每個<strong>客戶</strong>所下的訂單總額。</p>
+<h4 id="LINQ-查詢語法-v4"><a class="header-anchor" href="#LINQ-查詢語法-v4"></a>LINQ 查詢語法</h4>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> groupedByCountryAndCustomer = <span class="keyword">from</span> order <span class="keyword">in</span> orders</span><br><span class="line">                                  <span class="keyword">group</span> order <span class="keyword">by</span> <span class="keyword">new</span> &#123; order.Country, order.CustomerId &#125; <span class="keyword">into</span> g</span><br><span class="line">                                  <span class="keyword">select</span> <span class="keyword">new</span></span><br><span class="line">                                  &#123;</span><br><span class="line">                                      Country = g.Key.Country,</span><br><span class="line">                                      CustomerId = g.Key.CustomerId,</span><br><span class="line">                                      TotalAmount = g.Sum(o =&gt; o.Amount)</span><br><span class="line">                                  &#125;;</span><br></pre></td></tr></table></figure>
+<p>這段程式碼等同於以下的 SQL 語法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Country, CustomerId, <span class="built_in">SUM</span>(Amount) <span class="keyword">AS</span> TotalAmount</span><br><span class="line"><span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Country, CustomerId;</span><br></pre></td></tr></table></figure>
+<h4 id="查詢結果-v4"><a class="header-anchor" href="#查詢結果-v4"></a>查詢結果</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Country</th>
+<th style="text-align:center">CustomerId</th>
+<th style="text-align:center">TotalAmount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Taiwan</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">31200</td>
+</tr>
+<tr>
+<td style="text-align:center">USA</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2500</td>
+</tr>
+<tr>
+<td style="text-align:center">Taiwan</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">38000</td>
+</tr>
+<tr>
+<td style="text-align:center">USA</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3500</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-分組後排序-Ordering-Groups"><a class="header-anchor" href="#4-分組後排序-Ordering-Groups"></a>4. 分組後排序 (Ordering Groups)</h2>
+<p>你可以<span style="color: #ff0000">根據分組後的一個或多個屬性來進行<strong>排序</strong></span>。這在 SQL 語法上是直接在 <code>GROUP BY</code> 後接 <code>ORDER BY</code>，而在 LINQ 查詢語法中則是在 <code>group by</code> 後接 <code>orderby</code>。</p>
+<h3 id="LINQ-查詢語法-v5"><a class="header-anchor" href="#LINQ-查詢語法-v5"></a>LINQ 查詢語法</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> groupedData = <span class="keyword">from</span> order <span class="keyword">in</span> orders</span><br><span class="line">                  <span class="keyword">group</span> order <span class="keyword">by</span> <span class="keyword">new</span> &#123; order.Country, order.CustomerId &#125; <span class="keyword">into</span> g</span><br><span class="line">                  <span class="keyword">orderby</span> g.Key.Country, g.Key.CustomerId</span><br><span class="line">                  <span class="keyword">select</span> <span class="keyword">new</span></span><br><span class="line">                  &#123;</span><br><span class="line">                       Country = g.Key.Country,</span><br><span class="line">                       CustomerId = g.Key.CustomerId,</span><br><span class="line">                       TotalAmount = g.Sum(o =&gt; o.Amount)</span><br><span class="line">                  &#125;;</span><br></pre></td></tr></table></figure>
+<p>這段程式碼等同於以下的 SQL 語法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Country, CustomerId, <span class="built_in">SUM</span>(Amount) <span class="keyword">AS</span> TotalAmount</span><br><span class="line"><span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Country, CustomerId</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Country, CustomerId;</span><br></pre></td></tr></table></figure>
+<p>LINQ 方法語法 (Method Syntax)：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> groupedData = orders</span><br><span class="line">    .GroupBy(order =&gt; <span class="keyword">new</span> &#123; order.Country, order.CustomerId &#125;)</span><br><span class="line">    .OrderBy(g =&gt; g.Key.Country)</span><br><span class="line">    .ThenBy(g =&gt; g.Key.CustomerId)</span><br><span class="line">    .Select(g =&gt; <span class="keyword">new</span></span><br><span class="line">    &#123;</span><br><span class="line">        Country = g.Key.Country,</span><br><span class="line">        CustomerId = g.Key.CustomerId,</span><br><span class="line">        TotalAmount = g.Sum(o =&gt; o.Amount)</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="5-條件式聚合運算-Conditional-Aggregates"><a class="header-anchor" href="#5-條件式聚合運算-Conditional-Aggregates"></a>5. 條件式聚合運算 (Conditional Aggregates)</h2>
+<p>在 SQL 中，我們經常使用 <code>CASE WHEN</code> 語法在聚合運算中加入條件判斷。</p>
+<h3 id="範例一"><a class="header-anchor" href="#範例一"></a>範例一</h3>
+<p>在 LINQ 中，我們可以<span style="color: #ff0000">使用 <code>Where()</code> 來實現類似 SQL 中 <code>CASE WHEN</code> 的條件判斷</span>，這樣可以針對不同條件進行聚合計算。</p>
+<h4 id="LINQ-查詢語法-v6"><a class="header-anchor" href="#LINQ-查詢語法-v6"></a>LINQ 查詢語法</h4>
+<p>假設我們想計算每個客戶訂單中，<strong>金額大於 10000</strong> 的總額，以及<strong>金額小於等於 10000</strong> 的總額。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> conditionalAggregate = <span class="keyword">from</span> order <span class="keyword">in</span> orders</span><br><span class="line">                           <span class="keyword">group</span> order <span class="keyword">by</span> order.CustomerId <span class="keyword">into</span> g</span><br><span class="line">                           <span class="keyword">select</span> <span class="keyword">new</span></span><br><span class="line">                           &#123;</span><br><span class="line">                               CustomerId = g.Key,</span><br><span class="line">                               HighValueOrdersTotal = g.Where(row =&gt; row.Amount &gt; <span class="number">10000</span>).Sum(row =&gt; row.Amount),</span><br><span class="line">                               LowValueOrdersTotal = g.Where(row =&gt; row.Amount &lt;= <span class="number">10000</span>).Sum(row =&gt; row.Amount)</span><br><span class="line">                           &#125;;</span><br></pre></td></tr></table></figure>
+<p>這段程式碼等同於以下的 SQL 語法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CustomerId,</span><br><span class="line">       <span class="built_in">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> Amount <span class="operator">&gt;</span> <span class="number">10000</span> <span class="keyword">THEN</span> Amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>) <span class="keyword">AS</span> HighValueOrdersTotal,</span><br><span class="line">       <span class="built_in">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> Amount <span class="operator">&lt;=</span> <span class="number">10000</span> <span class="keyword">THEN</span> Amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>) <span class="keyword">AS</span> LowValueOrdersTotal</span><br><span class="line"><span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> CustomerId;</span><br></pre></td></tr></table></figure>
+<h4 id="查詢結果-v5"><a class="header-anchor" href="#查詢結果-v5"></a>查詢結果</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CustomerId</th>
+<th style="text-align:center">HighValueOrdersTotal</th>
+<th style="text-align:center">LowValueOrdersTotal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">30000</td>
+<td style="text-align:center">1200</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2500</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">30000</td>
+<td style="text-align:center">8000</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3500</td>
+</tr>
+</tbody>
+</table>
+<h3 id="範例二"><a class="header-anchor" href="#範例二"></a>範例二</h3>
+<p>也可以<span style="color: #ff0000">使用<strong>三元運算子</strong> <code>? :</code> 來實現類似 SQL 中 <code>CASE WHEN</code> 的條件判斷</span>。</p>
+<h4 id="LINQ-查詢語法-v7"><a class="header-anchor" href="#LINQ-查詢語法-v7"></a>LINQ 查詢語法</h4>
+<p>假設我們想計算每個客戶訂單中，<strong>6/30以前</strong> 的總額，以及<strong>7/1以後</strong> 的總額。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> conditionalAggregate = <span class="keyword">from</span> order <span class="keyword">in</span> orders</span><br><span class="line">                           <span class="keyword">group</span> order <span class="keyword">by</span> order.CustomerId <span class="keyword">into</span> g</span><br><span class="line">                           <span class="keyword">select</span> <span class="keyword">new</span></span><br><span class="line">                           &#123;</span><br><span class="line">                               CustomerId = g.Key,</span><br><span class="line">                               Before0630 = g.Sum(o =&gt; o.OrderDate &lt; <span class="string">&#x27;2024/07/01&#x27;</span> ? o.Amount : <span class="number">0</span>),</span><br><span class="line">                               After0701 = g.Sum(o =&gt; o.OrderDate &gt;= <span class="string">&#x27;2024/07/01&#x27;</span> ? o.Amount : <span class="number">0</span>)</span><br><span class="line">                           &#125;;</span><br></pre></td></tr></table></figure>
+<p>這段程式碼等同於以下的 SQL 語法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CustomerId,</span><br><span class="line">       <span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> OrderDate <span class="operator">&lt;</span> <span class="string">&#x27;2024/07/01&#x27;</span> <span class="keyword">THEN</span> Amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>) <span class="keyword">AS</span> Before0630,</span><br><span class="line">       <span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> OrderDate <span class="operator">&gt;=</span> <span class="string">&#x27;2024/07/01&#x27;</span> <span class="keyword">THEN</span> Amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>) <span class="keyword">AS</span> After0701</span><br><span class="line"><span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> CustomerId;</span><br></pre></td></tr></table></figure>
+<h4 id="查詢結果-v6"><a class="header-anchor" href="#查詢結果-v6"></a>查詢結果</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CustomerId</th>
+<th style="text-align:center">Before0630</th>
+<th style="text-align:center">After0701</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">30000</td>
+<td style="text-align:center">1200</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2500</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">38000</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3500</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="postfooter-google-adsense">
+        <i class="fab fa-google"></i> AdSense
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="8859920421"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense-->
+          <div class="post-tags">
+              <a href="/tags/Intermediate-Code/" rel="tag"># Intermediate Code</a>
+              <a href="/tags/Net-Framework/" rel="tag"># .Net Framework</a>
+              <a href="/tags/LINQ/" rel="tag"># LINQ</a>
+              <a href="/tags/Csharp-C/" rel="tag"># Csharp(C#)</a>
+              <a href="/tags/Net-Core/" rel="tag"># .Net Core</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/13/Csharp-C/learning-Csharp-console-app-L1-ch13-inheritance/" rel="prev" title="不學 JAVA 換學 C# 之覺得心累 - L1：ch13 繼承">
+                  <i class="fa fa-angle-left"></i> 不學 JAVA 換學 C# 之覺得心累 - L1：ch13 繼承
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/09/10/Csharp-C/real-world-Csharp-GetHashCode/" rel="next" title="工作中的 C# 實作：GetHashCode 的用處">
+                  工作中的 C# 實作：GetHashCode 的用處 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jenifer</span>
+  </div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="在 GitHub 上關注我" aria-label="在 GitHub 上關注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"disqus-comments","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
