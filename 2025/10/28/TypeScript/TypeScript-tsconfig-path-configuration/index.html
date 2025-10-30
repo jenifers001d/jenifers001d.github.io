@@ -28,7 +28,7 @@
 <meta property="og:description" content="TypeScript 專案中，模組之間的匯入 (import) 路徑若處理不好，會變成地獄級相對路徑，例如： 1import &#123; getUser &#125; from &quot;..&#x2F;..&#x2F;..&#x2F;utils&#x2F;api&quot;; 為了解決這問題，我們需要理解 tsconfig.json 中與「路徑」有關的設定，特別是 baseUrl、paths、rootDir、outDir。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-10-28T10:57:23.000Z">
-<meta property="article:modified_time" content="2025-10-28T10:58:31.669Z">
+<meta property="article:modified_time" content="2025-10-30T09:46:50.058Z">
 <meta property="article:author" content="Jenifer">
 <meta property="article:tag" content="Intermediate Code">
 <meta property="article:tag" content="Real-world coding">
@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -139,7 +139,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -224,9 +224,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2025-10-28 20:57:23 / 修改時間：20:58:31" itemprop="dateCreated datePublished" datetime="2025-10-28T20:57:23+10:00">2025-10-28</time>
+      <time title="創建時間：2025-10-28 20:57:23" itemprop="dateCreated datePublished" datetime="2025-10-28T20:57:23+10:00">2025-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-10-30 19:46:50" itemprop="dateModified" datetime="2025-10-30T19:46:50+10:00">2025-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -399,7 +405,7 @@
 <p>這樣 Node.js 在執行時會自動解析 <code>tsconfig.json</code> 裡的 alias。</p>
 <h2 id="include-與-exclude"><a class="header-anchor" href="#include-與-exclude"></a><code>include</code> 與 <code>exclude</code></h2>
 <p>控制 TypeScript 要編譯哪些檔案。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;include&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;src/**/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;node_modules&quot;</span><span class="punctuation">,</span> <span class="string">&quot;dist&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;include&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;src/**/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span> <span class="comment">// 包含 `src/` 底下的所有檔案與子資料夾 (無限層)</span></span><br><span class="line">  <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;node_modules&quot;</span><span class="punctuation">,</span> <span class="string">&quot;dist&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>include</code>：指定要包含的檔案或資料夾 (預設 <code>[&quot;**/*&quot;]</code>)</li>
 <li><code>exclude</code>：指定要忽略的檔案或資料夾 (預設 <code>[&quot;node_modules&quot;]</code>)</li>
@@ -498,6 +504,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/10/29/TypeScript/Vite-config-configuration/" rel="next" title="Vite 設定與運作原理">
+                  Vite 設定與運作原理 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
