@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/myfavicon180.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon16.ico">
+  <link rel="mask-icon" href="/images/myfavicon512.png" color="#222">
+  <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300italic,400,400italic,700,700italic%7CNoto+Sans+TC:300,300italic,400,400italic,700,700italic%7CSegoe+UI:300,300italic,400,400italic,700,700italic%7CHelvetica+Neue:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7CLato:300,300italic,400,400italic,700,700italic%7Csans-serif:300,300italic,400,400italic,700,700italic%7Cconsolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Take an example of a frontend unit test and a component test.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vitest 前端測試教學筆記：Unit Test → Component Test">
+<meta property="og:url" content="https://jenifers001d.github.io/2025/10/30/TypeScript/Vitest-unit-test-component-test/">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="Take an example of a frontend unit test and a component test.">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-10-30T10:28:41.000Z">
+<meta property="article:modified_time" content="2025-10-30T10:27:27.928Z">
+<meta property="article:author" content="Jenifer">
+<meta property="article:tag" content="Real-world coding">
+<meta property="article:tag" content="Vitest">
+<meta property="article:tag" content="Unit test">
+<meta property="article:tag" content="Component test">
+<meta property="article:tag" content="Interview question">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jenifers001d.github.io/2025/10/30/TypeScript/Vitest-unit-test-component-test/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2025/10/30/TypeScript/Vitest-unit-test-component-test/","path":"2025/10/30/TypeScript/Vitest-unit-test-component-test/","title":"Vitest 前端測試教學筆記：Unit Test → Component Test"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Vitest 前端測試教學筆記：Unit Test → Component Test | Jenifer.Code.World</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jenifer.Code.World</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-privacy"><a href="/privacy/" rel="section"><i class="fa fa-lock fa-fw"></i>privacy</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E8%A9%A6%E9%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">面試題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unit-Test%EF%BC%9A%E5%B0%88%E6%B3%A8%E9%82%8F%E8%BC%AF%E8%88%87%E7%B4%94%E5%87%BD%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">Unit Test：專注邏輯與純函式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99"><span class="nav-number">2.1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%EF%BC%9A%E6%9F%A5%E8%A9%A2%E5%8F%83%E6%95%B8%E7%B5%84%E8%A3%9D%E5%87%BD%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">範例：查詢參數組裝函式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8D%E6%87%89%E6%B8%AC%E8%A9%A6"><span class="nav-number">2.3.</span> <span class="nav-text">對應測試</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component-Test%EF%BC%9A%E5%B0%88%E6%B3%A8-UI-%E8%88%87%E4%BA%92%E5%8B%95%E8%A1%8C%E7%82%BA"><span class="nav-number">3.</span> <span class="nav-text">Component Test：專注 UI 與互動行為</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99-v2"><span class="nav-number">3.1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E5%85%83%E4%BB%B6%EF%BC%9ASearchFilter"><span class="nav-number">3.2.</span> <span class="nav-text">範例元件：SearchFilter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8D%E6%87%89%E6%B8%AC%E8%A9%A6-v2"><span class="nav-number">3.3.</span> <span class="nav-text">對應測試</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-fireEvent-%E5%92%8C-screen-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-number">3.4.</span> <span class="nav-text">1) fireEvent 和 screen 是什麼？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-expect-mockOnSearch-toHaveBeenCalledWith-%E7%9A%84%E5%8A%9F%E7%94%A8"><span class="nav-number">3.5.</span> <span class="nav-text">2) expect(mockOnSearch).toHaveBeenCalledWith({...}) 的功用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-toBeInTheDocument%E3%80%81toHaveDisplayValue-%E5%92%8C-toHaveTextContent"><span class="nav-number">3.6.</span> <span class="nav-text">3) toBeInTheDocument、toHaveDisplayValue 和 toHaveTextContent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%82%BA%E4%BB%80%E9%BA%BC%E4%B8%80%E5%80%8B%E7%94%A8-mockResolvedValue-undefined-%EF%BC%8C%E5%8F%A6%E4%B8%80%E5%80%8B%E7%94%A8%E3%80%8C%E5%BB%B6%E9%81%B2-Promise%E3%80%8D%EF%BC%9F"><span class="nav-number">3.7.</span> <span class="nav-text">4) 為什麼一個用 mockResolvedValue(undefined)，另一個用「延遲 Promise」？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%82%BA%E4%BB%80%E9%BA%BC%E7%94%A8-await-waitFor-expect-not-toBeDisabled-%EF%BC%9F"><span class="nav-number">3.8.</span> <span class="nav-text">5) 為什麼用 await waitFor(() &#x3D;&gt; expect(...).not.toBeDisabled())？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E8%AD%B0%E8%88%87%E5%AF%A6%E5%8B%99%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="nav-number">4.</span> <span class="nav-text">建議與實務小技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mid-level-%E9%9D%A2%E8%A9%A6%E5%9B%9E%E7%AD%94"><span class="nav-number">5.</span> <span class="nav-text">Mid level 面試回答</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          連結
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <span class="exturl" data-url="aHR0cHM6Ly9ob3BvdXQuY29tLnR3Lw==" title="https:&#x2F;&#x2F;hopout.com.tw&#x2F;">Explore Taiwan</span>
+            </li>
+        </ul>
+      </div>
+    </div><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="sidebar-google-adsense">
+        <div class="adsense-title">
+          <i class="fab fa-google"></i> AdSense
+        </div>
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="1016873827"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense-->
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2025/10/30/TypeScript/Vitest-unit-test-component-test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Vitest 前端測試教學筆記：Unit Test → Component Test | Jenifer.Code.World">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vitest 前端測試教學筆記：Unit Test → Component Test
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2025-10-30 20:28:41 / 修改時間：20:27:27" itemprop="dateCreated datePublished" datetime="2025-10-30T20:28:41+10:00">2025-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TypeScript/" itemprop="url" rel="index"><span itemprop="name">TypeScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="postheader-google-adsense">
+        <i class="fab fa-google"></i> AdSense
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="1016873827"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense--><h2 id="面試題"><a class="header-anchor" href="#面試題"></a>面試題</h2>
+
+<p>Take an example of a frontend unit test and a component test.</p>
+
+<h2 id="Unit-Test：專注邏輯與純函式"><a class="header-anchor" href="#Unit-Test：專注邏輯與純函式"></a>Unit Test：專注邏輯與純函式</h2>
+<h3 id="目標"><a class="header-anchor" href="#目標"></a>目標</h3>
+<ul>
+<li>不依賴 UI 或 DOM。</li>
+<li>驗證「輸入 → 輸出」是否正確。</li>
+<li>執行快速、穩定。</li>
+</ul>
+<h3 id="範例：查詢參數組裝函式"><a class="header-anchor" href="#範例：查詢參數組裝函式"></a>範例：查詢參數組裝函式</h3>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// utils/buildSearchQuery.ts</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">buildSearchQuery</span>(<span class="params"><span class="attr">criteria</span>: &#123;</span></span><br><span class="line"><span class="params">  keyword: <span class="built_in">string</span>;</span></span><br><span class="line"><span class="params">  status: <span class="built_in">string</span>;</span></span><br><span class="line"><span class="params">  dateRange: &#123; <span class="keyword">from</span>: <span class="built_in">string</span>; to: <span class="built_in">string</span> &#125;;</span></span><br><span class="line"><span class="params">&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (criteria.<span class="property">keyword</span>) params.<span class="title function_">append</span>(<span class="string">&quot;keyword&quot;</span>, criteria.<span class="property">keyword</span>);</span><br><span class="line">  <span class="keyword">if</span> (criteria.<span class="property">status</span>) params.<span class="title function_">append</span>(<span class="string">&quot;status&quot;</span>, criteria.<span class="property">status</span>);</span><br><span class="line">  <span class="keyword">if</span> (criteria.<span class="property">dateRange</span>.<span class="property">from</span>) params.<span class="title function_">append</span>(<span class="string">&quot;from&quot;</span>, criteria.<span class="property">dateRange</span>.<span class="property">from</span>);</span><br><span class="line">  <span class="keyword">if</span> (criteria.<span class="property">dateRange</span>.<span class="property">to</span>) params.<span class="title function_">append</span>(<span class="string">&quot;to&quot;</span>, criteria.<span class="property">dateRange</span>.<span class="property">to</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> params.<span class="title function_">toString</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="對應測試"><a class="header-anchor" href="#對應測試"></a>對應測試</h3>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// utils/buildSearchQuery.test.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; describe, it, expect &#125; <span class="keyword">from</span> <span class="string">&quot;vitest&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; buildSearchQuery &#125; <span class="keyword">from</span> <span class="string">&quot;./buildSearchQuery&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;buildSearchQuery - Unit Test&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;should build correct query string&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = <span class="title function_">buildSearchQuery</span>(&#123;</span><br><span class="line">      <span class="attr">keyword</span>: <span class="string">&quot;invoice&quot;</span>,</span><br><span class="line">      <span class="attr">status</span>: <span class="string">&quot;Pending&quot;</span>,</span><br><span class="line">      <span class="attr">dateRange</span>: &#123; <span class="attr">from</span>: <span class="string">&quot;2025-01-01&quot;</span>, <span class="attr">to</span>: <span class="string">&quot;2025-01-31&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="title function_">expect</span>(query).<span class="title function_">toBe</span>(<span class="string">&quot;keyword=invoice&amp;status=Pending&amp;from=2025-01-01&amp;to=2025-01-31&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;should ignore empty fields&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = <span class="title function_">buildSearchQuery</span>(&#123;</span><br><span class="line">      <span class="attr">keyword</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      <span class="attr">status</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      <span class="attr">dateRange</span>: &#123; <span class="attr">from</span>: <span class="string">&quot;&quot;</span>, <span class="attr">to</span>: <span class="string">&quot;&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="title function_">expect</span>(query).<span class="title function_">toBe</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;should encode special characters&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = <span class="title function_">buildSearchQuery</span>(&#123;</span><br><span class="line">      <span class="attr">keyword</span>: <span class="string">&quot;sales report&quot;</span>,</span><br><span class="line">      <span class="attr">status</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      <span class="attr">dateRange</span>: &#123; <span class="attr">from</span>: <span class="string">&quot;&quot;</span>, <span class="attr">to</span>: <span class="string">&quot;&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="title function_">expect</span>(query).<span class="title function_">toBe</span>(<span class="string">&quot;keyword=sales+report&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Component-Test：專注-UI-與互動行為"><a class="header-anchor" href="#Component-Test：專注-UI-與互動行為"></a>Component Test：專注 UI 與互動行為</h2>
+<h3 id="目標-v2"><a class="header-anchor" href="#目標-v2"></a>目標</h3>
+<ul>
+<li>在 jsdom 環境 render 元件。</li>
+<li>模擬使用者輸入、點擊、送出。</li>
+<li>驗證狀態轉換、驗證訊息、loading、reset 等行為。</li>
+</ul>
+<h3 id="範例元件：SearchFilter"><a class="header-anchor" href="#範例元件：SearchFilter"></a>範例元件：SearchFilter</h3>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SearchFilter.tsx</span></span><br><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">SearchCriteria</span> &#123;</span><br><span class="line">  <span class="attr">keyword</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">status</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">dateRange</span>: &#123; <span class="attr">from</span>: <span class="built_in">string</span>; <span class="attr">to</span>: <span class="built_in">string</span> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">SearchFilterProps</span> &#123;</span><br><span class="line">  <span class="attr">onSearch</span>: <span class="function">(<span class="params"><span class="attr">criteria</span>: <span class="title class_">SearchCriteria</span></span>) =&gt;</span> <span class="title class_">Promise</span>&lt;<span class="built_in">void</span>&gt; | <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">SearchFilter</span>(<span class="params">&#123; onSearch &#125;: <span class="title class_">SearchFilterProps</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [keyword, setKeyword] = <span class="title function_">useState</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [status, setStatus] = <span class="title function_">useState</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [<span class="keyword">from</span>, setFrom] = <span class="title function_">useState</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [to, setTo] = <span class="title function_">useState</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [error, setError] = <span class="title function_">useState</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [loading, setLoading] = <span class="title function_">useState</span>(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">reset</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="title function_">setKeyword</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="title function_">setStatus</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="title function_">setFrom</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="title function_">setTo</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="title function_">setError</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleSubmit</span> = <span class="keyword">async</span> (<span class="params"><span class="attr">e</span>: <span class="title class_">React</span>.<span class="title class_">FormEvent</span></span>) =&gt; &#123;</span><br><span class="line">    e.<span class="title function_">preventDefault</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">from</span> &amp;&amp; to &amp;&amp; <span class="keyword">from</span> &gt; to) &#123;</span><br><span class="line">      <span class="title function_">setError</span>(<span class="string">&quot;Date range is invalid&quot;</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">setError</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="title function_">setLoading</span>(<span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">onSearch</span>(&#123; keyword, status, <span class="attr">dateRange</span>: &#123; <span class="keyword">from</span>, to &#125; &#125;);</span><br><span class="line">    <span class="title function_">setLoading</span>(<span class="literal">false</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;handleSubmit&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">placeholder</span>=<span class="string">&quot;Keyword&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">value</span>=<span class="string">&#123;keyword&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onChange</span>=<span class="string">&#123;e</span> =&gt;</span> setKeyword(e.target.value)&#125;</span></span><br><span class="line"><span class="language-xml">      /&gt;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">select</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">aria-label</span>=<span class="string">&quot;Status&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">value</span>=<span class="string">&#123;status&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onChange</span>=<span class="string">&#123;e</span> =&gt;</span> setStatus(e.target.value)&#125;</span></span><br><span class="line"><span class="language-xml">      &gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>&gt;</span>-- Select Status --<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;Pending&quot;</span>&gt;</span>Pending<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;Approved&quot;</span>&gt;</span>Approved<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">aria-label</span>=<span class="string">&quot;From&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">type</span>=<span class="string">&quot;date&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">value</span>=<span class="string">&#123;from&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onChange</span>=<span class="string">&#123;e</span> =&gt;</span> setFrom(e.target.value)&#125;</span></span><br><span class="line"><span class="language-xml">      /&gt;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">aria-label</span>=<span class="string">&quot;To&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">type</span>=<span class="string">&quot;date&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">value</span>=<span class="string">&#123;to&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onChange</span>=<span class="string">&#123;e</span> =&gt;</span> setTo(e.target.value)&#125;</span></span><br><span class="line"><span class="language-xml">      /&gt;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      &#123;error &amp;&amp; <span class="tag">&lt;<span class="name">p</span> <span class="attr">role</span>=<span class="string">&quot;alert&quot;</span>&gt;</span>&#123;error&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>&#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">disabled</span>=<span class="string">&#123;loading&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;loading ? &quot;Searching...&quot; : &quot;Search&quot;&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onClick</span>=<span class="string">&#123;reset&#125;</span> <span class="attr">disabled</span>=<span class="string">&#123;loading&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        Reset</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="對應測試-v2"><a class="header-anchor" href="#對應測試-v2"></a>對應測試</h3>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SearchFilter.test.tsx</span></span><br><span class="line"><span class="keyword">import</span> &#123; render, screen, fireEvent, waitFor &#125; <span class="keyword">from</span> <span class="string">&quot;@testing-library/react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; vi &#125; <span class="keyword">from</span> <span class="string">&quot;vitest&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">SearchFilter</span> <span class="keyword">from</span> <span class="string">&quot;./SearchFilter&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;SearchFilter - Component Test&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;should submit valid criteria&quot;</span>, <span class="title function_">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> mockOnSearch = vi.<span class="title function_">fn</span>().<span class="title function_">mockResolvedValue</span>(<span class="literal">undefined</span>);</span><br><span class="line">    <span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">SearchFilter</span> <span class="attr">onSearch</span>=<span class="string">&#123;mockOnSearch&#125;</span> /&gt;</span></span>);</span><br><span class="line"></span><br><span class="line">    fireEvent.<span class="title function_">change</span>(screen.<span class="title function_">getByPlaceholderText</span>(<span class="string">&quot;Keyword&quot;</span>), &#123;</span><br><span class="line">      <span class="attr">target</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;report&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    fireEvent.<span class="title function_">change</span>(screen.<span class="title function_">getByLabelText</span>(<span class="string">&quot;Status&quot;</span>), &#123;</span><br><span class="line">      <span class="attr">target</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;Pending&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    fireEvent.<span class="title function_">change</span>(screen.<span class="title function_">getByLabelText</span>(<span class="string">&quot;From&quot;</span>), &#123;</span><br><span class="line">      <span class="attr">target</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;2025-01-01&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    fireEvent.<span class="title function_">change</span>(screen.<span class="title function_">getByLabelText</span>(<span class="string">&quot;To&quot;</span>), &#123;</span><br><span class="line">      <span class="attr">target</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;2025-01-31&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    fireEvent.<span class="title function_">click</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Search&quot;</span> &#125;));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">waitFor</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">expect</span>(mockOnSearch).<span class="title function_">toHaveBeenCalledWith</span>(&#123;</span><br><span class="line">        <span class="attr">keyword</span>: <span class="string">&quot;report&quot;</span>,</span><br><span class="line">        <span class="attr">status</span>: <span class="string">&quot;Pending&quot;</span>,</span><br><span class="line">        <span class="attr">dateRange</span>: &#123; <span class="attr">from</span>: <span class="string">&quot;2025-01-01&quot;</span>, <span class="attr">to</span>: <span class="string">&quot;2025-01-31&quot;</span> &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;should show error when date range is invalid&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> mockOnSearch = vi.<span class="title function_">fn</span>();</span><br><span class="line">    <span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">SearchFilter</span> <span class="attr">onSearch</span>=<span class="string">&#123;mockOnSearch&#125;</span> /&gt;</span></span>);</span><br><span class="line"></span><br><span class="line">    fireEvent.<span class="title function_">change</span>(screen.<span class="title function_">getByLabelText</span>(<span class="string">&quot;From&quot;</span>), &#123;</span><br><span class="line">      <span class="attr">target</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;2025-02-10&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    fireEvent.<span class="title function_">change</span>(screen.<span class="title function_">getByLabelText</span>(<span class="string">&quot;To&quot;</span>), &#123;</span><br><span class="line">      <span class="attr">target</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;2025-01-01&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    fireEvent.<span class="title function_">click</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Search&quot;</span> &#125;));</span><br><span class="line"></span><br><span class="line">    <span class="title function_">expect</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;alert&quot;</span>)).<span class="title function_">toHaveTextContent</span>(<span class="string">&quot;Date range is invalid&quot;</span>);</span><br><span class="line">    <span class="title function_">expect</span>(mockOnSearch).<span class="property">not</span>.<span class="title function_">toHaveBeenCalled</span>();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;should disable Search button while loading&quot;</span>, <span class="title function_">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> mockOnSearch = vi.<span class="title function_">fn</span>().<span class="title function_">mockImplementation</span>(</span><br><span class="line">      <span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">100</span>))</span><br><span class="line">    );</span><br><span class="line">    <span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">SearchFilter</span> <span class="attr">onSearch</span>=<span class="string">&#123;mockOnSearch&#125;</span> /&gt;</span></span>);</span><br><span class="line"></span><br><span class="line">    fireEvent.<span class="title function_">click</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Search&quot;</span> &#125;));</span><br><span class="line">    <span class="title function_">expect</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Searching...&quot;</span> &#125;)).<span class="title function_">toBeDisabled</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">waitFor</span>(<span class="function">() =&gt;</span></span><br><span class="line">      <span class="title function_">expect</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Search&quot;</span> &#125;)).<span class="property">not</span>.<span class="title function_">toBeDisabled</span>()</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;should reset fields when Reset button is clicked&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> mockOnSearch = vi.<span class="title function_">fn</span>();</span><br><span class="line">    <span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">SearchFilter</span> <span class="attr">onSearch</span>=<span class="string">&#123;mockOnSearch&#125;</span> /&gt;</span></span>);</span><br><span class="line"></span><br><span class="line">    fireEvent.<span class="title function_">change</span>(screen.<span class="title function_">getByPlaceholderText</span>(<span class="string">&quot;Keyword&quot;</span>), &#123;</span><br><span class="line">      <span class="attr">target</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;hello&quot;</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    fireEvent.<span class="title function_">click</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Reset&quot;</span> &#125;));</span><br><span class="line"></span><br><span class="line">    <span class="title function_">expect</span>(screen.<span class="title function_">getByPlaceholderText</span>(<span class="string">&quot;Keyword&quot;</span>)).<span class="title function_">toHaveValue</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-fireEvent-和-screen-是什麼？"><a class="header-anchor" href="#1-fireEvent-和-screen-是什麼？"></a>1) fireEvent 和 screen 是什麼？</h3>
+<ul>
+<li>
+<p><code>screen</code>：由 React Testing Library 提供，用來<span style="color: #ff0000">在測試中找畫面上的元素</span>。因為測試會把你的 component 渲染成 DOM (網頁結構)，而 <code>screen</code> 就像是一支放大鏡，用來在已 render 的「虛擬畫面」中查找元素的全域查詢器。常用方法有 <code>getByRole</code>、<code>getByText</code>、<code>getByLabelText</code>、<code>getByPlaceholderText</code> 等。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen.<span class="title function_">getByPlaceholderText</span>(<span class="string">&quot;Keyword&quot;</span>); <span class="comment">// 找到 placeholder 為 Keyword 的輸入框</span></span><br><span class="line">screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="regexp">/search/i</span> &#125;); <span class="comment">// 找到名稱為 Search 的按鈕</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>fireEvent</code>：用來<span style="color: #ff0000">模擬使用者動作</span>，例如 change、click、submit 等。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fireEvent.<span class="title function_">change</span>(screen.<span class="title function_">getByPlaceholderText</span>(<span class="string">&quot;Keyword&quot;</span>), &#123;</span><br><span class="line">  <span class="attr">target</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;invoice&quot;</span> &#125;</span><br><span class="line">&#125;);</span><br><span class="line">fireEvent.<span class="title function_">click</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="regexp">/search/i</span> &#125;));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-expect-mockOnSearch-toHaveBeenCalledWith-的功用"><a class="header-anchor" href="#2-expect-mockOnSearch-toHaveBeenCalledWith-的功用"></a>2) <code>expect(mockOnSearch).toHaveBeenCalledWith(&#123;...&#125;)</code> 的功用</h3>
+<ul>
+<li>
+<p>它斷言<span style="color: #ff0000"><code>mockOnSearch</code> 有被呼叫，而且帶著<strong>完全符合</strong>的參數物件</span>。如下：驗證子元件確實把整組表單條件以正確格式回傳給父層。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">expect</span>(mockOnSearch).<span class="title function_">toHaveBeenCalledWith</span>(&#123;</span><br><span class="line">  <span class="attr">keyword</span>: <span class="string">&quot;invoice&quot;</span>,</span><br><span class="line">  <span class="attr">status</span>: <span class="string">&quot;Pending&quot;</span>,</span><br><span class="line">  <span class="attr">dateRange</span>: &#123; <span class="attr">from</span>: <span class="string">&quot;2025-01-01&quot;</span>, <span class="attr">to</span>: <span class="string">&quot;2025-01-31&quot;</span> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-toBeInTheDocument、toHaveDisplayValue-和-toHaveTextContent"><a class="header-anchor" href="#3-toBeInTheDocument、toHaveDisplayValue-和-toHaveTextContent"></a>3) <code>toBeInTheDocument</code>、<code>toHaveDisplayValue</code> 和 <code>toHaveTextContent</code></h3>
+<ul>
+<li><code>expect(...).toBeInTheDocument();</code>：只能檢查「元素存在」，<strong>不能</strong>保證文字內容正確。</li>
+<li><code>expect(...).toHaveDisplayValue(&quot;Approved&quot;);</code>：<span style="color: #ff0000">是給 <code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>、<code>&lt;textarea&gt;</code> 用的，檢查「值」。</span><strong>不是</strong>給 <code>&lt;p&gt;</code> 或 <code>&lt;div&gt;</code>。</li>
+<li><code>expect(...).toHaveTextContent(&quot;Date range is invalid&quot;);</code>：<span style="color: #ff0000">給 <code>&lt;p&gt;</code> 或 <code>&lt;div&gt;</code> 用的，檢查「一般文字內容」。</span></li>
+</ul>
+<p>例子：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">expect</span>(screen.<span class="title function_">getByText</span>(<span class="string">&quot;Date range is invalid&quot;</span>)).<span class="title function_">toBeInTheDocument</span>();</span><br><span class="line"><span class="title function_">expect</span>(screen.<span class="title function_">getByLabelText</span>(<span class="string">&quot;Status&quot;</span>)).<span class="title function_">toHaveDisplayValue</span>(<span class="string">&quot;Approved&quot;</span>);</span><br><span class="line"><span class="title function_">expect</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;alert&quot;</span>)).<span class="title function_">toHaveTextContent</span>(<span class="string">&quot;Date range is invalid&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="4-為什麼一個用-mockResolvedValue-undefined-，另一個用「延遲-Promise」？"><a class="header-anchor" href="#4-為什麼一個用-mockResolvedValue-undefined-，另一個用「延遲-Promise」？"></a>4) 為什麼一個用 <code>mockResolvedValue(undefined)</code>，另一個用「延遲 Promise」？</h3>
+<ul>
+<li>
+<p>「提交參數正確 (should submit valid criteria)」的測試只需要確認 <span style="color: #ff0000">callback 被正確呼叫</span>，使用：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mockOnSearch = vi.<span class="title function_">fn</span>().<span class="title function_">mockResolvedValue</span>(<span class="literal">undefined</span>); <span class="comment">// 立即 resolve</span></span><br></pre></td></tr></table></figure>
+<p>這樣不會拖慢測試，也不關心 loading。</p>
+<ul>
+<li>「載入時按鈕被停用 (should disable Search button while loading)」的測試<span style="color: #ff0000">需要真的等待一段時間</span>，才能看到按鈕先變成 disabled 再復原：</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mockOnSearch = vi.<span class="title function_">fn</span>().<span class="title function_">mockImplementation</span>(</span><br><span class="line">  <span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">100</span>))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>這能模擬 API 延遲，才能測得出「Searching…」與 disabled 狀態。如果直接用 <code>vi.fn()</code>，它會立即結束，<code>setLoading(false)</code> 也會立刻執行，這樣就不會觸發 loading 狀態，測不出 disabled 狀態。</p>
+</li>
+</ul>
+<h3 id="5-為什麼用-await-waitFor-expect-not-toBeDisabled-？"><a class="header-anchor" href="#5-為什麼用-await-waitFor-expect-not-toBeDisabled-？"></a>5) 為什麼用 <code>await waitFor(() =&gt; expect(...).not.toBeDisabled())</code>？</h3>
+<ul>
+<li>
+<p><code>waitFor</code> 跟「一般 await」不一樣，並不是用來「等某個 Promise 結束」，而是重複執行內部的 <code>expect(...)</code>，直到它通過或超時，適合等待「非同步 UI 更新」。如下：斷言是「按鈕不再 disabled」。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">await</span> <span class="title function_">waitFor</span>(<span class="function">() =&gt;</span></span><br><span class="line">    <span class="title function_">expect</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Search&quot;</span> &#125;)).<span class="property">not</span>.<span class="title function_">toBeDisabled</span>();</span><br><span class="line">  );</span><br><span class="line">  <span class="string">``</span><span class="string">`    </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* &lt;span style=&quot;color: #ff0000&quot;&gt;以下是錯誤的。&lt;/span&gt;React 的狀態更新是非同步的，`</span><span class="keyword">await</span> <span class="title function_">onSearch</span>()<span class="string">` 完成後才會 `</span><span class="title function_">setLoading</span>(<span class="literal">false</span>)<span class="string">`，畫面需要時間回復。如果像是下面的寫法，即使 `</span><span class="title function_">expect</span>(mockOnSearch).<span class="title function_">toHaveBeenCalledWith</span>(...)<span class="string">` 成功，但是當程式跑到 line 4 時，按鈕可能還沒切回 &quot;Search&quot;，測試就會失敗。</span></span><br><span class="line"><span class="string">    `</span><span class="string">``</span>ts=</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">waitFor</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">expect</span>(mockOnSearch).<span class="title function_">toHaveBeenCalledWith</span>(&#123; ... &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="title function_">expect</span>(screen.<span class="title function_">getByRole</span>(<span class="string">&quot;button&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Search&quot;</span> &#125;)).<span class="property">not</span>.<span class="title function_">toBeDisabled</span>();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="建議與實務小技巧"><a class="header-anchor" href="#建議與實務小技巧"></a>建議與實務小技巧</h2>
+<ul>
+<li>查找元素時優先使用可近用性查詢：<code>getByRole</code>（帶 <code>name</code>），其次 <code>getByLabelText</code>、<code>getByPlaceholderText</code>、<code>getByText</code>。</li>
+<li>文字內容斷言用 <code>toHaveTextContent</code>，輸入類用 <code>toHaveValue</code> 或 <code>toHaveDisplayValue</code>。</li>
+<li>非同步 UI 更新一律搭配 <code>await waitFor(...)</code>。</li>
+<li>需要觀察 loading 狀態時，務必用回傳延遲 Promise 的 mock，避免假陽性或測不到。</li>
+<li>Unit Test 驗證純邏輯，Component Test 驗證整體互動與副作用；同一功能拆兩層測，維護性與可讀性最佳。</li>
+</ul>
+<hr>
+<h2 id="Mid-level-面試回答"><a class="header-anchor" href="#Mid-level-面試回答"></a>Mid level 面試回答</h2>
+<p>In my project, I separate <strong>unit tests</strong> and <strong>component tests</strong> because they validate different layers of functionality.</p>
+<p>For example, I had a <code>SearchFilter</code> feature:</p>
+<ul>
+<li>
+<p>At the <strong>unit level</strong>, I tested the <strong>business logic separately</strong>. I extracted a helper function called <code>buildSearchQuery</code> that converts the search criteria object into a query string. Since this function has no UI and no dependencies, it’s suitable for a fast and reliable unit test.</p>
+</li>
+<li>
+<p>At the <strong>component level</strong>, I wrote tests using <strong>Vitest + React Testing Library</strong> to verify UI behavior, such as validating the form, disabling the button during loading, and emitting the search criteria when the user clicks “Search”.</p>
+</li>
+</ul>
+<p>By separating unit tests and component tests, I follow a maintainable testing strategy based on the testing pyramid:</p>
+<ul>
+<li>Unit tests → fast, isolated logic</li>
+<li>Component tests → UI behavior and interactions</li>
+<li>Integration tests → end-to-end data flow (optional based on project)</li>
+</ul>
+<p>This approach keeps the test suite <strong>reliable, maintainable, and efficient</strong> as the application grows.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="postfooter-google-adsense">
+        <i class="fab fa-google"></i> AdSense
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="8859920421"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense-->
+          <div class="post-tags">
+              <a href="/tags/Real-world-coding/" rel="tag"># Real-world coding</a>
+              <a href="/tags/Vitest/" rel="tag"># Vitest</a>
+              <a href="/tags/Unit-test/" rel="tag"># Unit test</a>
+              <a href="/tags/Component-test/" rel="tag"># Component test</a>
+              <a href="/tags/Interview-question/" rel="tag"># Interview question</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/10/29/TypeScript/Vite-config-configuration/" rel="prev" title="Vite 設定與運作原理">
+                  <i class="fa fa-angle-left"></i> Vite 設定與運作原理
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jenifer</span>
+  </div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="在 GitHub 上關注我" aria-label="在 GitHub 上關注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"disqus-comments","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
