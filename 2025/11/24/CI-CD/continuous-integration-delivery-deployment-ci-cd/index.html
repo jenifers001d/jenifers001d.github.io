@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/myfavicon180.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myfavicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myfavicon16.ico">
+  <link rel="mask-icon" href="/images/myfavicon512.png" color="#222">
+  <meta name="google-site-verification" content="w7KbKnFK6ZmNdwvzSukWPppTy0_LnuUA85bPeSxhkOI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300italic,400,400italic,700,700italic%7CNoto+Sans+TC:300,300italic,400,400italic,700,700italic%7CSegoe+UI:300,300italic,400,400italic,700,700italic%7CHelvetica+Neue:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7CLato:300,300italic,400,400italic,700,700italic%7Csans-serif:300,300italic,400,400italic,700,700italic%7Cconsolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jenifers001d.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="CI&#x2F;CD 是一種軟體開發的實踐方法，目的是透過自動化的流程，來頻繁地將程式碼整合、測試並部署到應用程式中。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CI&#x2F;CD 到底是什麼?">
+<meta property="og:url" content="https://jenifers001d.github.io/2025/11/24/CI-CD/continuous-integration-delivery-deployment-ci-cd/">
+<meta property="og:site_name" content="Jenifer.Code.World">
+<meta property="og:description" content="CI&#x2F;CD 是一種軟體開發的實踐方法，目的是透過自動化的流程，來頻繁地將程式碼整合、測試並部署到應用程式中。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-11-24T10:06:27.000Z">
+<meta property="article:modified_time" content="2025-11-24T10:07:57.076Z">
+<meta property="article:author" content="Jenifer">
+<meta property="article:tag" content="CI&#x2F;CD">
+<meta property="article:tag" content="DevOps">
+<meta property="article:tag" content="Cloud">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jenifers001d.github.io/2025/11/24/CI-CD/continuous-integration-delivery-deployment-ci-cd/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://jenifers001d.github.io/2025/11/24/CI-CD/continuous-integration-delivery-deployment-ci-cd/","path":"2025/11/24/CI-CD/continuous-integration-delivery-deployment-ci-cd/","title":"CI/CD 到底是什麼?"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CI/CD 到底是什麼? | Jenifer.Code.World</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jenifer.Code.World</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jenifer 的技術筆記</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-privacy"><a href="/privacy/" rel="section"><i class="fa fa-lock fa-fw"></i>privacy</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CI%EF%BC%9A%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88-Continuous-Integration"><span class="nav-number">2.</span> <span class="nav-text">CI：持續整合 (Continuous Integration)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CD%EF%BC%9A%E6%8C%81%E7%BA%8C%E4%BA%A4%E4%BB%98-%E9%83%A8%E7%BD%B2-Continuous-Delivery-Deployment"><span class="nav-number">3.</span> <span class="nav-text">CD：持續交付&#x2F;部署 (Continuous Delivery &#x2F; Deployment)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%8C%81%E7%BA%8C%E4%BA%A4%E4%BB%98-Continuous-Delivery"><span class="nav-number">3.1.</span> <span class="nav-text">1. 持續交付 (Continuous Delivery)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%8C%81%E7%BA%8C%E9%83%A8%E7%BD%B2-Continuous-Deployment"><span class="nav-number">3.2.</span> <span class="nav-text">2. 持續部署 (Continuous Deployment)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E9%96%8B%E7%99%BC%E8%80%85%E7%9A%84-CI-CD-%E5%B7%A5%E5%85%B7"><span class="nav-number">4.</span> <span class="nav-text">C# 開發者的 CI&#x2F;CD 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CI-%E7%AF%84%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">CI 範例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-Actions"><span class="nav-number">5.1.</span> <span class="nav-text">GitHub Actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitLab-CI-gitlab-ci-yml"><span class="nav-number">5.2.</span> <span class="nav-text">GitLab CI (.gitlab-ci.yml)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BC%83%EF%BC%9AGitLab-vs-GitHub-%E7%9A%84-CI-%E5%B7%AE%E7%95%B0"><span class="nav-number">5.3.</span> <span class="nav-text">比較：GitLab vs GitHub 的 CI 差異</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-uses-actions-checkout-%E5%8E%BB%E5%93%AA%E4%BA%86%EF%BC%9F"><span class="nav-number">5.3.1.</span> <span class="nav-text">1. uses: actions&#x2F;checkout 去哪了？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-uses-actions-setup-dotnet-%E5%8E%BB%E5%93%AA%E4%BA%86%EF%BC%9F"><span class="nav-number">5.3.2.</span> <span class="nav-text">2. uses: actions&#x2F;setup-dotnet 去哪了？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%AA%9E%E6%B3%95%E5%B0%8D%E7%85%A7%E8%A1%A8"><span class="nav-number">5.3.3.</span> <span class="nav-text">3. 語法對照表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%9E-CI-%E5%88%B0-CD%EF%BC%8C%E4%BB%A5%E9%83%A8%E5%B1%AC%E5%88%B0-AWS-%E7%82%BA%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text">從 CI 到 CD，以部屬到 AWS 為例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E4%BD%9C%E6%A5%AD%EF%BC%9A%E8%A8%AD%E5%AE%9A%E5%B8%B3%E8%99%9F%E3%80%81%E5%AF%86%E7%A2%BC%E5%92%8C-tocken"><span class="nav-number">6.1.</span> <span class="nav-text">前置作業：設定帳號、密碼和 tocken</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-Actions-v2"><span class="nav-number">6.2.</span> <span class="nav-text">GitHub Actions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%9C%E9%8D%B5%E5%AD%97%EF%BC%9Aneeds-%E8%88%87-artifact"><span class="nav-number">6.2.1.</span> <span class="nav-text">關鍵字：needs 與 artifact</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitLab-CI"><span class="nav-number">6.3.</span> <span class="nav-text">GitLab CI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%9C%E9%8D%B5%E5%AD%97%EF%BC%9Aartifacts-%E8%88%87-image"><span class="nav-number">6.3.1.</span> <span class="nav-text">關鍵字：artifacts 與 image</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BC%83%EF%BC%9AGitLab-vs-GitHub-%E7%9A%84-CD-%E5%B7%AE%E7%95%B0"><span class="nav-number">6.4.</span> <span class="nav-text">比較：GitLab vs GitHub 的 CD 差異</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">7.</span> <span class="nav-text">總結</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jenifer</p>
+  <div class="site-description" itemprop="description">My notes about web development, front-end, back-end and any kind techniques related to IT.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          連結
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <span class="exturl" data-url="aHR0cHM6Ly9ob3BvdXQuY29tLnR3Lw==" title="https:&#x2F;&#x2F;hopout.com.tw&#x2F;">Explore Taiwan</span>
+            </li>
+        </ul>
+      </div>
+    </div><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="sidebar-google-adsense">
+        <div class="adsense-title">
+          <i class="fab fa-google"></i> AdSense
+        </div>
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="1016873827"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense-->
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://jenifers001d.github.io/2025/11/24/CI-CD/continuous-integration-delivery-deployment-ci-cd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jenifer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jenifer.Code.World">
+      <meta itemprop="description" content="My notes about web development, front-end, back-end and any kind techniques related to IT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CI/CD 到底是什麼? | Jenifer.Code.World">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CI/CD 到底是什麼?
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2025-11-24 20:06:27 / 修改時間：20:07:57" itemprop="dateCreated datePublished" datetime="2025-11-24T20:06:27+10:00">2025-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CI-CD/" itemprop="url" rel="index"><span itemprop="name">CI/CD</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="postheader-google-adsense">
+        <i class="fab fa-google"></i> AdSense
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="1016873827"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense--><h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+
+<p><strong>CI/CD</strong> 是一種軟體開發的實踐方法，目的是透過<span style="color: #ff0000">自動化</span>的流程，來頻繁地將程式碼整合、測試並部署到應用程式中。</p>
+
+<p>簡單來說，它就像是一條<strong>自動化生產線</strong>：</p>
+<ol>
+<li>你寫好程式碼 (原料)。</li>
+<li>機器自動幫你檢查有沒有語法錯誤、邏輯錯誤 (組裝與品管)。</li>
+<li>機器自動幫你把程式打包好，送到客戶手上 (包裝與出貨)。</li>
+</ol>
+<h2 id="CI：持續整合-Continuous-Integration"><a class="header-anchor" href="#CI：持續整合-Continuous-Integration"></a>CI：持續整合 (Continuous Integration)</h2>
+<p><strong>CI</strong> 的重點在於<span style="color: #ff0000">「頻繁」且「自動」地檢查程式碼品質</span>。</p>
+<p>當多個開發者同時在開發同一個專案時，CI 伺服器會在開發者將程式碼上傳 (Push) 到儲存庫 (如 GitHub/GitLab) 後，自動執行以下動作：</p>
+<ol>
+<li><strong>還原套件 (Restore)</strong>：檢查專案依賴的 NuGet 套件是否都能下載。</li>
+<li><strong>建置 (Build)</strong>：執行 <code>dotnet build</code>，確保程式碼可以成功編譯成 DLL 或執行檔，沒有語法錯誤。</li>
+<li><strong>測試 (Test)</strong>：執行 <code>dotnet test</code>，跑過所有的單元測試 (Unit Test)，確保新的修改沒有壞掉原本的邏輯。</li>
+</ol>
+<p><strong>優點：</strong></p>
+<ul>
+<li><strong>提早發現錯誤</strong>：不用等到最後要發佈時才發現編譯失敗。</li>
+<li><strong>解決合併衝突</strong>：強迫大家頻繁同步程式碼。</li>
+</ul>
+<h2 id="CD：持續交付-部署-Continuous-Delivery-Deployment"><a class="header-anchor" href="#CD：持續交付-部署-Continuous-Delivery-Deployment"></a>CD：持續交付/部署 (Continuous Delivery / Deployment)</h2>
+<p><strong>CD</strong> 接續在 CI 之後，重點在於<span style="color: #ff0000">將通過測試的程式碼發佈出去</span>。這裡分成兩個層次：</p>
+<h3 id="1-持續交付-Continuous-Delivery"><a class="header-anchor" href="#1-持續交付-Continuous-Delivery"></a>1. 持續交付 (Continuous Delivery)</h3>
+<p>自動化流程會將程式碼建置好，並部署到<strong>測試環境 (Staging)</strong>。但是，要發佈到<strong>正式環境 (Production)</strong> 時，通常需要<span style="color: #ff0000">人工審核 (Manual Approval)</span>或是手動按下按鈕，這在企業級應用很常見。</p>
+<h3 id="2-持續部署-Continuous-Deployment"><a class="header-anchor" href="#2-持續部署-Continuous-Deployment"></a>2. 持續部署 (Continuous Deployment)</h3>
+<p>更進階的自動化。只要通過 CI 的所有測試，程式碼就會<span style="color: #ff0000">自動</span>部署到正式環境給使用者使用，完全不需要人工介入。</p>
+<p><strong>C# 專案常見的 CD 動作：</strong></p>
+<ul>
+<li>執行 <code>dotnet publish</code> 產出發佈檔案。</li>
+<li>將檔案複製到 IIS 伺服器。</li>
+<li>或是打包成 Docker Image 推送到雲端 (如 Azure App Service)。</li>
+<li>修改 <code>web.config</code> 或 <code>appsettings.json</code> 的連線字串 (針對不同環境)。</li>
+</ul>
+<h2 id="C-開發者的-CI-CD-工具"><a class="header-anchor" href="#C-開發者的-CI-CD-工具"></a>C# 開發者的 CI/CD 工具</h2>
+<p>身為 .NET 開發者，我們最常用的工具有：</p>
+<ul>
+<li><strong>Azure DevOps (ADO)</strong>：微軟自家的工具，對 .NET 支援度最好，企業最愛用。</li>
+<li><strong>GitHub Actions / GitLab CI</strong>：目前最流行的選擇，開源專案免費，設定檔 (YAML) 簡單直觀。</li>
+<li><strong>Jenkins</strong>：老牌的 CI/CD 工具，自由度高但設定較繁瑣。</li>
+</ul>
+<h2 id="CI-範例"><a class="header-anchor" href="#CI-範例"></a>CI 範例</h2>
+<h3 id="GitHub-Actions"><a class="header-anchor" href="#GitHub-Actions"></a>GitHub Actions</h3>
+<p>假設我們有一個 .NET Core 的 Console 專案，一個簡單的 CI 設定檔 (<code>.yml</code>) 長得像這樣：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">.NET</span> <span class="string">Core</span> <span class="string">CI</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 觸發條件：當 master 分支有 push 時</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">master</span> ]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span> <span class="comment"># 使用 Linux 環境執行</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="comment"># 1. 下載程式碼</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 2. 安裝 .NET SDK</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">.NET</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-dotnet@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">dotnet-version:</span> <span class="number">6.0</span><span class="string">.x</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 3. 還原 NuGet 套件</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Restore</span> <span class="string">dependencies</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">dotnet</span> <span class="string">restore</span></span><br><span class="line">      </span><br><span class="line">    <span class="comment"># 4. 建置專案 (CI 的核心)</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">dotnet</span> <span class="string">build</span> <span class="string">--no-restore</span></span><br><span class="line">      </span><br><span class="line">    <span class="comment"># 5. 執行測試 (確保邏輯沒壞)</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Test</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">dotnet</span> <span class="string">test</span> <span class="string">--no-build</span> <span class="string">--verbosity</span> <span class="string">normal</span></span><br></pre></td></tr></table></figure>
+<p>在 GitHub Actions 的 <code>steps</code> (步驟) 中，主要有兩種指令方式：</p>
+<ul>
+<li><code>run</code>：執行你在終端機 (Terminal) 會打的指令。
+<ul>
+<li>例如：<code>dotnet build</code>、<code>echo &quot;Hello&quot;</code>。</li>
+</ul>
+</li>
+<li><code>uses</code>：<span style="color: #ff0000">使用別人寫好的套件 (Action)</span>。
+<ul>
+<li>這就像是 C# 中的 <code>using</code> 或是呼叫 NuGet 套件一樣。你不需要自己寫幾百行 Shell Script 來完成複雜的工作，直接「引用」別人做好的功能即可。</li>
+</ul>
+</li>
+</ul>
+<p><code>actions/checkout@v2</code> 是一個官方提供的 Action，它的作用就是：<span style="color: #ff0000">「登入你的 GitHub 儲存庫，把你的程式碼 <code>git pull</code> 下來放到虛擬機的資料夾中。」</span>當 GitHub Actions 啟動一台虛擬機 (Runner) 準備幫你跑 CI 時，這台虛擬機是空的、乾淨的，裡面<span style="color: #ff0000">完全沒有你的程式碼</span>。如果你不執行這一步，直接跑 <code>dotnet build</code>，系統會報錯說：「找不到專案檔」，因為資料夾是空的。</p>
+<h3 id="GitLab-CI-gitlab-ci-yml"><a class="header-anchor" href="#GitLab-CI-gitlab-ci-yml"></a>GitLab CI (<code>.gitlab-ci.yml</code>)</h3>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 指定環境 (Image)</span></span><br><span class="line"><span class="comment"># 直接使用微軟官方包好的 Docker Image，裡面已經裝好 .NET 6 SDK 了</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">mcr.microsoft.com/dotnet/sdk:6.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 定義流程階段 (可以有很多階段，這裡我們先簡單定義一個)</span></span><br><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">build_and_test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 定義工作 (Job)</span></span><br><span class="line"><span class="attr">build_job:</span> <span class="comment"># 自定義工作名稱</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">build_and_test</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 指定只在 master 分支變動時執行</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 這裡就是執行的指令</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">&quot;開始還原套件...&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">dotnet</span> <span class="string">restore</span></span><br><span class="line">    </span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">&quot;開始建置專案...&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">dotnet</span> <span class="string">build</span> <span class="string">--no-restore</span></span><br><span class="line">    </span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">&quot;開始測試...&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">dotnet</span> <span class="string">test</span> <span class="string">--no-build</span> <span class="string">--verbosity</span> <span class="string">normal</span></span><br></pre></td></tr></table></figure>
+<h3 id="比較：GitLab-vs-GitHub-的-CI-差異"><a class="header-anchor" href="#比較：GitLab-vs-GitHub-的-CI-差異"></a>比較：GitLab vs GitHub 的 CI 差異</h3>
+<p>這兩個範例做的事情是一模一樣的，但寫法有幾個很重要的不同的地方：</p>
+<h4 id="1-uses-actions-checkout-去哪了？"><a class="header-anchor" href="#1-uses-actions-checkout-去哪了？"></a>1. <code>uses: actions/checkout</code> 去哪了？</h4>
+<p><strong>GitLab 自動幫你做了！</strong><br>
+這是最大的不同。GitLab CI 在執行任何 Job 之前，預設會自動執行 <code>git clone/fetch</code> 把你的程式碼抓下來。所以你不需要像 GitHub 那樣顯式地寫一行 <code>checkout</code> 指令。</p>
+<h4 id="2-uses-actions-setup-dotnet-去哪了？"><a class="header-anchor" href="#2-uses-actions-setup-dotnet-去哪了？"></a>2. <code>uses: actions/setup-dotnet</code> 去哪了？</h4>
+<p><strong>被 <code>image: ...</code> 取代了。</strong></p>
+<ul>
+<li><strong>GitHub</strong>：是用 <code>ubuntu-latest</code> (通用環境)，然後透過 <code>steps</code> 去安裝 .NET。</li>
+<li><strong>GitLab</strong>：更傾向直接指定一個 <strong>Docker Image</strong> (<code>mcr.microsoft.com/dotnet/sdk:6.0</code>)。這就像是直接租了一間「.NET 專用廚房」，進去的時候工具都已經掛在牆上了，不用再安裝。</li>
+</ul>
+<h4 id="3-語法對照表"><a class="header-anchor" href="#3-語法對照表"></a>3. 語法對照表</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">功能</th>
+<th style="text-align:left">GitHub Actions</th>
+<th style="text-align:left">GitLab CI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>執行指令</strong></td>
+<td style="text-align:left"><code>run: dotnet build</code></td>
+<td style="text-align:left"><code>script:</code> <br> <code>- dotnet build</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>使用外掛/套件</strong></td>
+<td style="text-align:left"><code>uses: ...</code></td>
+<td style="text-align:left">比較少用，通常靠 Docker Image 預裝</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>觸發條件</strong></td>
+<td style="text-align:left"><code>on: push: branches: ...</code></td>
+<td style="text-align:left"><code>only: - master</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>環境/虛擬機</strong></td>
+<td style="text-align:left"><code>runs-on: ubuntu-latest</code></td>
+<td style="text-align:left"><code>image: mcr.microsoft.com/...</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="從-CI-到-CD，以部屬到-AWS-為例"><a class="header-anchor" href="#從-CI-到-CD，以部屬到-AWS-為例"></a>從 CI 到 CD，以部屬到 AWS 為例</h2>
+<p>目前為止我們做的事情 (Restore, Build, Test)，都只是在「工廠內部」把產品做出來並確保品質良好 (CI)。但是，如果產品做好了卻放在倉庫長灰塵，客戶 (使用者) 是看不到的。</p>
+<p><strong>CD (持續部署) 的過程，說穿了就是把這個做好的「產品包」(Artifact)，自動搬運到 AWS 伺服器上。</strong></p>
+<p>要在 YAML 裡面實現部署到 AWS，通常需要兩個關鍵步驟：</p>
+<ol>
+<li><strong>身分驗證</strong>：CI/CD 機器人需要有權限才能操作你的 AWS 帳號 (就像你要給外送員大門鑰匙)。</li>
+<li><strong>傳遞產物 (Artifact)</strong>：把 CI 階段編譯好的檔案 (.dll, .exe, .zip) 傳給 CD 階段。</li>
+</ol>
+<p>以最常見的 <strong>AWS CLI (Command Line Interface)</strong> 方式來示範。想像一下，這就是讓機器人幫你輸入你平常在終端機打的指令。</p>
+<h3 id="前置作業：設定帳號、密碼和-tocken"><a class="header-anchor" href="#前置作業：設定帳號、密碼和-tocken"></a>前置作業：設定帳號、密碼和 tocken</h3>
+<p>在寫 YAML 之前，絕對<span style="color: #ff0000"><strong>不能</strong></span>把 AWS 的帳號密碼直接寫在程式碼裡！這是資安大忌。</p>
+<p>你需要去 GitHub 或 GitLab 的後台設定 <strong>Variables (Secrets)</strong>，把這兩個東西存進去：</p>
+<ul>
+<li><code>AWS_ACCESS_KEY_ID</code> (帳號)</li>
+<li><code>AWS_SECRET_ACCESS_KEY</code> (密碼)</li>
+</ul>
+<p>CI/CD 執行時，會自動從後台讀取這些變數。</p>
+<h3 id="GitHub-Actions-v2"><a class="header-anchor" href="#GitHub-Actions-v2"></a>GitHub Actions</h3>
+<p>GitHub 的邏輯是拆成兩個 Job：<code>build</code> 和 <code>deploy</code>。因為 <code>deploy</code> 必須等 <code>build</code> 成功才能做，所以會用到 <code>needs</code> 關鍵字。</p>
+<h4 id="關鍵字：needs-與-artifact"><a class="header-anchor" href="#關鍵字：needs-與-artifact"></a>關鍵字：<code>needs</code> 與 <code>artifact</code></h4>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">AWS</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">master</span> ]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="comment"># === 第一階段：CI (打包) ===</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">.NET</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-dotnet@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">dotnet-version:</span> <span class="number">6.0</span><span class="string">.x</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 編譯並發佈到 output 資料夾</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Publish</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">dotnet</span> <span class="string">publish</span> <span class="string">-c</span> <span class="string">Release</span> <span class="string">-o</span> <span class="string">output</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># 【關鍵】：把 output 資料夾存起來，傳給下一個 Job 用</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Upload</span> <span class="string">Artifact</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/upload-artifact@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">my-app-package</span>  <span class="comment"># 包裹名稱</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">output/</span>         <span class="comment"># 要打包的路徑 (我要去哪裡抓檔案？)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># === 第二階段：CD (部署) ===</span></span><br><span class="line">  <span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">needs:</span> <span class="string">build</span>  <span class="comment"># &lt;--- 重點：一定要等 build 成功才執行</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="comment"># 1. 下載剛剛打包好的包裹</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Download</span> <span class="string">Artifact</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/download-artifact@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">my-app-package</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">app-files/</span>      <span class="comment"># 解壓縮後的檔案放置的路徑 (我要把檔案倒在哪裡？)</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># 2. 設定 AWS 權限 (使用官方 Action)</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Configure</span> <span class="string">AWS</span> <span class="string">Credentials</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">aws-actions/configure-aws-credentials@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">aws-access-key-id:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.AWS_ACCESS_KEY_ID</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">aws-secret-access-key:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.AWS_SECRET_ACCESS_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">aws-region:</span> <span class="string">us-east-1</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># 3. 執行部署指令 (這裡以複製到 S3 為例，或是 Elastic Beanstalk)</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">S3</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          aws s3 cp ./app-files s3://my-bucket-name/ --recursive</span></span><br><span class="line"><span class="string">          echo &quot;部署完成！&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>解析：</strong></p>
+<ul>
+<li><strong><code>needs: build</code></strong>：這建立了依賴關係。如果你不寫這個，GitHub 會同時跑 Build 和 Deploy，那時候還沒編譯好，部署一定會失敗。</li>
+<li><strong><code>upload-artifact</code> / <code>download-artifact</code></strong>：這就像大隊接力。CI 跑完把棒子 (編譯好的檔案) 交出去，CD 接棒後繼續跑。因為 GitHub 的每個 Job 都是獨立的全新虛擬機，檔案不會自動保留，必須透過這個動作傳遞。</li>
+<li><strong><code>upload-artifact</code> 和 <code>download-artifact</code> 兩邊的 <code>path</code> 不一樣</strong>：
+<ul>
+<li>上傳階段 (<code>upload-artifact</code>) 是<strong>打包</strong>
+<ul>
+<li><strong>情境</strong>：你的 <code>dotnet publish</code> 指令剛剛把編譯好的檔案放在了 <code>output</code> 這個資料夾裡。</li>
+<li><strong>動作</strong>：GitHub Actions 會去 <code>output/</code> 資料夾把所有檔案抓出來，打包成一個叫做 <code>my-app-package</code> 的壓縮檔存到雲端。</li>
+</ul>
+</li>
+<li>下載階段 (<code>download-artifact</code>) 是<strong>拆包</strong>
+<ul>
+<li><strong>情境</strong>：現在是一個全新的虛擬機 (Deploy Job)，裡面空空如也。</li>
+<li><strong>動作</strong>：GitHub Actions 從雲端把 <code>my-app-package</code> 下載下來，然後<strong>自動建立</strong>一個叫做 <code>app-files/</code> 的資料夾，把內容物全部解壓縮進去。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="GitLab-CI"><a class="header-anchor" href="#GitLab-CI"></a>GitLab CI</h3>
+<p>GitLab 的邏輯比較直觀，透過 <code>stages</code> 來控制順序。而且 GitLab 有一個很強大的特性：<strong>Artifacts (產物) 會自動傳遞給下一個 Stage</strong>，不用像 GitHub 那樣顯式地下載。</p>
+<h4 id="關鍵字：artifacts-與-image"><a class="header-anchor" href="#關鍵字：artifacts-與-image"></a>關鍵字：<code>artifacts</code> 與 <code>image</code></h4>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定義順序：先 Build 再 Deploy</span></span><br><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">build</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">deploy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># === 第一階段：CI (打包) ===</span></span><br><span class="line"><span class="attr">build_job:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">build</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">mcr.microsoft.com/dotnet/sdk:6.0</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">dotnet</span> <span class="string">publish</span> <span class="string">-c</span> <span class="string">Release</span> <span class="string">-o</span> <span class="string">output_folder</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 【關鍵】：告訴 GitLab 這個資料夾要留給下一棒</span></span><br><span class="line">  <span class="attr">artifacts:</span></span><br><span class="line">    <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">output_folder/</span></span><br><span class="line">    <span class="attr">expire_in:</span> <span class="number">1</span> <span class="string">hour</span> <span class="comment"># 檔案只保留一小時，節省空間</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># === 第二階段：CD (部署) ===</span></span><br><span class="line"><span class="attr">deploy_to_aws:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">deploy</span></span><br><span class="line">  <span class="comment"># 換一個環境！這次我們不需要 .NET SDK，我們需要 AWS CLI 工具</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest</span></span><br><span class="line">  </span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="comment"># 這裡可以直接讀取到 output_folder，因為 GitLab 自動下載了</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">&quot;正在連線到 AWS...&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">aws</span> <span class="string">s3</span> <span class="string">cp</span> <span class="string">./output_folder</span> <span class="string">s3://my-bucket-name/</span> <span class="string">--recursive</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">&quot;部署完成！&quot;</span></span><br><span class="line">  </span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">master</span> <span class="comment"># 只在 master 分支進行部署，避免開發分支誤傳</span></span><br></pre></td></tr></table></figure>
+<p><strong>解析：</strong></p>
+<ul>
+<li><strong><code>image</code> 的切換</strong>：
+<ul>
+<li><code>build_job</code> 用的是微軟的 image（因為要編譯 C#）。</li>
+<li><code>deploy_to_aws</code> 換成了 AWS 的 image（因為要下 <code>aws</code> 指令）。這是 GitLab CI 最靈活的地方，每個步驟可以用最適合的工具箱。</li>
+</ul>
+</li>
+<li><strong>隱藏的 AWS 變數</strong>：GitLab 會自動把你在後台設定的 <code>AWS_ACCESS_KEY_ID</code> 注入到環境變數中，所以你在 <code>script</code> 裡不需要寫登入指令，<code>aws</code> 指令會自動讀取這些變數。</li>
+</ul>
+<h3 id="比較：GitLab-vs-GitHub-的-CD-差異"><a class="header-anchor" href="#比較：GitLab-vs-GitHub-的-CD-差異"></a>比較：GitLab vs GitHub 的 CD 差異</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特性</th>
+<th style="text-align:left">GitHub Actions</th>
+<th style="text-align:left">GitLab CI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>流程控制</strong></td>
+<td style="text-align:left">使用 <code>needs: build</code></td>
+<td style="text-align:left">使用 <code>stages</code> 定義順序 <br> <code>needs</code> 是用來無視 <code>stages</code> 的等待規則</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>檔案傳遞</strong></td>
+<td style="text-align:left"><code>upload-artifact</code> (上傳) <br> <code>download-artifact</code> (下載)</td>
+<td style="text-align:left"><code>artifacts</code> (定義後自動傳遞)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>AWS 工具</strong></td>
+<td style="text-align:left">使用 <code>uses: aws-actions/...</code></td>
+<td style="text-align:left">使用 <code>image: .../aws-base</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>部署指令</strong></td>
+<td style="text-align:left">手寫 <code>run: aws ...</code></td>
+<td style="text-align:left">手寫 <code>script: aws ...</code></td>
+</tr>
+</tbody>
+</table>
+<p>部署到 AWS 的方式有很多種（S3, EC2, Elastic Beanstalk, Lambda），上面的範例是用最通用的 <strong>AWS CLI</strong> 指令。</p>
+<p>實際工作上，那行 <code>aws s3 cp ...</code> 可能會換成：</p>
+<ul>
+<li><code>aws elasticbeanstalk update-environment ...</code> (如果是用 EB)</li>
+<li><code>dotnet lambda deploy-function ...</code> (如果是用 Lambda)</li>
+</ul>
+<p>但不變的核心邏輯都是：<strong>CI 產出檔案 -&gt; 傳遞檔案 -&gt; CD 取得權限 -&gt; CD 執行指令將檔案送上雲端</strong>。</p>
+<h2 id="總結"><a class="header-anchor" href="#總結"></a>總結</h2>
+<ul>
+<li><strong>CI (持續整合)</strong> = 自動 Build + 自動 Test。確保程式碼是「健康的」。</li>
+<li><strong>CD (持續交付/部署)</strong> = 自動 Publish + 自動 Deploy。確保程式碼能「送到使用者手上」。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><!--google_adsense-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6866375976707228" crossorigin="anonymous"></script>
+      <div class="postfooter-google-adsense">
+        <i class="fab fa-google"></i> AdSense
+        <div class="google-adsense-instance">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6866375976707228"
+                data-ad-slot="8859920421"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+      </div>
+<!--/google_adsense-->
+          <div class="post-tags">
+              <a href="/tags/CI-CD/" rel="tag"># CI/CD</a>
+              <a href="/tags/DevOps/" rel="tag"># DevOps</a>
+              <a href="/tags/Cloud/" rel="tag"># Cloud</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/10/30/TypeScript/Vitest-unit-test-component-test/" rel="prev" title="Vitest 前端測試教學筆記：Unit Test → Component Test">
+                  <i class="fa fa-angle-left"></i> Vitest 前端測試教學筆記：Unit Test → Component Test
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jenifer</span>
+  </div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbmlmZXJzMDAxZA==" title="在 GitHub 上關注我" aria-label="在 GitHub 上關注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"disqus-comments","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
