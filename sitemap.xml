@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jenifers001d.github.io/2025/11/15/React/zustand-state-management/</loc>
+    
+    <lastmod>2025-11-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jenifers001d.github.io/2025/11/24/CI-CD/continuous-integration-delivery-deployment-ci-cd/</loc>
     
     <lastmod>2025-11-24</lastmod>
@@ -1388,6 +1397,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://jenifers001d.github.io/tags/React/</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -1511,6 +1527,13 @@
   
   <url>
     <loc>https://jenifers001d.github.io/categories/CI-CD/</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jenifers001d.github.io/categories/React/</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
